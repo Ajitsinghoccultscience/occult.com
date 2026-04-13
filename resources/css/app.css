@@ -1,0 +1,213 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* ─── Typography (Roboto) ─── */
+    --font-sans: 'Roboto';
+
+    /* Hero / Display - creates text-hero utility */
+    --text-hero: 2.625rem; /* 42px */
+    --text-hero--line-height: 1.2;
+    --tracking-hero: 0.125rem; /* 2px */
+
+    /* Headings - creates text-heading utility */
+    --text-heading: 1.875rem; /* 30px */
+    --text-heading--line-height: 1.2;
+    --tracking-heading: 0.1875rem; /* 3px */
+
+    /* Sub headings - creates text-subheading utility */
+    --text-subheading: 1.25rem; /* 20px */
+    --text-subheading--line-height: 1.2;
+    --tracking-subheading: 0.1875rem; /* 3px */
+
+    /* Content / Body - creates text-content utility */
+    --text-content: 1rem; /* 16px */
+    --text-content--line-height: 1.2;
+    --tracking-content: 0.1875rem; /* 3px */
+
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ─── Colors (Shared) ─── */
+    /* Neutrals */
+    --color-neutral-a: #111111;
+    --color-neutral-b: #1f1f1f;
+    --color-neutral-c: #3d3d3d;
+    --color-neutral-e: #7a7a7a;
+    --color-neutral-h: #d6d6d6;
+    --color-neutral-i: #ffffff;
+    --color-neutral-bg: #f7f7f7;
+    --color-neutral-red: #840202;   /* Used by astrology */
+
+    /* Accent */
+    --color-accent-gold: #e8c15c;
+    --color-accent-gold-light: #eccb66;  /* Hero title gold */
+    --color-accent-cream: #f4e8ca;       /* Top bar, cream cards */
+
+    /* Button gradient colors */
+    --color-btn-start: #e0ab40;
+    --color-btn-mid: #faf094;
+    --color-btn-end: #e6bb53;
+    --gradient-button: linear-gradient(89.62deg, #e0ab40 11.31%, #faf094 45.56%, #faf094 52%, #e6bb53 90.24%);
+
+    /* Semantic */
+    --color-secondary: #910404;
+
+    /* Shadows */
+    --color-shadow: rgba(0, 0, 0, 0.12);
+    --shadow-drop: 0 0 20px 2px var(--color-shadow);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    /* ─── Spacing ─── */
+    --space-section: 6.25rem; /* 100px between sections */
+    --value-stack-w: 93.75rem; /* 1500px */
+    --value-stack-h: 42.25rem; /* 676px */
+    --space-xxs: 0.25rem;   /* 4px */
+    --space-xs: 0.5rem;     /* 8px */
+    --space-sm: 1rem;       /* 16px */
+    --space-md: 1.5rem;     /* 24px */
+    --space-lg: 2rem;       /* 32px */
+    --space-xl: 2.5rem;     /* 40px */
+    --space-2xl: 3rem;      /* 48px */
+    --space-3xl: 4rem;      /* 64px */
+    --space-4xl: 5rem;      /* 80px */
+    --space-5xl: 6rem;      /* 96px */
+    --space-6xl: 7.5rem;    /* 120px */
+
+    /* Section padding - reduced left/right, consistent across site */
+    --section-px: 1rem;      /* 16px mobile */
+    --section-px-md: 1.5rem; /* 24px tablet */
+    --section-px-lg: 1.75rem;/* 28px at 1024px */
+    --section-px-xl: 2rem;   /* 32px desktop 1280px+ */
+
+    /* Component spacing */
+    --button-padding-x: 1rem;   /* 16px */
+    --button-padding-y: 0.5rem; /* 8px */
+    --input-padding-x: 1rem;
+    --input-padding-y: 0.75rem;
+
+    /* ─── Border radius ─── */
+    --radius-10: 0.625rem;  /* 10px - consistent across website */
+    --radius-sm: 0.25rem;   /* 4px */
+    --radius-md: 0.625rem;  /* 10px */
+    --radius-lg: 1rem;      /* 16px */
+    --radius-xl: 1.25rem;   /* 20px */
+    --radius-2xl: 1.5rem;   /* 24px */
+    --radius-inner: 1.125rem; /* 18px - nested card */
+
+    /* ─── Breakpoints (Tailwind: sm=640, md=768, lg=1024, xl=1280, 2xl=1536) ─── */
+    --breakpoint-mobile: 428px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+}
+
+/* ─── Responsive typography & spacing: mobile (< 768px) ─── */
+@media (max-width: 767px) {
+    :root {
+        --text-hero: 2rem;           /* 32px */
+        --text-heading: 1.375rem;    /* 22px */
+        --text-subheading: 1.125rem; /* 18px */
+        --text-content: 0.875rem;    /* 14px */
+        --space-section: 3.75rem;    /* 60px between sections */
+    }
+}
+
+/* ─── 1024px (lg): typography & spacing for tablet-desktop transition ─── */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    :root {
+        --text-heading: 1.625rem;    /* 26px - slightly smaller for 1024px */
+        --text-subheading: 1.125rem; /* 18px */
+        --space-section: 5rem;       /* 80px - balanced section gaps */
+    }
+}
+
+/* Responsive transition - smooth layout changes on viewport resize */
+.transition-responsive {
+    transition: gap 0.3s ease-in-out, padding 0.3s ease-in-out, margin 0.3s ease-in-out, max-width 0.3s ease-in-out;
+}
+
+/* Button gradient utility */
+@layer utilities {
+    .bg-button-gradient {
+        background-image: var(--gradient-button);
+    }
+    .text-button-gradient {
+        background: var(--gradient-button);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .shadow-drop {
+        box-shadow: var(--shadow-drop);
+    }
+    .shadow-card {
+        box-shadow: var(--shadow-card);
+    }
+    .section-spacing {
+        padding-top: var(--space-section);
+        transition: padding 0.3s ease-in-out;
+    }
+    .section-spacing-after {
+        padding-bottom: var(--space-section);
+        transition: padding 0.3s ease-in-out;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .rounded-inner {
+        border-radius: var(--radius-inner);
+    }
+    .rounded-10 {
+        border-radius: var(--radius-10);
+    }
+    .section-px {
+        padding-left: var(--section-px);
+        padding-right: var(--section-px);
+        transition: padding 0.3s ease-in-out;
+    }
+    @media (min-width: 768px) {
+        .section-px {
+            padding-left: var(--section-px-md);
+            padding-right: var(--section-px-md);
+        }
+    }
+    @media (min-width: 1024px) {
+        .section-px {
+            padding-left: var(--section-px-lg);
+            padding-right: var(--section-px-lg);
+        }
+    }
+    @media (min-width: 1280px) {
+        .section-px {
+            padding-left: var(--section-px-xl);
+            padding-right: var(--section-px-xl);
+        }
+    }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee 25s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+        animation: none;
+    }
+}
