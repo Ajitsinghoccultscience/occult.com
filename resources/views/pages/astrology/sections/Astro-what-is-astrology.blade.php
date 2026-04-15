@@ -86,7 +86,9 @@ document.querySelectorAll('.what-astro-yt-facade').forEach(function(facade) {
         iframe.className = 'absolute inset-0 w-full h-full';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
-        this.replaceWith(iframe);
+        this.innerHTML = '';
+        this.style.cursor = 'default';
+        this.appendChild(iframe);
     });
 });
 </script>

@@ -10,7 +10,7 @@ $publications = [
     ['logo' => "$assetsBase/silicon%20india.svg",      'image' => "$assetsBase/silicon%20india%20image.jpg",      'alt' => 'Silicon India'],
     ['logo' => "$assetsBase/the%20print.svg",          'image' => "$assetsBase/the%20print%20image.jpg",          'alt' => 'The Print'],
     ['logo' => "$assetsBase/mid%20day.svg",            'image' => "$assetsBase/mid%20day%20image.jpg",            'alt' => 'Mid Day'],
-    ['logo' => "$assetsBase/times%20of%20india.svg",   'image' => "$assetsBase/times%20of%20india%20image.jpg",   'alt' => 'Times of India'],
+    ['logo' => "$assetsBase/time%20of%20india.svg",    'image' => "$assetsBase/times%20of%20india%20image.jpg",   'alt' => 'Times of India'],
 ];
 @endphp
 

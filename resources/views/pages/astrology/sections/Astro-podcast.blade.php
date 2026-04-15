@@ -2,9 +2,9 @@
     'title'        => 'Podcast With our Students',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos'       => [
-        ['youtube_id' => 'NM6Yuytte_Y'],
-        ['youtube_id' => '0yDeIwbys70'],
-        ['youtube_id' => 'eP7N3hanpxI'],
+        ['youtube_id' => 'NM6Yuytte_Y', 'si' => 'ygxmwZN9wyg0c6Sy'],
+        ['youtube_id' => '0yDeIwbys70', 'si' => 'qXdIBC58EuIH9Q1-'],
+        ['youtube_id' => 'eP7N3hanpxI', 'si' => 'PsTtJYsjSBEFa4Db'],
     ],
 ])
 
@@ -20,16 +20,19 @@
         {{-- Desktop: 3-column grid --}}
         <div class="hidden md:grid grid-cols-3 gap-5">
             @foreach($videos as $video)
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-                    <div class="relative aspect-video cursor-pointer yt-pod-facade" data-ytid="{{ $video['youtube_id'] }}">
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-100 bg-neutral-900">
+                    <div class="relative aspect-video cursor-pointer yt-pod-facade"
+                         data-ytid="{{ $video['youtube_id'] }}"
+                         data-si="{{ $video['si'] ?? '' }}">
                         <img
-                            src="https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/hqdefault.jpg"
+                            src="https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/maxresdefault.jpg"
                             alt="Podcast video"
-                            class="w-full h-full object-cover"
+                            class="absolute inset-0 w-full h-full object-cover"
                             loading="lazy"
+                            onerror="this.src='https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/hqdefault.jpg'"
                         >
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200">
                                 <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </div>
                         </div>
@@ -42,15 +45,18 @@
         <div class="md:hidden w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory" id="podcast-slider">
             <div class="flex gap-3 w-max px-1">
                 @foreach($videos as $video)
-                    <div class="podcast-slide shrink-0 w-[85vw] snap-center rounded-2xl overflow-hidden shadow-sm border border-neutral-100">
-                        <div class="relative aspect-video cursor-pointer yt-pod-facade" data-ytid="{{ $video['youtube_id'] }}">
+                    <div class="podcast-slide shrink-0 w-[85vw] snap-center rounded-2xl overflow-hidden shadow-sm border border-neutral-100 bg-neutral-900">
+                        <div class="relative aspect-video cursor-pointer yt-pod-facade"
+                             data-ytid="{{ $video['youtube_id'] }}"
+                             data-si="{{ $video['si'] ?? '' }}">
                             <img
-                                src="https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/hqdefault.jpg"
+                                src="https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/maxresdefault.jpg"
                                 alt="Podcast video"
-                                class="w-full h-full object-cover"
+                                class="absolute inset-0 w-full h-full object-cover"
                                 loading="lazy"
+                                onerror="this.src='https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/hqdefault.jpg'"
                             >
-                            <div class="absolute inset-0 flex items-center justify-center bg-black/10">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/20">
                                 <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
                                     <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
@@ -115,13 +121,18 @@
 document.querySelectorAll('.yt-pod-facade').forEach(function (facade) {
     facade.addEventListener('click', function () {
         var id = this.dataset.ytid;
+        var si = this.dataset.si;
+        var src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0' + (si ? '&si=' + si : '');
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+        iframe.src = src;
         iframe.title = 'YouTube video';
         iframe.className = 'absolute inset-0 w-full h-full';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
         iframe.allowFullscreen = true;
-        this.replaceWith(iframe);
+        this.innerHTML = '';
+        this.style.cursor = 'default';
+        this.appendChild(iframe);
     });
 });
 </script>
