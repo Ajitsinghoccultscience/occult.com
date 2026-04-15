@@ -50,7 +50,7 @@
 
                     {{-- CTA button --}}
                     <x-ui.button :href="$ctaHref" variant="astro-cta" size="sm" :fullWidth="true">
-                        {{ $ctaText }} <span class="text-lg line-through opacity-80 ml-1">{{ $ctaPriceStruck }}</span>
+                        {{ $ctaText }}
                     </x-ui.button>
             </div>
 
@@ -73,7 +73,7 @@
                         @endforeach
 
                         <x-ui.button :href="$ctaHref" variant="astro-cta" size="sm" :compact="true">
-                            {{ $ctaText }} <span class="text-lg line-through opacity-80 ml-1">{{ $ctaPriceStruck }}</span>
+                            {{ $ctaText }}
                         </x-ui.button>
                     </div>
             </div>

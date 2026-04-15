@@ -109,7 +109,7 @@ $ratingCount = $ratingParts[1] ?? '';
 </div>
 
 <x-ui.button :href="$ctaHref" variant="astro" class="w-full !py-4 !text-base font-bold">
-    Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+    Reserve My Seat @₹49
 </x-ui.button>
 </div>
 
@@ -164,7 +164,7 @@ $ratingCount = $ratingParts[1] ?? '';
 </div>
 
 <x-ui.button :href="$ctaHref" variant="astro" class="!py-4 !text-base font-bold !min-w-0">
-    Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+    Reserve My Seat @₹49
 </x-ui.button>
 </div>
 {{-- RIGHT SIDE --}}

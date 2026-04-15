@@ -56,7 +56,7 @@
                             </div>
                             <div class="mt-10 flex justify-center">
                                 <x-ui.button :href="$ctaHref" variant="astro-cta" :fullWidth="true" class="!min-w-0 !py-4 !px-8 rounded-lg md:!w-auto">
-                                    {{ $ctaText }} &#64;{{ $offerPrice }} <span class="line-through opacity-90 ml-1">{{ $originalPrice }}</span>
+                                    {{ $ctaText }} &#64;{{ $offerPrice }}
                                 </x-ui.button>
                             </div>
                         </x-ui.card>

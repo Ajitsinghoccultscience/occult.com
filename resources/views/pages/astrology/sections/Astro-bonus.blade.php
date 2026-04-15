@@ -62,7 +62,7 @@
         {{-- CTA --}}
         <div class="flex justify-center mt-10 md:mt-12">
             <x-ui.button :href="$ctaHref" variant="astro-cta" class="!min-w-0 !py-4 !text-base font-bold">
-                Register Now at @₹49 <span class="line-through opacity-70 font-normal ml-1">₹999</span>
+                Register Now at @₹49
             </x-ui.button>
         </div>
 

@@ -45,7 +45,7 @@
         <a href="{{ $ctaHref }}"
            class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-sm md:text-base px-6 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
            style="background-color:#5E3592;">
-            {{ $ctaText }} <span class="line-through opacity-60 ml-1.5 font-normal text-xs md:text-sm">₹999</span>
+            {{ $ctaText }}
         </a>
 
     </div>
