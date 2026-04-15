@@ -1,83 +1,101 @@
 @extends('layouts.app')
 
-@section('title', 'Register for Mega Astrology Webinar')
-@section('description', 'Register for the Mega Astrology Webinar - Reserve your seat now.')
+@section('title', 'Register – Mega Astrology Webinar')
+@section('description', 'Reserve your seat for the Mega Astrology Webinar by All India Institute of Occult Science.')
 
 @section('content')
-<iframe
-    id="zoho-form-iframe"
-    src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/AstrologyWebinar/formperma/u5xhvCVVKohScA-mli9GWsWCKu3-geIGBrn83l2vn-Q"
-    width="100%"
-    frameborder="0"
-    scrolling="no"
-    allow="geolocation; microphone; camera"
-    style="height: 1200px; border: none; display: block;"
-    title="Webinar Registration Form"
-></iframe>
-@endsection
+<div class="min-h-screen bg-white flex items-center justify-center">
 
-@push('scripts')
-<script>
+    <iframe
+        id="zoho-form-iframe"
+        aria-label="Astrology Webinar - Less than 12 seats left"
+        src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/AstrologyWebinaroccultsciencecom/formperma/hnrAqYA_e5OFRlpxgewU90K7jjH00pahi9Gws4pJ8og"
+        frameborder="0"
+        allow="geolocation; microphone; camera; payment"
+        style="width:100%; height:900px; border:none; display:block;"
+        title="Webinar Registration Form"
+        loading="eager"
+    ></iframe>
+
+</div>
+
+<script defer>
 (function () {
-    var iframe  = document.getElementById('zoho-form-iframe');
+    var iframe = document.getElementById('zoho-form-iframe');
     var THANK_YOU_URL = '{{ url("/astrology-thankyou") }}';
-    var redirected  = false;
+    var redirected = false;
 
     function doRedirect() {
         if (redirected) return;
         redirected = true;
-        window.top.location.href = THANK_YOU_URL;
+        window.location.href = THANK_YOU_URL;
     }
 
-    // ── METHOD 1: postMessage ─────────────────────────────────────────────────
-    // Zoho sends height updates AND (after our /thankyou redirect) our own page
-    // fires postMessage({ type: 'zoho_form_submitted' }) back to the parent.
+    // Catch all Zoho postMessage variants
     window.addEventListener('message', function (e) {
-        // Zoho auto-resize: resize the iframe to match content
-        if (e.data && typeof e.data === 'object') {
-            if (e.data.action === 'setHeight' && e.data.height) {
-                iframe.style.height = (parseInt(e.data.height, 10) + 30) + 'px';
+        if (!e.data) return;
+
+        // Object messages
+        if (typeof e.data === 'object') {
+            var d = e.data;
+            // Resize
+            if (d.action === 'setHeight' && d.height) {
+                var h = parseInt(d.height, 10) + 30;
+                if (h > 900) iframe.style.height = h + 'px';
             }
-            // Our own thankyou page sends this signal (see thankyou.blade.php)
-            if (e.data.type === 'zoho_form_submitted') {
-                doRedirect();
-            }
+            // Submission signals
+            if (
+                d.type === 'zoho_form_submitted' ||
+                d.action === 'zf_submitted' ||
+                d.action === 'submitComplete' ||
+                d.zf_event === 'formSubmit'
+            ) { doRedirect(); }
         }
-        // Zoho Forms sends: "zf-iframeResize|height|900" (pipe-delimited string)
+
+        // String messages
         if (typeof e.data === 'string') {
             var parts = e.data.split('|');
+
+            // Resize
             if (parts[0] === 'zf-iframeResize' && parts[2]) {
-                iframe.style.height = (parseInt(parts[2], 10) + 30) + 'px';
+                var h = parseInt(parts[2], 10) + 30;
+                if (h > 900) iframe.style.height = h + 'px';
             }
-            // Fallback: plain numeric string
             if (!isNaN(parseInt(e.data, 10)) && parts.length === 1) {
-                iframe.style.height = (parseInt(e.data, 10) + 30) + 'px';
+                var h = parseInt(e.data, 10) + 30;
+                if (h > 900) iframe.style.height = h + 'px';
             }
+
+            // Submission signals
+            if (
+                e.data === 'zf_submitted' ||
+                e.data.indexOf('zf_submitted') !== -1 ||
+                e.data.indexOf('submitComplete') !== -1 ||
+                e.data.indexOf('formSubmit') !== -1
+            ) { doRedirect(); }
         }
     }, false);
 
-    // ── METHOD 2: window.top (handled inside /thankyou page itself) ───────────
-    // When Zoho redirects the iframe to our /thankyou URL, that page runs
-    //   window.top.location.href = THANK_YOU_URL
-    // That covers method 2 entirely — no extra code needed here.
-
-    // ── METHOD 3: URL polling ─────────────────────────────────────────────────
-    // Once Zoho navigates the iframe to our same-origin /thankyou page we can
-    // read iframe.contentWindow.location.href (cross-origin throws, same-origin works).
-    var pollInterval = setInterval(function () {
+    // Poll iframe URL — catches redirect after payment/thank-you
+    var poll = setInterval(function () {
         try {
-            var iframeHref = iframe.contentWindow.location.href;
-            if (iframeHref && iframeHref.indexOf('/thankyou') !== -1) {
-                clearInterval(pollInterval);
+            var href = iframe.contentWindow.location.href;
+            if (!href || href === 'about:blank') return;
+            // Any URL change away from the form = submission done
+            if (
+                href.indexOf('zohopublic') === -1 ||
+                href.indexOf('thankyou') !== -1 ||
+                href.indexOf('thank-you') !== -1 ||
+                href.indexOf('success') !== -1
+            ) {
+                clearInterval(poll);
                 doRedirect();
             }
-        } catch (crossOriginError) {
-            // Still on Zoho domain — cross-origin block is expected, keep polling
-        }
-    }, 600);
+        } catch (e) { /* cross-origin — expected while form is open */ }
+    }, 800);
 
-    // Stop polling after 20 minutes (safety cleanup)
-    setTimeout(function () { clearInterval(pollInterval); }, 20 * 60 * 1000);
+    // Stop polling after 30 minutes
+    setTimeout(function () { clearInterval(poll); }, 30 * 60 * 1000);
 })();
 </script>
-@endpush
+@endsection
