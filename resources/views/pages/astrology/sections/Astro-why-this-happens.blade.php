@@ -8,7 +8,7 @@
         'Everything feels right..phir bhi relationship work nahi karta.',
     ],
     'footerText' => 'Every answer you are looking for could be in your Kundali',
-    'ctaText'    => 'Unlock Your Hidden Secrets @₹49',
+    'ctaText'    => 'Unlock Hidden Secrets @₹49',
     'ctaHref'    => '#',
     'helpsTitle' => 'How Astrology helps you to understand your life better',
     'points' => [

@@ -17,7 +17,7 @@
         </div>
 
         {{-- Videos: 1 at a time carousel on mobile, 3-column grid on desktop --}}
-        <div class="flex overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 gap-6 -mx-4 md:mx-0 px-4 md:px-0 py-4 snap-x snap-mandatory scrollbar-hide">
+        <div id="testimonial-carousel" class="flex overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 gap-6 -mx-4 md:mx-0 px-4 md:px-0 py-4 snap-x snap-mandatory scrollbar-hide">
             @foreach($videos as $video)
                 <div class="shrink-0 md:shrink snap-center w-[92vw] md:w-full min-w-[280px] md:min-w-0 md:max-w-none max-w-[358px] rounded-xl border-2 border-primary overflow-hidden bg-neutral-e aspect-[358/543] relative">
                     @if(!empty($video['youtube_id']))
@@ -52,20 +52,59 @@
 </section>
 
 <script defer>
-document.querySelectorAll('.yt-facade').forEach(function(facade) {
-    facade.addEventListener('click', function() {
-        var id = this.dataset.ytid;
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
-        iframe.title = 'YouTube video';
-        iframe.className = 'absolute inset-0 w-full h-full';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
-        this.innerHTML = '';
-        this.style.cursor = 'default';
-        this.appendChild(iframe);
+(function () {
+    var carousel = document.getElementById('testimonial-carousel');
+    var slides   = carousel ? carousel.querySelectorAll('.snap-center') : [];
+    var total    = slides.length;
+    var current  = 0;
+    var paused   = false;
+    var timer    = null;
+
+    function isMobile() {
+        return window.innerWidth < 768;
+    }
+
+    function goTo(index) {
+        if (!isMobile() || !carousel) return;
+        if (index >= total) index = 0;
+        if (index < 0)     index = total - 1;
+        current = index;
+        carousel.scrollTo({ left: slides[current].offsetLeft - carousel.offsetLeft, behavior: 'smooth' });
+    }
+
+    function startAuto() {
+        timer = setInterval(function () {
+            if (!paused && isMobile()) goTo(current + 1);
+        }, 2800);
+    }
+
+    startAuto();
+
+    // Pause on touch
+    if (carousel) {
+        carousel.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+        carousel.addEventListener('touchend',   function () { setTimeout(function () { paused = false; }, 2500); }, { passive: true });
+    }
+
+    // Click to play — stops auto-scroll permanently for that session
+    document.querySelectorAll('.yt-facade').forEach(function (facade) {
+        facade.addEventListener('click', function () {
+            paused = true;               // stop auto-scrolling when video plays
+            clearInterval(timer);
+
+            var id = this.dataset.ytid;
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+            iframe.title = 'YouTube video';
+            iframe.className = 'absolute inset-0 w-full h-full';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            this.innerHTML = '';
+            this.style.cursor = 'default';
+            this.appendChild(iframe);
+        });
     });
-});
+})();
 </script>
 
 
