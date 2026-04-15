@@ -24,7 +24,7 @@ $iconsPath = 'images/icons';
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
-            <a href="{{ url('/checkout') }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
+            <a href="{{ $ctaHref }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
                 Reserve your seat @ ₹49 only  &nbsp;|&nbsp; Less than 10 seats left!
             </a>
         @endforeach

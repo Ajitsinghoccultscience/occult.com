@@ -1,5 +1,5 @@
 @props([
-    'title'        => 'Podcast With our Students',
+    'title'        => 'Our Podcast Insights',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos'       => [
         ['youtube_id' => 'NM6Yuytte_Y', 'si' => 'ygxmwZN9wyg0c6Sy'],

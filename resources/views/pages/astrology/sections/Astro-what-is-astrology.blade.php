@@ -1,6 +1,6 @@
 @props([
     'title'       => 'Mega Astrology Webinar',
-    'description' => 'Join the <a href="#" class="text-[#5E3592] font-bold hover:underline">Astrology webinar</a> by <a href="#" class="text-[#5E3592] font-bold hover:underline">All India Institute of Occult Science</a> to decode your Kundli and unlock powerful insights.',
+    'description' => 'Join the Astrology webinar by All India Institute of Occult Science to decode your Kundli and unlock powerful insights.',
     'bullets' => [
         'Decode your Kundli and understand your life path',
         'Discover hidden messages in your birth chart',
@@ -49,7 +49,7 @@
                 <h2 class="hidden lg:block text-heading font-bold text-neutral-b tracking-[0.9px] text-center lg:text-left">{{ $title }}</h2>
 
                 <p class="text-content font-bold text-neutral-b leading-relaxed tracking-[0.48px]">
-                    {!! $description !!}
+                    {{ $description }}
                 </p>
 
                 <ul class="space-y-3 text-content text-neutral-b tracking-[0.48px]">
