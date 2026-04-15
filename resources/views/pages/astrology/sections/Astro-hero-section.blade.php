@@ -45,24 +45,9 @@ $iconsPath = 'images/icons';
     </div>
 </div>
 <h1 class="text-hero font-bold text-white uppercase tracking-wide text-center">{{ $title }}</h1>
-<div class="w-full aspect-video rounded-xl overflow-hidden relative shadow-2xl">
-    @if(!empty($youtubeId))
-        <div class="hero-yt-facade absolute inset-0 cursor-pointer" data-ytid="{{ $youtubeId }}">
-            <img
-                src="https://i.ytimg.com/vi/{{ $youtubeId }}/maxresdefault.jpg"
-                alt="Webinar preview"
-                class="w-full h-full object-cover"
-                loading="eager" fetchpriority="high"
-                onerror="this.src='https://i.ytimg.com/vi/{{ $youtubeId }}/hqdefault.jpg'"
-            >
-            <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200">
-                    <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-            </div>
-        </div>
-    @elseif($videoPlaceholder)
-        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
+<div class="w-full rounded-xl overflow-hidden shadow-2xl">
+    @if($videoPlaceholder)
+        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-auto block" loading="eager" fetchpriority="high">
     @endif
 </div>
 @php

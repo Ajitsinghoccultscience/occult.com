@@ -10,21 +10,17 @@
 
 <section class="w-full section-spacing bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
-        <div class="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16">
+        {{-- Heading centered --}}
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
+            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
+        </div>
 
-            {{-- Left: Title & supporting text --}}
-            <div class="md:w-[32%] lg:w-[30%] shrink-0 mb-12 md:mb-0 text-center md:text-left">
-                <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
-                <img src="{{ asset($underlineSvg) }}" alt="" class="w-[157px] h-[14px] mx-auto md:mx-0" aria-hidden="true">
-            </div>
-
-            {{-- Right: Video carousel --}}
-            <div class="flex-1 min-w-0">
-        <x-ui.carousel variant="single" gridAt="none">
+        {{-- Videos: 1 at a time carousel on mobile, 3-column grid on desktop --}}
+        <div class="flex overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 gap-6 -mx-4 md:mx-0 px-4 md:px-0 py-4 snap-x snap-mandatory scrollbar-hide">
             @foreach($videos as $video)
-                <x-ui.carousel-slide variant="single" gridAt="none" class="rounded-xl border-2 border-accent-gold overflow-hidden bg-neutral-e aspect-[358/543] relative">
+                <div class="shrink-0 md:shrink snap-center w-[92vw] md:w-full min-w-[280px] md:min-w-0 md:max-w-none max-w-[358px] rounded-xl border-2 border-primary overflow-hidden bg-neutral-e aspect-[358/543] relative">
                     @if(!empty($video['youtube_id']))
-                        {{-- Lazy YouTube: show thumbnail, load iframe only on click --}}
                         <div class="yt-facade absolute inset-0 cursor-pointer" data-ytid="{{ $video['youtube_id'] }}">
                             <img
                                 src="https://i.ytimg.com/vi/{{ $video['youtube_id'] }}/hqdefault.jpg"
@@ -33,29 +29,25 @@
                                 loading="lazy"
                             >
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center shadow-lg">
+                                <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200">
                                     <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
                             </div>
                         </div>
                     @else
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center">
-                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </div>
                         </div>
                     @endif
-                    {{-- Name & date overlay --}}
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 pointer-events-none">
                         <p class="text-content font-semibold text-white">{{ $video['name'] }}</p>
                         <p class="text-sm text-white/90">{{ $video['attend_date'] }}</p>
                     </div>
-                </x-ui.carousel-slide>
+                </div>
             @endforeach
-        </x-ui.carousel>
-            </div>{{-- end right --}}
-
-        </div>{{-- end flex row --}}
+        </div>
     </div>
 </section>
 
