@@ -72,7 +72,7 @@
     </div>
 </section>
 
-<script>
+<script defer>
 (function () {
     const slider = document.getElementById('testimonial-slider');
     if (!slider) return;

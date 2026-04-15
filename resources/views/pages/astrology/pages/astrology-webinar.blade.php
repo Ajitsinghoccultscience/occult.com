@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@push('head')
+    {{-- Preload LCP hero image so it loads as early as possible --}}
+    <link rel="preload" as="image"
+          href="{{ asset('image/astrology%20assests/hero%20section.png') }}"
+          fetchpriority="high">
+@endpush
+
 @section('title', 'All India Institute of Occult Science')
 @section('description', 'Astrology Webinar - Your platform for webinars and live events.')
 

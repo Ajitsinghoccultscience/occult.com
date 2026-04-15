@@ -66,7 +66,7 @@
     </div>
 </section>
 
-<script>
+<script defer>
 (function () {
     const slider = document.getElementById('convo-slider');
     if (!slider) return;

@@ -44,7 +44,7 @@ $publications = [
 
 </section>
 
-<script>
+<script defer>
 (function () {
     const track  = document.getElementById('featured-slider');
     if (!track) return;

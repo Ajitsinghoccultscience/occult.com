@@ -44,7 +44,7 @@
     </div>
 </section>
 
-<script>
+<script defer>
 (function () {
     const slider = document.getElementById('snapshot-slider');
     if (!slider) return;
