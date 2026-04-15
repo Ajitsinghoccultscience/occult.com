@@ -1,56 +1,88 @@
 @props([
-    'title' => 'What Is Astrology ?',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
-    'description' => 'Astrology is one of the greatest subjects that helps you understand the language of stars and planets and effects in the birth chart. It helps you understand the nakshatras, the universe, analyzing and making birth charts,kundalis etc. It is also used for predicting life events, future etc.',
+    'title'       => 'Mega Astrology Webinar',
+    'description' => 'Join the <a href="#" class="text-[#5E3592] font-bold hover:underline">Astrology webinar</a> by <a href="#" class="text-[#5E3592] font-bold hover:underline">All India Institute of Occult Science</a> to decode your Kundli and unlock powerful insights.',
     'bullets' => [
-        [
-            'heading' => 'Learn Kundali Analysis:',
-            'text' => 'Learning about the 12 Houses, 9 Planets, and 12 Signs to help people navigate life\'s challenges.',
-        ],
-        [
-            'heading' => 'The 12 Houses and meaning',
-            'text' => 'Help you understand about the 12 houses and their meaning. What each house tells and how planets impact them.',
-        ],
-        [
-            'heading' => 'The Planets, Lords And Impacts:',
-            'text' => 'You can learn about the 9 planets, their lords and how it impacts life. The effects of Shani, Rahu, Ketu in your life.',
-        ],
-        [
-            'heading' => 'Predicting about future, events:',
-            'text' => 'You will be able to predict about the future, suggest remedies and also tell about the best Muhurats, for starting anything new.',
-        ],
+        'Decode your Kundli and understand your life path',
+        'Discover hidden messages in your birth chart',
+        'Understand planetary influences on your life',
+        'Gain clarity for better decisions and future planning',
     ],
-    'image' => 'images/astrology webinar/gif 2_1 (2) 1.png',
+    'ctaHref' => '#',
+    'videoId' => 'eCZyv9zj2Ic',
 ])
 
-<section class="w-full section-spacing pb-10 md:pb-16 bg-white">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {{-- 1. Title - Mobile: first, centered. Desktop: left col --}}
-            <div class="order-1 lg:col-start-1 lg:row-start-1">
-                <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px] text-center lg:text-left">{{ $title }}</h2>
-                <img src="{{ asset($underlineSvg) }}" alt="" class="w-[157px] h-[14px] mx-auto lg:mx-0" aria-hidden="true">
-            </div>
+<section class="w-full bg-white section-spacing pb-10 md:pb-16">
+    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_0.7fr] gap-10 lg:gap-16 items-center">
 
-            {{-- 2. Image - Mobile: second. Desktop: right col --}}
-            <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
-                @if($image)
-                    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $image)))) }}" alt="" class="w-[220px] lg:w-full lg:max-w-[420px] h-auto mx-auto lg:mx-0 lg:ml-auto block" loading="lazy">
-                @endif
-            </div>
+            {{-- LEFT: content --}}
+            <div class="flex flex-col gap-6">
+                <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px]">{{ $title }}</h2>
 
-            {{-- 3. Description + Bullets - Mobile: third. Desktop: left col --}}
-            <div class="order-3 lg:col-start-1 lg:row-start-2">
-                <p class="text-content text-neutral-b tracking-[0.48px] mb-6">{{ $description }}</p>
-                <ul class="space-y-4 text-content text-neutral-b tracking-[0.48px]">
+                <p class="text-content font-bold text-neutral-b leading-relaxed tracking-[0.48px]">
+                    {!! $description !!}
+                </p>
+
+                <ul class="space-y-3 text-content text-neutral-b tracking-[0.48px]">
                     @foreach($bullets as $bullet)
-                        <li class="flex gap-2">
-                            <span class="mt-1 shrink-0">•</span>
-                            <span><span class="font-bold">{{ $bullet['heading'] }}</span><br>{{ $bullet['text'] }}</span>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </span>
+                            <span>{{ $bullet }}</span>
                         </li>
                     @endforeach
                 </ul>
+
+                <div>
+                    <x-ui.button :href="$ctaHref" variant="astro-cta" class="!py-4 !text-base font-bold !min-w-0">
+                        Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+                    </x-ui.button>
+                </div>
             </div>
+
+            {{-- RIGHT: YouTube video --}}
+            <div class="w-full aspect-video rounded-2xl overflow-hidden relative shadow-lg bg-neutral-e">
+                @if(!empty($videoId))
+                    <div class="what-astro-yt-facade absolute inset-0 cursor-pointer" data-ytid="{{ $videoId }}">
+                        <img
+                            src="https://i.ytimg.com/vi/{{ $videoId }}/maxresdefault.jpg"
+                            alt="Astrology webinar intro video"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.src='https://i.ytimg.com/vi/{{ $videoId }}/hqdefault.jpg'"
+                        >
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200">
+                                <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-neutral-c">
+                        <svg class="w-14 h-14 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                        <span class="text-sm font-medium">Intro Video</span>
+                    </div>
+                @endif
+            </div>
+
         </div>
     </div>
 </section>
+
+<script defer>
+document.querySelectorAll('.what-astro-yt-facade').forEach(function(facade) {
+    facade.addEventListener('click', function() {
+        var id = this.dataset.ytid;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+        iframe.title = 'What is Astrology';
+        iframe.className = 'absolute inset-0 w-full h-full';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        this.replaceWith(iframe);
+    });
+});
+</script>

@@ -1,6 +1,6 @@
 @props([
     'title' => 'Trusted By The Media',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
         'images/astrology webinar/news article 1.svg',
         'images/astrology webinar/news article 2.svg',
@@ -28,3 +28,5 @@
         </x-ui.carousel>
     </div>
 </section>
+
+

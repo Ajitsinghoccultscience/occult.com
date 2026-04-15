@@ -1,15 +1,16 @@
 @props([
     'title' => 'Meet Your Trainer',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
-    'trainerName' => 'Mr. Manmohan Tiwari',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
+    'trainerName' => 'Miss. Laxmi',
     'trainerTitle' => 'Astrologer',
     'description' => [
-        "We are honored to have Mr. Manmohan Tiwari as a faculty astrologer. He is a research scholar in astrology at Banaras Hindu University and brings over 12 years of dedicated experience. He has authored books and published papers in reputed journals. Known for his passion and enthusiasm, he creates a comfortable learning environment. Currently, he continues his research at Kashi Hindu Vishwavidyalaya, Varanasi, Uttar Pradesh, and teaches excellence.",
+        "A B.Tech Computer Science Engineer and a Master's graduate in Astrology from the All India Institute of Occult Science, Delhi, Laxmi blends analytical thinking with spiritual wisdom.",
+        "She is dedicated to guiding individuals toward self-awareness through the principles of Vedic astrology.",
     ],
-    'ctaText' => 'Reserve My seat @₹49',
+    'ctaText' => 'Reserve My Seat @₹49',
     'ctaPriceStruck' => '₹999',
     'ctaHref' => '#',
-    'image' => 'images/astrology webinar/manmohan sir.png',
+    'image' => 'image/astrology%20assests/laxmi%20mam.png',
 ])
 
 <!-- <section class="w-full section-spacing bg-neutral-bg "> -->
@@ -48,7 +49,7 @@
                     </div>
 
                     {{-- CTA button --}}
-                    <x-ui.button :href="$ctaHref" variant="primary" size="sm" :fullWidth="true">
+                    <x-ui.button :href="$ctaHref" variant="astro-cta" size="sm" :fullWidth="true">
                         {{ $ctaText }} <span class="text-lg line-through opacity-80 ml-1">{{ $ctaPriceStruck }}</span>
                     </x-ui.button>
             </div>
@@ -71,7 +72,7 @@
                             <p class="text-content text-neutral-b tracking-[0.48px] mb-4">{{ $paragraph }}</p>
                         @endforeach
 
-                        <x-ui.button :href="$ctaHref" variant="primary" size="sm" :compact="true">
+                        <x-ui.button :href="$ctaHref" variant="astro-cta" size="sm" :compact="true">
                             {{ $ctaText }} <span class="text-lg line-through opacity-80 ml-1">{{ $ctaPriceStruck }}</span>
                         </x-ui.button>
                     </div>
@@ -79,3 +80,5 @@
         </x-ui.card>
     </div>
 </section>
+
+

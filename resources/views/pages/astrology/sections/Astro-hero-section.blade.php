@@ -1,18 +1,18 @@
 @props([
     'title' => 'MEGA ASTROLOGY WEBINAR',
-    'subtitle' => "Enroll in one of the best astrology courses where you can learn about analyzing the kundali, birthcharts, planets effects, different houses, impacts and many other related things.",
+    'subtitle' => "Life mein clarity chahiye? Join this 3 hour webinar and decode your answers through Astrology",
     'bullets' => [
-        'Learn about kundali reading',
-        "Predicting about life, career and love.",
-        'Suggest the right remedies(Mantras, gemstones etc) for life improvements.',
-        'Able to identify the karmic patterns and soul purpose in horoscopes.',
+        'Learn kundali reading and understand hidden life patterns.',
+        "Predict career, love and future with clarity.",
+        "Discover the right remedies and your soul purpose.",
     ],
     'date' => 'Sat, 18th April, 2026',
     'time' => '04:00 PM to 07:00 PM',
     'duration' => '3 hours',
     'alumniCount' => '18k+',
     'rating' => '4.5/5 (8912 ratings)',
-    'videoPlaceholder' => 'images/astrology webinar/convo graphology1.webp',
+    'videoPlaceholder' => 'image/astrology assests/hero section.png',
+    'youtubeId' => 'sSqUxmlI11A',
     'ctaHref' => '#',
 ])
 
@@ -32,7 +32,7 @@ $iconsPath = 'images/icons';
 </div>
 
 
-<section class="bg-neutral-red text-white transition-[padding,gap] duration-300 ease-in-out">
+<section class="bg-astro-hero-gradient text-white transition-[padding,gap] duration-300 ease-in-out">
 
 <div class="max-w-[1400px] mx-auto section-px py-5 xl:py-10 transition-[padding,gap,max-width] duration-300 ease-in-out">
 
@@ -40,20 +40,29 @@ $iconsPath = 'images/icons';
 <div class="flex flex-col gap-6 xl:hidden transition-all duration-300 ease-in-out">
 {{-- Badge --}}
 <div class="flex justify-center">
-    <div class="flex items-center gap-2 px-4 py-1.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('images/favicon.png') }}" alt="Logo" class="w-7 h-7 object-contain rounded-full">
-        <span class="text-neutral-b font-semibold text-xs tracking-wide whitespace-nowrap">All India Institute of Occult Science</span>
+    <div class="flex items-center px-3 py-1.5 rounded-full shadow-md bg-white">
+        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}" alt="Logo" class="h-14 w-auto object-contain">
     </div>
 </div>
-<h1 class="text-hero font-bold text-button-gradient uppercase tracking-wide text-center">{{ $title }}</h1>
-<div class="w-full aspect-[4/3] min-h-[14rem] bg-neutral-e rounded-10 overflow-hidden flex items-center justify-center">
-    @if($videoPlaceholder)
-        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
-    @else
-        <div class="flex flex-col items-center justify-center gap-3 text-neutral-i/60">
-            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-            <span class="text-sm">Loading...</span>
+<h1 class="text-hero font-bold text-white uppercase tracking-wide text-center">{{ $title }}</h1>
+<div class="w-full aspect-video rounded-xl overflow-hidden relative shadow-2xl">
+    @if(!empty($youtubeId))
+        <div class="hero-yt-facade absolute inset-0 cursor-pointer" data-ytid="{{ $youtubeId }}">
+            <img
+                src="https://i.ytimg.com/vi/{{ $youtubeId }}/maxresdefault.jpg"
+                alt="Webinar preview"
+                class="w-full h-full object-cover"
+                loading="eager" fetchpriority="high"
+                onerror="this.src='https://i.ytimg.com/vi/{{ $youtubeId }}/hqdefault.jpg'"
+            >
+            <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200">
+                    <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
         </div>
+    @elseif($videoPlaceholder)
+        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
     @endif
 </div>
 @php
@@ -64,10 +73,10 @@ $ratingCount = $ratingParts[1] ?? '';
 <div class="grid grid-cols-[1fr_auto_1fr] gap-0 items-center w-full">
 <div class="flex flex-col items-center justify-center gap-2 py-2">
 <div class="flex -space-x-3">
-<img src="{{ asset('images/assets%20desktop/Aryan_Mehta.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Priya_Sharma.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Rishika.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Vikram_Singh.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%201.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%202.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%203.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%204.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
 </div>
 <p class="text-neutral-i font-semibold text-center text-sm leading-tight">Join {{ $alumniCount }} Alumni<br>Network</p>
 </div>
@@ -114,7 +123,7 @@ $ratingCount = $ratingParts[1] ?? '';
     </div>
 </div>
 
-<x-ui.button :href="$ctaHref" variant="primary" class="w-full !py-4 !text-base font-bold">
+<x-ui.button :href="$ctaHref" variant="astro" class="w-full !py-4 !text-base font-bold">
     Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
 </x-ui.button>
 </div>
@@ -123,16 +132,15 @@ $ratingCount = $ratingParts[1] ?? '';
 <div class="hidden xl:flex flex-col gap-6 transition-all duration-300 ease-in-out">
 {{-- Badge centered above both columns --}}
 <div class="flex justify-center">
-    <div class="flex items-center gap-3 px-5 py-2.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('images/favicon.png') }}" alt="Logo" class="w-10 h-10 object-contain rounded-full">
-        <span class="text-neutral-b font-semibold text-sm md:text-base tracking-wide whitespace-nowrap">All India Institute of Occult Science</span>
+    <div class="flex items-center px-4 py-2 rounded-full shadow-md bg-white">
+        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}" alt="Logo" class="h-16 w-auto object-contain">
     </div>
 </div>
 {{-- Two columns --}}
 <div class="grid grid-cols-[0.4fr_0.6fr] gap-4 items-start">
 {{-- LEFT SIDE --}}
 <div>
-<h1 class="text-hero font-bold text-button-gradient uppercase tracking-wide mb-4 whitespace-nowrap">{{ $title }}</h1>
+<h1 class="text-hero font-bold text-white uppercase tracking-wide mb-4 whitespace-nowrap">{{ $title }}</h1>
 <p class="text-neutral-i text-lg max-w-xl mb-6">{{ $subtitle }}</p>
 <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
 @foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
@@ -170,7 +178,7 @@ $ratingCount = $ratingParts[1] ?? '';
     </div>
 </div>
 
-<x-ui.button :href="$ctaHref" variant="primary" class="!py-4 !text-base font-bold !min-w-0">
+<x-ui.button :href="$ctaHref" variant="astro" class="!py-4 !text-base font-bold !min-w-0">
     Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
 </x-ui.button>
 </div>
@@ -188,10 +196,10 @@ $ratingCount = $ratingParts[1] ?? '';
 </div>
 <div class="flex flex-nowrap items-center gap-6">
 <div class="flex -space-x-3 shrink-0">
-<img src="{{ asset('images/assets%20desktop/Aryan_Mehta.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Priya_Sharma.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Rishika.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Vikram_Singh.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%201.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%202.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%203.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%204.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
 </div>
 <p class="text-neutral-i font-semibold whitespace-nowrap shrink-0">Join {{ $alumniCount }} Alumni Network</p>
 <div class="w-px h-6 bg-neutral-i/40 shrink-0"></div>

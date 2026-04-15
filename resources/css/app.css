@@ -57,6 +57,9 @@
     --color-btn-end: #e6bb53;
     --gradient-button: linear-gradient(89.62deg, #e0ab40 11.31%, #faf094 45.56%, #faf094 52%, #e6bb53 90.24%);
 
+    /* Astrology hero gradient */
+    --gradient-astro-hero: linear-gradient(to right, #1C023F 0%, #5E3592 100%);
+
     /* Semantic */
     --color-secondary: #910404;
 
@@ -137,6 +140,9 @@
 @layer utilities {
     .bg-button-gradient {
         background-image: var(--gradient-button);
+    }
+    .bg-astro-hero-gradient {
+        background-image: var(--gradient-astro-hero);
     }
     .text-button-gradient {
         background: var(--gradient-button);

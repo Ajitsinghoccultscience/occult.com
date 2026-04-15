@@ -1,78 +1,127 @@
 @props([
-    'title' => 'Trusted Experiences From Our Learning Community',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
-    'testimonials' => [
-        [
-            'quote' => 'This professional astrology course completely transformed my understanding of planetary influences. Learning chart analysis helped me identify hidden personality traits with accuracy. I highly recommend this program for every aspiring astrologer seeking deep insights into human behavior and destiny.',
-            'name' => 'Aditya',
-            'avatar' => 'images/assets desktop/Rohan_Verma.avif',
-            'rating' => 4,
-        ],
-        [
-            'quote' => 'The pre-recorded sessions were detailed and perfect for my busy schedule. Exploring planetary doshas and their remedies was truly fascinating. Now, I apply these astrological techniques daily to guide my clients and help them overcome life challenges.',
-            'name' => 'Sneha',
-            'avatar' => 'images/assets desktop/ishika.avif',
-            'rating' => 5,
-        ],
-        [
-            'quote' => 'I gained immense value from the different levels of this astrology program. The experts explained complex concepts like house placements and planetary aspects in a simple way. This cost-effective course is a powerful tool for decoding life patterns through astrology.',
-            'name' => 'Karan',
-            'avatar' => 'images/assets desktop/Aryan_Mehta.avif',
-            'rating' => 5,
-        ],
-        [
-            'quote' => 'Studying various astrological principles along with practical chart reading gave me a complete learning experience. I can now confidently create detailed birth chart reports. Enrolling in this online astrology course was one of the best decisions for my career.',
-            'name' => 'Riddhi',
-            'avatar' => 'images/assets desktop/Priya_Sharma.avif',
-            'rating' => 4,
-        ],
-       
+    'title'    => "Join 1200+ who've already transformed their lives",
+    'subtitle' => 'Real students. Real results. See what they have to say.',
+    'images'   => [
+        'image/astrology%20assests/review%201.jpg',
+        'image/astrology%20assests/review%202.jpg',
+        'image/astrology%20assests/review%203.png',
+        'image/astrology%20assests/review%204.jpg',
+        'image/astrology%20assests/review%205.jpg',
     ],
 ])
 
-<section class="w-full section-spacing bg-white ">
+<section class="w-full bg-neutral-bg section-spacing section-spacing-after">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
-        <div class="text-center mb-12 md:mb-16">
-            <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
-            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
+
+        {{-- Heading --}}
+        <div class="text-center mb-10 md:mb-12">
+            <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] mb-3">{{ $title }}</h2>
+            <p class="text-content text-neutral-e">{{ $subtitle }}</p>
         </div>
 
-        {{-- Testimonial cards: carousel/slider on all screen sizes --}}
-        <x-ui.carousel variant="single" gridAt="none">
-            @foreach($testimonials as $testimonial)
-                <x-ui.carousel-slide variant="single" gridAt="none">
-                <x-ui.card variant="white" class="flex flex-col h-full">
-                    {{-- Large quotation mark --}}
-                    <span class="text-5xl md:text-6xl font-serif text-neutral-b leading-none mb-4">"</span>
+        {{-- Desktop: 3-column masonry layout --}}
+        <div class="hidden md:grid grid-cols-3 gap-4 items-start">
 
-                    {{-- Testimonial text --}}
-                    <p class="text-content text-neutral-b tracking-[0.48px] flex-1 mb-8">
-                        {{ $testimonial['quote'] }}
-                    </p>
+            {{-- Col 1: 1 tall image --}}
+            <div class="flex flex-col gap-4">
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
+                    <img src="{{ asset($images[0]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+                </div>
+            </div>
 
-                    {{-- User block: avatar + name + stars --}}
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full border border-neutral-h overflow-hidden shrink-0 bg-neutral-h/30 flex items-center justify-center">
-                            @if($testimonial['avatar'])
-                                <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $testimonial['avatar'])))) }}" alt="{{ $testimonial['name'] }}" class="w-full h-full object-cover" loading="lazy">
-                            @else
-                                <span class="text-content font-semibold text-neutral-b">{{ substr($testimonial['name'], 0, 2) }}</span>
-                            @endif
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-content font-semibold text-neutral-b">{{ $testimonial['name'] }}</span>
-                            <div class="flex gap-0.5 mt-1">
-                                @for($i = 0; $i < $testimonial['rating']; $i++)
-                                    <svg class="w-4 h-4 text-accent-gold" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                @endfor
-                            </div>
-                        </div>
+            {{-- Col 2: 2 images stacked --}}
+            <div class="flex flex-col gap-4">
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
+                    <img src="{{ asset($images[1]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
+                    <img src="{{ asset($images[2]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+                </div>
+            </div>
+
+            {{-- Col 3: 2 images stacked --}}
+            <div class="flex flex-col gap-4">
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
+                    <img src="{{ asset($images[3]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
+                    <img src="{{ asset($images[4]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+                </div>
+            </div>
+
+        </div>
+
+        {{-- Mobile: slider --}}
+        <div class="md:hidden w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory" id="testimonial-slider">
+            <div class="flex gap-3 w-max px-1">
+                @foreach($images as $img)
+                    <div class="testimonial-slide shrink-0 w-[85vw] snap-center rounded-2xl overflow-hidden shadow-md border border-neutral-200 bg-white">
+                        <img src="{{ asset($img) }}" alt="Review" class="w-full h-auto block" loading="lazy">
                     </div>
-                </x-ui.card>
-                </x-ui.carousel-slide>
+                @endforeach
+            </div>
+        </div>
+
+        {{-- Mobile dots --}}
+        <div class="flex md:hidden justify-center gap-2 mt-5">
+            @foreach($images as $i => $img)
+                <button id="tes-dot-{{ $i }}" class="w-2 h-2 rounded-full transition-colors duration-300 bg-neutral-300"></button>
             @endforeach
-        </x-ui.carousel>
+        </div>
+
     </div>
 </section>
+
+<script>
+(function () {
+    const slider = document.getElementById('testimonial-slider');
+    if (!slider) return;
+    const slides = slider.querySelectorAll('.testimonial-slide');
+    const dots   = document.querySelectorAll('[id^="tes-dot-"]');
+    const total  = slides.length;
+    let current  = 0, paused = false, timer;
+
+    function setDots(idx) {
+        dots.forEach((d, i) => {
+            d.style.backgroundColor = i === idx ? '#5E3592' : '#d1d5db';
+            d.style.width = i === idx ? '20px' : '8px';
+            d.style.borderRadius = '9999px';
+            d.style.transition = 'all 0.3s ease';
+        });
+    }
+
+    function goTo(index) {
+        if (index >= total) index = 0;
+        if (index < 0) index = total - 1;
+        current = index;
+        slider.scrollTo({ left: slides[current].offsetLeft - 4, behavior: 'smooth' });
+        setDots(current);
+    }
+
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => { if (!paused) goTo(current + 1); }, 2500);
+    }
+
+    goTo(0);
+    startTimer();
+
+    slider.addEventListener('mouseenter', () => { paused = true; });
+    slider.addEventListener('mouseleave', () => { paused = false; });
+    slider.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+    slider.addEventListener('touchend', () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
+
+    // Sync dots when user manually scrolls
+    slider.addEventListener('scroll', () => {
+        const center = slider.scrollLeft + slider.clientWidth / 2;
+        let closest = 0, minDist = Infinity;
+        slides.forEach((s, i) => {
+            const dist = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);
+            if (dist < minDist) { minDist = dist; closest = i; }
+        });
+        if (closest !== current) { current = closest; setDots(current); }
+    }, { passive: true });
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+})();
+</script>

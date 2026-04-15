@@ -17,6 +17,8 @@
     $variantClasses = match($variant) {
         'primary' => 'text-neutral-b bg-button-gradient hover:opacity-95 focus:ring-neutral-b',
         'dark' => 'bg-neutral-b text-white hover:bg-neutral-a focus:ring-neutral-b',
+        'astro' => 'text-neutral-b bg-accent-cream hover:opacity-90 focus:ring-accent-cream',
+        'astro-cta' => 'bg-[#5E3592] text-white hover:opacity-90 focus:ring-[#5E3592]',
         default => 'text-neutral-b [background-image:var(--gradient-button)] hover:opacity-95',
     };
     $widthClass = $fullWidth ? 'w-full' : ($compact ? 'w-fit min-w-0' : 'w-full md:w-auto min-w-[280px] md:min-w-[328px]');

@@ -1,39 +1,75 @@
 @props([
-    'title' => 'Featured in',
-    'logos' => null,
+    'title' => 'Featured In',
 ])
 
 @php
-    $mediaPath = public_path('images/media');
-    if ($logos === null && is_dir($mediaPath)) {
-        $files = array_merge(
-            glob($mediaPath . '/*.png') ?: [],
-            glob($mediaPath . '/*.jpg') ?: [],
-            glob($mediaPath . '/*.jpeg') ?: [],
-            glob($mediaPath . '/*.svg') ?: [],
-            glob($mediaPath . '/*.webp') ?: []
-        );
-        $logos = array_map(fn($f) => 'images/media/' . basename($f), $files);
-        sort($logos);
-    }
-    $logos = $logos ?? [];
+$assetsBase = 'image/astrology%20assests';
+$publications = [
+    ['logo' => "$assetsBase/the%20wire.svg",          'image' => "$assetsBase/the%20wire%20image.jpg",          'alt' => 'The Wire'],
+    ['logo' => "$assetsBase/india.com.svg",            'image' => "$assetsBase/india.com%20image.jpg",            'alt' => 'India.com'],
+    ['logo' => "$assetsBase/silicon%20india.svg",      'image' => "$assetsBase/silicon%20india%20image.jpg",      'alt' => 'Silicon India'],
+    ['logo' => "$assetsBase/the%20print.svg",          'image' => "$assetsBase/the%20print%20image.jpg",          'alt' => 'The Print'],
+    ['logo' => "$assetsBase/mid%20day.svg",            'image' => "$assetsBase/mid%20day%20image.jpg",            'alt' => 'Mid Day'],
+    ['logo' => "$assetsBase/times%20of%20india.svg",   'image' => "$assetsBase/times%20of%20india%20image.jpg",   'alt' => 'Times of India'],
+];
 @endphp
 
-<section class="w-full bg-neutral-bg shadow-drop">
-    <div class="w-full overflow-hidden bg-white">
-        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 overflow-hidden py-5 md:py-6 section-px">
-                <p class="text-[1.25rem] md:text-heading font-bold text-neutral-b tracking-[0.9px] shrink-0 text-center md:text-left">{{ $title }}</p>
-                <div class="flex-1 min-w-0 overflow-hidden">
-                    @if(count($logos) > 0)
-                        <div class="flex animate-marquee w-max gap-8 md:gap-12">
-                            @foreach(array_merge($logos, $logos) as $logo)
-                                <img src="{{ asset($logo) }}" alt="" class="h-8 md:h-10 w-auto object-contain shrink-0" loading="lazy" onerror="this.style.display='none'">
-                            @endforeach
-                        </div>
-                    @else
-                        <span class="text-sm text-neutral-e">Add images to public/images/media/</span>
-                    @endif
+<section class="w-full bg-white py-10 md:py-14">
+
+    {{-- Scroll track — full width so overflow-x actually works --}}
+    <div class="w-full overflow-x-auto scrollbar-hide" id="featured-slider">
+        <div class="flex gap-6 px-4 md:px-6 lg:px-8 w-max">
+
+            @foreach($publications as $pub)
+            <div class="featured-slide flex flex-col items-center gap-5
+                        w-[85vw] sm:w-[55vw] md:w-[45vw] lg:w-[30vw] max-w-none">
+
+                {{-- Logo --}}
+                <div class="h-10 flex items-center justify-center w-full">
+                    <img src="{{ asset($pub['logo']) }}" alt="{{ $pub['alt'] }}"
+                         class="max-h-10 max-w-full w-auto object-contain" loading="lazy">
                 </div>
+
+                {{-- Article screenshot --}}
+                <div class="w-full rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.12)] border border-neutral-100">
+                    <img src="{{ asset($pub['image']) }}" alt="{{ $pub['alt'] }} article"
+                         class="w-full h-auto block" loading="lazy">
+                </div>
+
             </div>
+            @endforeach
+
         </div>
+    </div>
+
 </section>
+
+<script>
+(function () {
+    const track  = document.getElementById('featured-slider');
+    if (!track) return;
+
+    let paused  = false;
+    let current = 0;
+
+    function getSlides() {
+        return track.querySelectorAll('.featured-slide');
+    }
+
+    function slideTo(index) {
+        const slides = getSlides();
+        if (!slides.length) return;
+        if (index >= slides.length) index = 0;
+        current = index;
+        const slide = slides[current];
+        track.scrollTo({ left: slide.offsetLeft - 24, behavior: 'smooth' });
+    }
+
+    setInterval(() => { if (!paused) slideTo(current + 1); }, 2500);
+
+    track.addEventListener('mouseenter', () => { paused = true; });
+    track.addEventListener('mouseleave', () => { paused = false; });
+    track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+    track.addEventListener('touchend',   () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
+})();
+</script>

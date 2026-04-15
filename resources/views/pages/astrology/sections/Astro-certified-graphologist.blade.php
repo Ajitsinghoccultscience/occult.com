@@ -1,7 +1,7 @@
 @props([
-    'title' => 'Our Certified Astrologers',
+    'title' => 'Our Successfully certified Students',
     'underlineWord' => 'astrologer',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
         'images/astrology/Desktop/13.webp',
         'images/astrology/Desktop/15.webp',
@@ -78,3 +78,5 @@
         </script>
     </div>
 </section>
+
+

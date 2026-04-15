@@ -1,23 +1,25 @@
 @props([
     'title' => 'Hear straight from our Alumni',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos' => [
         ['youtube_id' => 'sSqUxmlI11A', 'name' => 'Kunj Bihari Sharma', 'attend_date' => 'Astrology Webinar Review'],
         ['youtube_id' => 'B5nho9l1nXw', 'name' => 'Jatin Kashyap',      'attend_date' => 'Astrology Webinar Review'],
         ['youtube_id' => '8UuOQOnjRWE', 'name' => 'Piyush Ji',           'attend_date' => 'Astrology Webinar Review'],
-        ['youtube_id' => '0KhB974p-Zs', 'name' => 'Rajendra',            'attend_date' => 'Astrology Webinar Review'],
     ],
 ])
 
 <section class="w-full section-spacing bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
-        {{-- Title with wavy underline --}}
-        <div class="text-center mb-12 md:mb-16">
-            <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
-            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
-        </div>
+        <div class="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16">
 
-        {{-- Video cards: carousel/slider on all screen sizes --}}
+            {{-- Left: Title & supporting text --}}
+            <div class="md:w-[32%] lg:w-[30%] shrink-0 mb-12 md:mb-0 text-center md:text-left">
+                <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
+                <img src="{{ asset($underlineSvg) }}" alt="" class="w-[157px] h-[14px] mx-auto md:mx-0" aria-hidden="true">
+            </div>
+
+            {{-- Right: Video carousel --}}
+            <div class="flex-1 min-w-0">
         <x-ui.carousel variant="single" gridAt="none">
             @foreach($videos as $video)
                 <x-ui.carousel-slide variant="single" gridAt="none" class="rounded-xl border-2 border-accent-gold overflow-hidden bg-neutral-e aspect-[358/543] relative">
@@ -51,6 +53,9 @@
                 </x-ui.carousel-slide>
             @endforeach
         </x-ui.carousel>
+            </div>{{-- end right --}}
+
+        </div>{{-- end flex row --}}
     </div>
 </section>
 
@@ -68,3 +73,5 @@ document.querySelectorAll('.yt-facade').forEach(function(facade) {
     });
 });
 </script>
+
+

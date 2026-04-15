@@ -6,7 +6,7 @@ use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'index']);
 Route::get('/astrology-webinar', [PageController::class, 'astrologyWebinar']);
 Route::get('/graphology-webinar', [PageController::class, 'graphologyWebinar']);
-Route::get('/graphology-webinarlvl1', [PageController::class, 'graphologyWebinar']);
+Route::get('/graphology-webinarlvl1', [PageController::class, 'graphologyWebinarlvl1']);
 
 
 

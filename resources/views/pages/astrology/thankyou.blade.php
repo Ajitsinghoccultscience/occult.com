@@ -38,7 +38,7 @@
 
         {{-- Heading --}}
         <h1 class="text-hero font-bold text-button-gradient uppercase tracking-wide leading-tight">Thank You!</h1>
-        <img src="{{ asset('images/graphology image/underline 9.svg') }}" alt="" class="w-[157px] h-[14px]" aria-hidden="true">
+        <img src="{{ asset('image/astrology assests/unerline 2 3.svg') }}" alt="" class="w-[157px] h-[14px]" aria-hidden="true">
 
         {{-- Confirmation message --}}
         <p class="text-subheading font-semibold text-accent-gold-light">
@@ -77,3 +77,5 @@
     </div>
 </section>
 @endsection
+
+
