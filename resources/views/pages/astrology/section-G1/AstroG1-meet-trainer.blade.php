@@ -1,15 +1,15 @@
 @props([
     'title' => 'Meet Your Trainer',
     'underlineSvg' => 'images/graphology image/underline 9.svg',
-    'trainerName' => 'Mr. Manmohan Tiwari',
+    'trainerName' => 'Miss. Laxmi',
     'trainerTitle' => 'Astrologer',
     'description' => [
-        "We are honored to have Mr. Manmohan Tiwari as a faculty astrologer. He is a research scholar in astrology at Banaras Hindu University and brings over 12 years of dedicated experience. He has authored books and published papers in reputed journals. Known for his passion and enthusiasm, he creates a comfortable learning environment. Currently, he continues his research at Kashi Hindu Vishwavidyalaya, Varanasi, Uttar Pradesh, and teaches excellence.",
+        "A B.Tech Computer Science Engineer and a Master’s graduate in Astrology from the All India Institute of Occult Science, Delhi, Laxmi blends analytical thinking with spiritual wisdom. She is dedicated to guiding individuals toward self-awareness through the principles of Vedic astrology.",
     ],
     'ctaText' => 'Reserve My seat @₹49',
     'ctaPriceStruck' => '₹999',
     'ctaHref' => '#',
-    'image' => 'images/astrology webinar/manmohan sir.png',
+    'image' => 'image/astrology%20assests/laxmi%20mam.png',
 ])
 
 <!-- <section class="w-full section-spacing bg-neutral-bg "> -->

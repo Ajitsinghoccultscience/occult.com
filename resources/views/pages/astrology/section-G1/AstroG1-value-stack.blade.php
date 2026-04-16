@@ -18,7 +18,7 @@
         ['icon' => 'Pdf notes.svg', 'label' => 'PDF Notes'],
         ['icon' => 'Live Q&A.svg', 'label' => 'Live Q&A Access'],
     ],
-    'countdown' => ['days' => '04', 'hours' => '00', 'min' => '00', 'sec' => '00'], {{-- initial display only; timer is driven by sticky-bar.blade.php --}}
+    'countdown' => ['days' => '00', 'hours' => '06', 'min' => '00', 'sec' => '00'], {{-- initial display only; timer is driven by sticky-bar.blade.php --}}
     'bgImage' => 'images/graphology image/value.webp',
     'bgImageMobile' => 'images/graphology image/value stack.webp',
 ])

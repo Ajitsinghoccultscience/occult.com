@@ -2,7 +2,7 @@
     'ctaHref' => '#',
     'ctaText' => 'Reserve My Seat @₹49',
     'seats'   => '7',
-    'hours'   => 96,
+    'hours'   => 6,
     'minutes' => 0,
     'seconds' => 0,
 ])
