@@ -33,42 +33,6 @@
                     <p class="text-xs lg:text-sm text-gray-500">Sat, 18th April 2026 &nbsp;·&nbsp; 4:00 PM – 7:00 PM IST</p>
                 </div>
 
-                {{-- Divider --}}
-                <div class="border-t border-gray-200"></div>
-
-                {{-- What's included --}}
-                <div>
-                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">What's Included</h2>
-                    <ul class="space-y-2">
-                        @foreach([
-                            ['3 Hour Live Training', '₹379'],
-                            ['Practice Worksheet',   '₹149'],
-                            ['PDF Notes',            '₹79'],
-                            ['Bonus Material',       '₹392'],
-                        ] as [$label, $price])
-                        <li class="flex items-center justify-between">
-                            <span class="flex items-center gap-2 text-xs lg:text-sm text-gray-700">
-                                <span class="w-4 h-4 rounded-full bg-black flex items-center justify-center shrink-0">
-                                    <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </span>
-                                {{ $label }}
-                            </span>
-                            <span class="text-xs lg:text-sm font-medium text-gray-400 line-through">{{ $price }}</span>
-                        </li>
-                        @endforeach
-                    </ul>
-                    <div class="mt-3 pt-3 border-t border-dashed border-gray-200 flex justify-between items-center">
-                        <span class="text-xs lg:text-sm text-gray-500">Total Value</span>
-                        <span class="text-xs lg:text-sm font-semibold text-gray-400 line-through">₹999</span>
-                    </div>
-                    <div class="mt-1.5 flex justify-between items-center">
-                        <span class="text-sm lg:text-base font-bold text-gray-900">You Pay Today</span>
-                        <span class="text-xl lg:text-2xl font-bold text-gray-900">₹49</span>
-                    </div>
-                </div>
-
                 {{-- Divider (desktop only) --}}
                 <div class="hidden lg:block border-t border-gray-200"></div>
 
@@ -178,20 +142,30 @@
 </div>
 
 <script defer>
-// Countdown timer — 6 hours
+// Countdown timer — 6 hours, persists across page refreshes via localStorage
 (function () {
-    var TOTAL = 6 * 3600;
-    var remaining = TOTAL;
+    var DURATION = 6 * 3600 * 1000; // 6 hours in ms
+    var KEY = 'astro_checkout_timer_end';
+    var now = Date.now();
+    var end = parseInt(localStorage.getItem(KEY), 10);
+    if (!end || end <= now) {
+        end = now + DURATION;
+        localStorage.setItem(KEY, end);
+    }
     var elH = document.getElementById('co-hours');
     var elM = document.getElementById('co-mins');
     var elS = document.getElementById('co-secs');
     function pad(n) { return String(n).padStart(2, '0'); }
     function tick() {
-        if (remaining <= 0) remaining = TOTAL;
+        var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
+        if (remaining <= 0) {
+            end = Date.now() + DURATION;
+            localStorage.setItem(KEY, end);
+            remaining = DURATION / 1000;
+        }
         elH.textContent = pad(Math.floor(remaining / 3600));
         elM.textContent = pad(Math.floor((remaining % 3600) / 60));
         elS.textContent = pad(remaining % 60);
-        remaining--;
     }
     tick();
     setInterval(tick, 1000);

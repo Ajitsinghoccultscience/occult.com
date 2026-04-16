@@ -2,9 +2,9 @@
     'ctaHref' => '#',
     'ctaText' => 'Reserve My Seat @₹49',
     'seats'   => '7',
-    'hours'   => 48,
-    'minutes' => 9,
-    'seconds' => 48,
+    'hours'   => 6,
+    'minutes' => 0,
+    'seconds' => 0,
 ])
 
 <div id="sticky-offer-bar" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.10)]">
@@ -56,13 +56,17 @@
 
 <script defer>
 (function () {
-    const TOTAL = {{ ($hours * 3600) + ($minutes * 60) + $seconds }};
-    let remaining = TOTAL;
+    const DURATION = ({{ ($hours * 3600) + ($minutes * 60) + $seconds }}) * 1000;
+    const KEY = 'astro_sticky_timer_end';
+    let end = parseInt(localStorage.getItem(KEY), 10);
+    if (!end || end <= Date.now()) {
+        end = Date.now() + DURATION;
+        localStorage.setItem(KEY, end);
+    }
 
     const elH = document.getElementById('sb-hours');
     const elM = document.getElementById('sb-mins');
     const elS = document.getElementById('sb-secs');
-
     const vsD = document.getElementById('countdown-days');
     const vsH = document.getElementById('countdown-hours');
     const vsM = document.getElementById('countdown-min');
@@ -71,7 +75,12 @@
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function tick() {
-        if (remaining <= 0) remaining = TOTAL;
+        let remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
+        if (remaining <= 0) {
+            end = Date.now() + DURATION;
+            localStorage.setItem(KEY, end);
+            remaining = DURATION / 1000;
+        }
         const d = Math.floor(remaining / 86400);
         const h = Math.floor((remaining % 86400) / 3600);
         const m = Math.floor((remaining % 3600) / 60);
@@ -80,13 +89,10 @@
         if (elH) elH.textContent = pad(Math.floor(remaining / 3600));
         if (elM) elM.textContent = pad(m);
         if (elS) elS.textContent = pad(s);
-
         if (vsD) vsD.textContent = pad(d);
         if (vsH) vsH.textContent = pad(h);
         if (vsM) vsM.textContent = pad(m);
         if (vsS) vsS.textContent = pad(s);
-
-        remaining--;
     }
 
     tick();
