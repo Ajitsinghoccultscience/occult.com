@@ -8,11 +8,11 @@
 
     <iframe
         id="zoho-form-iframe"
-        aria-label="Astrology Webinar - Less than 12 seats left"
-        src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/AstrologyWebinaroccultsciencecom/formperma/hnrAqYA_e5OFRlpxgewU90K7jjH00pahi9Gws4pJ8og"
+        aria-label="Mega Astrology Webinar - Less than 10 seats left!!"
+        src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/AstrologyWebinar/formperma/u5xhvCVVKohScA-mli9GWsWCKu3-geIGBrn83l2vn-Q"
         frameborder="0"
         allow="geolocation; microphone; camera; payment"
-        style="width:100%; height:900px; border:none; display:block;"
+        style="height:800px; width:100%; border:none; display:block;"
         title="Webinar Registration Form"
         loading="eager"
     ></iframe>
@@ -41,7 +41,7 @@
             // Resize
             if (d.action === 'setHeight' && d.height) {
                 var h = parseInt(d.height, 10) + 30;
-                if (h > 900) iframe.style.height = h + 'px';
+                iframe.style.height = h + 'px';
             }
             // Submission signals
             if (
@@ -59,11 +59,11 @@
             // Resize
             if (parts[0] === 'zf-iframeResize' && parts[2]) {
                 var h = parseInt(parts[2], 10) + 30;
-                if (h > 900) iframe.style.height = h + 'px';
+                iframe.style.height = h + 'px';
             }
             if (!isNaN(parseInt(e.data, 10)) && parts.length === 1) {
                 var h = parseInt(e.data, 10) + 30;
-                if (h > 900) iframe.style.height = h + 'px';
+                iframe.style.height = h + 'px';
             }
 
             // Submission signals
