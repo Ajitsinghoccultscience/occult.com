@@ -1,3 +1,6 @@
+
+
+
 @props([
     'ctaHref' => '#',
     'ctaText' => 'Reserve My Seat @₹49',
@@ -15,7 +18,7 @@
             {{-- "OFFER ENDS IN" --}}
             <span class="text-[11px] md:text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0"></span>
-                Offer Ends In
+                Registration Ends In
             </span>
 
             {{-- Timer boxes --}}
@@ -36,9 +39,6 @@
                     </div>
                 @endforeach
             </div>
-
-            {{-- Seats left --}}
-            <span class="text-[10px] md:text-xs text-neutral-e">(Only {{ $seats }} seats are left)</span>
         </div>
 
         {{-- Right: CTA button --}}
@@ -56,17 +56,13 @@
 
 <script defer>
 (function () {
-    const DURATION = ({{ ($hours * 3600) + ($minutes * 60) + $seconds }}) * 1000;
-    const KEY = 'astro_sticky_timer_end';
-    let end = parseInt(localStorage.getItem(KEY), 10);
-    if (!end || end <= Date.now()) {
-        end = Date.now() + DURATION;
-        localStorage.setItem(KEY, end);
-    }
+    const TOTAL = {{ ($hours * 3600) + ($minutes * 60) + $seconds }};
+    let remaining = TOTAL;
 
     const elH = document.getElementById('sb-hours');
     const elM = document.getElementById('sb-mins');
     const elS = document.getElementById('sb-secs');
+
     const vsD = document.getElementById('countdown-days');
     const vsH = document.getElementById('countdown-hours');
     const vsM = document.getElementById('countdown-min');
@@ -75,12 +71,7 @@
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function tick() {
-        let remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
-        if (remaining <= 0) {
-            end = Date.now() + DURATION;
-            localStorage.setItem(KEY, end);
-            remaining = DURATION / 1000;
-        }
+        if (remaining <= 0) remaining = TOTAL;
         const d = Math.floor(remaining / 86400);
         const h = Math.floor((remaining % 86400) / 3600);
         const m = Math.floor((remaining % 3600) / 60);
@@ -89,10 +80,13 @@
         if (elH) elH.textContent = pad(Math.floor(remaining / 3600));
         if (elM) elM.textContent = pad(m);
         if (elS) elS.textContent = pad(s);
+
         if (vsD) vsD.textContent = pad(d);
         if (vsH) vsH.textContent = pad(h);
         if (vsM) vsM.textContent = pad(m);
         if (vsS) vsS.textContent = pad(s);
+
+        remaining--;
     }
 
     tick();
