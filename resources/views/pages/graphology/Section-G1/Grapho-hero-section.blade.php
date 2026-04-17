@@ -32,7 +32,7 @@ $iconsPath = 'images/icons';
 </div>
 
 
-<section class="bg-astro-hero-gradient text-white transition-[padding,gap] duration-300 ease-in-out">
+<section class="bg-grapho-hero-gradient text-white transition-[padding,gap] duration-300 ease-in-out">
 
 <div class="max-w-[1400px] mx-auto section-px py-5 xl:py-10 transition-[padding,gap,max-width] duration-300 ease-in-out">
 

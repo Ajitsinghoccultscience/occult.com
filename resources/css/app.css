@@ -60,6 +60,9 @@
     /* Astrology hero gradient */
     --gradient-astro-hero: linear-gradient(to right, #1C023F 0%, #5E3592 100%);
 
+    /* Graphology hero gradient */
+    --gradient-grapho-hero: linear-gradient(to bottom, #04043A 0%, #202763 100%);
+
     /* Semantic */
     --color-secondary: #910404;
 
@@ -143,6 +146,9 @@
     }
     .bg-astro-hero-gradient {
         background-image: var(--gradient-astro-hero);
+    }
+    .bg-grapho-hero-gradient {
+        background-image: var(--gradient-grapho-hero);
     }
     .text-button-gradient {
         background: var(--gradient-button);

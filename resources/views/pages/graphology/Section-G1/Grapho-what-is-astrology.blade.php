@@ -66,7 +66,7 @@
                 </ul>
 
                 <div>
-                    <x-ui.button :href="$ctaHref" variant="astro-cta" class="!py-4 !text-base font-bold !min-w-0">
+                    <x-ui.button :href="$ctaHref" variant="grapho-cta" class="!py-4 !text-base font-bold !min-w-0">
                         Reserve My Seat @₹49
                     </x-ui.button>
                 </div>

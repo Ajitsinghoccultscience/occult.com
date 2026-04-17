@@ -6,7 +6,7 @@
 @section('content')
     @include('pages.graphology.Section-G1.Grapho-hero-section', ['ctaHref' => url('/graphology-checkout')])
     @include('pages.graphology.Section-G1.Grapho-featured-in')
-    @include('pages.graphology.Section-G1.Grapho-what-is-astrology')
+    @include('pages.graphology.Section-G1.Grapho-what-is-astrology', ['ctaHref' => url('/graphology-checkout')])
     @include('pages.graphology.Section-G1.Grapho-why-this-happens')
     @include('pages.graphology.Section-G1.Grapho-bonus')
     @include('pages.graphology.Section-G1.Grapho-testimonials')
