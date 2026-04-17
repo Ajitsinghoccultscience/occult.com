@@ -15,8 +15,8 @@ Route::get('/astrology-thankyou', [PageController::class, 'astrologyThankyou']);
 
 
 
-Route::get('/graphology-webinar', [PageController::class, 'graphologyWebinar']);
-Route::get('/graphology-webinarlvl1', [PageController::class, 'graphologyWebinarlvl1']);
+Route::get('/graphology-webinar-1', [PageController::class, 'graphologyWebinar']);
+Route::get('/graphology-webinar-2', [PageController::class, 'graphologyWebinarlvl1']);
 
 
 

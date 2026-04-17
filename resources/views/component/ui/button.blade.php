@@ -19,6 +19,8 @@
         'dark' => 'bg-neutral-b text-white hover:bg-neutral-a focus:ring-neutral-b',
         'astro' => 'text-neutral-b bg-accent-cream hover:opacity-90 focus:ring-accent-cream',
         'astro-cta' => 'bg-[#5E3592] text-white hover:opacity-90 focus:ring-[#5E3592]',
+        'grapho-deep-gradient' => 'bg-gradient-to-b from-[#04043A] to-[#202763] text-white hover:opacity-90 focus:ring-[#04043A]',
+        'grapho-cta' => 'bg-[#191F59] text-white hover:opacity-90 focus:ring-[#191F59]',
         default => 'text-neutral-b [background-image:var(--gradient-button)] hover:opacity-95',
     };
     $widthClass = $fullWidth ? 'w-full' : ($compact ? 'w-fit min-w-0' : 'w-full md:w-auto min-w-[280px] md:min-w-[328px]');
