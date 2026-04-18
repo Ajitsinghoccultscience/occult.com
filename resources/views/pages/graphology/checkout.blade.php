@@ -92,7 +92,7 @@
                     {{-- Iframe --}}
                     <iframe
                         id="zoho-form-iframe"
-                        src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/MegaWebnar/formperma/G5-sJzQY1LJXGwjhhOK6RpOrPD680Uc6NMOQhg1Yv88"
+                        src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/MegaGraphologyWebinar/formperma/syGbeX5Uekmsro9yiDvTz842piWRQ-_mWlNvTiakKYM"
                         frameborder="0"
                         scrolling="no"
                         allow="geolocation; microphone; camera; payment"

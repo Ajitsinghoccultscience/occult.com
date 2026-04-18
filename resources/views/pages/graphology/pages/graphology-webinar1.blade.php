@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name'))
+@section('title', 'All India Institute of Occult Science')
 @section('description', 'Graphology Webinar - Your platform for webinars and live events.')
 
 @section('content')
