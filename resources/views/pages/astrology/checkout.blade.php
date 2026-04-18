@@ -94,7 +94,8 @@
                         frameborder="0"
                         scrolling="no"
                         allow="geolocation; microphone; camera; payment"
-                        style="height:1100px; width:100%; border:none; display:block; overflow:hidden;"
+                        style="height:950px; width:100%; border:none; display:block; overflow:hidden;"
+                        class="md:!h-[1100px]"
                         title="Webinar Registration Form"
                         loading="eager"
                     ></iframe>
