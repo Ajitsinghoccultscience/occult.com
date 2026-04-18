@@ -12,9 +12,19 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KLJ823HM');</script>
 
-    <title>@yield('title', 'OccultScience')</title>
+    <title>@yield('title', 'All India Institute of Occult Science')</title>
     <meta name="description" content="@yield('description', '')">
     <link rel="icon" type="image/x-icon" href="{{ asset('image/astrology%20assests/favicon.ico') }}">
+
+    {{-- Open Graph (WhatsApp / social sharing) --}}
+    <meta property="og:title"       content="@yield('title', 'All India Institute of Occult Science')">
+    <meta property="og:description" content="@yield('description', '')">
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="{{ url()->current() }}">
+    <meta property="og:site_name"   content="All India Institute of Occult Science">
+    <meta name="twitter:card"       content="summary">
+    <meta name="twitter:title"      content="@yield('title', 'All India Institute of Occult Science')">
+    <meta name="twitter:description" content="@yield('description', '')">
 
     {{-- Resource hints: establish connections early for external domains --}}
     <link rel="preconnect" href="https://www.googletagmanager.com">
