@@ -5,7 +5,7 @@
     'ctaHref' => '#',
     'ctaText' => 'Reserve My Seat @₹49',
     'seats'   => '7',
-    'hours'   => 6,
+    'hours'   => 3,
     'minutes' => 0,
     'seconds' => 0,
 ])
@@ -57,7 +57,14 @@
 <script defer>
 (function () {
     const TOTAL = {{ ($hours * 3600) + ($minutes * 60) + $seconds }};
-    let remaining = TOTAL;
+    const KEY = 'offer_timer_end';
+
+    // On first visit store the end timestamp; on refresh reuse it
+    let endTime = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (!endTime || endTime <= Date.now()) {
+        endTime = Date.now() + TOTAL * 1000;
+        localStorage.setItem(KEY, endTime);
+    }
 
     const elH = document.getElementById('sb-hours');
     const elM = document.getElementById('sb-mins');
@@ -71,7 +78,15 @@
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function tick() {
-        if (remaining <= 0) remaining = TOTAL;
+        let remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+
+        // Reset once it hits zero
+        if (remaining <= 0) {
+            endTime = Date.now() + TOTAL * 1000;
+            localStorage.setItem(KEY, endTime);
+            remaining = TOTAL;
+        }
+
         const d = Math.floor(remaining / 86400);
         const h = Math.floor((remaining % 86400) / 3600);
         const m = Math.floor((remaining % 3600) / 60);
@@ -85,8 +100,6 @@
         if (vsH) vsH.textContent = pad(h);
         if (vsM) vsM.textContent = pad(m);
         if (vsS) vsS.textContent = pad(s);
-
-        remaining--;
     }
 
     tick();

@@ -142,10 +142,10 @@
 </div>
 
 <script defer>
-// Countdown timer — 6 hours, persists across page refreshes via localStorage
+// Countdown timer — 3 hours, persists across page refreshes via localStorage
 (function () {
-    var DURATION = 6 * 3600 * 1000; // 6 hours in ms
-    var KEY = 'astro_checkout_timer_end';
+    var DURATION = 3 * 3600 * 1000; // 3 hours in ms
+    var KEY = 'offer_timer_end';
     var now = Date.now();
     var end = parseInt(localStorage.getItem(KEY), 10);
     if (!end || end <= now) {
