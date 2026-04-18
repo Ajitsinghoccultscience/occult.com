@@ -12,7 +12,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KLJ823HM');</script>
 
-    <title>@yield('title', config('app.name'))</title>
+    <title>@yield('title', 'OccultScience')</title>
     <meta name="description" content="@yield('description', '')">
     <link rel="icon" type="image/x-icon" href="{{ asset('image/astrology%20assests/favicon.ico') }}">
 
