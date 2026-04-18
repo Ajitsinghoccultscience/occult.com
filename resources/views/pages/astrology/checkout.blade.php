@@ -30,7 +30,7 @@
                 {{-- Webinar title + date/time --}}
                 <div>
                     <h1 class="text-lg lg:text-2xl font-bold text-gray-900 mb-1">Mega Astrology Webinar</h1>
-                    <p class="text-xs lg:text-sm text-gray-500">Sat, 18th April 2026 &nbsp;·&nbsp; 4:00 PM – 7:00 PM IST</p>
+                    <p class="text-xs lg:text-sm text-gray-500">Sat, 25th April 2026 &nbsp;·&nbsp; 1:00 PM – 4:00 PM IST</p>
                 </div>
 
                 {{-- Divider (desktop only) --}}
