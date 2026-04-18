@@ -25,7 +25,7 @@ $iconsPath = 'images/icons';
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
             <a href="{{ $ctaHref }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                 Only a few hours left to join- secure your spot now!  &nbsp;|&nbsp; Less than 7 seats left!
+                Registration Closing soon—grab your spot now  &nbsp;|&nbsp; Less than 7 seats left!
             </a>
         @endforeach
     </div>
