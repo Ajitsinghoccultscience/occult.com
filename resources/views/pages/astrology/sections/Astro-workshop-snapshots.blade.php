@@ -2,14 +2,10 @@
     'title' => 'Snapshots of Previous Webinar',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
-        
-        'image/astrology%20assests/snapshot%202.png',
-        
-        'image/astrology%20assests/snapshot%204.png',
-       
-        'image/astrology%20assests/snapshot%206.png',
-        'image/astrology%20assests/snapshot%207.png',
-        
+        'image/astrology%20assests/snapshot-astro/1.webp',
+        'image/astrology%20assests/snapshot-astro/2.webp',
+        'image/astrology%20assests/snapshot-astro/3.webp',
+        'image/astrology%20assests/snapshot-astro/4.webp',
     ],
 ])
 
