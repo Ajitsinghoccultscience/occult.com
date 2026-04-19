@@ -2,11 +2,11 @@
     'title'        => 'Benefits our Students get',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos'       => [
-        ['youtube_id' => 'Y0JQ_Yg81WM'],
+       
         ['youtube_id' => 'uJji0LqY-tw'],
         ['youtube_id' => 'F9f_p09W-JY'],
         ['youtube_id' => '4ckzcXkN6q8'],
-        ['youtube_id' => 'YETAqFiklDw'],
+       
     ],
 ])
 
