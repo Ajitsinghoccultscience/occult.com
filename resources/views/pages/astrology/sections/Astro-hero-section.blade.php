@@ -12,8 +12,8 @@
         'image/astrology assests/astro-webp/convo 7.webp',
     ],
     'date' => 'Sat, 25th April, 2026',
-    'time' => '01:00 PM to 04:00 PM',
-    'duration' => '3 hours',
+    'time' => '12:00 PM to 02:00 PM',
+    'duration' => '2 hours',
     'platform' => 'Zoom Call',
     'alumniCount' => '18k+',
     'rating' => '4.5/5 (8912 ratings)',
@@ -28,10 +28,10 @@ $sliderId = 'slider-' . uniqid();
 {{-- Top Cream Marquee Bar --}}
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
-        @foreach(range(1, 4) as $i)
-            <a href="{{ $ctaHref }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                Registration Closing soon—grab your spot now  &nbsp;|&nbsp; Less than 7 seats left!
-            </a>
+        @foreach(range(1, 6) as $i)
+            <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap">
+                Offer closing soon — after this, registration fee will be ₹199.
+            </span>
         @endforeach
     </div>
 </div>
@@ -103,10 +103,10 @@ $sliderId = 'slider-' . uniqid();
     </div>
     <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
         <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Bonus</p>
+            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5zm0 0M5 16l.75 2.25L8 19l-2.25.75L5 22l-.75-2.25L2 19l2.25-.75zm14 0l.75 2.25L22 19l-2.25.75L19 22l-.75-2.25L16 19l2.25-.75z"/></svg>
+            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Platform</p>
         </div>
-        <p class="font-bold text-accent-cream text-sm">Free Bonus Worth ₹999</p>
+        <p class="font-bold text-accent-cream text-sm">Live Webinar on Zoom</p>
     </div>
 </div>
 
@@ -158,10 +158,10 @@ $sliderId = 'slider-' . uniqid();
     </div>
     <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
         <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Bonus</p>
+            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5zm0 0M5 16l.75 2.25L8 19l-2.25.75L5 22l-.75-2.25L2 19l2.25-.75zm14 0l.75 2.25L22 19l-2.25.75L19 22l-.75-2.25L16 19l2.25-.75z"/></svg>
+            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Platform</p>
         </div>
-        <p class="font-bold text-accent-cream text-base">Free Bonus Worth ₹999</p>
+        <p class="font-bold text-accent-cream text-base">Live Webinar on Zoom</p>
     </div>
 </div>
 

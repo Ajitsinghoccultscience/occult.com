@@ -71,7 +71,7 @@
                     <svg class="w-4 h-4 text-gray-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/>
                     </svg>
-                    1:00 PM – 4:00 PM IST
+                    12:00 PM – 2:00 PM IST
                 </div>
             </div>
 

@@ -8,8 +8,8 @@
         'Able to identify the karmic patterns and soul purpose in horoscopes.',
     ],
     'date' => 'Sat, 25th April, 2026',
-    'time' => '01:00 PM to 04:00 PM',
-    'duration' => '3 hours',
+    'time' => '12:00 PM to 02:00 PM',
+    'duration' => '2 hours',
     'alumniCount' => '18k+',
     'rating' => '4.5/5 (8912 ratings)',
     'videoPlaceholder' => 'images/astrology webinar/convo graphology1.webp',
@@ -23,10 +23,10 @@ $iconsPath = 'images/icons';
 {{-- Top Cream Marquee Bar --}}
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
-        @foreach(range(1, 4) as $i)
-            <a href="{{ url('/checkout') }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                Reserve your seat @ ₹49 only  &nbsp;|&nbsp; Less than 10 seats left!
-            </a>
+        @foreach(range(1, 6) as $i)
+            <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap">
+                Offer closing soon — after this, registration fee will be ₹199.
+            </span>
         @endforeach
     </div>
 </div>
@@ -107,15 +107,15 @@ $ratingCount = $ratingParts[1] ?? '';
     </div>
     <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
         <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Bonus</p>
+            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Platform</p>
         </div>
-        <p class="font-bold text-accent-gold-light text-sm">Free Bonus Worth ₹999</p>
+        <p class="font-bold text-accent-gold-light text-sm">Live Webinar on Zoom</p>
     </div>
 </div>
 
 <x-ui.button :href="$ctaHref" variant="primary" class="w-full !py-4 !text-base font-bold">
-    Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+    Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹199</span>
 </x-ui.button>
 </div>
 
@@ -163,15 +163,15 @@ $ratingCount = $ratingParts[1] ?? '';
     </div>
     <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
         <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Bonus</p>
+            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Platform</p>
         </div>
-        <p class="font-bold text-accent-gold-light text-base">Free Bonus Worth ₹999</p>
+        <p class="font-bold text-accent-gold-light text-base">Live Webinar on Zoom</p>
     </div>
 </div>
 
 <x-ui.button :href="$ctaHref" variant="primary" class="!py-4 !text-base font-bold !min-w-0">
-    Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+    Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹199</span>
 </x-ui.button>
 </div>
 {{-- RIGHT SIDE --}}
