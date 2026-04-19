@@ -16,6 +16,11 @@ $publications = [
 
 <section class="w-full bg-white py-10 md:py-14">
 
+    {{-- Title --}}
+    <div class="text-center mb-8 section-px">
+        <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px]">{{ $title }}</h2>
+    </div>
+
     {{-- Scroll track — full width so overflow-x actually works --}}
     <div class="w-full overflow-x-auto scrollbar-hide" id="featured-slider">
         <div class="flex gap-6 px-4 md:px-6 lg:px-8 w-max">
@@ -31,7 +36,7 @@ $publications = [
                 </div>
 
                 {{-- Article screenshot --}}
-                <div class="w-full rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.12)] border border-neutral-100">
+                <div class="w-full rounded-2xl overflow-hidden border border-neutral-300">
                     <img src="{{ asset($pub['image']) }}" alt="{{ $pub['alt'] }} article"
                          class="w-full h-auto block" loading="lazy">
                 </div>

@@ -5,7 +5,7 @@
     'sessions' => [
         [
             'label'    => 'Session 1',
-            'title'    => 'Concept Learning:',
+            'title'    => 'Concept Learning :',
             'subtitle' => '',
             'bullets'  => [
                 'Learn how astrology guides life',
@@ -19,14 +19,14 @@
         ],
         [
             'label'    => 'Session 2',
-            'title'    => 'Practice with Worksheets:',
+            'title'    => 'Practice with Worksheets :',
             'subtitle' => "Don't just learn astrology concepts",
             'bullets'  => [],
             'description' => 'Practice them with guided worksheets that help you gain clarity and confidence.',
         ],
         [
             'label'    => 'Session 3',
-            'title'    => 'Live Q&A access:',
+            'title'    => 'Live Q&A access :',
             'subtitle' => 'No confusion left',
             'bullets'  => [],
             'description' => 'Get real time clarity in the live Q&A session where you can ask your question, clear your doubts and gain deeper understanding.',
@@ -48,15 +48,12 @@
             @foreach($sessions as $session)
             <div class="bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-sm border border-neutral-100">
 
-                {{-- Session pill --}}
+                {{-- Pill with title --}}
                 <div class="inline-flex">
                     <span class="bg-[#EDE7F6] text-[#5E3592] font-semibold text-sm px-5 py-1.5 rounded-full">
-                        {{ $session['label'] }}
+                        {{ $session['title'] }}
                     </span>
                 </div>
-
-                {{-- Title --}}
-                <h3 class="text-content font-bold text-neutral-b">{{ $session['title'] }}</h3>
 
                 {{-- Subtitle (purple) --}}
                 @if($session['subtitle'])

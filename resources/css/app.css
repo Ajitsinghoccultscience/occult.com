@@ -7,7 +7,7 @@
 
 @theme {
     /* ─── Typography (Roboto) ─── */
-    --font-sans: 'Roboto';
+    --font-sans: 'Poppins';
 
     /* Hero / Display - creates text-hero utility */
     --text-hero: 2.625rem; /* 42px */
@@ -58,7 +58,7 @@
     --gradient-button: linear-gradient(89.62deg, #e0ab40 11.31%, #faf094 45.56%, #faf094 52%, #e6bb53 90.24%);
 
     /* Astrology hero gradient */
-    --gradient-astro-hero: linear-gradient(to right, #1C023F 0%, #5E3592 100%);
+    --gradient-astro-hero: linear-gradient(to bottom, #1C023F 0%, #5E3592 100%);
 
     /* Graphology hero gradient */
     --gradient-grapho-hero: linear-gradient(to bottom, #04043A 0%, #202763 100%);
@@ -114,13 +114,21 @@
     --breakpoint-desktop: 1024px;
 }
 
+/* ─── Global base: span, ul, li consistent sizing ─── */
+span, ul, li, p {
+    font-size: 1rem;
+}
+ul {
+    margin-left: 1rem;
+}
+
 /* ─── Responsive typography & spacing: mobile (< 768px) ─── */
 @media (max-width: 767px) {
     :root {
         --text-hero: 2rem;           /* 32px */
         --text-heading: 1.375rem;    /* 22px */
         --text-subheading: 1.125rem; /* 18px */
-        --text-content: 0.875rem;    /* 14px */
+        --text-content: 1rem;        /* 16px */
         --space-section: 3.75rem;    /* 60px between sections */
     }
 }

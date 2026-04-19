@@ -1,6 +1,6 @@
 @props([
     'title' => 'Our Successfully certified Students',
-    'underlineWord' => 'astrologer',
+    'underlineWord' => 'Students',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
         'image/astrology assests/certified g1.webp',
@@ -16,10 +16,10 @@
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
         <div class="text-center mb-12 md:mb-16">
             <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">
-                Our certified
-                <span class="relative inline-block">
+                Our Successfully Certified
+                
                     {{ $underlineWord }}
-                </span>
+                
             </h2>
             <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
         </div>

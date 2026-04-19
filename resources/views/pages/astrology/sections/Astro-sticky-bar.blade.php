@@ -13,10 +13,10 @@
 <div id="sticky-offer-bar" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.10)]">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px py-3 flex items-center justify-between gap-4">
 
-        {{-- Left: label + timer + seats --}}
-        <div class="flex flex-col gap-1.5">
-            {{-- "OFFER ENDS IN" --}}
-            <span class="text-[11px] md:text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
+        {{-- Left: label above timer --}}
+        <div class="flex flex-col items-start gap-1 shrink-0">
+            {{-- Label --}}
+            <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5 whitespace-nowrap">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0"></span>
                 Registration Ends In
             </span>
@@ -32,7 +32,7 @@
                         <span class="text-neutral-b font-bold text-base leading-none mb-4 px-0.5">:</span>
                     @endif
                     <div class="flex flex-col items-center gap-0.5">
-                        <div class="border border-neutral-300 rounded px-2 py-1 min-w-[40px] md:min-w-[46px] text-center bg-white">
+                        <div class="border border-neutral-300 rounded px-1.5 py-1 min-w-[34px] md:min-w-[46px] text-center bg-white">
                             <span id="{{ $unit['id'] }}" class="text-neutral-b font-bold text-sm md:text-base leading-none tabular-nums">{{ str_pad($unit['val'], 2, '0', STR_PAD_LEFT) }}</span>
                         </div>
                         <span class="text-neutral-e text-[9px] md:text-[10px] leading-none">{{ $unit['label'] }}</span>
@@ -43,7 +43,7 @@
 
         {{-- Right: CTA button --}}
         <a href="{{ $ctaHref }}"
-           class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-sm md:text-base px-6 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
+           class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-xs md:text-base px-4 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
            style="background-color:#5E3592;">
             {{ $ctaText }}
         </a>
