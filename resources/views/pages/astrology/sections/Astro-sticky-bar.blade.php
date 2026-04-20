@@ -18,7 +18,7 @@
             {{-- Label --}}
             <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5 whitespace-nowrap">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0"></span>
-                Registration Ends In
+                Offer Ends In
             </span>
 
             {{-- Timer boxes --}}

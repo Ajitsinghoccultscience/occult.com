@@ -19,42 +19,20 @@
             <p class="text-content text-neutral-e">{{ $subtitle }}</p>
         </div>
 
-        {{-- Desktop: 3-column masonry layout --}}
-        <div class="hidden md:grid grid-cols-3 gap-4 items-start">
-
-            {{-- Col 1: 1 tall image --}}
-            <div class="flex flex-col gap-4">
+        {{-- Desktop: 2x2 grid (skip first image) --}}
+        @php $reviewImages = array_slice($images, 1); @endphp
+        <div class="hidden md:grid grid-cols-2 gap-4 max-w-[900px] mx-auto">
+            @foreach($reviewImages as $img)
                 <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[0]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+                    <img src="{{ asset($img) }}" alt="Review" class="w-full h-auto block" loading="lazy">
                 </div>
-            </div>
-
-            {{-- Col 2: 2 images stacked --}}
-            <div class="flex flex-col gap-4">
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[1]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[2]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-            </div>
-
-            {{-- Col 3: 2 images stacked --}}
-            <div class="flex flex-col gap-4">
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[3]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[4]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
-        {{-- Mobile: slider --}}
+        {{-- Mobile: slider (skip first image) --}}
         <div class="md:hidden w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory" id="astro-review-slider">
             <div class="flex gap-3 w-max px-1">
-                @foreach($images as $img)
+                @foreach($reviewImages as $img)
                     <div class="astro-review-slide shrink-0 w-[85vw] snap-center rounded-2xl overflow-hidden shadow-md border border-neutral-200 bg-white">
                         <img src="{{ asset($img) }}" alt="Review" class="w-full h-auto block" loading="lazy">
                     </div>
@@ -64,7 +42,7 @@
 
         {{-- Mobile dots --}}
         <div class="flex md:hidden justify-center gap-2 mt-5">
-            @foreach($images as $i => $img)
+            @foreach($reviewImages as $i => $img)
                 <button id="ar-dot-{{ $i }}" class="w-2 h-2 rounded-full transition-colors duration-300 bg-neutral-300"></button>
             @endforeach
         </div>

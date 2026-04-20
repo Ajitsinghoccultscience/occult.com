@@ -25,6 +25,8 @@
         ['icon' => null,                                       'value' => '97000+',   'label' => 'Certified Students'],
     ],
     'convocationGallery' => [
+        ['src' => 'image/astrology assests/institute/laxmi mam.webp',           'caption' => 'Our Trainer Laxmi Mam'],
+
         ['src' => 'image/astrology assests/institute/convocation.jpg',          'caption' => 'Convocation 2025'],
         ['src' => 'image/astrology assests/institute/MP-as_chief.jpg',          'caption' => 'MP as a Chief guest at our Convocation'],
         ['src' => 'image/astrology assests/institute/LampLighting.jpg',         'caption' => 'Lamp Lighting Ceremony'],
