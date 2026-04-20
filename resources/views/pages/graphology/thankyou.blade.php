@@ -89,7 +89,7 @@
                             <p class="text-sm text-gray-500 mt-0.5">You'll receive the webinar joining link inside the group</p>
                         </div>
                     </div>
-                    <a href="https://chat.whatsapp.com/F0VdT9ljhv2BbHsWJmbq3c"
+                    <a href="https://chat.whatsapp.com/LbpRef6d9we7RHzCh9jWtc  "
                        target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center justify-center gap-3 w-full max-w-xs mx-auto py-4 rounded-xl font-bold text-white text-base transition-all duration-200 hover:opacity-90 active:scale-95 shadow-md"
                        style="background:#25D366;">
