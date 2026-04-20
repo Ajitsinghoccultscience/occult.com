@@ -114,7 +114,7 @@
 
     function setDots(idx) {
         dots.forEach((d, i) => {
-            d.style.backgroundColor = i === idx ? '#5E3592' : '#d1d5db';
+            d.style.backgroundColor = i === idx ? '#800202' : '#d1d5db';
             d.style.width = i === idx ? '20px' : '8px';
         });
     }

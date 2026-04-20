@@ -65,7 +65,7 @@
                 </ul>
 
                 {{-- Counters card --}}
-                <div class="border-2 border-[#5E3592] rounded-2xl overflow-hidden mt-2">
+                <div class="border-2 border-[#800202] rounded-2xl overflow-hidden mt-2">
                     <div class="grid grid-cols-3 divide-x divide-neutral-200">
                         @foreach($counters as $counter)
                         <div class="flex flex-col items-center justify-center gap-2 py-5 px-3 text-center">

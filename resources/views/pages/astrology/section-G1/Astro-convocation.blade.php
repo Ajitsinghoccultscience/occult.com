@@ -83,7 +83,7 @@
         current = index;
         slider.scrollTo({ left: slides[current].offsetLeft - 16, behavior: 'smooth' });
         dots.forEach((d, i) => {
-            d.style.backgroundColor = i === current ? '#5E3592' : '#d6d6d6';
+            d.style.backgroundColor = i === current ? '#800202' : '#d6d6d6';
         });
     }
 

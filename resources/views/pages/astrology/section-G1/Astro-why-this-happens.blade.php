@@ -32,7 +32,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
             @foreach($cards as $card)
             <div class="flex items-center gap-4 bg-white border border-neutral-200 rounded-xl px-6 py-5 shadow-sm">
-                <div class="shrink-0 w-11 h-11 rounded-full bg-[#5E3592] flex items-center justify-center">
+                <div class="shrink-0 w-11 h-11 rounded-full bg-[#800202] flex items-center justify-center">
                     <span class="text-white font-bold text-lg leading-none">?</span>
                 </div>
                 <p class="text-content text-neutral-b leading-relaxed">{{ $card }}</p>
@@ -64,7 +64,7 @@
             @foreach($points as $point)
             <div class="flex items-start gap-3 bg-neutral-bg border border-neutral-200 rounded-lg px-4 py-4 shadow-sm">
                 <div class="shrink-0 mt-0.5">
-                    <svg class="w-5 h-5 text-[#5E3592]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-5 h-5 text-[#800202]" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z"/>
                     </svg>
                 </div>

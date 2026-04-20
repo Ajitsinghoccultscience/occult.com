@@ -55,7 +55,7 @@
                 <ul class="space-y-3 text-content text-neutral-b tracking-[0.48px]">
                     @foreach($bullets as $bullet)
                         <li class="flex items-start gap-3">
-                            <span class="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#5E3592;">
+                            <span class="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#800202;">
                                 <svg class="w-3 h-3 text-white" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                 </svg>

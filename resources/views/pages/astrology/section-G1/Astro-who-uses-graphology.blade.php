@@ -31,9 +31,9 @@
             @foreach($items as $item)
             <div class="bg-white rounded-2xl p-6 flex flex-col gap-3 shadow-sm border border-neutral-100">
 
-                {{-- Purple person icon --}}
-                <div class="w-9 h-9 rounded-full bg-[#EDE7F6] flex items-center justify-center">
-                    <svg class="w-5 h-5 text-[#5E3592]" fill="currentColor" viewBox="0 0 24 24">
+                {{-- Person icon --}}
+                <div class="w-9 h-9 rounded-full bg-[#ffdfdf] flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#800202]" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
                     </svg>
                 </div>

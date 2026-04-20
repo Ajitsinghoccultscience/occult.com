@@ -86,7 +86,7 @@
                     @endforeach
                 </ul>
                 {{-- Counters --}}
-                <div class="border-2 border-[#5E3592] rounded-2xl overflow-hidden">
+                <div class="border-2 border-[#800202] rounded-2xl overflow-hidden">
                     <div class="grid grid-cols-3 divide-x divide-neutral-200">
                         @foreach($counters as $counter)
                         <div class="flex flex-col items-center justify-center gap-2 py-5 px-2 text-center">
@@ -159,7 +159,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="shrink-0 w-[340px] xl:w-[380px] border-2 border-[#5E3592] rounded-2xl overflow-hidden">
+                <div class="shrink-0 w-[340px] xl:w-[380px] border-2 border-[#800202] rounded-2xl overflow-hidden">
                     <div class="grid grid-cols-3 divide-x divide-neutral-200">
                         @foreach($counters as $counter)
                         <div class="flex flex-col items-center justify-center gap-2 py-5 px-3 text-center">
