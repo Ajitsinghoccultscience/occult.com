@@ -52,20 +52,6 @@
         {{-- MOBILE (< lg): stacked --}}
         <div class="flex flex-col gap-8 lg:hidden">
 
-            {{-- Trainer --}}
-            <div class="flex flex-col items-center gap-4">
-                <div class="bg-black rounded-3xl overflow-hidden w-52">
-                    <img src="{{ asset($trainerImage) }}" alt="{{ $trainerName }}" class="w-full object-cover">
-                </div>
-                <div class="text-center">
-                    <h3 class="text-xl font-bold text-neutral-b">{{ $trainerName }} <span class="font-normal">({{ $trainerTitle }})</span></h3>
-                    <p class="text-sm text-[#5E3592] font-medium mt-1">({{ $trainerFaculty }})</p>
-                </div>
-                @foreach($description as $para)
-                    <p class="text-content text-neutral-b text-left">{{ $para }}</p>
-                @endforeach
-            </div>
-
             {{-- Institute image slider (mobile) --}}
             <div class="relative">
                 <div id="{{ $instSliderId }}-m" class="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-1">
@@ -119,26 +105,6 @@
 
         {{-- DESKTOP (lg+) --}}
         <div class="hidden lg:flex flex-col gap-10">
-
-            {{-- ROW 1: trainer image (small, left) + text (right) --}}
-            <div class="flex gap-10 items-center justify-center">
-                <div class="shrink-0 w-[320px] xl:w-[380px]">
-                    <div class="bg-black rounded-3xl overflow-hidden max-h-[320px] xl:max-h-[360px]">
-                        <img src="{{ asset($trainerImage) }}" alt="{{ $trainerName }}" class="w-full h-full object-cover object-top" loading="lazy">
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4 w-[40%] pt-2">
-                    <div>
-                        <h3 class="text-xl font-bold text-neutral-b">{{ $trainerName }} <span class="font-normal">({{ $trainerTitle }})</span></h3>
-                        <p class="text-sm text-[#5E3592] font-medium mt-1">{{ $trainerFaculty }}</p>
-                    </div>
-                    <div class="flex flex-col gap-3 text-content text-neutral-b">
-                        @foreach($description as $para)
-                            <p>{{ $para }}</p>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
 
             {{-- ROW 2: institute image slider (3 visible, desktop) --}}
             <div class="relative">

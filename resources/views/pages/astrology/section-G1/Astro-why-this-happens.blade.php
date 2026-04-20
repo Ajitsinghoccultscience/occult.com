@@ -43,7 +43,7 @@
         <p class="text-center text-content text-neutral-b font-medium mb-6">{{ $footerText }}</p>
 
         <div class="flex justify-center mb-14">
-            <x-ui.button :href="$ctaHref" variant="astro-cta" class="!min-w-0 !w-auto !px-12 !py-4 !rounded-xl !text-base tracking-wide">
+            <x-ui.button :href="$ctaHref" variant="astro-dark-red" class="!min-w-0 !w-auto !px-12 !py-4 !rounded-xl !text-base tracking-wide">
                 {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
             </x-ui.button>
         </div>

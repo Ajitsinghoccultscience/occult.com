@@ -18,7 +18,7 @@
                     </h2>
                     <p class="text-content text-neutral-b tracking-[0.48px] mb-8 text-center lg:text-left">{{ $body }}</p>
                     <div class="flex justify-center lg:justify-start">
-                        <x-ui.button :href="$ctaHref" variant="astro-cta" class="!min-w-0 !w-auto !px-8 !py-4 !rounded-xl !text-base tracking-wide">
+                        <x-ui.button :href="$ctaHref" variant="astro-dark-red" class="!min-w-0 !w-auto !px-8 !py-4 !rounded-xl !text-base tracking-wide">
                             Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span> 
                         </x-ui.button>
                     </div>

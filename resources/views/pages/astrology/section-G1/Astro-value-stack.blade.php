@@ -55,7 +55,7 @@
                                 <span class="text-content font-bold text-secondary">{{ $totalValue }}</span>
                             </div>
                             <div class="mt-10 flex justify-center">
-                                <x-ui.button :href="$ctaHref" variant="astro-cta" :fullWidth="true" class="!min-w-0 !py-4 !px-8 rounded-lg md:!w-auto">
+                                <x-ui.button :href="$ctaHref" variant="astro-dark-red" :fullWidth="true" class="!min-w-0 !py-4 !px-8 rounded-lg md:!w-auto">
                                     {{ $ctaText }} &#64;{{ $offerPrice }}
                                 </x-ui.button>
                             </div>

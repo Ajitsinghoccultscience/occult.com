@@ -25,6 +25,10 @@
         ['icon' => null,                                       'value' => '97000+',   'label' => 'Certified Students'],
     ],
     'convocationGallery' => [
+            ['src' => 'image/astrology assests/institute/laxmi mam.webp',           'caption' => 'Our Trainer Laxmi Mam'],
+
+        ['src' => 'image/astrology assests/institute/Lamp-lighting-event.jpg',  'caption' => 'Lamp Lighting Ceremony'],
+
         ['src' => 'image/astrology assests/institute/convocation.jpg',          'caption' => 'Convocation 2025'],
         ['src' => 'image/astrology assests/institute/MP-as_chief.jpg',          'caption' => 'MP as a Chief guest at our Convocation'],
         ['src' => 'image/astrology assests/institute/LampLighting.jpg',         'caption' => 'Lamp Lighting Ceremony'],
@@ -33,8 +37,7 @@
         ['src' => 'image/astrology assests/institute/Grand-convocation.jpg',    'caption' => 'Grand Convocation Ceremony'],
         ['src' => 'image/astrology assests/institute/Trusted-by.jpg',           'caption' => 'Annual Convocation'],
         ['src' => 'image/astrology assests/institute/intitute-event.jpg',       'caption' => 'Institute Event'],
-        ['src' => 'image/astrology assests/institute/Education-day.jpg',         'caption' => 'Our Certified Students'],
-        ['src' => 'image/astrology assests/institute/Lamp-lighting-event.jpg',  'caption' => 'Lamp Lighting Ceremony'],
+        ['src' => 'image/astrology assests/institute/Education-day.jpg',        'caption' => 'Our Certified Students'],
     ],
 ])
 
@@ -51,20 +54,6 @@
 
         {{-- MOBILE (< lg): stacked --}}
         <div class="flex flex-col gap-8 lg:hidden">
-
-            {{-- Trainer --}}
-            <div class="flex flex-col items-center gap-4">
-                <div class="bg-black rounded-3xl overflow-hidden w-52">
-                    <img src="{{ asset($trainerImage) }}" alt="{{ $trainerName }}" class="w-full object-cover">
-                </div>
-                <div class="text-center">
-                    <h3 class="text-xl font-bold text-neutral-b">{{ $trainerName }} <span class="font-normal">({{ $trainerTitle }})</span></h3>
-                    <p class="text-sm text-[#5E3592] font-medium mt-1">({{ $trainerFaculty }})</p>
-                </div>
-                @foreach($description as $para)
-                    <p class="text-content text-neutral-b text-left">{{ $para }}</p>
-                @endforeach
-            </div>
 
             {{-- Institute image slider (mobile) --}}
             <div class="relative">
@@ -119,26 +108,6 @@
 
         {{-- DESKTOP (lg+) --}}
         <div class="hidden lg:flex flex-col gap-10">
-
-            {{-- ROW 1: trainer image (small, left) + text (right) --}}
-            <div class="flex gap-10 items-center justify-center">
-                <div class="shrink-0 w-[320px] xl:w-[380px]">
-                    <div class="bg-black rounded-3xl overflow-hidden max-h-[320px] xl:max-h-[360px]">
-                        <img src="{{ asset($trainerImage) }}" alt="{{ $trainerName }}" class="w-full h-full object-cover object-top" loading="lazy">
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4 w-[40%] pt-2">
-                    <div>
-                        <h3 class="text-xl font-bold text-neutral-b">{{ $trainerName }} <span class="font-normal">({{ $trainerTitle }})</span></h3>
-                        <p class="text-sm text-[#5E3592] font-medium mt-1">{{ $trainerFaculty }}</p>
-                    </div>
-                    <div class="flex flex-col gap-3 text-content text-neutral-b">
-                        @foreach($description as $para)
-                            <p>{{ $para }}</p>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
 
             {{-- ROW 2: institute image slider (3 visible, desktop) --}}
             <div class="relative">
@@ -211,7 +180,7 @@
 
             {{-- ROW 5: CTA centered --}}
             <div class="flex justify-center">
-                <x-ui.button :href="$ctaHref" variant="red" class="!py-4 !text-base font-bold !min-w-0">
+                <x-ui.button :href="$ctaHref" variant="astro-dark-red" class="!py-4 !text-base font-bold !min-w-0">
                     {{ $ctaText }} <span class="line-through opacity-70 ml-1">{{ $ctaPriceStruck }}</span>
                 </x-ui.button>
             </div>

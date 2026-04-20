@@ -44,7 +44,7 @@
         {{-- Right: CTA button --}}
         <a href="{{ $ctaHref }}"
            class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-xs md:text-base px-4 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
-           style="background-color:#dc2626;">
+           style="background-color:#810202;">
             {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
         </a>
 

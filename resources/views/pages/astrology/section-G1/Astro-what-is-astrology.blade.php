@@ -66,7 +66,7 @@
                 </ul>
 
                 <div>
-                    <x-ui.button :href="$ctaHref" variant="astro-cta" class="!py-4 !text-base font-bold !min-w-0">
+                    <x-ui.button :href="$ctaHref" variant="astro-dark-red" class="!py-4 !text-base font-bold !min-w-0">
                         Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
                     </x-ui.button>
                 </div>

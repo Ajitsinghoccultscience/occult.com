@@ -62,7 +62,7 @@
 
         {{-- CTA --}}
         <div class="flex justify-center mt-10 md:mt-12 section-px">
-            <x-ui.button :href="$ctaHref" variant="red" class="!min-w-0 !py-4 !text-base font-bold w-full md:w-auto">
+            <x-ui.button :href="$ctaHref" variant="astro-dark-red" class="!min-w-0 !py-4 !text-base font-bold w-full md:w-auto">
                 Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
             </x-ui.button>
         </div>
