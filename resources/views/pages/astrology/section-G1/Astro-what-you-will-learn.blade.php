@@ -50,14 +50,14 @@
 
                 {{-- Pill with title --}}
                 <div class="inline-flex">
-                    <span class="bg-[#EDE7F6] text-[#5E3592] font-semibold text-sm px-5 py-1.5 rounded-full">
+                    <span class="bg-[#ffdfdf] text-[#800202] font-semibold text-sm px-5 py-1.5 rounded-full">
                         {{ $session['title'] }}
                     </span>
                 </div>
 
                 {{-- Subtitle (purple) --}}
                 @if($session['subtitle'])
-                    <p class="text-[#5E3592] text-content font-medium -mt-2">{{ $session['subtitle'] }}</p>
+                    <p class="text-[#800202] text-content font-medium -mt-2">{{ $session['subtitle'] }}</p>
                 @endif
 
                 {{-- Bullets --}}

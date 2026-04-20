@@ -37,7 +37,7 @@
                 <div class="border-2 border-neutral-b rounded-full px-5 py-1.5">
                     <span class="text-sm font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
                 </div>
-                <h3 class="text-base font-bold text-[#5E3592] text-center">{{ $bonus['title'] }}</h3>
+                <h3 class="text-base font-bold text-[#800202] text-center">{{ $bonus['title'] }}</h3>
                 <div class="w-full flex items-center justify-center">
                     <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[160px] object-contain" loading="lazy">
                 </div>
@@ -52,7 +52,7 @@
                 <div class="border-2 border-neutral-b rounded-full px-6 py-1.5">
                     <span class="text-content font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
                 </div>
-                <h3 class="text-subheading font-bold text-[#5E3592] text-center">{{ $bonus['title'] }}</h3>
+                <h3 class="text-subheading font-bold text-[#800202] text-center">{{ $bonus['title'] }}</h3>
                 <div class="w-full flex items-center justify-center">
                     <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[200px] object-contain" loading="lazy">
                 </div>
