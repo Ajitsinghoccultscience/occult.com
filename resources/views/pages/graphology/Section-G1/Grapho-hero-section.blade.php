@@ -6,7 +6,7 @@
         "It reveals hidden traits, emotions, and thinking patterns through writing style.",
         "It helps in self-discovery, relationship understanding, and decision-making.",
     ],
-    'date' => 'Sat, 18th April, 2026',
+    'date' => 'Sun, 26 April, 2026',
     'time' => '1:00 PM to 3:00 PM',
     'duration' => '2 hours',
     'alumniCount' => '18k+',
