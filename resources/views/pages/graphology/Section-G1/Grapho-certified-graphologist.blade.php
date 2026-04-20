@@ -17,9 +17,9 @@
         <div class="text-center mb-12 md:mb-16">
             <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">
                 Our Certified
-                <span class="relative inline-block">
+                
                     {{ $underlineWord }}
-                </span>
+                
             </h2>
             <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
         </div>
