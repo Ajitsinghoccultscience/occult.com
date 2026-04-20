@@ -37,7 +37,7 @@ $sliderId = 'slider-' . uniqid();
 </div>
 
 
-<section class="bg-astro-hero-gradient text-white transition-[padding,gap] duration-300 ease-in-out">
+<section class="bg-astro-hero-gradient-red text-white transition-[padding,gap] duration-300 ease-in-out">
 
 <div class="max-w-[1400px] mx-auto section-px xl:pl-6 xl:pr-0 py-5 xl:py-10 transition-[padding,gap,max-width] duration-300 ease-in-out">
 

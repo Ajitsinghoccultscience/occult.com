@@ -1,6 +1,6 @@
 @props([
     'title' => 'Value Stack',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'pricingItems' => [
         ['label' => '3 Hour Live Training', 'price' => '₹379'],
         ['label' => 'Practice Worksheet',   'price' => '₹149'],
@@ -55,8 +55,8 @@
                                 <span class="text-content font-bold text-secondary">{{ $totalValue }}</span>
                             </div>
                             <div class="mt-10 flex justify-center">
-                                <x-ui.button :href="$ctaHref" variant="primary" :fullWidth="true" class="!min-w-0 !text-neutral-b !py-4 !px-8 rounded-lg md:!w-auto">
-                                    {{ $ctaText }} &#64;{{ $offerPrice }} <span class="line-through opacity-90 ml-1">{{ $originalPrice }}</span>
+                                <x-ui.button :href="$ctaHref" variant="astro-cta" :fullWidth="true" class="!min-w-0 !py-4 !px-8 rounded-lg md:!w-auto">
+                                    {{ $ctaText }} &#64;{{ $offerPrice }}
                                 </x-ui.button>
                             </div>
                         </x-ui.card>
@@ -113,3 +113,5 @@
         </div>
     </div>
 </section>
+
+

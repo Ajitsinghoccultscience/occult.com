@@ -1,14 +1,14 @@
 @props([
     'title' => 'MEGA GRAPHOLOGY WEBINAR',
-    'subtitle' => "Logon ko better samajhna hai? Join this 3-hour Graphology webinar and read personality through handwriting",
+    'subtitle' => "Logon ko better samajhna hai? Join this 2-hour Graphology webinar and read personality through handwriting",
     'bullets' => [
         'It is the art and science of analyzing handwriting to understand the human mind.',
         "It reveals hidden traits, emotions, and thinking patterns through writing style.",
         "It helps in self-discovery, relationship understanding, and decision-making.",
     ],
     'date' => 'Sat, 18th April, 2026',
-    'time' => '04:00 PM to 07:00 PM',
-    'duration' => '3 hours',
+    'time' => '1:00 PM to 3:00 PM',
+    'duration' => '2 hours',
     'alumniCount' => '18k+',
     'rating' => '4.5/5 (8912 ratings)',
     'videoPlaceholder' => 'image/astrology assests/hero section.png',
@@ -97,7 +97,7 @@ $ratingCount = $ratingParts[1] ?? '';
             <img src="{{ asset($iconsPath.'/duration.svg') }}" class="w-4 h-4 shrink-0">
             <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Duration</p>
         </div>
-        <p class="font-bold text-accent-gold-light text-sm">3 Hours Live Webinar</p>
+        <p class="font-bold text-accent-gold-light text-sm">2 Hours Live Webinar</p>
     </div>
     <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
         <div class="flex items-center gap-2">
@@ -152,7 +152,7 @@ $ratingCount = $ratingParts[1] ?? '';
             <img src="{{ asset($iconsPath.'/duration.svg') }}" class="w-4 h-4 shrink-0">
             <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Duration</p>
         </div>
-        <p class="font-bold text-accent-gold-light text-base">3 Hours Live Webinar</p>
+        <p class="font-bold text-accent-gold-light text-base">2 Hours Live Webinar</p>
     </div>
     <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
         <div class="flex items-center gap-2">

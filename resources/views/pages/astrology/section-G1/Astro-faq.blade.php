@@ -1,6 +1,6 @@
 @props([
     'title' => 'FAQ (Frequently Asked Questions)',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'items' => [
         [
             'question' => 'Is this webinar suitable for absolute beginners?',
@@ -58,3 +58,5 @@
         </div>
     </div>
 </section>
+
+

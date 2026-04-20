@@ -1,6 +1,6 @@
 @props([
     'title' => 'What is Graphology?',
-    'underlineSvg' => 'images/graphology image/underline 9.svg',
+    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'bullets' => [
         'It is the art and science of analyzing handwriting to understand the human mind.',
         'Able to learn signature analysis and graphotherapy to help people overcome negative personality traits.',
@@ -50,3 +50,5 @@
         </div>
     </div>
 </section>
+
+

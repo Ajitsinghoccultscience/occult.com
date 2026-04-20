@@ -60,6 +60,9 @@
     /* Astrology hero gradient */
     --gradient-astro-hero: linear-gradient(to bottom, #1C023F 0%, #5E3592 100%);
 
+    /* Astrology hero red variant */
+    --gradient-astro-hero-red: linear-gradient(to bottom, #810202 0%, #630101 100%);
+
     /* Graphology hero gradient */
     --gradient-grapho-hero: linear-gradient(to bottom, #04043A 0%, #202763 100%);
 
@@ -154,6 +157,9 @@ ul {
     }
     .bg-astro-hero-gradient {
         background-image: var(--gradient-astro-hero);
+    }
+    .bg-astro-hero-gradient-red {
+        background-image: var(--gradient-astro-hero-red);
     }
     .bg-grapho-hero-gradient {
         background-image: var(--gradient-grapho-hero);
