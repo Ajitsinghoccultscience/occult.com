@@ -1,5 +1,4 @@
 @props([
-    'text' => 'Unlock the hidden secrets of the stars in our exclusive Astrology Webinar and discover what every planet reveals about your personality, emotions, and life potential',
     'ctaText' => 'Reserve Seat @₹49',
     'ctaHref' => '#',
 ])
