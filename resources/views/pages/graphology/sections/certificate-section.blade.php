@@ -25,7 +25,7 @@
                 <p class="text-content text-neutral-b tracking-[0.48px] text-center">{{ $body }}</p>
                 <div class="flex justify-center">
                     <x-ui.button :href="$ctaHref" variant="dark" :compact="true" class="!min-w-0">
-                        Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+                        Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
                     </x-ui.button>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <img src="{{ asset($underlineSvg) }}" alt="" class="w-[157px] h-[14px] mb-6" aria-hidden="true">
                     <p class="text-content text-neutral-b tracking-[0.48px] mb-8">{{ $body }}</p>
                     <x-ui.button :href="$ctaHref" variant="dark" :compact="true" class="!min-w-0 self-start">
-                        Reserve My Seat @₹49 <span class="line-through opacity-80 ml-1">₹999</span>
+                        Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
                     </x-ui.button>
                 </div>
                 <div class="flex items-center justify-center">

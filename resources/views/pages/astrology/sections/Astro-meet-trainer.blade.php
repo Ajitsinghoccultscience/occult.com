@@ -8,7 +8,7 @@
         "A B.Tech Computer Science Engineer and a Master's graduate in Astrology from the All India Institute of Occult Science, Delhi, Laxmi blends analytical thinking with spiritual wisdom.",
         "She is dedicated to guiding individuals toward self-awareness through the principles of Vedic astrology.",
     ],
-    'ctaText'       => 'Reserve My Seat @₹49',
+    'ctaText'       => 'Reserve Seat @₹49',
     'ctaPriceStruck' => '₹199',
     'ctaHref'       => '#',
     'trainerImage'  => 'image/astrology%20assests/laxmi%20mam.png',

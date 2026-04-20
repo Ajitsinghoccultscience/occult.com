@@ -1,9 +1,9 @@
 @props([
     'ctaHref' => '#',
-    'ctaText' => 'Reserve My Seat @₹49',
-    'days'    => 4,
+    'ctaText' => 'Reserve Seat @₹49',
+    'days'    => 0,
     'hours'   => 0,
-    'minutes' => 0,
+    'minutes' => 45,
     'seconds' => 0,
 ])
 
@@ -64,7 +64,7 @@
         {{-- Right: CTA button --}}
         <a href="{{ $ctaHref }}"
            class="bg-neutral-b text-neutral-i font-bold text-xs md:text-base px-3 md:px-8 py-2.5 md:py-3 rounded-10 whitespace-nowrap hover:bg-neutral-a transition-colors duration-200 shrink-0 text-center">
-            {{ $ctaText }}
+            {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
         </a>
 
     </div>

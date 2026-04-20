@@ -1,6 +1,6 @@
 @props([
     'text' => 'Unlock the hidden secrets of the stars in our exclusive Astrology Webinar and discover what every planet reveals about your personality, emotions, and life potential',
-    'ctaText' => 'Register Now @₹49',
+    'ctaText' => 'Reserve Seat @₹49',
     'ctaHref' => '#',
 ])
 
@@ -10,7 +10,7 @@
             {{ $text }}
         </p>
         <x-ui.button :href="$ctaHref" variant="astro">
-            {{ $ctaText }}
+            {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
         </x-ui.button>
     </div>
 </section>

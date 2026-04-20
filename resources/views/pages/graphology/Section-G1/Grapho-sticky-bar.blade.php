@@ -3,10 +3,10 @@
 
 @props([
     'ctaHref' => '#',
-    'ctaText' => 'Reserve My Seat @₹49',
+    'ctaText' => 'Reserve Seat @₹49',
     'seats'   => '7',
-    'hours'   => 6,
-    'minutes' => 0,
+    'hours'   => 0,
+    'minutes' => 45,
     'seconds' => 0,
 ])
 
@@ -48,7 +48,7 @@
         <a href="{{ $ctaHref }}"
            class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-sm md:text-base px-6 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
            style="background-color: #191F59;">
-            {{ $ctaText }}
+            {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
         </a>
 
     </div>
@@ -60,7 +60,13 @@
 <script defer>
 (function () {
     const TOTAL = {{ ($hours * 3600) + ($minutes * 60) + $seconds }};
-    let remaining = TOTAL;
+    const KEY = 'graphology_offer_timer_end';
+
+    let endTime = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (!endTime || endTime <= Date.now()) {
+        endTime = Date.now() + TOTAL * 1000;
+        localStorage.setItem(KEY, endTime);
+    }
 
     const elH = document.getElementById('sb-hours');
     const elM = document.getElementById('sb-mins');
@@ -74,7 +80,13 @@
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function tick() {
-        if (remaining <= 0) remaining = TOTAL;
+        let remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+        if (remaining <= 0) {
+            endTime = Date.now() + TOTAL * 1000;
+            localStorage.setItem(KEY, endTime);
+            remaining = TOTAL;
+        }
+
         const d = Math.floor(remaining / 86400);
         const h = Math.floor((remaining % 86400) / 3600);
         const m = Math.floor((remaining % 3600) / 60);
@@ -88,8 +100,6 @@
         if (vsH) vsH.textContent = pad(h);
         if (vsM) vsM.textContent = pad(m);
         if (vsS) vsS.textContent = pad(s);
-
-        remaining--;
     }
 
     tick();

@@ -73,11 +73,7 @@
                         <span class="text-sm font-semibold text-gray-600">⚡ Offer closes in</span>
                         <div class="flex items-center gap-1">
                             <div class="bg-gray-900 rounded px-2 py-1 min-w-[32px] text-center">
-                                <span id="co-hours" class="text-white font-bold text-sm tabular-nums">06</span>
-                            </div>
-                            <span class="text-gray-500 font-bold text-sm">:</span>
-                            <div class="bg-gray-900 rounded px-2 py-1 min-w-[32px] text-center">
-                                <span id="co-mins" class="text-white font-bold text-sm tabular-nums">00</span>
+                                <span id="co-mins" class="text-white font-bold text-sm tabular-nums">45</span>
                             </div>
                             <span class="text-gray-500 font-bold text-sm">:</span>
                             <div class="bg-gray-900 rounded px-2 py-1 min-w-[32px] text-center">
@@ -143,17 +139,16 @@
 </div>
 
 <script defer>
-// Countdown timer — 3 hours, persists across page refreshes via localStorage
+// Countdown timer — 45 min, persists across page refreshes via localStorage
 (function () {
-    var DURATION = 3 * 3600 * 1000; // 3 hours in ms
-    var KEY = 'offer_timer_end';
+    var DURATION = 45 * 60 * 1000;
+    var KEY = 'astrology_offer_timer_end';
     var now = Date.now();
     var end = parseInt(localStorage.getItem(KEY), 10);
     if (!end || end <= now) {
         end = now + DURATION;
         localStorage.setItem(KEY, end);
     }
-    var elH = document.getElementById('co-hours');
     var elM = document.getElementById('co-mins');
     var elS = document.getElementById('co-secs');
     function pad(n) { return String(n).padStart(2, '0'); }
@@ -164,8 +159,7 @@
             localStorage.setItem(KEY, end);
             remaining = DURATION / 1000;
         }
-        elH.textContent = pad(Math.floor(remaining / 3600));
-        elM.textContent = pad(Math.floor((remaining % 3600) / 60));
+        elM.textContent = pad(Math.floor(remaining / 60));
         elS.textContent = pad(remaining % 60);
     }
     tick();

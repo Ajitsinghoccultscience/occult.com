@@ -59,6 +59,22 @@
                 <p class="text-base text-gray-500 mt-1">Your seat is reserved for the <span class="font-semibold text-gray-700">Mega Graphology Webinar</span></p>
             </div>
 
+            {{-- Event pills --}}
+            <div class="flex flex-wrap justify-center gap-3">
+                <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700">
+                    <svg class="w-4 h-4 text-gray-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                    </svg>
+                    Sun, 26 April 2026
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700">
+                    <svg class="w-4 h-4 text-gray-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/>
+                    </svg>
+                    1:00 PM – 3:00 PM IST
+                </div>
+            </div>
+
             <div class="w-full border-t border-gray-100"></div>
 
             {{-- Steps --}}
@@ -89,8 +105,8 @@
                 <div class="w-full rounded-2xl border border-gray-200 bg-gray-50 p-5 flex items-start gap-4 text-left">
                     <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center shrink-0 text-gray-600 font-bold text-sm">2</div>
                     <div>
-                        <p class="font-bold text-gray-900 text-base">Attend the Live Webinar</p>
-                        <p class="text-sm text-gray-500 mt-0.5">Join on time and learn the secrets of Graphology live</p>
+                        <p class="font-bold text-gray-900 text-base">Attend Live on April 26th</p>
+                        <p class="text-sm text-gray-500 mt-0.5">Join at 1:00 PM IST and decode personalities through handwriting live</p>
                     </div>
                 </div>
 

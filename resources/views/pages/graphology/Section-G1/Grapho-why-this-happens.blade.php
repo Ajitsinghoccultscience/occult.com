@@ -8,7 +8,7 @@
         'Can someone understand you just by your handwriting?',
     ],
     'footerText' => 'Your handwriting knows more about you than you think',
-    'ctaText'    => 'Unlock Hidden Secrets @₹49',
+    'ctaText'    => 'Reserve Seat @₹49',
     'ctaHref'    => '#',
     'helpsTitle' => 'How Graphology helps you to understand your life better',
     'points' => [
@@ -44,7 +44,7 @@
 
         <div class="flex justify-center mb-14">
             <x-ui.button :href="$ctaHref" variant="grapho-cta" class="!min-w-0 !w-auto !px-12 !py-4 !rounded-xl !text-base tracking-wide">
-                {{ $ctaText }}
+                {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
             </x-ui.button>
         </div>
 

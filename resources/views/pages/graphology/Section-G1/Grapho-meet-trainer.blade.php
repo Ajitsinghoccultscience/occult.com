@@ -8,8 +8,8 @@
         "He belongs to Kota, holds a BSc in Mathematics and a Master's in Psychology. He has earned a Diploma and a Master's in Graphology, shaping his expertise in handwriting analysis.",
         "Known for his adaptability, trustworthiness, and adventurous spirit, he now teaches Graphology at the All India Institute of Occult Science.",
     ],
-    'ctaText' => 'Reserve My Seat @₹49',
-    'ctaPriceStruck' => '₹999',
+    'ctaText' => 'Reserve Seat @₹49',
+    'ctaPriceStruck' => '₹199',
     'ctaHref' => '#',
     'image' => 'image/graphology%20assests/pawan%20sir.jpg',
 ])

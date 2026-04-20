@@ -30,11 +30,8 @@
                 {{-- Webinar title + date/time --}}
                 <div>
                     <h1 class="text-lg lg:text-2xl font-bold text-gray-900 mb-1">Mega Graphology Webinar</h1>
-                    <p class="text-xs lg:text-sm text-gray-500">Live · Online (Zoom)</p>
+                    <p class="text-xs lg:text-sm text-gray-500">Sun, 26 April 2026 &nbsp;·&nbsp; 1:00 PM – 3:00 PM IST</p>
                 </div>
-
-                {{-- Divider --}}
-                <div class="border-t border-gray-200"></div>
 
                 {{-- Divider (desktop only) --}}
                 <div class="hidden lg:block border-t border-gray-200"></div>
@@ -76,11 +73,7 @@
                         <span class="text-sm font-semibold text-gray-600">⚡ Offer closes in</span>
                         <div class="flex items-center gap-1">
                             <div class="bg-gray-900 rounded px-2 py-1 min-w-[32px] text-center">
-                                <span id="co-hours" class="text-white font-bold text-sm tabular-nums">06</span>
-                            </div>
-                            <span class="text-gray-500 font-bold text-sm">:</span>
-                            <div class="bg-gray-900 rounded px-2 py-1 min-w-[32px] text-center">
-                                <span id="co-mins" class="text-white font-bold text-sm tabular-nums">00</span>
+                                <span id="co-mins" class="text-white font-bold text-sm tabular-nums">45</span>
                             </div>
                             <span class="text-gray-500 font-bold text-sm">:</span>
                             <div class="bg-gray-900 rounded px-2 py-1 min-w-[32px] text-center">
@@ -145,16 +138,16 @@
 </div>
 
 <script defer>
-// Countdown timer — 3 hours, persists across page refreshes
+// Countdown timer — 45 min, persists across page refreshes
 (function () {
-    var DURATION = 3 * 3600 * 1000;
-    var KEY = 'offer_timer_end';
+    var DURATION = 45 * 60 * 1000;
+    var KEY = 'graphology_offer_timer_end';
+    var now = Date.now();
     var end = parseInt(localStorage.getItem(KEY), 10);
-    if (!end || end <= Date.now()) {
-        end = Date.now() + DURATION;
+    if (!end || end <= now) {
+        end = now + DURATION;
         localStorage.setItem(KEY, end);
     }
-    var elH = document.getElementById('co-hours');
     var elM = document.getElementById('co-mins');
     var elS = document.getElementById('co-secs');
     function pad(n) { return String(n).padStart(2, '0'); }
@@ -165,8 +158,7 @@
             localStorage.setItem(KEY, end);
             remaining = DURATION / 1000;
         }
-        elH.textContent = pad(Math.floor(remaining / 3600));
-        elM.textContent = pad(Math.floor((remaining % 3600) / 60));
+        elM.textContent = pad(Math.floor(remaining / 60));
         elS.textContent = pad(remaining % 60);
     }
     tick();
@@ -192,9 +184,12 @@
             if (d.action === 'setHeight' && d.height) {
                 iframe.style.height = (parseInt(d.height, 10) + 40) + 'px';
             }
-            if (d.type === 'zoho_form_submitted' || d.action === 'zf_submitted' || d.action === 'submitComplete') {
-                doRedirect();
-            }
+            if (
+                d.type === 'zoho_form_submitted' ||
+                d.action === 'zf_submitted' ||
+                d.action === 'submitComplete' ||
+                d.zf_event === 'formSubmit'
+            ) { doRedirect(); }
         }
         if (typeof e.data === 'string') {
             var parts = e.data.split('|');
@@ -204,9 +199,12 @@
             if (!isNaN(parseInt(e.data, 10)) && parts.length === 1) {
                 iframe.style.height = (parseInt(e.data, 10) + 40) + 'px';
             }
-            if (e.data.indexOf('zf_submitted') !== -1 || e.data.indexOf('submitComplete') !== -1) {
-                doRedirect();
-            }
+            if (
+                e.data === 'zf_submitted' ||
+                e.data.indexOf('zf_submitted') !== -1 ||
+                e.data.indexOf('submitComplete') !== -1 ||
+                e.data.indexOf('formSubmit') !== -1
+            ) { doRedirect(); }
         }
     }, false);
 
@@ -214,7 +212,12 @@
         try {
             var href = iframe.contentWindow.location.href;
             if (!href || href === 'about:blank') return;
-            if (href.indexOf('zohopublic') === -1 || href.indexOf('thankyou') !== -1 || href.indexOf('success') !== -1) {
+            if (
+                href.indexOf('zohopublic') === -1 ||
+                href.indexOf('thankyou') !== -1 ||
+                href.indexOf('thank-you') !== -1 ||
+                href.indexOf('success') !== -1
+            ) {
                 clearInterval(poll);
                 doRedirect();
             }

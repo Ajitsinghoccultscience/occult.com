@@ -8,7 +8,7 @@
         'Everything feels right..phir bhi relationship work nahi karta.',
     ],
     'footerText' => 'Every answer you are looking for could be in your Kundali',
-    'ctaText'    => 'Unlock Hidden Secrets @₹49',
+    'ctaText'    => 'Reserve Seat @₹49',
     'ctaHref'    => '#',
     'helpsTitle' => 'How Astrology helps you to understand your life better',
     'points' => [
@@ -44,7 +44,7 @@
 
         <div class="flex justify-center mb-14">
             <x-ui.button :href="$ctaHref" variant="astro-cta" class="!min-w-0 !w-auto !px-12 !py-4 !rounded-xl !text-base tracking-wide">
-                {{ $ctaText }}
+                {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
             </x-ui.button>
         </div>
 

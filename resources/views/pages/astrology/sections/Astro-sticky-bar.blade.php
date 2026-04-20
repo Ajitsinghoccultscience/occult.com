@@ -3,10 +3,10 @@
 
 @props([
     'ctaHref' => '#',
-    'ctaText' => 'Reserve My Seat @₹49',
+    'ctaText' => 'Reserve Seat @₹49',
     'seats'   => '7',
-    'hours'   => 3,
-    'minutes' => 0,
+    'hours'   => 0,
+    'minutes' => 45,
     'seconds' => 0,
 ])
 
@@ -45,7 +45,7 @@
         <a href="{{ $ctaHref }}"
            class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-xs md:text-base px-4 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
            style="background-color:#5E3592;">
-            {{ $ctaText }}
+            {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
         </a>
 
     </div>
@@ -57,7 +57,7 @@
 <script defer>
 (function () {
     const TOTAL = {{ ($hours * 3600) + ($minutes * 60) + $seconds }};
-    const KEY = 'offer_timer_end';
+    const KEY = 'astrology_offer_timer_end';
 
     // On first visit store the end timestamp; on refresh reuse it
     let endTime = parseInt(localStorage.getItem(KEY) || '0', 10);
