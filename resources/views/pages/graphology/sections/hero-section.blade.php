@@ -12,7 +12,7 @@
     'duration' => '2 hours',
     'alumniCount' => '18k+',
     'rating' => '4.5/5 (8912 ratings)',
-    'videoPlaceholder' => 'images/assets desktop/convo graphology1.webp',
+    'videoPlaceholder' => 'image/astrology assests/institute/2025-09-14 (1) (1).webp',
     'ctaHref' => '#',
 ])
 
@@ -47,7 +47,7 @@ $iconsPath = 'images/icons';
     </div>
 </div>
 <h1 class="text-hero font-bold text-button-gradient uppercase tracking-wide text-center">{{ $title }}</h1>
-<div class="w-full aspect-[4/3] min-h-[14rem] bg-neutral-e rounded-10 overflow-hidden flex items-center justify-center">
+<div class="w-full aspect-[4/3] min-h-[14rem] bg-neutral-e rounded-10 overflow-hidden flex items-center justify-center relative">
     @if($videoPlaceholder)
         <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
     @else
@@ -56,6 +56,10 @@ $iconsPath = 'images/icons';
             <span class="text-sm">Loading...</span>
         </div>
     @endif
+    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 py-3 flex flex-col gap-0.5">
+        <p class="text-xs uppercase tracking-widest font-semibold text-accent-gold-light">Annual</p>
+        <p class="text-base font-bold text-white leading-tight">Convocation 2025</p>
+    </div>
 </div>
 @php
 $ratingParts = preg_split('/\s+(?=\()/', $rating, 2);

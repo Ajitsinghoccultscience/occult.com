@@ -11,7 +11,7 @@
     'duration' => '2 hours',
     'alumniCount' => '18k+',
     'rating' => '4.5/5 (8912 ratings)',
-    'videoPlaceholder' => 'image/astrology assests/hero section.png',
+    'videoPlaceholder' => 'image/astrology assests/institute/2025-09-14 (1) (1).webp',
     'youtubeId' => 'sSqUxmlI11A',
     'ctaHref' => '#',
 ])

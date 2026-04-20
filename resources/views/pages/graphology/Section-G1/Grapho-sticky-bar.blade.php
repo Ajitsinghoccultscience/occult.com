@@ -40,8 +40,7 @@
                 @endforeach
             </div>
 
-            {{-- Seats left --}}
-            <span class="text-[10px] md:text-xs text-neutral-e">(Only {{ $seats }} seats are left)</span>
+            
         </div>
 
         {{-- Right: CTA button --}}

@@ -17,12 +17,13 @@
     @include('pages.astrology.section-G1.Astro-bonus', ['ctaHref' => url('/astrology-checkout')])
     @include('pages.astrology.section-G1.Astro-workshop-snapshots')
     @include('pages.astrology.section-G1.Astro-who-uses-graphology')
+    @include('pages.astrology.section-G1.Astro-meet-trainer', ['ctaHref' => url('/astrology-checkout')])
+
     @include('pages.astrology.section-G1.Astro-video-testimonials')
     @include('pages.astrology.section-G1.Astro-certified-graphologist')
-    @include('pages.astrology.section-G1.Astro-testimonials')
-    @include('pages.astrology.section-G1.Astro-review-images')
     @include('pages.astrology.section-G1.Astro-podcast')
-    @include('pages.astrology.section-G1.Astro-meet-trainer', ['ctaHref' => url('/astrology-checkout')])
+    @include('pages.astrology.section-G1.Astro-testimonials')
+
     @include('pages.astrology.section-G1.Astro-faq')
     @include('pages.astrology.section-G1.Astro-end-section', ['ctaHref' => url('/astrology-checkout')])
     @include('pages.astrology.section-G1.Astro-sticky-bar', ['ctaHref' => url('/astrology-checkout')])

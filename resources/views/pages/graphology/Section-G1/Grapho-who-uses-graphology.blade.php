@@ -1,5 +1,5 @@
 @props([
-    'title'       => 'Who is this Webinar for',
+    'title'       => 'Register for this webinar if you are',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'items' => [
         [

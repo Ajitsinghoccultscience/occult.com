@@ -128,7 +128,6 @@ $sliderId = 'slider-' . uniqid();
 {{-- LEFT SIDE --}}
 <div class="w-[55%] shrink-0">
 <h1 class="text-2xl font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
-<p class="text-neutral-i text-lg max-w-xl mb-6">{{ $subtitle }}</p>
 <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
 @foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
 </ul>
