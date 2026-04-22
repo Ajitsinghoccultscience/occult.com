@@ -46,7 +46,7 @@ $sliderId = 'slider-' . uniqid();
 {{-- Badge --}}
 <div class="flex justify-center">
     <div class="flex items-center px-3 py-1.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}" alt="Logo" class="h-14 w-auto object-contain">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="h-14 w-auto object-contain">
     </div>
 </div>
 <h1 class="text-hero font-bold text-white tracking-wide text-center">{{ $title }}</h1>
@@ -120,7 +120,7 @@ $sliderId = 'slider-' . uniqid();
 {{-- Badge centered above both columns --}}
 <div class="flex justify-center">
     <div class="flex items-center px-4 py-2 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}" alt="Logo" class="h-16 w-auto object-contain">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="h-16 w-auto object-contain">
     </div>
 </div>
 {{-- Two columns --}}

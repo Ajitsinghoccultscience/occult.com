@@ -10,7 +10,7 @@ class PageController extends Controller
         'astrology' => [
             'name'          => 'Astrology',
             'webinar_name'  => 'Mega Astrology Webinar',
-            'logo'          => 'image/astrology%20assests/logo%40300x%20%281%29.webp',
+            'logo'          => 'image/compressed-images/logo300x111-removebg-preview.webp',
             'event_date'    => 'Sat, 25th April 2026',
             'event_date_short' => 'April 25th',
             'event_time'    => '1:00 PM – 3:00 PM IST',
@@ -26,7 +26,7 @@ class PageController extends Controller
         'graphology' => [
             'name'          => 'Graphology',
             'webinar_name'  => 'Mega Graphology Webinar',
-            'logo'          => 'image/graphology assests/logo (2) 1.svg',
+            'logo'          => 'image/compressed-images/logo300x111-removebg-preview.webp',
             'event_date'    => 'Sun, 26 April 2026',
             'event_date_short' => 'April 26th',
             'event_time'    => '1:00 PM – 3:00 PM IST',

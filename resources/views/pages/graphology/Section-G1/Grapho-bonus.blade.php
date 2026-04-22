@@ -7,17 +7,17 @@
         [
             'label' => 'Bonus: 1',
             'title' => 'Practice Worksheets',
-            'image' => 'image/graphology%20assests/graphology%20worksheet.png',
+            'image' => 'image/graphology%20assests/graphology%20worksheet.webp',
         ],
         [
             'label' => 'Bonus: 2',
             'title' => 'PDF Notes',
-            'image' => 'image/astrology%20assests/pdf%20notes.jpg',
+            'image' => 'image/astrology%20assests/pdf%20notes.webp',
         ],
         [
             'label' => 'Bonus: 3',
             'title' => 'Live Q&A Session',
-            'image' => 'image/astrology%20assests/live%20q%26a%20session.jpg',
+            'image' => 'image/astrology%20assests/live%20q%26a%20session.webp',
         ],
     ],
 ])

@@ -3,12 +3,12 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
         
-        'image/astrology%20assests/snapshot%202.png',
+        'image/astrology%20assests/snapshot%202.webp',
         
-        'image/astrology%20assests/snapshot%204.png',
+        'image/astrology%20assests/snapshot%204.webp',
        
-        'image/astrology%20assests/snapshot%206.png',
-        'image/astrology%20assests/snapshot%207.png',
+        'image/astrology%20assests/snapshot%206.webp',
+        'image/astrology%20assests/snapshot%207.webp',
         
     ],
 ])

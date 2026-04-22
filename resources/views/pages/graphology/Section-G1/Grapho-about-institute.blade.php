@@ -25,7 +25,7 @@
             'label' => 'Certified Students',
         ],
     ],
-    'image' => 'image/graphology%20assests/about%20aiios.jpg',
+    'image' => 'image/graphology%20assests/about%20aiios.webp',
 ])
 
 <section class="w-full section-spacing  bg-white">

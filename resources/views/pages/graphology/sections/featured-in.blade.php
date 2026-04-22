@@ -4,16 +4,26 @@
 ])
 
 @php
+    $newsPath  = public_path('image/news');
     $mediaPath = public_path('images/media');
-    if ($logos === null && is_dir($mediaPath)) {
-        $files = array_merge(
-            glob($mediaPath . '/*.png') ?: [],
-            glob($mediaPath . '/*.jpg') ?: [],
-            glob($mediaPath . '/*.jpeg') ?: [],
-            glob($mediaPath . '/*.svg') ?: [],
-            glob($mediaPath . '/*.webp') ?: []
-        );
-        $logos = array_map(fn($f) => 'images/media/' . basename($f), $files);
+    if ($logos === null) {
+        $files = [];
+        foreach ([$newsPath, $mediaPath] as $dir) {
+            if (is_dir($dir)) {
+                $files = array_merge($files,
+                    glob($dir . '/*.png')  ?: [],
+                    glob($dir . '/*.jpg')  ?: [],
+                    glob($dir . '/*.jpeg') ?: [],
+                    glob($dir . '/*.svg')  ?: [],
+                    glob($dir . '/*.webp') ?: []
+                );
+            }
+        }
+        $logos = array_map(fn($f) => str_replace(public_path() . '/', '', $f), $files);
+        // keep only logo/vector files (exclude screenshot/article images)
+        $logos = array_values(array_filter($logos, fn($f) =>
+            preg_match('/logo|vector|Logo/i', basename($f))
+        ));
         sort($logos);
     }
     $logos = $logos ?? [];

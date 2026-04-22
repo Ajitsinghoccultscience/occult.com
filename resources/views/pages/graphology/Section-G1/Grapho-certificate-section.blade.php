@@ -2,7 +2,7 @@
     'title'        => 'Certificate for Participation',
     'body'         => 'You will receive a Certificate of Participation after attending the Graphology live webinar, empowering you to use this knowledge for both personal growth and professional practice.',
     'ctaHref'      => '#',
-    'image'        => 'image/graphology%20assests/graphology%20certificate%201.jpg',
+    'image'        => 'image/graphology%20assests/graphology%20certificate%201.webp',
 ])
 
 <section class="w-full section-spacing ">

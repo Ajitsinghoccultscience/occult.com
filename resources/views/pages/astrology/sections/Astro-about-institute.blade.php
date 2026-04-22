@@ -25,7 +25,7 @@
             'label' => 'Certified Students',
         ],
     ],
-    'image' => 'image/astrology%20assests/convo%201.jpg',
+    'image' => 'image/astrology%20assests/convo%201.webp',
 ])
 
 <section class="w-full section-spacing  bg-white">

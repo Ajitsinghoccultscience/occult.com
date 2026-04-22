@@ -2,11 +2,11 @@
     'title'    => "Join 1200+ who've already transformed their lives",
     'subtitle' => 'Real students. Real results. See what they have to say.',
     'images'   => [
-        'image/graphology%20assests/g%20review%201.jpg',
-        'image/graphology%20assests/g%20review%202.jpg',
-        'image/graphology%20assests/g%20review%203.png',
-        'image/graphology%20assests/g%20review%204.png',
-        'image/graphology%20assests/g%20review%205.jpg',
+        'image/graphology%20assests/g%20review%201.webp',
+        'image/graphology%20assests/g%20review%202.webp',
+        'image/graphology%20assests/g%20review%203.webp',
+        'image/graphology%20assests/g%20review%204.webp',
+        'image/graphology%20assests/g%20review%205.webp',
     ],
 ])
 

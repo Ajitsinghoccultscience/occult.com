@@ -41,7 +41,7 @@ $iconsPath = 'images/icons';
 {{-- Badge --}}
 <div class="flex justify-center">
     <div class="flex items-center px-3 py-1.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}" alt="Logo" class="h-14 w-auto object-contain">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="h-14 w-auto object-contain">
     </div>
 </div>
 <h1 class="text-hero font-bold text-white uppercase tracking-wide text-center">{{ $title }}</h1>
@@ -58,10 +58,10 @@ $ratingCount = $ratingParts[1] ?? '';
 <div class="grid grid-cols-[1fr_auto_1fr] gap-0 items-center w-full">
 <div class="flex flex-col items-center justify-center gap-2 py-2">
 <div class="flex -space-x-3">
-<img src="{{ asset('image/astrology%20assests/alumni%201.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('image/astrology%20assests/alumni%202.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('image/astrology%20assests/alumni%203.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('image/astrology%20assests/alumni%204.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%201.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%202.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%203.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%204.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
 </div>
 <p class="text-neutral-i font-semibold text-center text-sm leading-tight">Join {{ $alumniCount }} Alumni<br>Network</p>
 </div>
@@ -118,7 +118,7 @@ $ratingCount = $ratingParts[1] ?? '';
 {{-- Badge centered above both columns --}}
 <div class="flex justify-center">
     <div class="flex items-center px-4 py-2 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}" alt="Logo" class="h-16 w-auto object-contain">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="h-16 w-auto object-contain">
     </div>
 </div>
 {{-- Two columns --}}
@@ -181,10 +181,10 @@ $ratingCount = $ratingParts[1] ?? '';
 </div>
 <div class="flex flex-nowrap items-center gap-6">
 <div class="flex -space-x-3 shrink-0">
-<img src="{{ asset('image/astrology%20assests/alumni%201.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('image/astrology%20assests/alumni%202.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('image/astrology%20assests/alumni%203.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('image/astrology%20assests/alumni%204.jpg') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%201.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%202.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%203.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
+<img src="{{ asset('image/astrology%20assests/alumni%204.webp') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
 </div>
 <p class="text-neutral-i font-semibold whitespace-nowrap shrink-0">Join {{ $alumniCount }} Alumni Network</p>
 <div class="w-px h-6 bg-neutral-i/40 shrink-0"></div>

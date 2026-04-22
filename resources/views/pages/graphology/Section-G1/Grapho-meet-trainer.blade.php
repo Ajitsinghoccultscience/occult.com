@@ -11,7 +11,7 @@
     'ctaText' => 'Reserve Seat @₹49',
     'ctaPriceStruck' => '₹199',
     'ctaHref' => '#',
-    'image' => 'image/graphology%20assests/pawan%20sir.jpg',
+    'image' => 'image/graphology%20assests/pawan%20sir.webp',
 ])
 
 <!-- <section class="w-full section-spacing bg-neutral-bg "> -->

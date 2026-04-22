@@ -4,13 +4,22 @@
 
 @php
 $assetsBase = 'image/astrology%20assests';
+$news = 'image/news';
 $publications = [
-    ['logo' => "$assetsBase/the%20wire.svg",          'image' => "$assetsBase/the%20wire%20image.jpg",          'alt' => 'The Wire'],
-    ['logo' => "$assetsBase/india.com.svg",            'image' => "$assetsBase/india.com%20image.jpg",            'alt' => 'India.com'],
-    ['logo' => "$assetsBase/silicon%20india.svg",      'image' => "$assetsBase/silicon%20india%20image.jpg",      'alt' => 'Silicon India'],
-    ['logo' => "$assetsBase/the%20print.svg",          'image' => "$assetsBase/the%20print%20image.jpg",          'alt' => 'The Print'],
-    ['logo' => "$assetsBase/mid%20day.svg",            'image' => "$assetsBase/mid%20day%20image.jpg",            'alt' => 'Mid Day'],
-    ['logo' => "$assetsBase/time%20of%20india.svg",    'image' => "$assetsBase/times%20of%20india%20image.jpg",   'alt' => 'Times of India'],
+    ['logo' => "$assetsBase/the%20wire.svg",                'image' => "$assetsBase/the%20wire%20image.webp",          'alt' => 'The Wire'],
+    ['logo' => "$assetsBase/india.com.svg",                 'image' => "$assetsBase/india.com%20image.webp",           'alt' => 'India.com'],
+    ['logo' => "$assetsBase/silicon%20india.svg",           'image' => "$assetsBase/silicon%20india%20image.webp",     'alt' => 'Silicon India'],
+    ['logo' => "$assetsBase/the%20print.svg",               'image' => "$assetsBase/the%20print%20image.webp",         'alt' => 'The Print'],
+    ['logo' => "$assetsBase/mid%20day.svg",                 'image' => "$assetsBase/mid%20day%20image.webp",           'alt' => 'Mid Day'],
+    ['logo' => "$assetsBase/time%20of%20india.svg",         'image' => "$assetsBase/times%20of%20india%20image.webp",  'alt' => 'Times of India'],
+    ['logo' => "$news/Zee_News_logo.svg.webp",              'image' => "$news/Z%20news%203.webp",                     'alt' => 'Zee News'],
+    ['logo' => "$news/ABP_News_logo.svg.webp",              'image' => "$news/ABP%20news.webp",                       'alt' => 'ABP News'],
+    ['logo' => "$news/The_Times_of_India_Logo.webp",        'image' => "$news/TOI.webp",                              'alt' => 'Times of India'],
+    ['logo' => "$news/dailyhunt%20logo.webp",               'image' => "$news/dailyhunt%203.webp",                    'alt' => 'Dailyhunt'],
+    ['logo' => "$news/daily%20jagran%20logo%20png.webp",    'image' => "$news/daily%20jagran%202.webp",               'alt' => 'Dainik Jagran'],
+    ['logo' => "$news/indian%20express%20logo.webp",        'image' => "$news/indian%20express.webp",                 'alt' => 'Indian Express'],
+    ['logo' => "$news/news18-logo-vector.webp",             'image' => "$news/news%2018%202.webp",                    'alt' => 'News18'],
+    ['logo' => "$news/newsroom%20logo.webp",                'image' => "$news/newsroom.webp",                         'alt' => 'Newsroom'],
 ];
 @endphp
 
@@ -36,9 +45,9 @@ $publications = [
                 </div>
 
                 {{-- Article screenshot --}}
-                <div class="w-full rounded-2xl overflow-hidden border border-neutral-300">
+                <div class="w-full rounded-2xl overflow-hidden border border-neutral-300 aspect-[4/3]">
                     <img src="{{ asset($pub['image']) }}" alt="{{ $pub['alt'] }} article"
-                         class="w-full h-auto block" loading="lazy">
+                         class="w-full h-full object-cover object-top block" loading="lazy">
                 </div>
 
             </div>

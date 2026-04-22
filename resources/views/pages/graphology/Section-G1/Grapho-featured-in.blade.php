@@ -6,20 +6,16 @@
 $old  = 'image/astrology%20assests';
 $news = 'image/news';
 $publications = [
-    ['logo' => "$old/the%20wire.svg",                       'image' => "$old/the%20wire%20image.jpg",           'alt' => 'The Wire'],
-    ['logo' => "$news/Zee_News_logo.svg.png",               'image' => "$news/Z%20news%203.png",                'alt' => 'Zee News'],
-    ['logo' => "$old/india.com.svg",                        'image' => "$old/india.com%20image.jpg",            'alt' => 'India.com'],
-    ['logo' => "$news/ABP_News_logo.svg.png",               'image' => "$news/ABP%20news.png",                  'alt' => 'ABP News'],
-    ['logo' => "$old/time%20of%20india.svg",                'image' => "$old/times%20of%20india%20image.jpg",   'alt' => 'Times of India'],
-    ['logo' => "$news/The_Times_of_India_Logo.png",         'image' => "$news/TOI.png",                         'alt' => 'Times of India'],
-    ['logo' => "$news/dailyhunt%20logo.png",                'image' => "$news/dailyhunt%203.png",               'alt' => 'Dailyhunt'],
-    ['logo' => "$old/silicon%20india.svg",                  'image' => "$old/silicon%20india%20image.jpg",      'alt' => 'Silicon India'],
-    ['logo' => "$old/the%20print.svg",                      'image' => "$old/the%20print%20image.jpg",          'alt' => 'The Print'],
-    ['logo' => "$old/mid%20day.svg",                        'image' => "$old/mid%20day%20image.jpg",            'alt' => 'Mid Day'],
-    ['logo' => "$news/daily%20jagran%20logo%20png.png",     'image' => "$news/daily%20jagran%202.png",          'alt' => 'Dainik Jagran'],
-    ['logo' => "$news/indian%20express%20logo.avif",        'image' => "$news/indian%20express.png",            'alt' => 'Indian Express'],
-    ['logo' => "$news/news18-logo-vector.png",              'image' => "$news/news%2018%202.png",               'alt' => 'News18'],
-    ['logo' => "$news/newsroom%20logo.png",                 'image' => "$news/newsroom.png",                    'alt' => 'Newsroom'],
+    ['logo' => "$old/the%20wire.svg",                       'image' => "$old/the%20wire%20image.webp",          'alt' => 'The Wire'],
+    ['logo' => "$news/Zee_News_logo.svg.webp",              'image' => "$news/Z%20news%203.webp",               'alt' => 'Zee News'],
+    ['logo' => "$old/india.com.svg",                        'image' => "$old/india.com%20image.webp",           'alt' => 'India.com'],
+    ['logo' => "$news/ABP_News_logo.svg.webp",              'image' => "$news/ABP%20news.webp",                 'alt' => 'ABP News'],
+    ['logo' => "$news/The_Times_of_India_Logo.webp",        'image' => "$news/TOI.webp",                        'alt' => 'Times of India'],
+    ['logo' => "$news/dailyhunt%20logo.webp",               'image' => "$news/dailyhunt%203.webp",              'alt' => 'Dailyhunt'],
+    ['logo' => "$news/daily%20jagran%20logo%20png.webp",    'image' => "$news/daily%20jagran%202.webp",         'alt' => 'Dainik Jagran'],
+    ['logo' => "$news/indian%20express%20logo.webp",        'image' => "$news/indian%20express.webp",           'alt' => 'Indian Express'],
+    ['logo' => "$news/news18-logo-vector.webp",             'image' => "$news/news%2018%202.webp",              'alt' => 'News18'],
+    ['logo' => "$news/newsroom%20logo.webp",                'image' => "$news/newsroom.webp",                   'alt' => 'Newsroom'],
 ];
 @endphp
 
