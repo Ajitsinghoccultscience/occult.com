@@ -10,10 +10,6 @@ class PageController extends Controller
         'astrology' => [
             'name'          => 'Astrology',
             'webinar_name'  => 'Mega Astrology Webinar',
-            'trainer'       => 'Miss. Laxmi',
-            'trainer_role'  => 'Astrologer · All India Institute of Occult Science',
-            'trainer_bio'   => "B.Tech + Master's in Astrology — Vedic wisdom meets analytical thinking.",
-            'trainer_image' => 'image/astrology%20assests/laxmi%20mam.png',
             'logo'          => 'image/astrology%20assests/logo%40300x%20%281%29.webp',
             'event_date'    => 'Sat, 25th April 2026',
             'event_date_short' => 'April 25th',
@@ -30,10 +26,6 @@ class PageController extends Controller
         'graphology' => [
             'name'          => 'Graphology',
             'webinar_name'  => 'Mega Graphology Webinar',
-            'trainer'       => 'Pawan Sir',
-            'trainer_role'  => 'Graphologist · All India Institute of Occult Science',
-            'trainer_bio'   => 'Expert in handwriting analysis with years of experience in Graphology.',
-            'trainer_image' => 'image/graphology assests/pawan sir.jpg',
             'logo'          => 'image/graphology assests/logo (2) 1.svg',
             'event_date'    => 'Sun, 26 April 2026',
             'event_date_short' => 'April 26th',

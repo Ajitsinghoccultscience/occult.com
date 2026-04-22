@@ -38,34 +38,6 @@
                     <p class="text-xs lg:text-sm text-gray-500">{{ $config['event_date'] }} &nbsp;·&nbsp; {{ $config['event_time'] }}</p>
                 </div>
 
-                {{-- Divider (desktop only) --}}
-                <div class="hidden lg:block border-t border-gray-200"></div>
-
-                {{-- Trainer (desktop only) --}}
-                <div class="hidden lg:flex items-center gap-4">
-                    <img src="{{ asset($config['trainer_image']) }}"
-                         alt="{{ $config['trainer'] }}"
-                         class="w-16 h-16 rounded-full object-cover object-top shrink-0 border border-gray-200">
-                    <div>
-                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Your Trainer</p>
-                        <h3 class="text-sm font-bold text-gray-900">{{ $config['trainer'] }}</h3>
-                        <p class="text-xs text-gray-500">{{ $config['trainer_role'] }}</p>
-                        <p class="text-xs text-gray-400 mt-1">{{ $config['trainer_bio'] }}</p>
-                    </div>
-                </div>
-
-                {{-- Social proof (desktop only) --}}
-                <div class="hidden lg:flex items-center gap-3">
-                    <div class="flex -space-x-2">
-                        @foreach($config['alumni_files'] as $a)
-                        <img src="{{ asset($config['alumni_path'] . $a) }}"
-                             class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
-                        @endforeach
-                    </div>
-                    <p class="text-sm text-gray-500">
-                        <span class="font-bold text-gray-800">18,000+ alumni</span> have trained with us
-                    </p>
-                </div>
 
             </div>
 
@@ -120,32 +92,6 @@
 
         </div>
 
-        {{-- Trainer + Alumni — mobile only, shown after the form --}}
-        <div class="lg:hidden flex flex-col gap-5 mt-6">
-            <div class="border-t border-gray-200"></div>
-            <div class="flex items-center gap-4">
-                <img src="{{ asset($config['trainer_image']) }}"
-                     alt="{{ $config['trainer'] }}"
-                     class="w-16 h-16 rounded-full object-cover object-top shrink-0 border border-gray-200">
-                <div>
-                    <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Your Trainer</p>
-                    <h3 class="text-sm font-bold text-gray-900">{{ $config['trainer'] }}</h3>
-                    <p class="text-xs text-gray-500">{{ $config['trainer_role'] }}</p>
-                    <p class="text-xs text-gray-400 mt-1">{{ $config['trainer_bio'] }}</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="flex -space-x-2">
-                    @foreach($config['alumni_files'] as $a)
-                    <img src="{{ asset($config['alumni_path'] . $a) }}"
-                         class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
-                    @endforeach
-                </div>
-                <p class="text-sm text-gray-500">
-                    <span class="font-bold text-gray-800">18,000+ alumni</span> have trained with us
-                </p>
-            </div>
-        </div>
 
     </div>
 </div>
