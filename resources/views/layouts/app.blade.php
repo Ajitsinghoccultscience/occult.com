@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {{-- Google Tag Manager (async, won't block render) --}}
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KLJ823HM');</script>
+    {{-- dataLayer init must be synchronous so page-level pushes (e.g. thankyou event) work --}}
+    <script>window.dataLayer = window.dataLayer || [];</script>
 
     <title>@yield('title', 'All India Institute of Occult Science')</title>
     <meta name="description" content="@yield('description', '')">
@@ -27,7 +23,6 @@
     <meta name="twitter:description" content="@yield('description', '')">
 
     {{-- Resource hints: establish connections early for external domains --}}
-    <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.youtube.com">
@@ -42,10 +37,19 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    {{-- Google Tag Manager (noscript fallback) --}}
+    @yield('content')
+
+    {{-- GTM loads after window.load so it doesn't block LCP/TBT --}}
+    <script>
+    window.addEventListener('load', function () {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KLJ823HM');
+    });
+    </script>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLJ823HM"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-    @yield('content')
 </body>
 </html>
