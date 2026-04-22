@@ -118,6 +118,11 @@
 }
 
 /* ─── Global base: span, ul, li consistent sizing ─── */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 span, ul, li, p {
     font-size: 1rem;
 }
