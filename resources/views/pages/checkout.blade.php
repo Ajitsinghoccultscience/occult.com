@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Register – Mega Astrology Webinar')
-@section('description', 'Reserve your seat for the Mega Astrology Webinar by All India Institute of Occult Science.')
+@section('title', 'Register – ' . $config['webinar_name'])
+@section('description', 'Reserve your seat for the ' . $config['webinar_name'] . ' by All India Institute of Occult Science.')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
     {{-- Header --}}
     <header class="w-full bg-white border-b border-gray-200 py-3 px-5 flex items-center justify-between">
-        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}"
+        <img src="{{ asset($config['logo']) }}"
              alt="All India Institute of Occult Science"
              class="h-12 w-auto object-contain">
         <div class="hidden sm:flex items-center gap-2 text-sm font-semibold text-gray-700">
@@ -29,8 +29,8 @@
 
                 {{-- Webinar title + date/time --}}
                 <div>
-                    <h1 class="text-lg lg:text-2xl font-bold text-gray-900 mb-1">Mega Astrology Webinar</h1>
-                    <p class="text-xs lg:text-sm text-gray-500">Sat, 25th April 2026 &nbsp;·&nbsp; 1:00 PM – 3:00 PM IST</p>
+                    <h1 class="text-lg lg:text-2xl font-bold text-gray-900 mb-1">{{ $config['webinar_name'] }}</h1>
+                    <p class="text-xs lg:text-sm text-gray-500">{{ $config['event_date'] }} &nbsp;·&nbsp; {{ $config['event_time'] }}</p>
                 </div>
 
                 {{-- Divider (desktop only) --}}
@@ -38,22 +38,22 @@
 
                 {{-- Trainer (desktop only) --}}
                 <div class="hidden lg:flex items-center gap-4">
-                    <img src="{{ asset('image/astrology%20assests/laxmi%20mam.png') }}"
-                         alt="Miss. Laxmi"
+                    <img src="{{ asset($config['trainer_image']) }}"
+                         alt="{{ $config['trainer'] }}"
                          class="w-16 h-16 rounded-full object-cover object-top shrink-0 border border-gray-200">
                     <div>
                         <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Your Trainer</p>
-                        <h3 class="text-sm font-bold text-gray-900">Miss. Laxmi</h3>
-                        <p class="text-xs text-gray-500">Astrologer · All India Institute of Occult Science</p>
-                        <p class="text-xs text-gray-400 mt-1">B.Tech + Master's in Astrology — Vedic wisdom meets analytical thinking.</p>
+                        <h3 class="text-sm font-bold text-gray-900">{{ $config['trainer'] }}</h3>
+                        <p class="text-xs text-gray-500">{{ $config['trainer_role'] }}</p>
+                        <p class="text-xs text-gray-400 mt-1">{{ $config['trainer_bio'] }}</p>
                     </div>
                 </div>
 
                 {{-- Social proof (desktop only) --}}
                 <div class="hidden lg:flex items-center gap-3">
                     <div class="flex -space-x-2">
-                        @foreach(['alumni%201.jpg','alumni%202.jpg','alumni%203.jpg','alumni%204.jpg'] as $a)
-                        <img src="{{ asset('image/astrology%20assests/'.$a) }}"
+                        @foreach($config['alumni_files'] as $a)
+                        <img src="{{ asset($config['alumni_path'] . $a) }}"
                              class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
                         @endforeach
                     </div>
@@ -82,15 +82,15 @@
                         </div>
                     </div>
 
-                    {{-- Iframe — tall enough to show form fully, auto-grows via postMessage --}}
+                    {{-- Iframe --}}
                     <iframe
                         id="zoho-form-iframe"
-                        aria-label="Mega Astrology Webinar - Less than 10 seats left!!"
-                        src="https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/AstrologyWebinar/formperma/u5xhvCVVKohScA-mli9GWsWCKu3-geIGBrn83l2vn-Q"
+                        aria-label="{{ $config['webinar_name'] }}"
+                        src="{{ $config['zoho_form'] }}"
                         frameborder="0"
                         scrolling="no"
                         allow="geolocation; microphone; camera; payment"
-                        style="height:950px; width:100%; border:none; display:block; overflow:hidden;"
+                        style="height:{{ $config['form_height'] }}; width:100%; border:none; display:block; overflow:hidden;"
                         class="md:!h-[1100px]"
                         title="Webinar Registration Form"
                         loading="eager"
@@ -112,20 +112,20 @@
         <div class="lg:hidden flex flex-col gap-5 mt-6">
             <div class="border-t border-gray-200"></div>
             <div class="flex items-center gap-4">
-                <img src="{{ asset('image/astrology%20assests/laxmi%20mam.png') }}"
-                     alt="Miss. Laxmi"
+                <img src="{{ asset($config['trainer_image']) }}"
+                     alt="{{ $config['trainer'] }}"
                      class="w-16 h-16 rounded-full object-cover object-top shrink-0 border border-gray-200">
                 <div>
                     <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Your Trainer</p>
-                    <h3 class="text-sm font-bold text-gray-900">Miss. Laxmi</h3>
-                    <p class="text-xs text-gray-500">Astrologer · All India Institute of Occult Science</p>
-                    <p class="text-xs text-gray-400 mt-1">B.Tech + Master's in Astrology — Vedic wisdom meets analytical thinking.</p>
+                    <h3 class="text-sm font-bold text-gray-900">{{ $config['trainer'] }}</h3>
+                    <p class="text-xs text-gray-500">{{ $config['trainer_role'] }}</p>
+                    <p class="text-xs text-gray-400 mt-1">{{ $config['trainer_bio'] }}</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
                 <div class="flex -space-x-2">
-                    @foreach(['alumni%201.jpg','alumni%202.jpg','alumni%203.jpg','alumni%204.jpg'] as $a)
-                    <img src="{{ asset('image/astrology%20assests/'.$a) }}"
+                    @foreach($config['alumni_files'] as $a)
+                    <img src="{{ asset($config['alumni_path'] . $a) }}"
                          class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
                     @endforeach
                 </div>
@@ -142,7 +142,7 @@
 // Countdown timer — 45 min, persists across page refreshes via localStorage
 (function () {
     var DURATION = 45 * 60 * 1000;
-    var KEY = 'astrology_offer_timer_end';
+    var KEY = '{{ $config['timer_key'] }}';
     var now = Date.now();
     var end = parseInt(localStorage.getItem(KEY), 10);
     if (!end || end <= now) {
@@ -168,7 +168,7 @@
 
 (function () {
     var iframe = document.getElementById('zoho-form-iframe');
-    var THANK_YOU_URL = '{{ url("/astrology-thankyou") }}';
+    var THANK_YOU_URL = '{{ url("/thankyou?product=" . $product) }}';
     var redirected = false;
 
     function doRedirect() {

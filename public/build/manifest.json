@@ -1,10 +1,6 @@
 {
-  "_vendor-BOeqtr82.js": {
-    "file": "assets/vendor-BOeqtr82.js",
-    "name": "vendor"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-d2_V8XpM.css",
+    "file": "assets/app-B1CFjbzR.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -13,12 +9,9 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-HGjhkagR.js",
+    "file": "assets/app-l0sNRNKZ.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "imports": [
-      "_vendor-BOeqtr82.js"
-    ]
+    "isEntry": true
   }
 }

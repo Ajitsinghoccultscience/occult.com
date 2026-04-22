@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'You\'re Registered! – Mega Astrology Webinar')
-@section('description', 'Your seat has been reserved for the Mega Astrology Webinar by All India Institute of Occult Science.')
+@section('title', 'You\'re Registered! – ' . $config['webinar_name'])
+@section('description', 'Your seat has been reserved for the ' . $config['webinar_name'] . ' by All India Institute of Occult Science.')
 
 @section('content')
 <script>
@@ -10,7 +10,7 @@
         try { window.parent.postMessage({ type: 'zoho_form_submitted' }, '*'); } catch (e) {}
     }
     if (window.self !== window.top) {
-        try { window.top.location.href = '{{ url("/astrology-thankyou") }}'; } catch (e) {}
+        try { window.top.location.href = '{{ url("/thankyou?product=" . $product) }}'; } catch (e) {}
     }
 })();
 </script>
@@ -33,7 +33,7 @@
 
     {{-- Header --}}
     <header class="w-full py-4 border-b border-gray-100 flex justify-center">
-        <img src="{{ asset('image/astrology%20assests/logo%40300x%20%281%29.webp') }}"
+        <img src="{{ asset($config['logo']) }}"
              alt="All India Institute of Occult Science"
              class="h-14 w-auto object-contain">
     </header>
@@ -56,7 +56,7 @@
             <div class="flex flex-col items-center gap-2">
                 <p class="text-xs font-bold uppercase tracking-[3px] text-gray-400">Registration Confirmed</p>
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900">You're In! </h1>
-                <p class="text-base text-gray-500 mt-1">Your seat is reserved for the <span class="font-semibold text-gray-700">Mega Astrology Webinar</span></p>
+                <p class="text-base text-gray-500 mt-1">Your seat is reserved for the <span class="font-semibold text-gray-700">{{ $config['webinar_name'] }}</span></p>
             </div>
 
             {{-- Event pills --}}
@@ -65,13 +65,13 @@
                     <svg class="w-4 h-4 text-gray-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
                     </svg>
-                    Sat, 25th April 2026
+                    {{ $config['event_date'] }}
                 </div>
                 <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700">
                     <svg class="w-4 h-4 text-gray-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/>
                     </svg>
-                    1:00 PM – 3:00 PM IST
+                    {{ $config['event_time'] }}
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
                             <p class="text-sm text-gray-500 mt-0.5">You'll receive the webinar joining link inside the group</p>
                         </div>
                     </div>
-                    <a href="https://chat.whatsapp.com/BFIYGRs0d0kEcpnAt2OKPZ"
+                    <a href="{{ $config['whatsapp'] }}"
                        target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center justify-center gap-3 w-full max-w-xs mx-auto py-4 rounded-xl font-bold text-white text-base transition-all duration-200 hover:opacity-90 active:scale-95 shadow-md"
                        style="background:#25D366;">
@@ -105,8 +105,8 @@
                 <div class="w-full rounded-2xl border border-gray-200 bg-gray-50 p-5 flex items-start gap-4 text-left">
                     <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center shrink-0 text-gray-600 font-bold text-sm">2</div>
                     <div>
-                        <p class="font-bold text-gray-900 text-base">Attend Live on April 25th</p>
-                        <p class="text-sm text-gray-500 mt-0.5">Join at 1:00 PM IST and decode your cosmic blueprint live</p>
+                        <p class="font-bold text-gray-900 text-base">Attend Live on {{ $config['attend_date'] }}</p>
+                        <p class="text-sm text-gray-500 mt-0.5">Join at 1:00 PM IST and {{ $config['description'] }} live</p>
                     </div>
                 </div>
 
@@ -115,8 +115,8 @@
             {{-- Social proof --}}
             <div class="flex flex-col items-center gap-2 pt-2">
                 <div class="flex -space-x-2.5">
-                    @foreach(['alumni%201.jpg','alumni%202.jpg','alumni%203.jpg','alumni%204.jpg'] as $a)
-                    <img src="{{ asset('image/astrology%20assests/'.$a) }}"
+                    @foreach($config['alumni_files'] as $a)
+                    <img src="{{ asset($config['alumni_path'] . $a) }}"
                          class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="">
                     @endforeach
                 </div>
