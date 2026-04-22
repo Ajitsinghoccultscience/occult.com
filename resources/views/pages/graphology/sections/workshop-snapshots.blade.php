@@ -2,8 +2,10 @@
     'title' => "Last workshop's snapshots",
     'underlineSvg' => 'images/graphology image/underline 9.svg',
     'images' => [
-        'images/12.webp',
-        'images/13.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-1.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-2.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-3.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-4.webp',
     ],
 ])
 

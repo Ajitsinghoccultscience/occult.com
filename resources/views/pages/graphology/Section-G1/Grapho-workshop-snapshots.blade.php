@@ -2,16 +2,16 @@
     'title' => 'Snapshots of 11th Last Workshop',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
-        
-        'image/astrology%20assests/snapshot%202.webp',
-        
-        'image/astrology%20assests/snapshot%204.webp',
-       
-        'image/astrology%20assests/snapshot%206.webp',
-        'image/astrology%20assests/snapshot%207.webp',
-        
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-1.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-2.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-3.webp',
+        'image/graphology assests/Grapho-snapshot/grapho-snapshot-4.webp',
     ],
 ])
+
+@php
+    $u = fn($p) => asset(implode('/', array_map('rawurlencode', explode('/', $p))));
+@endphp
 
 <section class="w-full section-spacing section-spacing-after bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
@@ -27,7 +27,7 @@
             <div class="flex gap-4 w-max">
                 @foreach($images as $img)
                     <div class="snapshot-slide shrink-0 w-[85vw] sm:w-[60vw] lg:w-[30vw] rounded-xl overflow-hidden shadow-drop aspect-[16/10]">
-                        <img src="{{ asset($img) }}" alt="Workshop snapshot"
+                        <img src="{{ $u($img) }}" alt="Workshop snapshot"
                              class="w-full h-full object-cover" loading="lazy">
                     </div>
                 @endforeach
@@ -45,5 +45,3 @@
 </section>
 
 <script>window.__carousels.push({id:'snapshot-slider',slideClass:'.snapshot-slide',dotPrefix:'snap-dot-',dotActive:'#191F59',dotInactive:'',offsetPad:16,interval:2500});</script>
-
-
