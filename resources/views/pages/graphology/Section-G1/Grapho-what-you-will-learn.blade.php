@@ -1,4 +1,4 @@
-@props([
+﻿@props([
     'title'       => 'What you will learn in this webinar',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'ctaHref'     => '#',
@@ -19,7 +19,7 @@
         [
             'label'    => 'Session 2',
             'title'    => 'Practice with Worksheets:',
-            'subtitle' => "Don’t just learn Graphology concepts",
+            'subtitle' => "Don't just learn Graphology concepts",
             'bullets'  => [],
             'description' => 'Practice them with guided worksheets that help you gain clarity and confidence.',
         ],
@@ -34,7 +34,7 @@
 ])
 
 <section class="w-full bg-neutral-bg section-spacing ">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
+    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px pb-10">
 
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-14">
@@ -86,11 +86,12 @@
         {{-- CTA --}}
         <div class="flex justify-center mt-10 md:mt-12">
             <x-ui.button :href="$ctaHref" variant="grapho-cta" class="!min-w-0 !py-4 !text-base font-bold">
-                Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
+                Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
             </x-ui.button>
         </div>
 
     </div>
 </section>
+
 
 

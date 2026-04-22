@@ -1,9 +1,6 @@
-
-
-
-@props([
+﻿@props([
     'ctaHref' => '#',
-    'ctaText' => 'Reserve Seat @₹49',
+    'ctaText' => 'Reserve Seat ₹49',
     'seats'   => '7',
     'hours'   => 0,
     'minutes' => 45,
@@ -12,16 +9,12 @@
 
 <div id="sticky-offer-bar" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.10)]">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px py-3 flex items-center justify-between gap-4">
-
-        {{-- Left: label + timer + seats --}}
         <div class="flex flex-col gap-1.5">
-            {{-- "OFFER ENDS IN" --}}
             <span class="text-[11px] md:text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0"></span>
                 Offer Ends In
             </span>
 
-            {{-- Timer boxes --}}
             <div class="flex items-center gap-1">
                 @foreach([
                     ['id' => 'sb-hours', 'val' => $hours,   'label' => 'Hours'],
@@ -39,21 +32,16 @@
                     </div>
                 @endforeach
             </div>
-
-            
         </div>
 
-        {{-- Right: CTA button --}}
         <a href="{{ $ctaHref }}"
            class="shrink-0 inline-flex items-center justify-center whitespace-nowrap font-bold text-sm md:text-base px-6 md:px-10 py-3 md:py-3.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 active:scale-95"
            style="background-color: #191F59;">
-            {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
+            {!! $ctaText !!} <span class="line-through opacity-70 ml-1">&#8377;199</span>
         </a>
-
     </div>
 </div>
 
-{{-- Push page content above the sticky bar --}}
 <div class="h-[80px] md:h-[88px]"></div>
 
 <script defer>
@@ -105,3 +93,4 @@
     setInterval(tick, 1000);
 })();
 </script>
+

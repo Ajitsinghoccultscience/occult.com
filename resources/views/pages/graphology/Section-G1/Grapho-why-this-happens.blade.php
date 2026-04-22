@@ -1,4 +1,4 @@
-@props([
+﻿@props([
     'eyebrow'      => '',
     'title'        => 'Do You Want To Know',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
@@ -8,11 +8,11 @@
         'Can someone understand you just by your handwriting?',
     ],
     'footerText' => 'Your handwriting knows more about you than you think',
-    'ctaText'    => 'Reserve Seat @₹49',
+    'ctaText' => 'Reserve Seat ₹49',
     'ctaHref'    => '#',
     'helpsTitle' => 'How Graphology helps you to understand your life better',
     'points' => [
-        'Graphology doesn’t just study handwriting..it reveals your true personality.',
+        "Graphology doesn't just study handwriting..it reveals your true personality.",
         'It reveals your thought patterns to guide better decisions.',
         'It helps you to discover hidden aspects of personality and mindset.',
         'It gives you direction  with clarity, not guesswork.',
@@ -22,7 +22,7 @@
 <section class="w-full bg-neutral-bg section-spacing pb-4">
     <div class="max-w-[1100px] xl:max-w-[1280px] mx-auto section-px">
 
-        {{-- ── PART 1: Why this happens ── --}}
+        {{-- Part 1: Why this happens --}}
         <div class="text-center mb-10">
             <p class="text-content text-neutral-e font-medium mb-3 tracking-wide">{{ $eyebrow }}</p>
             <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px]">{{ $title }}</h2>
@@ -51,7 +51,7 @@
     </div>
 </section>
 
-{{-- ── PART 2: How astrology helps — white bg ── --}}
+{{-- Part 2: How graphology helps --}}
 <section class="w-full bg-white py-10 md:py-14">
     <div class="max-w-[1100px] xl:max-w-[1280px] mx-auto section-px">
 
@@ -75,5 +75,6 @@
 
     </div>
 </section>
+
 
 

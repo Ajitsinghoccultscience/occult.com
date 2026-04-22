@@ -1,4 +1,4 @@
-@props([
+﻿@props([
     'title'       => 'Bonus Material',
     'subtitle'    => 'Unlock Bonus Worth ₹999',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
@@ -6,8 +6,8 @@
     'bonuses' => [
         [
             'label' => 'Bonus: 1',
-            'title' => 'Practice Worksheets',
-            'image' => 'image/graphology%20assests/graphology%20worksheet.webp',
+            'title' => 'Certificate of Participation',
+            'image' => 'image/graphology%20assests/graphology%20certificate%201.webp',
         ],
         [
             'label' => 'Bonus: 2',
@@ -23,50 +23,46 @@
 ])
 
 <section class="w-full bg-neutral-bg section-spacing section-spacing-after">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
-
-        {{-- Heading --}}
-        <div class="text-center mb-10 md:mb-12">
+    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto">
+        <div class="text-center mb-8 md:mb-12 section-px">
             <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] mb-3">{{ $title }}</h2>
             <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[120px] h-auto mb-4" aria-hidden="true">
-            <p class="text-content font-semibold text-[#04043A]">{{ $subtitle }}</p>
+            <p class="text-content font-semibold text-[#04043A]">{!! $subtitle !!}</p>
         </div>
 
-        {{-- Bonus cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:hidden flex gap-4 overflow-x-auto scrollbar-hide pl-6 pr-4 pb-2 snap-x snap-mandatory">
             @foreach($bonuses as $bonus)
-            <div class="bg-white rounded-2xl p-6 flex flex-col items-center gap-5 shadow-sm border border-neutral-100">
-
-                {{-- Badge --}}
-                <div class="border-2 border-neutral-b rounded-full px-6 py-1.5">
-                    <span class="text-content font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
+            <div class="bg-white rounded-2xl p-5 flex flex-col items-center gap-4 shadow-sm border border-neutral-100 shrink-0 w-[72%] snap-start">
+                <div class="border-2 border-neutral-b rounded-full px-5 py-1.5">
+                    <span class="text-sm font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
                 </div>
-
-                {{-- Title --}}
-                <h3 class="text-subheading font-bold text-[#04043A] text-center">{{ $bonus['title'] }}</h3>
-
-                {{-- Image --}}
+                <h3 class="text-base font-bold text-[#04043A] text-center">{{ $bonus['title'] }}</h3>
                 <div class="w-full flex items-center justify-center">
-                    <img
-                        src="{{ asset($bonus['image']) }}"
-                        alt="{{ $bonus['title'] }}"
-                        class="w-full max-h-[200px] object-contain"
-                        loading="lazy"
-                    >
+                    <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[160px] object-contain" loading="lazy">
                 </div>
-
             </div>
             @endforeach
         </div>
 
-        {{-- CTA --}}
-        <div class="flex justify-center mt-10 md:mt-12">
-            <x-ui.button :href="$ctaHref" variant="grapho-cta" class="!min-w-0 !py-4 !text-base font-bold">
-                Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
-            </x-ui.button>
+        <div class="hidden md:grid grid-cols-3 gap-6 section-px">
+            @foreach($bonuses as $bonus)
+            <div class="bg-white rounded-2xl p-6 flex flex-col items-center gap-5 shadow-sm border border-neutral-100">
+                <div class="border-2 border-neutral-b rounded-full px-6 py-1.5">
+                    <span class="text-content font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
+                </div>
+                <h3 class="text-subheading font-bold text-[#04043A] text-center">{{ $bonus['title'] }}</h3>
+                <div class="w-full flex items-center justify-center">
+                    <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[200px] object-contain" loading="lazy">
+                </div>
+            </div>
+            @endforeach
         </div>
 
+        <div class="flex justify-center mt-10 md:mt-12 section-px">
+            <x-ui.button :href="$ctaHref" variant="grapho-cta" class="!min-w-0 !py-4 !text-base font-bold w-full md:w-auto">
+                Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
+            </x-ui.button>
+        </div>
     </div>
 </section>
-
 

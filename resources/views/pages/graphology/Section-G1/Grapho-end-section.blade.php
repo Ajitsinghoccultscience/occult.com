@@ -1,6 +1,6 @@
-@props([
+﻿@props([
     'text' => 'Unlock the hidden secrets in handwriting at our exclusive Graphology Webinar and discover what every stroke reveals about personality, emotions, and potential',
-    'ctaText' => 'Reserve Seat @₹49',
+    'ctaText' => 'Reserve Seat ₹49',
     'ctaHref' => '#',
 ])
 
@@ -10,7 +10,8 @@
             {{ $text }}
         </p>
         <x-ui.button :href="$ctaHref" variant="astro">
-            {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
+            {!! $ctaText !!} <span class="line-through opacity-70 ml-1">&#8377;199</span>
         </x-ui.button>
     </div>
 </section>
+

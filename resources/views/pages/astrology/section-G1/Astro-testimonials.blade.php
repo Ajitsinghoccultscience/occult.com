@@ -64,7 +64,7 @@ function renderStars(int $count): string {
 
             {{-- Slider track --}}
             <div class="w-full overflow-hidden">
-                <div id="testimonial-slider" class="flex gap-4 transition-transform duration-500 ease-in-out">
+                <div id="testimonial-slider" class="flex gap-4 px-2 md:px-0 transition-transform duration-500 ease-in-out">
                     @foreach($reviews as $review)
                     <div class="testimonial-slide shrink-0 bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-sm border border-neutral-100">
                         <span class="text-4xl text-neutral-300 font-serif leading-none">"</span>
@@ -113,7 +113,8 @@ function renderStars(int $count): string {
     function slideWidth() {
         const gap = 16;
         const pv  = perView();
-        return (track.parentElement.clientWidth - gap * (pv - 1)) / pv;
+        const gutter = window.innerWidth >= 768 ? 0 : 16;
+        return (track.parentElement.clientWidth - gutter - gap * (pv - 1)) / pv;
     }
 
     function sizeSlides() {

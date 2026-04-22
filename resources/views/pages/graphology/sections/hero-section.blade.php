@@ -2,215 +2,241 @@
     'title' => 'MEGA GRAPHOLOGY WEBINAR',
     'subtitle' => "Enroll in the best graphology course to predict someone's personality using their signature and way of writing.",
     'bullets' => [
-        'Analysis of various signature styles.',
+        'It is the art and science of analyzing handwriting to understand the human mind.',
         "Able to predict someone's personality by their handwriting",
-        'Suggest the right changes in their writing and signature for improvements.',
-        'Tell if someone is faking their inner and outer personality.',
+        'It reveals hidden traits, emotions, and thinking patterns through writing style.',
+        'It helps in self-discovery, relationship understanding, and decision-making.',
+    ],
+    'sliderImages' => [
+        'image/astrology assests/astro-webp/convo 1.webp',
+        'image/astrology assests/astro-webp/convo 4.webp',
+        'image/astrology assests/astro-webp/convo 7.webp',
     ],
     'date' => 'Sun, 26 April, 2026',
     'time' => '1:00 PM to 3:00 PM',
     'duration' => '2 hours',
-    'alumniCount' => '18k+',
-    'rating' => '4.5/5 (8912 ratings)',
-    'videoPlaceholder' => 'image/astrology assests/institute/2025-09-14 (1) (1).webp',
+    'platform' => 'Zoom Call',
     'ctaHref' => '#',
 ])
 
 @php
-$iconsPath = 'images/icons';
+    $iconsPath = 'images/icons';
+    $sliderId = 'slider-' . uniqid();
 @endphp
 
-
-{{-- Top Cream Marquee Bar --}}
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
-            <a href="{{ url('/checkout') }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                🎯 Join Early Bird Discounted Webinar &nbsp;|&nbsp; Reserve Your Seat Now @₹49 Only!
+            <a href="{{ $ctaHref }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
+                Join Early Bird Discounted Webinar &nbsp;|&nbsp; Reserve Your Seat Now ₹49 Only!
             </a>
         @endforeach
     </div>
 </div>
 
+<section class="bg-astro-hero-gradient text-white transition-[padding,gap] duration-300 ease-in-out">
+    <div class="max-w-[1400px] mx-auto section-px xl:pl-6 xl:pr-0 py-5 xl:py-10 transition-[padding,gap,max-width] duration-300 ease-in-out">
 
-<section class="bg-neutral-b text-white transition-[padding,gap] duration-300 ease-in-out">
+        <div class="flex flex-col gap-6 xl:hidden transition-all duration-300 ease-in-out">
+            <div class="flex justify-center">
+                <div class="flex items-center px-3 py-1.5 rounded-full shadow-md bg-white">
+                    <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="h-14 w-auto object-contain">
+                </div>
+            </div>
 
-<div class="max-w-[1400px] mx-auto section-px py-5 xl:py-10 transition-[padding,gap,max-width] duration-300 ease-in-out">
+            <h1 class="text-hero font-bold text-white tracking-wide text-center">{{ $title }}</h1>
 
-{{-- MOBILE & TABLET (1024px): Stacked layout --}}
-<div class="flex flex-col gap-6 xl:hidden transition-all duration-300 ease-in-out">
-{{-- Badge --}}
-<div class="flex justify-center">
-    <div class="flex items-center gap-2 px-4 py-1.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="w-7 h-7 object-contain rounded-full">
-        <span class="text-neutral-b font-semibold text-xs tracking-wide whitespace-nowrap">All India Institute of Occult Science</span>
-    </div>
-</div>
-<h1 class="text-hero font-bold text-button-gradient uppercase tracking-wide text-center">{{ $title }}</h1>
-<div class="w-full aspect-[4/3] min-h-[14rem] bg-neutral-e rounded-10 overflow-hidden flex items-center justify-center relative">
-    @if($videoPlaceholder)
-        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
-    @else
-        <div class="flex flex-col items-center justify-center gap-3 text-neutral-i/60">
-            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-            <span class="text-sm">Loading...</span>
+            @php $mSliderId = $sliderId . '-m'; @endphp
+            <div id="{{ $mSliderId }}" class="w-full rounded-xl overflow-hidden shadow-2xl relative aspect-[4/3]">
+                @foreach($sliderImages as $i => $img)
+                    <img
+                        src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}"
+                        alt="Webinar photo {{ $i + 1 }}"
+                        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
+                        @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif
+                    >
+                @endforeach
+
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                    @foreach($sliderImages as $i => $img)
+                        <button
+                            onclick="astroSliderGoTo('{{ $mSliderId }}', {{ $i }})"
+                            class="w-2 h-2 rounded-full transition-all duration-300 {{ $i === 0 ? 'bg-white scale-125' : 'bg-white/50' }}"
+                            aria-label="Slide {{ $i + 1 }}"
+                        ></button>
+                    @endforeach
+                </div>
+            </div>
+
+            <ul class="list-disc pl-6 space-y-3 text-neutral-i text-sm mb-2 text-left w-full">
+                @foreach($bullets as $bullet)
+                    <li>{{ $bullet }}</li>
+                @endforeach
+            </ul>
+
+            <div class="grid grid-cols-2 gap-3 w-full">
+                <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <img src="{{ asset($iconsPath.'/Date.svg') }}" alt="" class="w-4 h-4 shrink-0" aria-hidden="true">
+                        <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Date</p>
+                    </div>
+                    <p class="font-bold text-accent-cream text-sm">{{ $date }}</p>
+                </div>
+                <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <img src="{{ asset($iconsPath.'/time.svg') }}" alt="" class="w-4 h-4 shrink-0" aria-hidden="true">
+                        <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Time</p>
+                    </div>
+                    <p class="font-bold text-accent-cream text-sm">{{ $time }}</p>
+                </div>
+                <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <img src="{{ asset($iconsPath.'/duration.svg') }}" alt="" class="w-4 h-4 shrink-0" aria-hidden="true">
+                        <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Duration</p>
+                    </div>
+                    <p class="font-bold text-accent-cream text-sm">{{ $duration }} Live Webinar</p>
+                </div>
+                <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5zm0 0M5 16l.75 2.25L8 19l-2.25.75L5 22l-.75-2.25L2 19l2.25-.75zm14 0l.75 2.25L22 19l-2.25.75L19 22l-.75-2.25L16 19l2.25-.75z"/></svg>
+                        <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Platform</p>
+                    </div>
+                    <p class="font-bold text-accent-cream text-sm">Live Webinar on {{ $platform }}</p>
+                </div>
+            </div>
+
+            <x-ui.button :href="$ctaHref" variant="astro" class="w-full !py-4 !text-base font-bold">
+                Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
+            </x-ui.button>
         </div>
-    @endif
-    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 py-3 flex flex-col gap-0.5">
-        <p class="text-xs uppercase tracking-widest font-semibold text-accent-gold-light">Annual</p>
-        <p class="text-base font-bold text-white leading-tight">Convocation 2025</p>
-    </div>
-</div>
-@php
-$ratingParts = preg_split('/\s+(?=\()/', $rating, 2);
-$ratingValue = $ratingParts[0] ?? $rating;
-$ratingCount = $ratingParts[1] ?? '';
-@endphp
-<div class="grid grid-cols-[1fr_auto_1fr] gap-0 items-center w-full">
-<div class="flex flex-col items-center justify-center gap-2 py-2">
-<div class="flex -space-x-3">
-<img src="{{ asset('images/assets%20desktop/Aryan_Mehta.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Priya_Sharma.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Rishika.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Vikram_Singh.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-</div>
-<p class="text-neutral-i font-semibold text-center text-sm leading-tight">Join {{ $alumniCount }} Alumni<br>Network</p>
-</div>
-<div class="w-px self-stretch bg-neutral-i/40 min-h-[3rem] shrink-0"></div>
-<div class="flex flex-col items-center justify-center gap-2 py-2">
-<div class="flex gap-0.5">@for($i=1;$i<=5;$i++)<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.49 8.719c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>@endfor</div>
-<p class="text-neutral-i font-semibold text-center text-sm leading-tight"><span class="block">{{ $ratingValue }}</span><span class="block">{{ $ratingCount }}</span></p>
-</div>
-</div>
-<p class="text-neutral-i text-sm text-left">{{ $subtitle }}</p>
-<ul class="list-disc pl-6 space-y-3 text-neutral-i text-sm mb-2 text-left w-full">
-@foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
-</ul>
 
-{{-- 2x2 Info Cards --}}
-<div class="grid grid-cols-2 gap-3 w-full">
-    <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset($iconsPath.'/Date.svg') }}" class="w-4 h-4 shrink-0">
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Date</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-sm">{{ $date }}</p>
-    </div>
-    <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset($iconsPath.'/time.svg') }}" class="w-4 h-4 shrink-0">
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Time</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-sm">{{ $time }}</p>
-    </div>
-    <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset($iconsPath.'/duration.svg') }}" class="w-4 h-4 shrink-0">
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Duration</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-sm">2 Hours Live Webinar</p>
-    </div>
-    <div class="border border-white/40 rounded-xl p-3 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Bonus</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-sm">Free Bonus Worth ₹999</p>
-    </div>
-</div>
+        <div class="hidden xl:flex flex-col gap-6 transition-all duration-300 ease-in-out">
+            <div class="flex justify-center">
+                <div class="flex items-center px-4 py-2 rounded-full shadow-md bg-white">
+                    <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="h-16 w-auto object-contain">
+                </div>
+            </div>
 
-<x-ui.button :href="$ctaHref" variant="primary" class="w-full !py-4 !text-base font-bold">
-    Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
-</x-ui.button>
-</div>
+            <div class="flex gap-4 items-start">
+                <div class="w-[55%] shrink-0">
+                    <h1 class="text-hero font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
+                    <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
+                        @foreach($bullets as $bullet)
+                            <li>{{ $bullet }}</li>
+                        @endforeach
+                    </ul>
 
-{{-- DESKTOP (1280px+): 2-column layout --}}
-<div class="hidden xl:flex flex-col gap-6 transition-all duration-300 ease-in-out">
-{{-- Badge centered above both columns --}}
-<div class="flex justify-center">
-    <div class="flex items-center gap-3 px-5 py-2.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="w-10 h-10 object-contain rounded-full">
-        <span class="text-neutral-b font-semibold text-sm md:text-base tracking-wide whitespace-nowrap">All India Institute of Occult Science</span>
-    </div>
-</div>
-{{-- Two columns --}}
-<div class="grid grid-cols-[0.4fr_0.6fr] gap-4 items-start">
-{{-- LEFT SIDE --}}
-<div>
-<h1 class="text-hero font-bold text-button-gradient uppercase tracking-wide mb-4 whitespace-nowrap">{{ $title }}</h1>
-<p class="text-neutral-i text-lg max-w-xl mb-6">{{ $subtitle }}</p>
-<ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
-@foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
-</ul>
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                        <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
+                            <div class="flex items-center gap-2">
+                                <img src="{{ asset($iconsPath.'/Date.svg') }}" alt="" class="w-4 h-4 shrink-0" aria-hidden="true">
+                                <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Date</p>
+                            </div>
+                            <p class="font-bold text-accent-cream text-base">{{ $date }}</p>
+                        </div>
+                        <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
+                            <div class="flex items-center gap-2">
+                                <img src="{{ asset($iconsPath.'/time.svg') }}" alt="" class="w-4 h-4 shrink-0" aria-hidden="true">
+                                <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Time</p>
+                            </div>
+                            <p class="font-bold text-accent-cream text-base">{{ $time }}</p>
+                        </div>
+                        <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
+                            <div class="flex items-center gap-2">
+                                <img src="{{ asset($iconsPath.'/duration.svg') }}" alt="" class="w-4 h-4 shrink-0" aria-hidden="true">
+                                <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Duration</p>
+                            </div>
+                            <p class="font-bold text-accent-cream text-base">{{ $duration }} Live Webinar</p>
+                        </div>
+                        <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5zm0 0M5 16l.75 2.25L8 19l-2.25.75L5 22l-.75-2.25L2 19l2.25-.75zm14 0l.75 2.25L22 19l-2.25.75L19 22l-.75-2.25L16 19l2.25-.75z"/></svg>
+                                <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Platform</p>
+                            </div>
+                            <p class="font-bold text-accent-cream text-base">Live Webinar on {{ $platform }}</p>
+                        </div>
+                    </div>
 
-{{-- 2x2 Info Cards --}}
-<div class="grid grid-cols-2 gap-3 mb-8">
-    <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset($iconsPath.'/Date.svg') }}" class="w-4 h-4 shrink-0">
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Date</p>
+                    <x-ui.button :href="$ctaHref" variant="astro" class="!py-4 !text-base font-bold !min-w-0">
+                        Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
+                    </x-ui.button>
+                </div>
+
+                @php $dSliderId = $sliderId . '-d'; @endphp
+                <div class="flex-1 flex flex-col gap-4 mt-4">
+                    <div id="{{ $dSliderId }}" class="w-full aspect-[4/3] min-h-[17rem] rounded-l-10 rounded-r-none overflow-hidden relative">
+                        @foreach($sliderImages as $i => $img)
+                            <img
+                                src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}"
+                                alt="Webinar photo {{ $i + 1 }}"
+                                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
+                                @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif
+                            >
+                        @endforeach
+
+                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                            @foreach($sliderImages as $i => $img)
+                                <button
+                                    onclick="astroSliderGoTo('{{ $dSliderId }}', {{ $i }})"
+                                    class="w-2.5 h-2.5 rounded-full transition-all duration-300 {{ $i === 0 ? 'bg-white scale-125' : 'bg-white/50' }}"
+                                    aria-label="Slide {{ $i + 1 }}"
+                                ></button>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="font-bold text-accent-gold-light text-base">{{ $date }}</p>
     </div>
-    <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset($iconsPath.'/time.svg') }}" class="w-4 h-4 shrink-0">
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Time</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-base">{{ $time }}</p>
-    </div>
-    <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <img src="{{ asset($iconsPath.'/duration.svg') }}" class="w-4 h-4 shrink-0">
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Duration</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-base">2 Hours Live Webinar</p>
-    </div>
-    <div class="border border-white/40 rounded-xl p-4 flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-accent-gold shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-            <p class="text-xs text-neutral-i/80 uppercase font-semibold tracking-wide">Bonus</p>
-        </div>
-        <p class="font-bold text-accent-gold-light text-base">Free Bonus Worth ₹999</p>
-    </div>
-</div>
-
-<x-ui.button :href="$ctaHref" variant="primary" class="!py-4 !text-base font-bold !min-w-0">
-    Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
-</x-ui.button>
-</div>
-{{-- RIGHT SIDE --}}
-<div class="flex flex-col gap-4 mt-10">
-<div class="w-full aspect-[4/3] min-h-[22rem] bg-neutral-e rounded-10 overflow-hidden flex items-center justify-center ml-8">
-    @if($videoPlaceholder)
-        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $videoPlaceholder)))) }}" alt="Webinar preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high">
-    @else
-        <div class="flex flex-col items-center justify-center gap-3 text-neutral-i/60">
-            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-            <span class="text-sm">Loading...</span>
-        </div>
-    @endif
-</div>
-<div class="flex flex-nowrap items-center gap-6">
-<div class="flex -space-x-3 shrink-0">
-<img src="{{ asset('images/assets%20desktop/Aryan_Mehta.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Priya_Sharma.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Rishika.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-<img src="{{ asset('images/assets%20desktop/Vikram_Singh.avif') }}" alt="" class="w-9 h-9 rounded-full border-2 border-neutral-b object-cover">
-</div>
-<p class="text-neutral-i font-semibold whitespace-nowrap shrink-0">Join {{ $alumniCount }} Alumni Network</p>
-<div class="w-px h-6 bg-neutral-i/40 shrink-0"></div>
-<div class="flex items-center gap-2">
-<div class="flex gap-1 shrink-0">@for($i=1;$i<=5;$i++)<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.49 8.719c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>@endfor</div>
-<p class="font-semibold text-neutral-i whitespace-nowrap shrink-0">{{ $rating }}</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </section>
+
+<script>
+(function () {
+    const sliders = {};
+
+    window.astroSliderGoTo = function (id, index) {
+        const s = sliders[id];
+        if (!s) return;
+        clearInterval(s.timer);
+        setSlide(s, index);
+        s.timer = setInterval(() => advance(s), 4000);
+    };
+
+    function setSlide(s, index) {
+        s.imgs.forEach((img, i) => {
+            img.style.opacity = i === index ? '1' : '0';
+        });
+        s.dots.forEach((dot, i) => {
+            dot.style.opacity = i === index ? '1' : '0.5';
+            dot.style.transform = i === index ? 'scale(1.25)' : 'scale(1)';
+        });
+        s.current = index;
+    }
+
+    function advance(s) {
+        setSlide(s, (s.current + 1) % s.imgs.length);
+    }
+
+    function initSlider(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const imgs = Array.from(el.querySelectorAll('img'));
+        const dots = Array.from(el.querySelectorAll('button'));
+        if (imgs.length < 2) return;
+        const s = { imgs, dots, current: 0, timer: null };
+        sliders[id] = s;
+        s.timer = setInterval(() => advance(s), 4000);
+    }
+
+    function init() {
+        initSlider('{{ $mSliderId }}');
+        initSlider('{{ $dSliderId }}');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
