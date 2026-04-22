@@ -3,6 +3,11 @@
 @section('title', 'Register – ' . $config['webinar_name'])
 @section('description', 'Reserve your seat for the ' . $config['webinar_name'] . ' by All India Institute of Occult Science.')
 
+@push('head')
+    <link rel="preconnect" href="https://forms.zohopublic.in">
+    <link rel="dns-prefetch" href="https://forms.zohopublic.in">
+@endpush
+
 @section('content')
 
 <div class="min-h-screen bg-gray-50">
@@ -83,18 +88,25 @@
                     </div>
 
                     {{-- Iframe --}}
-                    <iframe
-                        id="zoho-form-iframe"
-                        aria-label="{{ $config['webinar_name'] }}"
-                        src="{{ $config['zoho_form'] }}"
-                        frameborder="0"
-                        scrolling="no"
-                        allow="geolocation; microphone; camera; payment"
-                        style="height:{{ $config['form_height'] }}; width:100%; border:none; display:block; overflow:hidden;"
-                        class="md:!h-[1100px]"
-                        title="Webinar Registration Form"
-                        loading="eager"
-                    ></iframe>
+                    <div class="relative">
+                        <div id="zoho-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white" style="min-height:200px;">
+                            <div class="w-8 h-8 rounded-full border-4 border-gray-200 border-t-gray-800 animate-spin"></div>
+                            <p class="text-xs text-gray-400">Loading registration form...</p>
+                        </div>
+                        <iframe
+                            id="zoho-form-iframe"
+                            aria-label="{{ $config['webinar_name'] }}"
+                            src="{{ $config['zoho_form'] }}"
+                            frameborder="0"
+                            scrolling="no"
+                            allow="geolocation; microphone; camera; payment"
+                            style="height:{{ $config['form_height'] }}; width:100%; border:none; display:block; overflow:hidden; opacity:0; transition:opacity 0.3s ease;"
+                            class="md:!h-[1100px]"
+                            title="Webinar Registration Form"
+                            loading="eager"
+                            onload="this.style.opacity='1'; document.getElementById('zoho-loader').style.display='none';"
+                        ></iframe>
+                    </div>
 
                     {{-- Trust badge --}}
                     <div class="px-6 py-3 border-t border-gray-100 flex items-center justify-center gap-2 text-xs text-gray-400">
@@ -211,23 +223,7 @@
         }
     }, false);
 
-    var poll = setInterval(function () {
-        try {
-            var href = iframe.contentWindow.location.href;
-            if (!href || href === 'about:blank') return;
-            if (
-                href.indexOf('zohopublic') === -1 ||
-                href.indexOf('thankyou') !== -1 ||
-                href.indexOf('thank-you') !== -1 ||
-                href.indexOf('success') !== -1
-            ) {
-                clearInterval(poll);
-                doRedirect();
-            }
-        } catch (e) {}
-    }, 800);
-
-    setTimeout(function () { clearInterval(poll); }, 30 * 60 * 1000);
+    // Zoho handles redirect via its own Thank You URL setting — postMessage above is the fallback
 })();
 </script>
 
