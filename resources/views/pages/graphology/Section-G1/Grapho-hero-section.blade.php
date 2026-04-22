@@ -41,7 +41,7 @@ $iconsPath = 'images/icons';
 {{-- Badge --}}
 <div class="flex justify-center">
     <div class="flex items-center px-3 py-1.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="h-14 w-auto object-contain">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="h-14 w-auto object-contain">
     </div>
 </div>
 <h1 class="text-hero font-bold text-white uppercase tracking-wide text-center">{{ $title }}</h1>
@@ -118,7 +118,7 @@ $ratingCount = $ratingParts[1] ?? '';
 {{-- Badge centered above both columns --}}
 <div class="flex justify-center">
     <div class="flex items-center px-4 py-2 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="h-16 w-auto object-contain">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="h-16 w-auto object-contain">
     </div>
 </div>
 {{-- Two columns --}}

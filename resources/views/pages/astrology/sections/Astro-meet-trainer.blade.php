@@ -60,7 +60,7 @@
                     <div class="shrink-0 w-[80vw] snap-center relative rounded-xl overflow-hidden aspect-[4/3]">
                         <img
                             src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $photo['src'])))) }}"
-                            alt="{{ $photo['caption'] }}"
+                            alt="{{ $photo['caption'] }}" width="800" height="600"
                             class="w-full h-full object-cover"
                             loading="lazy"
                         >
@@ -114,7 +114,7 @@
                     <div class="inst-slide shrink-0 w-[calc(33.333%-11px)] relative rounded-xl overflow-hidden aspect-[4/3]">
                         <img
                             src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $photo['src'])))) }}"
-                            alt="{{ $photo['caption'] }}"
+                            alt="{{ $photo['caption'] }}" width="800" height="600"
                             class="w-full h-full object-cover"
                             loading="lazy"
                         >

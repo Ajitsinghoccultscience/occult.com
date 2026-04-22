@@ -42,7 +42,7 @@ $iconsPath = 'images/icons';
 {{-- Badge --}}
 <div class="flex justify-center">
     <div class="flex items-center gap-2 px-4 py-1.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="w-7 h-7 object-contain rounded-full">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="w-7 h-7 object-contain rounded-full">
         <span class="text-neutral-b font-semibold text-xs tracking-wide whitespace-nowrap">All India Institute of Occult Science</span>
     </div>
 </div>
@@ -129,7 +129,7 @@ $ratingCount = $ratingParts[1] ?? '';
 {{-- Badge centered above both columns --}}
 <div class="flex justify-center">
     <div class="flex items-center gap-3 px-5 py-2.5 rounded-full shadow-md bg-white">
-        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" class="w-10 h-10 object-contain rounded-full">
+        <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="w-10 h-10 object-contain rounded-full">
         <span class="text-neutral-b font-semibold text-sm md:text-base tracking-wide whitespace-nowrap">All India Institute of Occult Science</span>
     </div>
 </div>
