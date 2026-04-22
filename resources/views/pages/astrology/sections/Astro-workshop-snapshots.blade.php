@@ -40,39 +40,6 @@
     </div>
 </section>
 
-<script defer>
-(function () {
-    const slider = document.getElementById('snapshot-slider');
-    if (!slider) return;
-
-    let current = 0;
-    let paused  = false;
-    const slides = slider.querySelectorAll('.snapshot-slide');
-    const dots   = document.querySelectorAll('[id^="snap-dot-"]');
-    const total  = slides.length;
-
-    function goTo(index) {
-        if (index >= total) index = 0;
-        if (index < 0) index = total - 1;
-        current = index;
-        slider.scrollTo({ left: slides[current].offsetLeft - 16, behavior: 'smooth' });
-        dots.forEach((d, i) => {
-            d.style.backgroundColor = i === current ? '#5E3592' : '';
-            d.classList.toggle('bg-[#5E3592]', i === current);
-            d.classList.toggle('bg-neutral-h', i !== current);
-        });
-    }
-
-    goTo(0);
-    setInterval(() => { if (!paused) goTo(current + 1); }, 2500);
-
-    slider.addEventListener('mouseenter', () => { paused = true; });
-    slider.addEventListener('mouseleave', () => { paused = false; });
-    slider.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    slider.addEventListener('touchend',   () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
-
-    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-})();
-</script>
+<script>window.__carousels.push({id:'snapshot-slider',slideClass:'.snapshot-slide',dotPrefix:'snap-dot-',dotActive:'#5E3592',dotInactive:'',offsetPad:16,interval:2500});</script>
 
 

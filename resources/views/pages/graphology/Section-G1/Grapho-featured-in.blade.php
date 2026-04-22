@@ -49,44 +49,4 @@ $publications = [
 
 </section>
 
-<script defer>
-(function () {
-    const track  = document.getElementById('featured-slider');
-    if (!track) return;
-
-    let paused  = false;
-    let current = 0;
-    let timer   = null;
-
-    function getSlides() {
-        return track.querySelectorAll('.featured-slide');
-    }
-
-    function slideTo(index) {
-        const slides = getSlides();
-        if (!slides.length) return;
-        if (index >= slides.length) index = 0;
-        current = index;
-        const slide = slides[current];
-        track.scrollTo({ left: slide.offsetLeft - 24, behavior: 'smooth' });
-    }
-
-    function startTimer() {
-        if (timer) return;
-        current = 0;
-        track.scrollTo({ left: 0, behavior: 'instant' });
-        timer = setInterval(() => { if (!paused) slideTo(current + 1); }, 2500);
-    }
-
-    // Only start scrolling once the section is visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { startTimer(); observer.disconnect(); } });
-    }, { threshold: 0.2 });
-    observer.observe(track);
-
-    track.addEventListener('mouseenter', () => { paused = true; });
-    track.addEventListener('mouseleave', () => { paused = false; });
-    track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    track.addEventListener('touchend',   () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
-})();
-</script>
+<script>window.__carousels.push({id:'featured-slider',slideClass:'.featured-slide',offsetPad:24,interval:2500});</script>

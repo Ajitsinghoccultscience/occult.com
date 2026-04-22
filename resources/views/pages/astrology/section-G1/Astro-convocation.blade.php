@@ -66,40 +66,6 @@
     </div>
 </section>
 
-<script defer>
-(function () {
-    const slider = document.getElementById('convo-slider');
-    if (!slider) return;
-
-    const slides = slider.querySelectorAll('.convo-slide');
-    const dots   = document.querySelectorAll('[id^="convo-dot-"]');
-    const total  = slides.length;
-    let current  = 0;
-    let paused   = false;
-
-    function goTo(index) {
-        if (index >= total) index = 0;
-        if (index < 0) index = total - 1;
-        current = index;
-        slider.scrollTo({ left: slides[current].offsetLeft - 16, behavior: 'smooth' });
-        dots.forEach((d, i) => {
-            d.style.backgroundColor = i === current ? '#800202' : '#d6d6d6';
-        });
-    }
-
-    goTo(0);
-
-    document.getElementById('convo-next')?.addEventListener('click', () => { paused = true; goTo(current + 1); setTimeout(() => paused = false, 3000); });
-    document.getElementById('convo-prev')?.addEventListener('click', () => { paused = true; goTo(current - 1); setTimeout(() => paused = false, 3000); });
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { paused = true; goTo(i); setTimeout(() => paused = false, 3000); }));
-
-    setInterval(() => { if (!paused) goTo(current + 1); }, 2500);
-
-    slider.addEventListener('mouseenter', () => { paused = true; });
-    slider.addEventListener('mouseleave', () => { paused = false; });
-    slider.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    slider.addEventListener('touchend',   () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
-})();
-</script>
+<script>window.__carousels.push({id:'convo-slider',slideClass:'.convo-slide',prevId:'convo-prev',nextId:'convo-next',dotPrefix:'convo-dot-',dotActive:'#800202',offsetPad:16,interval:2500});</script>
 
 

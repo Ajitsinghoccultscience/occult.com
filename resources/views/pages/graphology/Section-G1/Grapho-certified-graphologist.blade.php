@@ -61,44 +61,7 @@
             </button>
         </div>
 
-        <script defer>
-            window.graphologistCarousel = (function () {
-                var el, paused = false;
-
-                function getEl() {
-                    return el || (el = document.getElementById('graphologist-carousel'));
-                }
-
-                function next() {
-                    var c = getEl();
-                    if (!c) return;
-                    var atEnd = c.scrollLeft + c.clientWidth >= c.scrollWidth - 5;
-                    c.scrollBy({ left: atEnd ? -c.scrollWidth : c.clientWidth, behavior: 'smooth' });
-                }
-
-                function prev() {
-                    var c = getEl();
-                    if (!c) return;
-                    var atStart = c.scrollLeft <= 5;
-                    c.scrollBy({ left: atStart ? c.scrollWidth : -c.clientWidth, behavior: 'smooth' });
-                }
-
-                // Auto-slide every 2.5s
-                setInterval(function () { if (!paused) next(); }, 2500);
-
-                // Pause on hover / touch
-                document.addEventListener('DOMContentLoaded', function () {
-                    var c = getEl();
-                    if (!c) return;
-                    c.addEventListener('mouseenter', function () { paused = true; });
-                    c.addEventListener('mouseleave', function () { paused = false; });
-                    c.addEventListener('touchstart', function () { paused = true; }, { passive: true });
-                    c.addEventListener('touchend',   function () { setTimeout(function () { paused = false; }, 2000); }, { passive: true });
-                });
-
-                return { next: next, prev: prev };
-            })();
-        </script>
+        <script>window.__carousels.push({id:'graphologist-carousel',type:'scrollby',name:'graphologistCarousel',interval:2500});</script>
     </div>
 </section>
 

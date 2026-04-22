@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {{-- dataLayer init must be synchronous so page-level pushes (e.g. thankyou event) work --}}
-    <script>window.dataLayer = window.dataLayer || [];</script>
+    {{-- Queue inits must be synchronous so component scripts can register before Vite bundle runs --}}
+    <script>window.dataLayer = window.dataLayer || []; window.__carousels = [];</script>
 
     <title>@yield('title', 'All India Institute of Occult Science')</title>
     <meta name="description" content="@yield('description', '')">

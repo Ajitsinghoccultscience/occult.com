@@ -82,7 +82,9 @@
     }
 
     goTo(0);
-    startTimer();
+    new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) { startTimer(); } });
+    }, { threshold: 0.1 }).observe(slider);
 
     slider.addEventListener('mouseenter', () => { paused = true; });
     slider.addEventListener('mouseleave', () => { paused = false; });

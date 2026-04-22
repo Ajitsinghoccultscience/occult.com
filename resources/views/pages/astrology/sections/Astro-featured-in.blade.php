@@ -58,32 +58,4 @@ $publications = [
 
 </section>
 
-<script defer>
-(function () {
-    const track  = document.getElementById('featured-slider');
-    if (!track) return;
-
-    let paused  = false;
-    let current = 0;
-
-    function getSlides() {
-        return track.querySelectorAll('.featured-slide');
-    }
-
-    function slideTo(index) {
-        const slides = getSlides();
-        if (!slides.length) return;
-        if (index >= slides.length) index = 0;
-        current = index;
-        const slide = slides[current];
-        track.scrollTo({ left: slide.offsetLeft - 24, behavior: 'smooth' });
-    }
-
-    setInterval(() => { if (!paused) slideTo(current + 1); }, 2500);
-
-    track.addEventListener('mouseenter', () => { paused = true; });
-    track.addEventListener('mouseleave', () => { paused = false; });
-    track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    track.addEventListener('touchend',   () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
-})();
-</script>
+<script>window.__carousels.push({id:'featured-slider',slideClass:'.featured-slide',offsetPad:24,interval:2500});</script>
