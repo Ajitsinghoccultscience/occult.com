@@ -28,7 +28,7 @@
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
             <a href="{{ $ctaHref }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                Join Early Bird Discounted Webinar &nbsp;|&nbsp; Reserve Your Seat Now ₹49 Only!
+              Offer closing soon — after this, registration fee will be ₹199.
             </a>
         @endforeach
     </div>
