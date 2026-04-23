@@ -32,9 +32,9 @@ $sliderId = 'slider-' . uniqid();
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
-            <a href="{{ url('/checkout') }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                Join Early Bird Discounted Webinar &nbsp;|&nbsp; Reserve Your Seat Now ₹49 Only!
-            </a>
+            <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
+                Offer closing soon — after this, registration fee will be ₹199.
+            </span>
         @endforeach
     </div>
 </div>
@@ -113,7 +113,7 @@ $sliderId = 'slider-' . uniqid();
     </div>
 </div>
 
-<x-ui.button :href="$ctaHref" variant="astro" class="w-full !py-4 !text-base font-bold">
+<x-ui.button :href="url('/graphology-checkout')" variant="astro" class="w-full !py-4 !text-base font-bold">
     Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>
