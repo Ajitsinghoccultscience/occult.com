@@ -28,7 +28,7 @@ $sliderId = 'slider-' . uniqid();
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
-            <a href="{{ url('/checkout') }}" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
+            <a href="#" class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
                 Offer closing soon — after this, registration fee will be ₹199.
             </a>
         @endforeach
