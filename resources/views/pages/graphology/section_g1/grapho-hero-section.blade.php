@@ -126,7 +126,7 @@ $sliderId = 'slider-' . uniqid();
 <div class="flex gap-4 items-start">
 {{-- LEFT SIDE --}}
 <div class="w-[55%] shrink-0">
-<h1 class="text-hero font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
+<h1 class="text-2xl font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
 <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
 @foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
 </ul>
