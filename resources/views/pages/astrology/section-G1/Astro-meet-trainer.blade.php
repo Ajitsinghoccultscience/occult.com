@@ -198,8 +198,8 @@
     var total = {{ count($convocationGallery) }};
     var perPage = 3;
     var paused = false;
+    var mobilePaused = false;
 
-    // Desktop slider
     function getDesktopSlider() { return document.getElementById(dId); }
     function getSlides() { return getDesktopSlider() ? getDesktopSlider().querySelectorAll('.inst-slide') : []; }
 
@@ -209,8 +209,7 @@
         if (index > total - perPage) index = 0;
         if (index < 0) index = total - perPage;
         current = index;
-        var offset = slides[current].offsetLeft;
-        getDesktopSlider().scrollTo({ left: offset, behavior: 'smooth' });
+        getDesktopSlider().scrollTo({ left: slides[current].offsetLeft, behavior: 'smooth' });
     }
 
     function next() { goTo(current + 1); }
@@ -219,17 +218,44 @@
     function init() {
         var nextBtn = document.getElementById('{{ $instSliderId }}-next');
         var prevBtn = document.getElementById('{{ $instSliderId }}-prev');
-        if (nextBtn) nextBtn.addEventListener('click', function () { paused = true; next(); setTimeout(function(){ paused = false; }, 4000); });
-        if (prevBtn) prevBtn.addEventListener('click', function () { paused = true; prev(); setTimeout(function(){ paused = false; }, 4000); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { paused = true; next(); setTimeout(function(){ paused = false; }, 5000); });
+        if (prevBtn) prevBtn.addEventListener('click', function () { paused = true; prev(); setTimeout(function(){ paused = false; }, 5000); });
 
         var d = getDesktopSlider();
         if (d) {
             d.addEventListener('mouseenter', function () { paused = true; });
             d.addEventListener('mouseleave', function () { paused = false; });
+
+            // Desktop touch swipe
+            var dTouchX = 0;
+            d.addEventListener('touchstart', function (e) { dTouchX = e.touches[0].clientX; paused = true; }, { passive: true });
+            d.addEventListener('touchend', function (e) {
+                var dx = dTouchX - e.changedTouches[0].clientX;
+                if (dx > 40) next();
+                else if (dx < -40) prev();
+                setTimeout(function () { paused = false; }, 5000);
+            }, { passive: true });
+        }
+
+        // Mobile: sync mCurrent after user swipes
+        var m = document.getElementById(mId);
+        if (m) {
+            var mScrollTimer;
+            m.addEventListener('scroll', function () {
+                mobilePaused = true;
+                clearTimeout(mScrollTimer);
+                mScrollTimer = setTimeout(function () {
+                    var slides = m.querySelectorAll('.snap-center');
+                    if (slides.length) {
+                        mCurrent = Math.round(m.scrollLeft / slides[0].offsetWidth);
+                        mCurrent = Math.max(0, Math.min(mCurrent, mTotal - 1));
+                    }
+                    mobilePaused = false;
+                }, 800);
+            }, { passive: true });
         }
     }
 
-    // Mobile slider auto-advance
     var mCurrent = 0;
     var mTotal = {{ count($convocationGallery) }};
 
@@ -242,10 +268,9 @@
         m.scrollTo({ left: slides[mCurrent].offsetLeft, behavior: 'smooth' });
     }
 
-    setInterval(function () { mobileNext(); }, 3000);
-
-    // Desktop auto-advance every 3s
-    setInterval(function () { if (!paused) next(); }, 3000);
+    // Auto-advance every 5 seconds
+    setInterval(function () { if (!mobilePaused) mobileNext(); }, 5000);
+    setInterval(function () { if (!paused) next(); }, 5000);
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
