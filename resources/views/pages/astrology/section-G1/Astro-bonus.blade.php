@@ -7,16 +7,19 @@
             'label' => 'Bonus: 1',
             'title' => 'Certificate of Participation',
             'image' => 'image/astrology%20assests/Astrology%20certificate%201.webp',
+            'price' => '₹199',
         ],
         [
             'label' => 'Bonus: 2',
             'title' => 'PDF Notes',
             'image' => 'image/astrology%20assests/pdf%20notes.webp',
+            'price' => '₹199',
         ],
         [
             'label' => 'Bonus: 3',
             'title' => 'Live Q&A Session',
             'image' => 'image/astrology%20assests/live%20q%26a%20session.webp',
+            'price' => '₹199',
         ],
     ],
 ])
@@ -30,16 +33,17 @@
             <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[120px] h-auto" aria-hidden="true">
         </div>
 
-        {{-- MOBILE: horizontal peek slider --}}
-        <div class="md:hidden flex gap-4 overflow-x-auto scrollbar-hide pl-6 pr-4 pb-2 snap-x snap-mandatory">
+        {{-- MOBILE: 3-column grid --}}
+        <div class="md:hidden grid grid-cols-3 gap-2 section-px">
             @foreach($bonuses as $bonus)
-            <div class="bg-white rounded-2xl p-5 flex flex-col items-center gap-4 shadow-sm border border-neutral-100 shrink-0 w-[72%] snap-start">
-                <div class="border-2 border-neutral-b rounded-full px-5 py-1.5">
-                    <span class="text-sm font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
+            <div class="bg-white rounded-xl p-2 flex flex-col items-center justify-between gap-2 shadow-sm border border-neutral-100 h-full">
+                <h3 class="text-[10px] font-bold text-[#800202] text-center leading-tight">{{ $bonus['title'] }}</h3>
+                <div class="w-full flex items-center justify-center flex-1">
+                    <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[70px] object-contain" loading="lazy">
                 </div>
-                <h3 class="text-base font-bold text-[#800202] text-center">{{ $bonus['title'] }}</h3>
-                <div class="w-full flex items-center justify-center">
-                    <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[160px] object-contain" loading="lazy">
+                <div class="flex items-center justify-center gap-1">
+                    <span class="text-[10px] text-neutral-e line-through">{{ $bonus['price'] }}</span>
+                    <span class="text-[10px] font-bold text-[#800202]">Free</span>
                 </div>
             </div>
             @endforeach
@@ -48,13 +52,14 @@
         {{-- DESKTOP: 3-column grid --}}
         <div class="hidden md:grid grid-cols-3 gap-6 section-px">
             @foreach($bonuses as $bonus)
-            <div class="bg-white rounded-2xl p-6 flex flex-col items-center gap-5 shadow-sm border border-neutral-100">
-                <div class="border-2 border-neutral-b rounded-full px-6 py-1.5">
-                    <span class="text-content font-semibold text-neutral-b">{{ $bonus['label'] }}</span>
-                </div>
+            <div class="bg-white rounded-2xl p-6 flex flex-col items-center justify-between gap-4 shadow-sm border border-neutral-100">
                 <h3 class="text-subheading font-bold text-[#800202] text-center">{{ $bonus['title'] }}</h3>
-                <div class="w-full flex items-center justify-center">
+                <div class="w-full flex items-center justify-center flex-1">
                     <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[200px] object-contain" loading="lazy">
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <span class="text-sm text-neutral-e line-through">{{ $bonus['price'] }}</span>
+                    <span class="text-sm font-bold text-[#800202]">Free</span>
                 </div>
             </div>
             @endforeach
