@@ -12,6 +12,7 @@
 
 @section('content')
     @include('pages.astrology.section-G1.Astro-hero-section', ['ctaHref' => url('/astrology-checkout')])
+
     @include('pages.astrology.section-G1.Astro-featured-in')
     @include('pages.astrology.section-G1.Astro-what-you-will-learn', ['ctaHref' => url('/astrology-checkout')])
     @include('pages.astrology.section-G1.Astro-bonus', ['ctaHref' => url('/astrology-checkout')])
