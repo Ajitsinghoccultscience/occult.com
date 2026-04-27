@@ -27,7 +27,7 @@ class PageController extends Controller
             'name'          => 'Graphology',
             'webinar_name'  => 'Mega Graphology Webinar',
             'logo'          => 'image/compressed-images/logo300x111-removebg-preview.webp',
-            'event_date'    => 'Sat, 3rd May 2026',
+            'event_date'    => 'Sun, 3rd May 2026',
             'event_date_short' => 'May 3rd',
             'event_time'    => '1:00 PM – 3:00 PM IST',
             'zoho_form'     => 'https://forms.zohopublic.in/allindiainstituteofoccultsci1/form/MegaGraphologyWebinar/formperma/syGbeX5Uekmsro9yiDvTz842piWRQ-_mWlNvTiakKYM',
@@ -59,6 +59,11 @@ class PageController extends Controller
     public function astrologyWebinar()
     {
         return view('pages.astrology.pages.astrology-webinar1');
+    }
+
+    public function astrologyWebinar3()
+    {
+        return view('pages.astrology.pages.astrology-webinar3');
     }
 
     public function checkout(Request $request)
