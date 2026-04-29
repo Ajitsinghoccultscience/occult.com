@@ -5,7 +5,7 @@
 
 @section('content')
 @php
-    $title = 'MEGA GRAPHOLOGY WEBINAR';
+    $heroTitle = 'MEGA GRAPHOLOGY WEBINAR';
     $subtitle = "Enroll in the best graphology course to predict someone's personality using their signature and way of writing.";
     $bullets = [
         'Analysis of various signature styles.',
@@ -52,7 +52,7 @@ $sliderId = 'slider-' . uniqid();
         <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="h-14 w-auto object-contain">
     </div>
 </div>
-<h1 class="text-hero font-bold text-white tracking-wide text-center">{{ $title }}</h1>
+<h1 class="text-hero font-bold text-white tracking-wide text-center">{{ $heroTitle }}</h1>
 
 {{-- Image Slider (mobile) --}}
 @php $mSliderId = $sliderId . '-m'; @endphp
@@ -134,7 +134,7 @@ $sliderId = 'slider-' . uniqid();
 <div class="flex gap-4 items-start">
 {{-- LEFT SIDE --}}
 <div class="w-[55%] shrink-0">
-<h1 class="text-2xl font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
+<h1 class="text-2xl font-bold text-white tracking-wide mb-4">{{ $heroTitle }}</h1>
 <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
 @foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
 </ul>

@@ -45,6 +45,7 @@
     --color-neutral-i: #ffffff;
     --color-neutral-bg: #f7f7f7;
     --color-neutral-red: #840202;   /* Used by astrology */
+    --color-primary-soft: #C7B6E8;  /* Lavender — testimonial cards */
 
     /* Accent */
     --color-accent-gold: #e8c15c;
@@ -123,7 +124,7 @@ html, body {
     padding: 0;
 }
 
-span, ul, li, p {
+ul, li, p {
     font-size: 1rem;
 }
 ul {

@@ -1,17 +1,9 @@
 @props([
     'title'        => 'Meet Your Trainer & Institute',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
-    'trainerName'  => 'Miss. Laxmi',
-    'trainerTitle' => 'Astrologer',
-    'trainerFaculty' => 'Faculty of All India Institute of Occult Science',
-    'description'  => [
-        "A B.Tech Computer Science Engineer and a Master's graduate in Astrology from the All India Institute of Occult Science, Delhi, Laxmi blends analytical thinking with spiritual wisdom.",
-        "She is dedicated to guiding individuals toward self-awareness through the principles of Vedic astrology.",
-    ],
     'ctaText'       => 'Reserve Seat @₹49',
     'ctaPriceStruck' => '₹199',
     'ctaHref'       => '#',
-    'trainerImage'  => 'image/astrology%20assests/laxmi%20mam.webp',
     'instituteSubheading' => 'All India Institute of Occult Science: Running Since March 2004',
     'instituteBullets' => [
         'One of the best leading institutes in India known for its occult education and training for its students.',
