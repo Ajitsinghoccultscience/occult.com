@@ -16,6 +16,8 @@
       @include('pages.astrology.page-3-sections.register-webinar')
       @include('pages.astrology.page-3-sections.about')
       @include('pages.astrology.page-3-sections.testimonials')
+      @include('pages.astrology.page-3-sections.podcast')
+      @include('pages.astrology.page-3-sections.1200+-student')
       @include('pages.astrology.page-3-sections.reviews')
       @include('pages.astrology.page-3-sections.faq')
       @include('pages.astrology.page-3-sections.end-section')

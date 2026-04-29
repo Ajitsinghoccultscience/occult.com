@@ -124,7 +124,7 @@
             <div class="flex justify-center gap-2.5 mt-7" id="{{ $tsId }}-dots" aria-label="Carousel navigation">
                 @foreach($testimonials as $i => $_)
                 <button type="button"
-                    class="ts-dot rounded-full transition-all duration-300
+                    class="ts-dot rounded-full transition-all duration-300 mb-2
                            {{ $i === 0
                                ? 'w-5 h-2.5 bg-neutral-b'
                                : 'w-2.5 h-2.5 bg-neutral-h' }}"
