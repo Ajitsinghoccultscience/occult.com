@@ -63,7 +63,8 @@ class PageController extends Controller
 
     public function astrologyWebinar3()
     {
-        return view('pages.astrology.pages.astrology-webinar3');
+         return view('pages.astrology.pages.astrology-webinar3');
+       
     }
 
     public function checkout(Request $request)
