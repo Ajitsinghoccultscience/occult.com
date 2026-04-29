@@ -7,7 +7,7 @@ use App\Http\Controllers\PageController;
 Route::get('/', fn() => redirect('/astrology-webinar-1'));
 Route::get('/astrology-webinar-1', [PageController::class, 'index']);
 Route::get('/astrology-webinar-2', [PageController::class, 'astrologyWebinar']);
-Route::get('/astrology-webinar-3',[PageController::class, 'astrologyWebinar3']);
+Route::get('/astrology-webinar-6',[PageController::class, 'astrologyWebinar3']);
 
 
 
