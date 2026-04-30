@@ -37,7 +37,8 @@
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto">
 
         {{-- ── OUTER CARD ─────────────────────────────────────────────────── --}}
-        <x-ui.card variant="purple" class="!rounded-3xl !p-6 md:!p-8 xl:!p-10 space-y-7">
+        <x-ui.card variant="purple" class="!rounded-3xl !p-6 md:!p-8 xl:!p-10 space-y-7"
+            style="background-image: url('{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}'); background-size: cover; background-position: center;">
 
             {{-- Heading --}}
             <h2 class="text-heading font-bold text-white text-center leading-snug tracking-[0.5px]">

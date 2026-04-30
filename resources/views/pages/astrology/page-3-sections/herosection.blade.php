@@ -40,7 +40,8 @@
 
 {{-- Hero outer wrapper with rounded card look --}}
 <div class="bg-white py-2 px-2 md:px-5 lg:px-8">
-<section class=" bg-[linear-gradient(to_bottom,#1C023F_0%,#5E3592_100%)]  text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto">
+<section class="text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
+         style="background-image: url('{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}'); background-size: cover; background-position: center;">
 <div class="section-px py-3 md:py-5 xl:py-6">
 
     {{-- Logo badge (centered) --}}
