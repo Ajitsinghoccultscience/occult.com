@@ -1,5 +1,5 @@
     @props([
-        'title'       => 'Exclusive Bonus',
+        'title'       => 'Everything you get beyond the session',
         'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
         'ctaHref'     => '#',
         'bonuses' => [

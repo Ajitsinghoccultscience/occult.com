@@ -3,25 +3,22 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'items' => [
         [
-            'question' => 'Is this webinar suitable for absolute beginners?',
-            'answer' => "Yes, absolutely! This session is designed for people with zero prior knowledge. We break down complex concepts like planets, zodiac signs, and houses into simple, everyday language that anyone can understand and apply.",
+            'question' => 'Is prior knowledge of astrology required to attend this webinar ? ',
+            'answer' => " No, this webinar is designed to be simple and easy to follow, even if you are a beginner you can come and start your astrology journey with us. ",
         ],
         [
-            'question' => 'Why is the fee only ₹49? Is there a catch?',
-            'answer' => 'No catch at all. Our goal is to make authentic Vedic wisdom accessible to every household. The ₹49 fee is a "commitment fee" to ensure that only serious learners join the session, covering the basic administrative costs of the digital platform.',
+            'question' => 'Does learning astrology require a background in mathematics or astronomy ? ',
+            'answer' => 'Not at all ! Our session focuses on helping you understand planets, houses and zodiac signs and the connection between them to develop the skills to read kundali.',
         ],
         [
-            'question' => 'Will I receive a certificate?',
-            'answer' => "Yes! All participants who attend the live session will receive a Participation Certificate.",
+            'question' => 'What level of understanding  can one expect to gain from this webinar ? ',
+            'answer' => "This webinar is the perfect first step. You’ll walk away with a solid understanding of how a birth chart works and the confidence to start reading one.",
         ],
         [
-            'question' => 'Can I ask questions about my own birth chart?',
-            'answer' => 'While we can\'t do full individual readings for everyone due to time, we have a dedicated Q&A session at the end. You will learn the specific "formula" to look at your own chart, and I will answer general queries about career, wealth, and health.',
+            'question' => 'How is this webinar different from astrology content freely available online? ',
+            'answer' => 'Most online information is random facts.This webinar gives you a solid foundation taught by professionals. We teach everything in the correct order so you can truly understand how it works. ',
         ],
-        [
-            'question' => 'What do I need to join the webinar?',
-            'answer' => 'All you need is a smartphone or laptop, a stable internet connection, and an open mind! We highly recommend keeping a pen and notebook handy to jot down the "Wealth Timing" secrets we will reveal during the class.',
-        ],
+     
     ],
 ])
 

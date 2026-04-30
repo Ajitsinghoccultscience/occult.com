@@ -1,10 +1,10 @@
 @props([
-    'heading' => 'All India Institute of Occult Science: Running Since March 2004',
+    'heading' => 'All India Institute Of Occult Science: (providing guidance since 2004 )',
     'instituteBullets' => [
-        'One of the best leading institutes in India known for its occult education and training for its students.',
-        'Globally recognized certification in Astrology, Numerology, Graphology, Vastu Shastra, Palmistry, Akashic records and Reiki.',
-        'Many trained students from here are working as personal consultants or in big astrology firms.',
-        'Best students support 24/7 with recorded classes available for our students.',
+        'Registered under the government of NCT of Delhi.',
+        'Globally recognised certification in vedic astrology and more.',
+        'Students trained here are working as professional consultants across India and abroad.',
+        'Founded by Gurudev Shrie - practising Astrology for the last 40 years.',
     ],
     'counters' => [
         ['icon' => 'image/astrology%20assests/instagram.svg', 'value' => '52,000+', 'label' => 'Instagram Followers'],

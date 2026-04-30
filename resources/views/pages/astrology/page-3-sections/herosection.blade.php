@@ -1,9 +1,10 @@
 @props([
-    'title'        => 'Learn to Read Your Kundli & Predict Your Future in Just 2 Hours',
+    'title'        => 'Live Webinar - Master the Vedic Astrology',
+    'subtitle'     => '2-hour session covering kundali reading, planetary influence, and chart practice — conducted by All India Institute of Occult Science, running since 2004',
     'bullets'      => [
-        'Understand the meaning of all 12 houses in astrology',
-        'Learn how zodiac signs influence your life',
-        'Apply astrology concepts with real case studies in Webinar',
+        'Read any kundali and make predictions with confidence.',
+        'Understand the 12 houses of Kundali.  ',
+        'Master the logic behind different results of planetary placement.',
     ],
     'sliderImages' => [
         ['src' => 'image/astrology assests/astro-webp/convo 1.webp', 'caption' => 'Convocation 2025'],
@@ -30,7 +31,7 @@
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 6) as $i)
             <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap">
-                Offer closing soon — after this, registration fee will be ₹199.
+                offer ends soon - enroll now with just ₹49 <span class="line-through opacity-70">₹199</span>
             </span>
         @endforeach
     </div>
@@ -53,6 +54,7 @@
     <div class="flex flex-col gap-3 lg:hidden">
 
         <h1 class="text-subheading md:text-hero font-bold text-white tracking-wide text-center leading-tight">{{ $title }}</h1>
+        <p class="text-white/80 text-sm md:text-base text-center leading-relaxed">{{ $subtitle }}</p>
 
         {{-- Slider --}}
         @php $mId = $sliderId . '-m'; @endphp
@@ -136,6 +138,7 @@
         <div class="flex-1 flex flex-col gap-6">
 
             <h1 class="text-hero font-bold text-white tracking-wide leading-tight">{{ $title }}</h1>
+            <p class="text-white/80 text-base leading-relaxed">{{ $subtitle }}</p>
 
             <ul class="space-y-4">
                 @foreach($bullets as $bullet)

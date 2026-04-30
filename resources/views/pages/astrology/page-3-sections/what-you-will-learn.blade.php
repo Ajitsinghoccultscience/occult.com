@@ -1,34 +1,42 @@
 @props([
-    'title'       => 'What you will learn in this webinar',
+    'title'       => 'Everything this webinar offers you',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'ctaHref'     => '#',
     'sessions'    => [
         [
             'hour'        => 'First Hour',
-            'title'       => 'Concept Learning',
+            'title'       => 'The Fundamentals of vedic Astrology',
             'subtitle'    => '',
             'bullets'     => [
-                'Basics of Vedic Astrology',
-                'Understanding of birth chart',
-                'Understand 12 Houses and their meanings',
-                'Learn Planets, Lord and their impacts',
-                'Deep down into Lagna Chart',
+                '9 planets and their nature',
+                '12 Zodiac Signs',
+                '12 Houses and what they tell about ',
+                'Structure of a birth chart',
+                
             ],
             'description' => '',
         ],
         [
             'hour'        => 'Second Hour',
-            'title'       => 'Practice with Case Study',
-            'subtitle'    => "Don't just learn astrology concepts",
-            'bullets'     => [],
-            'description' => 'Practice them with guided Case studies that help you gain clarity and confidence.',
+            'title'       => 'Live kundali practice',
+            'subtitle'    => "",
+            'bullets'     => [
+                'Live birth chart walkthrough ',
+                'Planetary placement and their influence. ',
+                'Guided worksheet to practice along ',
+            ],
+            'description' => '',
         ],
         [
             'hour'        => 'Third Hour',
-            'title'       => 'Live Q&A Access',
-            'subtitle'    => 'No confusion left',
-            'bullets'     => [],
-            'description' => 'Get real time clarity in the live Q&A session where you can ask your question, clear your doubts and gain deeper understanding.',
+            'title'       => 'Personalized doubt session ',
+            'subtitle'    => '',
+            'bullets'     => [
+                'Live Q/A with faculty ',
+                'Get clarity on concepts that you have doubts on.',
+                'Leave the webinar with zero questions. ',
+            ],
+            'description' => '',
         ],
     ],
 ])
