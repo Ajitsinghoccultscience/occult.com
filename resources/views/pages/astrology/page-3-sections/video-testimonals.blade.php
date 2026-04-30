@@ -19,7 +19,7 @@
         {{-- Videos: 1 at a time carousel on mobile, 3-column grid on desktop --}}
         <div id="testimonial-carousel" class="flex overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 gap-6 -mx-4 md:mx-0 px-4 md:px-0 py-4 snap-x snap-mandatory scrollbar-hide">
             @foreach($videos as $video)
-                <div class="shrink-0 md:shrink snap-center w-[92vw] md:w-full min-w-[280px] md:min-w-0 md:max-w-none max-w-[358px] rounded-xl border-2 border-primary overflow-hidden bg-neutral-e aspect-[358/543] relative">
+                <div class="shrink-0 md:shrink snap-center w-[75vw] md:w-full min-w-[220px] md:min-w-0 md:max-w-none max-w-[280px] rounded-xl border-2 border-primary overflow-hidden bg-neutral-e aspect-[358/480] relative">
                     @if(!empty($video['youtube_id']))
                         <div class="yt-facade absolute inset-0 cursor-pointer" data-ytid="{{ $video['youtube_id'] }}">
                             <img
