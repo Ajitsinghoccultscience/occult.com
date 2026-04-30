@@ -3,8 +3,10 @@
     <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}">
     {{-- Logo --}}
     <link rel="preload" as="image" href="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}">
-    {{-- First slider image (above the fold) --}}
-    <link rel="preload" as="image" href="{{ asset(implode('/', array_map('rawurlencode', explode('/', 'image/astrology assests/astro-webp/convo 1.webp')))) }}" fetchpriority="high">
+    {{-- Slider images --}}
+    <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/astro-webp/convo%201.webp') }}" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/astro-webp/convo%204.webp') }}">
+    <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/astro-webp/convo%207.webp') }}">
 @endpush
 
 @props([
