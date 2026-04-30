@@ -11,7 +11,7 @@
 
 @props([
     'title'        => 'Live Webinar - Master the Vedic Astrology',
-    'subtitle'     => '2-hour session covering kundali reading, planetary influence, and chart practice — conducted by All India Institute of Occult Science, running since 2004',
+    'subtitle'     => 'Join 2 hour webinar conducted by All India institute of Occult science (ISO certified)',
     'bullets'      => [
         'Read any kundali and make predictions with confidence.',
         'Understand the 12 houses of Kundali.  ',
