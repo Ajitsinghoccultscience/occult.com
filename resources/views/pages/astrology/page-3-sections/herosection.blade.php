@@ -1,3 +1,12 @@
+@push('head')
+    {{-- Hero background image --}}
+    <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}">
+    {{-- Logo --}}
+    <link rel="preload" as="image" href="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}">
+    {{-- First slider image (above the fold) --}}
+    <link rel="preload" as="image" href="{{ asset(implode('/', array_map('rawurlencode', explode('/', 'image/astrology assests/astro-webp/convo 1.webp')))) }}" fetchpriority="high">
+@endpush
+
 @props([
     'title'        => 'Live Webinar - Master the Vedic Astrology',
     'subtitle'     => '2-hour session covering kundali reading, planetary influence, and chart practice — conducted by All India Institute of Occult Science, running since 2004',
@@ -116,9 +125,9 @@
             {{-- Alumni --}}
             <div class="flex flex-col items-center gap-1.5">
                 <div class="flex items-center -space-x-2">
-                    @foreach(array_slice($alumniAvatars, 0, 4) as $avatar)
+                    @foreach(array_slice($alumniAvatars, 0, 4) as $i => $avatar)
                     <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $avatar)))) }}"
-                         class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy" alt="">
+                         class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="{{ $i === 0 ? 'eager' : 'lazy' }}" alt="">
                     @endforeach
                 </div>
                 <span class="text-white/80 text-sm font-medium">Join {{ $alumniCount }} Learners</span>
