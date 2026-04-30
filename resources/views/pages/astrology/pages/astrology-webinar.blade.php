@@ -12,7 +12,6 @@
 
 @section('content')
     @include('pages.astrology.sections.Astro-hero-section', ['ctaHref' => url('/astrology-checkout')])
-
     @include('pages.astrology.sections.Astro-featured-in')
     @include('pages.astrology.sections.Astro-what-you-will-learn', ['ctaHref' => url('/astrology-checkout')])
     @include('pages.astrology.sections.Astro-bonus', ['ctaHref' => url('/astrology-checkout')])
@@ -23,7 +22,6 @@
     @include('pages.astrology.sections.Astro-certified-graphologist')
     @include('pages.astrology.sections.Astro-podcast')
     @include('pages.astrology.sections.Astro-testimonials')
-
     @include('pages.astrology.sections.Astro-faq')
     @include('pages.astrology.sections.Astro-end-section', ['ctaHref' => url('/astrology-checkout')])
     @include('pages.astrology.sections.Astro-sticky-bar', ['ctaHref' => url('/astrology-checkout')])

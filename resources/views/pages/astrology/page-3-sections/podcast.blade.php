@@ -1,11 +1,9 @@
 @props([
-    'title'        => 'Benefits our Students get',
+    'title'        => 'Our Podcast insights',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos'       => [
        
-        ['youtube_id' => 'uJji0LqY-tw'],
-        ['youtube_id' => 'F9f_p09W-JY'],
-        ['youtube_id' => '4ckzcXkN6q8'],
+       
         ['youtube_id' => 'eP7N3hanpxI', 'si' => 'DDIRvnNpAGzVVc0S'],
         ['youtube_id' => '0yDeIwbys70', 'si' => 'fqioTzQeA2Dt2K1f'],
         ['youtube_id' => 'NM6Yuytte_Y', 'si' => 'hSysbl0mQdS3uBmF'],

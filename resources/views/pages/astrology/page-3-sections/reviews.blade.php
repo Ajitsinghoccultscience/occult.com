@@ -3,46 +3,25 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'reviews' => [
         [
-            'name'   => 'Miss. Sunita Verma',
-            'role'   => 'A Housewife',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
+            'name'   => 'Sunita Trivedi',
+            'role'   => 'Delhi',
+            'avatar' => 'image/astrology assests/alumni 1.webp',
             'rating' => 5,
-            'text'   => 'This webinar completely changed the way I look at life. The concepts were explained so clearly that even as a complete beginner, I could understand Vedic astrology deeply. Miss. Laxmi made everything feel approachable and meaningful.',
+            'text'   => 'Hi, I am Sunita. Before this webinar, I was a homemaker with zero knowledge of astrology. I joined just out of curiosity, but soon I was reading kundalis for my family and friends. Within just two months, I actually started getting paid for my readings! It\'s a modest start, but knowing I earned it myself feels amazing. It all truly started with this one session.',
         ],
         [
-            'name'   => 'Mr. Rajesh Kumar',
-            'role'   => 'Software Engineer',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
+            'name'   => 'Ramesh Kumar',
+            'role'   => 'Lucknow',
+            'avatar' => 'image/astrology assests/manmohan sir.webp',
             'rating' => 5,
-            'text'   => 'I was skeptical at first, but the live Q&A session cleared all my doubts. The case study approach is brilliant — you don\'t just learn theories, you learn how to actually apply astrology to real life situations.',
+            'text'   => 'I\'m Ramesh, and though I\'ve practiced astrology before, I usually felt more confused than confident. I\'d taken other courses, but nothing felt right until this webinar. The step-by-step breakdown of kundali reading made everything finally fall into place. For the first time, I can actually look at a chart and read it with clarity. Honestly, I just wish I had found this sooner.',
         ],
         [
-            'name'   => 'Mrs. Priya Sharma',
-            'role'   => 'Teacher',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
+            'name'   => 'Arvind Malhotra',
+            'role'   => 'Mumbai',
+            'avatar' => 'image/astrology assests/alumni 3.webp',
             'rating' => 5,
-            'text'   => 'The three-hour structure was perfect. The first hour gave strong foundations, the second hour with case studies made things click, and the Q&A session left no confusion at all. Highly recommend this to anyone curious about astrology.',
-        ],
-        [
-            'name'   => 'Mr. Amit Joshi',
-            'role'   => 'Business Owner',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'I have attended many webinars but this one was truly special. The depth of knowledge, the patience of the trainer, and the structured curriculum made it an experience I will never forget. Worth every penny.',
-        ],
-        [
-            'name'   => 'Mrs. Kavita Singh',
-            'role'   => 'Yoga Instructor',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'Attending this webinar felt like finding a missing piece in my spiritual journey. The way Laxmi ma\'am connected astrology with daily life was eye-opening. I left with so much clarity and confidence.',
-        ],
-        [
-            'name'   => 'Mr. Deepak Nair',
-            'role'   => 'Finance Professional',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'As someone from a purely analytical background, I was amazed at how scientific and structured Vedic astrology actually is. The webinar gave me a solid foundation and I have already enrolled in the full course.',
+            'text'   => 'I\'m Arvind, a businessman. I was doubtful at first. But after this webinar, I looked at my own kundali with a fresh perspective. Understanding my planetary positions helped me realize why certain decisions hadn\'t been working out. I actually made a key business move based on what I learned, and it really paid off. I can\'t explain the how fully, but the results are there, and I\'m very grateful.',
         ],
     ],
 ])
@@ -70,11 +49,10 @@
                      class="flex gap-5 md:gap-6 transition-transform duration-500 ease-in-out will-change-transform">
 
                     @foreach($reviews as $review)
-                    <div class="rv-item shrink-0 w-full md:w-[calc(50%-10px)]">
+                    <div class="rv-item shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
 
-                        <x-ui.card variant="primary-soft"
-                            class="!rounded-2xl !p-6 flex flex-col gap-5 h-full
-                                   transition-all duration-300 hover:-translate-y-1">
+                        <div class="rounded-2xl p-6 flex flex-col gap-5 h-full bg-[#F6EFFE]
+                                    transition-all duration-300 hover:-translate-y-1">
 
                             {{-- Profile --}}
                             <div class="flex items-center gap-3">
@@ -88,7 +66,6 @@
                                         {{ $review['name'] }}
                                     </p>
                                     <p class="text-sm text-neutral-c">({{ $review['role'] }})</p>
-                                    <x-ui.star-rating :rating="$review['rating']" size="sm" class="mt-1"/>
                                 </div>
                             </div>
 
@@ -97,7 +74,7 @@
                                 {{ $review['text'] }}
                             </p>
 
-                        </x-ui.card>
+                        </div>
                     </div>
                     @endforeach
 
@@ -138,7 +115,8 @@
     var maxIndex = 0;
 
     function calcMax() {
-        var perView = outer.offsetWidth >= 768 ? 2 : 1;
+        var w = outer.offsetWidth;
+        var perView = w >= 1024 ? 3 : w >= 768 ? 2 : 1;
         maxIndex = Math.max(0, total - perView);
     }
 

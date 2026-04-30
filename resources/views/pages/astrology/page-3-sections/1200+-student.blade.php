@@ -2,126 +2,147 @@
     'title'    => "Join 1200+ who've already transformed their lives",
     'subtitle' => 'Real students. Real results. See what they have to say.',
     'images'   => [
-        'image/graphology%20assests/g%20review%201.webp',
-        'image/graphology%20assests/g%20review%202.webp',
-        'image/graphology%20assests/g%20review%203.webp',
-        'image/graphology%20assests/g%20review%204.webp',
-        'image/graphology%20assests/g%20review%205.webp',
+        'image/astrology assests/review 1.webp',
+        'image/astrology assests/astrology google review 2.webp',
+        'image/astrology assests/astrology google review 3.webp',
     ],
 ])
 
-<section class="w-full bg-neutral-bg section-spacing section-spacing-after">
+@php $rvId = 'rv-' . uniqid(); @endphp
+
+<section class="w-full section-spacing">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-12">
             <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] mb-3">{{ $title }}</h2>
-            <p class="text-content text-neutral-e">{{ $subtitle }}</p>
+            <p class="text-content text-neutral-e max-w-xl mx-auto">{{ $subtitle }}</p>
         </div>
 
-        {{-- Desktop: 3-column masonry layout --}}
-        <div class="hidden md:grid grid-cols-3 gap-4 items-start">
+        {{-- Carousel --}}
+        <div class="relative" id="{{ $rvId }}-root">
 
-            {{-- Col 1: 1 tall image --}}
-            <div class="flex flex-col gap-4">
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[0]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-            </div>
-
-            {{-- Col 2: 2 images stacked --}}
-            <div class="flex flex-col gap-4">
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[1]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[2]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-            </div>
-
-            {{-- Col 3: 2 images stacked --}}
-            <div class="flex flex-col gap-4">
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[3]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-sm border border-neutral-200 bg-white">
-                    <img src="{{ asset($images[4]) }}" alt="Review" class="w-full h-auto block" loading="lazy">
-                </div>
-            </div>
-
-        </div>
-
-        {{-- Mobile: slider --}}
-        <div class="md:hidden w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory" id="testimonial-slider">
-            <div class="flex gap-3 w-max px-1">
-                @foreach($images as $img)
-                    <div class="testimonial-slide shrink-0 w-[85vw] snap-center rounded-2xl overflow-hidden shadow-md border border-neutral-200 bg-white">
-                        <img src="{{ asset($img) }}" alt="Review" class="w-full h-auto block" loading="lazy">
+            {{-- Track wrapper --}}
+            <div class="overflow-hidden" id="{{ $rvId }}-outer">
+                <div id="{{ $rvId }}-track"
+                     class="flex gap-5 transition-transform duration-500 ease-in-out will-change-transform">
+                    @foreach($images as $img)
+                    <div class="rv-slide shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
+                        <div class="rounded-2xl shadow-md border border-neutral-100 bg-white hover:-translate-y-1 transition-transform duration-300 p-3">
+                            <div class="aspect-[4/5] flex items-center justify-center overflow-hidden rounded-xl bg-neutral-50">
+                                <img src="{{ asset($img) }}" alt="Student Review" class="w-full h-full object-contain block" loading="lazy">
+                            </div>
+                        </div>
                     </div>
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- Prev button --}}
+            <button type="button" id="{{ $rvId }}-prev"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors z-10"
+                aria-label="Previous">
+                <svg class="w-5 h-5 text-neutral-b" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+
+            {{-- Next button --}}
+            <button type="button" id="{{ $rvId }}-next"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors z-10"
+                aria-label="Next">
+                <svg class="w-5 h-5 text-neutral-b" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            {{-- Dots --}}
+            <div class="flex justify-center gap-2.5 mt-7">
+                @foreach($images as $i => $_)
+                <button type="button"
+                    class="rv-dot rounded-full transition-all duration-300 h-2.5 {{ $i === 0 ? 'w-5 bg-[#5E3592]' : 'w-2.5 bg-neutral-300' }}"
+                    data-index="{{ $i }}" aria-label="Slide {{ $i + 1 }}"></button>
                 @endforeach
             </div>
-        </div>
 
-        {{-- Mobile dots --}}
-        <div class="flex md:hidden justify-center gap-2 mt-5">
-            @foreach($images as $i => $img)
-                <button id="tes-dot-{{ $i }}" class="w-2 h-2 rounded-full transition-colors duration-300 bg-neutral-300"></button>
-            @endforeach
         </div>
-
     </div>
 </section>
 
-<script defer>
+<script>
 (function () {
-    const slider = document.getElementById('testimonial-slider');
-    if (!slider) return;
-    const slides = slider.querySelectorAll('.testimonial-slide');
-    const dots   = document.querySelectorAll('[id^="tes-dot-"]');
-    const total  = slides.length;
-    let current  = 0, paused = false, timer;
+    var ROOT = document.getElementById('{{ $rvId }}-root');
+    if (!ROOT) return;
+
+    var track   = ROOT.querySelector('#{{ $rvId }}-track');
+    var outer   = ROOT.querySelector('#{{ $rvId }}-outer');
+    var dots    = Array.prototype.slice.call(ROOT.querySelectorAll('.rv-dot'));
+    var slides  = Array.prototype.slice.call(ROOT.querySelectorAll('.rv-slide'));
+    var total   = slides.length;
+    var current = 0;
+    var paused  = false;
+    var perView = 1;
+    var maxIndex = 0;
+
+    function calcPerView() {
+        var w = outer.offsetWidth;
+        if (w >= 1024)     perView = 3;
+        else if (w >= 768) perView = 2;
+        else               perView = 1;
+        maxIndex = Math.max(0, total - perView);
+    }
+
+    function gap() { return 20; }
 
     function setDots(idx) {
-        dots.forEach((d, i) => {
-            d.style.backgroundColor = i === idx ? '#04043A' : '#d1d5db';
-            d.style.width = i === idx ? '20px' : '8px';
-            d.style.borderRadius = '9999px';
-            d.style.transition = 'all 0.3s ease';
+        dots.forEach(function (d, i) {
+            d.style.width           = i === idx ? '20px' : '8px';
+            d.style.backgroundColor = i === idx ? '#5E3592' : '#d1d5db';
         });
     }
 
-    function goTo(index) {
-        if (index >= total) index = 0;
-        if (index < 0) index = total - 1;
-        current = index;
-        slider.scrollTo({ left: slides[current].offsetLeft - 4, behavior: 'smooth' });
+    function goTo(idx) {
+        if (idx > maxIndex) idx = 0;
+        if (idx < 0)        idx = maxIndex;
+        current = idx;
+        track.style.transform = 'translateX(-' + current * (slides[0].offsetWidth + gap()) + 'px)';
         setDots(current);
     }
 
-    function startTimer() {
-        clearInterval(timer);
-        timer = setInterval(() => { if (!paused) goTo(current + 1); }, 2500);
-    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
 
-    goTo(0);
-    startTimer();
+    ROOT.querySelector('#{{ $rvId }}-next').addEventListener('click', function () {
+        paused = true; next(); setTimeout(function () { paused = false; }, 5000);
+    });
+    ROOT.querySelector('#{{ $rvId }}-prev').addEventListener('click', function () {
+        paused = true; prev(); setTimeout(function () { paused = false; }, 5000);
+    });
 
-    slider.addEventListener('mouseenter', () => { paused = true; });
-    slider.addEventListener('mouseleave', () => { paused = false; });
-    slider.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    slider.addEventListener('touchend', () => { setTimeout(() => { paused = false; }, 2000); }, { passive: true });
-
-    // Sync dots when user manually scrolls
-    slider.addEventListener('scroll', () => {
-        const center = slider.scrollLeft + slider.clientWidth / 2;
-        let closest = 0, minDist = Infinity;
-        slides.forEach((s, i) => {
-            const dist = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);
-            if (dist < minDist) { minDist = dist; closest = i; }
+    dots.forEach(function (d) {
+        d.addEventListener('click', function () {
+            paused = true;
+            goTo(parseInt(d.dataset.index, 10));
+            setTimeout(function () { paused = false; }, 5000);
         });
-        if (closest !== current) { current = closest; setDots(current); }
+    });
+
+    ROOT.addEventListener('mouseenter', function () { paused = true; });
+    ROOT.addEventListener('mouseleave', function () { paused = false; });
+
+    var touchX = 0;
+    outer.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; paused = true; }, { passive: true });
+    outer.addEventListener('touchend', function (e) {
+        var dx = touchX - e.changedTouches[0].clientX;
+        if (Math.abs(dx) > 40) { dx > 0 ? next() : prev(); }
+        setTimeout(function () { paused = false; }, 3000);
     }, { passive: true });
 
-    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-})();
+    setInterval(function () { if (!paused) next(); }, 3000);
+
+    window.addEventListener('resize', function () { calcPerView(); goTo(Math.min(current, maxIndex)); });
+
+    calcPerView();
+    goTo(0);
+}());
 </script>

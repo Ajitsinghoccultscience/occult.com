@@ -1,45 +1,36 @@
-@props([
-    'title'        => 'Meet Your Trainer & Institute',
-    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
-    'trainerName'  => 'Miss. Laxmi',
-    'trainerTitle' => 'Astrologer',
-    'trainerFaculty' => 'Faculty of All India Institute of Occult Science',
-    'description'  => [
-        "A B.Tech Computer Science Engineer and a Master's graduate in Astrology from the All India Institute of Occult Science, Delhi, Laxmi blends analytical thinking with spiritual wisdom.",
-        "She is dedicated to guiding individuals toward self-awareness through the principles of Vedic astrology.",
-    ],
-    'ctaText'       => 'Reserve Seat @₹49',
-    'ctaPriceStruck' => '₹199',
-    'ctaHref'       => '#',
-    'trainerImage'  => 'image/astrology%20assests/laxmi%20mam.webp',
-    'instituteSubheading' => 'All India Institute of Occult Science: Running Since March 2004',
-    'instituteBullets' => [
-        'One of the best leading institutes in India known for its occult education and training for its students.',
-        'Globally recognized certification in Astrology, Numerology, Graphology, Vastu Shastra, Palmistry, Akashic records and Reiki.',
-        'Many trained students from here are working as personal consultants or in big astrology firms.',
-        'Best students support 24/7 with recorded classes available for our students.',
-    ],
-    'counters' => [
+@php
+    $title             = $title             ?? 'Meet Your Trainer & Institute';
+    $underlineSvg      = $underlineSvg      ?? 'image/astrology assests/unerline 2 3.svg';
+    $ctaText           = $ctaText           ?? 'Reserve Seat @₹49';
+    $ctaPriceStruck    = $ctaPriceStruck    ?? '₹199';
+    $ctaHref           = $ctaHref           ?? '#';
+    $instituteSubheading = $instituteSubheading ?? 'All India Institute of Occult Science: Running Since March 2004';
+    $instituteBullets  = $instituteBullets  ?? [
+        'Registered under the government of NCT of Delhi.',
+        'Globally recognised certification in vedic astrology and more.',
+        'Students trained here are working as professional consultants across India and abroad.',
+        'Founded by Gurudev Shrie - practising Astrology for the last 40 years.',
+    ];
+    $counters = $counters ?? [
         ['icon' => 'image/astrology%20assests/instagram.svg', 'value' => '52,000+', 'label' => 'Instagram Followers'],
         ['icon' => 'image/astrology%20assests/youtube.svg',   'value' => '15,400+', 'label' => 'Youtube Followers'],
-        ['icon' => null,                                       'value' => '97000+',   'label' => 'Certified Students'],
-    ],
-    'convocationGallery' => [
-        ['src' => 'image/astrology assests/institute/laxmi mam.webp',           'caption' => 'Our Trainer Laxmi Mam'],
-        ['src' => 'image/astrology assests/institute/convocation.webp',          'caption' => 'Convocation 2025'],
-        ['src' => 'image/astrology assests/institute/MP-as_chief.webp',          'caption' => 'MP as a Chief guest at our Convocation'],
-        ['src' => 'image/astrology assests/institute/LampLighting.webp',         'caption' => 'Lamp Lighting Ceremony'],
-        ['src' => 'image/astrology assests/institute/Founder-speech.webp',       'caption' => 'Founder Speech at Annual Convocation'],
-        ['src' => 'image/astrology assests/institute/Our-faculty.webp',          'caption' => 'Our Faculty'],
-        ['src' => 'image/astrology assests/institute/Grand-convocation.webp',    'caption' => 'Grand Convocation Ceremony'],
-        ['src' => 'image/astrology assests/institute/Trusted-by.webp',           'caption' => 'Annual Convocation'],
-        ['src' => 'image/astrology assests/institute/intitute-event.webp',       'caption' => 'Institute Event'],
-        ['src' => 'image/astrology assests/institute/Education-day.webp',         'caption' => 'Our Certified Students'],
-        ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp',  'caption' => 'Lamp Lighting Ceremony'],
-    ],
-])
-
-@php $instSliderId = 'inst-slider-' . uniqid(); @endphp
+        ['icon' => null,                                       'value' => '97000+',  'label' => 'Certified Students'],
+    ];
+    $convocationGallery = $convocationGallery ?? [
+        ['src' => 'image/astrology assests/institute/laxmi mam.webp',          'caption' => 'Our Trainer Laxmi Mam'],
+        ['src' => 'image/astrology assests/institute/convocation.webp',         'caption' => 'Convocation 2025'],
+        ['src' => 'image/astrology assests/institute/MP-as_chief.webp',         'caption' => 'MP as a Chief guest at our Convocation'],
+        ['src' => 'image/astrology assests/institute/LampLighting.webp',        'caption' => 'Lamp Lighting Ceremony'],
+        ['src' => 'image/astrology assests/institute/Founder-speech.webp',      'caption' => 'Founder Speech at Annual Convocation'],
+        ['src' => 'image/astrology assests/institute/Our-faculty.webp',         'caption' => 'Our Faculty'],
+        ['src' => 'image/astrology assests/institute/Grand-convocation.webp',   'caption' => 'Grand Convocation Ceremony'],
+        ['src' => 'image/astrology assests/institute/Trusted-by.webp',          'caption' => 'Annual Convocation'],
+        ['src' => 'image/astrology assests/institute/intitute-event.webp',      'caption' => 'Institute Event'],
+        ['src' => 'image/astrology assests/institute/Education-day.webp',       'caption' => 'Our Certified Students'],
+        ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp', 'caption' => 'Lamp Lighting Ceremony'],
+    ];
+    $instSliderId = 'inst-slider-' . uniqid();
+@endphp
 
 <section class="w-full section-spacing bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px lg:px-[10%] xl:px-[10%]">

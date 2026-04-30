@@ -1,9 +1,9 @@
 @props([
     'images' => [
-        'image/astrology%20assests/snapshot-astro/1.webp',
-        'image/astrology%20assests/snapshot-astro/2.webp',
-        'image/astrology%20assests/snapshot-astro/3.webp',
-        'image/astrology%20assests/snapshot-astro/4.webp',
+        'image/astrology assests/webinar snapshots/snapshot-1.webp',
+        'image/astrology assests/webinar snapshots/snapshot-2.webp',
+        'image/astrology assests/webinar snapshots/snapshot-3.webp',
+        'image/astrology assests/webinar snapshots/snapshot-4.webp',
     ],
 ])
 
@@ -24,7 +24,7 @@
         <div class="hidden md:grid grid-cols-4 gap-4">
             @foreach($images as $img)
                 <div class="rounded-xl overflow-hidden shadow-drop aspect-[16/10]">
-                    <img src="{{ asset($img) }}" alt="Webinar snapshot"
+                    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}" alt="Webinar snapshot"
                          class="w-full h-full object-cover" loading="lazy">
                 </div>
             @endforeach
@@ -35,7 +35,7 @@
             <div class="flex gap-4 w-max">
                 @foreach($images as $img)
                     <div class="snapshot-slide shrink-0 w-[85vw] sm:w-[60vw] rounded-xl overflow-hidden shadow-drop aspect-[16/10]">
-                        <img src="{{ asset($img) }}" alt="Webinar snapshot"
+                        <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}" alt="Webinar snapshot"
                              class="w-full h-full object-cover" loading="lazy">
                     </div>
                 @endforeach

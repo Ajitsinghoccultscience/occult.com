@@ -4,45 +4,33 @@
     'testimonials' => [
         [
             'name'   => 'Aditya',
-            'role'   => 'Astrology Student',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
+            'stars'  => 5,
+            'avatar' => 'images/assets desktop/Aryan_Mehta.avif',
             'text'   => 'This professional astrology course completely transformed my understanding of planetary influences. Learning chart analysis helped me identify hidden personality traits with accuracy. I highly recommend this program for every aspiring astrologer seeking deep insights into human behavior and destiny.',
         ],
         [
-            'name'   => 'Sneha',
-            'role'   => 'Working Professional',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'The pre-recorded sessions were detailed and perfect for my busy schedule. Exploring planetary doshas and their remedies was truly fascinating. Now, I apply these astrological techniques daily to guide my clients and help them overcome life challenges.',
-        ],
-        [
-            'name'   => 'Karan',
-            'role'   => 'Entrepreneur',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'I gained immense value from the different levels of this astrology program. The experts explained complex concepts like house placements and planetary aspects in a simple way. This cost-effective tool for decoding life patterns through astrology has been a game changer for me.',
+            'name'   => 'Rahul',
+            'stars'  => 5,
+            'avatar' => 'images/assets desktop/Rohan_Verma.avif',
+            'text'   => 'The curriculum perfectly balances ancient Vedic knowledge with modern-day application. Understanding different planetary combinations has improved my decision-making and communication skills. This training is essential for anyone interested in professional astrology or spiritual growth.',
         ],
         [
             'name'   => 'Riddhi',
-            'role'   => 'Teacher',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
+            'stars'  => 4,
+            'avatar' => 'images/assets desktop/Rishika.avif',
             'text'   => 'Studying various astrological principles along with practical chart reading gave me a complete learning experience. I can now confidently create detailed birth chart reports. Enrolling in this online astrology course was one of the best decisions for my career.',
         ],
         [
-            'name'   => 'Meena',
-            'role'   => 'Homemaker',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'The live sessions were incredibly engaging and the faculty was always patient with our questions. I started from zero and now I can read birth charts confidently. This institute has truly changed my perspective on life and destiny.',
+            'name'   => 'Karan',
+            'stars'  => 5,
+            'avatar' => 'images/assets desktop/Vikram_Singh.avif',
+            'text'   => 'I gained immense value from the different levels of this astrology program. The experts explained complex concepts like house placements and planetary aspects in a simple way. This cost-effective course is a powerful tool for decoding life patterns through astrology.',
         ],
         [
-            'name'   => 'Vikram',
-            'role'   => 'Business Analyst',
-            'avatar' => 'image/astrology%20assests/laxmi%20mam.webp',
-            'rating' => 5,
-            'text'   => 'Outstanding curriculum with practical application at every step. The blend of theory and real case studies made the learning experience extremely rewarding. I now use astrology to make better personal and professional decisions.',
+            'name'   => 'Sneha',
+            'stars'  => 5,
+            'avatar' => 'images/assets desktop/Priya_Sharma.avif',
+            'text'   => 'The pre-recorded sessions were detailed and perfect for my busy schedule. Exploring planetary doshas and their remedies was truly fascinating. Now, I apply these astrological techniques daily to guide my clients and help them overcome life challenges.',
         ],
     ],
 ])
@@ -109,7 +97,7 @@
                                     <p class="font-semibold text-neutral-b text-[15px] leading-snug truncate">
                                         {{ $item['name'] }}
                                     </p>
-                                    <x-ui.star-rating :rating="$item['rating']" size="sm" class="mt-0.5"/>
+                                    <x-ui.star-rating :rating="$item['stars']" size="sm" class="mt-0.5"/>
                                 </div>
                             </div>
 

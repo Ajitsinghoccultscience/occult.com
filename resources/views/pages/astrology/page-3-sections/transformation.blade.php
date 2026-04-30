@@ -11,7 +11,7 @@
     ],
 ])
 
-<section class="w-full  ">
+<section class="w-full bg-neutral-bg section-spacing">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         {{-- Heading --}}

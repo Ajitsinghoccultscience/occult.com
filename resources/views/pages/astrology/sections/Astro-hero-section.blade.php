@@ -1,10 +1,10 @@
 @props([
-    'title' => 'Mega Astrology Webinar for Beginner & Professional Astrologers',
-    'subtitle' => "Life mein clarity chahiye? Join this 2 hour webinar and decode your answers through Astrology",
+    'title' => 'Live Webinar - Master the Vedic Astrology',
+    'subtitle' => "2 hour session covering kundali reading, planetary influence, and chart practice - conducted by All India Institute of Occult Science - running since 2004",
     'bullets' => [
-        'Learn about Kundali reading',
-        "Predict about life, career, love and future with clarity.",
-        "Discover the right remedies and your soul purpose.",
+        'Read any kundali and make predictions with confidence.',
+        "Understand the 12 houses of Kundali. ",
+        "Master the logic behind different results of planetary placement.",
     ],
     'sliderImages' => [
         'image/astrology assests/astro-webp/convo 1.webp',
@@ -30,7 +30,7 @@ $sliderId = 'slider-' . uniqid();
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 6) as $i)
             <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap">
-                Offer closing soon — after this, registration fee will be ₹199.
+                offer ends soon - enroll now with just ₹49 <span class="line-through opacity-70">₹199</span>
             </span>
         @endforeach
     </div>
@@ -50,6 +50,7 @@ $sliderId = 'slider-' . uniqid();
     </div>
 </div>
 <h1 class="text-hero font-bold text-white tracking-wide text-center">{{ $title }}</h1>
+<p class="text-white/80 text-sm md:text-base text-center leading-relaxed">{{ $subtitle }}</p>
 
 {{-- Image Slider (mobile) --}}
 @php $mSliderId = $sliderId . '-m'; @endphp
@@ -127,7 +128,8 @@ $sliderId = 'slider-' . uniqid();
 <div class="flex gap-4 items-start">
 {{-- LEFT SIDE --}}
 <div class="w-[55%] shrink-0">
-<h1 class="text-hero font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
+<h1 class="text-hero font-bold text-white tracking-wide mb-2">{{ $title }}</h1>
+<p class="text-white/80 text-base leading-relaxed mb-6">{{ $subtitle }}</p>
 <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
 @foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
 </ul>

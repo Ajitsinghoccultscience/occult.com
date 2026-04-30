@@ -26,6 +26,7 @@
     ],
 ])
 
+
 @php
     $sliderId = 'about-slider-' . uniqid();
     $total    = count($gallery);

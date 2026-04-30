@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Hear straight from our Previous Webinar attendees',
+    'title' => 'See what our attendees experienced',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos' => [
         ['youtube_id' => 'sSqUxmlI11A', 'name' => 'Kunj Bihari Sharma', 'attend_date' => 'Astrology Webinar Review'],

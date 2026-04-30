@@ -9,7 +9,7 @@
             "Millionaires don't use astrology, billionaires do." — J.P. Morgan
         </p>
        
-        <x-ui.button :href="$ctaHref" variant="astro">
+        <x-ui.button :href="$ctaHref" variant="astro-red">
             {{ $ctaText }} <span class="line-through opacity-70 ml-1">₹199</span>
         </x-ui.button>
     </div>

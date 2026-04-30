@@ -3,12 +3,12 @@
     'underlineWord' => 'Students',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
-        'image/astrology assests/certified g1.webp',
-        'image/astrology assests/certified g 2.webp',
-        'image/astrology assests/certified g 3.webp',
-        'image/astrology assests/certified g 4.webp',
-        'image/astrology assests/certified g 6.webp',
-        'image/astrology assests/certified g 7.webp',
+        'image/astrology assests/GOLD MEDALIST STUDENT/GM 1.webp',
+        'image/astrology assests/GOLD MEDALIST STUDENT/GM 2.webp',
+        'image/astrology assests/GOLD MEDALIST STUDENT/GM 4.webp',
+        'image/astrology assests/GOLD MEDALIST STUDENT/GM 5.webp',
+        'image/astrology assests/GOLD MEDALIST STUDENT/GM 6.webp',
+        'image/astrology assests/GOLD MEDALIST STUDENT/GM 7.webp',
     ],
 ])
 

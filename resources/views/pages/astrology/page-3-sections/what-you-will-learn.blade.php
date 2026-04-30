@@ -51,20 +51,27 @@
         </div>
 
         {{-- Cards Grid: 1-col mobile | 2-col tablet | 3-col desktop --}}
+        @php
+        $cardThemes = [
+            ['bg' => '#E3F2F9', 'iconBg' => '#2D7DA0', 'border' => '#B3D9ED', 'badgeBorder' => '#7BC0DC', 'badgeText' => '#1A5F7A', 'icon' => 'image/astrology assests/what you will learn/concept learning.webp'],
+            ['bg' => '#FDF1E3', 'iconBg' => '#C8945A', 'border' => '#EDD5B3', 'badgeBorder' => '#D9A870', 'badgeText' => '#8B5E2F', 'icon' => 'image/astrology assests/what you will learn/case study.webp'],
+            ['bg' => '#EAF2E6', 'iconBg' => '#7A9E6E', 'border' => '#C2D9BB', 'badgeBorder' => '#95BC8B', 'badgeText' => '#3E6B33', 'icon' => 'image/astrology assests/what you will learn/live ques & ans.webp'],
+        ];
+        @endphp
         <div id="wl-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             @foreach($sessions as $session)
-            <div class="wl-card w-full h-[23.9rem] md:h-[22rem] lg:h-[24rem]
-                        rounded-2xl border border-purple-200 bg-neutral-i
-                        flex flex-col overflow-hidden
-                        @if($loop->last && $loop->count % 2 !== 0) md:col-span-2 lg:col-span-1 md:[&]:max-w-[23.9rem] md:[&]:mx-auto @endif">
+            @php $theme = $cardThemes[$loop->index % 3]; @endphp
+            <div class="wl-card w-full h-[21rem] md:h-[20rem] lg:h-[22rem]
+                        rounded-2xl flex flex-col overflow-hidden bg-white
+                        @if($loop->last && $loop->count % 2 !== 0) md:col-span-2 lg:col-span-1 md:[&]:max-w-[23.9rem] md:[&]:mx-auto @endif"
+                 style="border: 1px solid {{ $theme['border'] }};">
 
                 {{-- Header --}}
-                <div class="flex items-center gap-4 bg-[#F6EFFE] px-6 py-5 shrink-0">
-                    <div class="w-12 h-12 rounded-full bg-[#45287D] flex items-center justify-center shrink-0">
-                        <svg class="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
+                <div class="flex items-center gap-4 px-6 py-5 shrink-0" style="background-color: {{ $theme['bg'] }};">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
+                         style="background-color: {{ $theme['iconBg'] }};">
+                        <img src="{{ asset($theme['icon']) }}" alt="{{ $session['title'] }}" class="w-8 h-8 object-contain">
                     </div>
                     <h3 class="text-subheading font-semibold text-neutral-b leading-snug">{{ $session['title'] }}</h3>
                 </div>
@@ -72,9 +79,10 @@
                 {{-- Body --}}
                 <div class="flex-1 overflow-y-auto px-6 py-5 space-y-4">
 
-                    <span class="inline-block text-content font-medium border border-purple-300 text-purple-700 rounded-full px-4 py-1">
+                    <!-- <span class="inline-block text-content font-medium rounded-full px-4 py-1"
+                          style="border: 1px solid {{ $theme['badgeBorder'] }}; color: {{ $theme['badgeText'] }};">
                         {{ $session['hour'] }}
-                    </span>
+                    </span> -->
 
                     @if($session['subtitle'])
                         <p class="text-content font-semibold text-purple-700">{{ $session['subtitle'] }}</p>
@@ -84,7 +92,8 @@
                         <ul class="space-y-2 !ml-0">
                             @foreach($session['bullets'] as $bullet)
                                 <li class="flex items-start gap-2 text-content text-neutral-c">
-                                    <span class="w-6 h-6 bg-[#45287D] rounded-full flex items-center justify-center text-neutral-i text-xs shrink-0 mt-0.5">✔</span>
+                                    <span class="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs shrink-0 mt-0.5"
+                                          style="background-color: {{ $theme['iconBg'] }};">✔</span>
                                     {{ $bullet }}
                                 </li>
                             @endforeach
@@ -104,7 +113,7 @@
 
         {{-- CTA --}}
         <div class="flex justify-center mt-10 md:mt-12">
-            <x-ui.button :href="$ctaHref" variant="astro-cta" class="!min-w-0 !py-4 !text-base font-bold">
+            <x-ui.button :href="$ctaHref" variant="astro-red" class="!min-w-0 !py-4 !text-base font-bold">
                 Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
             </x-ui.button>
         </div>

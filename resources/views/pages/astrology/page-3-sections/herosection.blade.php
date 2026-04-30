@@ -8,15 +8,16 @@
     ],
     'sliderImages' => [
         ['src' => 'image/astrology assests/astro-webp/convo 1.webp', 'caption' => 'Convocation 2025'],
-        ['src' => 'image/astrology assests/astro-webp/convo 4.webp', 'caption' => 'Convocation 2025'],
-        ['src' => 'image/astrology assests/astro-webp/convo 7.webp', 'caption' => 'Convocation 2025'],
+        ['src' => 'image/astrology assests/astro-webp/convo 4.webp', 'caption' => 'Our Faculty at Convocation 2025'],
+        ['src' => 'image/astrology assests/astro-webp/convo 7.webp', 'caption' => 'Founder Speech at Convocation 2025'],
     ],
     'date'         => 'Sun, 12th April, 2026',
     'time'         => '11:00 am',
     'alumniAvatars' => [
-        'image/astrology assests/astro-webp/convo 1.webp',
-        'image/astrology assests/astro-webp/convo 4.webp',
-        'image/astrology assests/astro-webp/convo 7.webp',
+        'image/astrology assests/alumni 1.webp',
+        'image/astrology assests/alumni 2.webp',
+        'image/astrology assests/alumni 3.webp',
+        'image/astrology assests/alumni 4.webp',
     ],
     'alumniCount'  => '25k+',
     'rating'       => '4.5/5',
@@ -53,25 +54,11 @@
     {{-- MOBILE (< 1024px): stacked --}}
     <div class="flex flex-col gap-3 lg:hidden">
 
-        <h1 class="text-subheading md:text-hero font-bold text-white tracking-wide text-center leading-tight">{{ $title }}</h1>
+        {{-- 1. Title --}}
+        <h1 class="text-hero font-bold text-white tracking-wide text-center leading-tight">{{ $title }}</h1>
         <p class="text-white/80 text-sm md:text-base text-center leading-relaxed">{{ $subtitle }}</p>
 
-        {{-- Slider --}}
-        @php $mId = $sliderId . '-m'; @endphp
-        <div class="relative w-full rounded-xl overflow-hidden aspect-[16/8]" id="{{ $mId }}">
-            @foreach($sliderImages as $i => $slide)
-                <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $slide['src'])))) }}"
-                     alt="Slide {{ $i + 1 }}"
-                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
-                     @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif>
-            @endforeach
-            {{-- Caption --}}
-            <div class="absolute bottom-0 left-0 right-0 bg-black/50 px-4 py-2">
-                <span class="text-white text-sm font-medium">{{ $sliderImages[0]['caption'] }}</span>
-            </div>
-        </div>
-
-        {{-- Bullets --}}
+        {{-- 2. Bullets --}}
         <ul class="space-y-2">
             @foreach($bullets as $bullet)
             <li class="flex items-start gap-2 text-white text-sm">
@@ -85,7 +72,7 @@
             @endforeach
         </ul>
 
-        {{-- Date + Time --}}
+        {{-- 3. Date + Time badges --}}
         <div class="grid grid-cols-2 gap-2">
             <div class="border border-white/30 rounded-lg px-3 py-2 flex flex-col gap-0.5">
                 <div class="flex items-center gap-1 text-white/70 text-xs font-semibold uppercase tracking-wide">
@@ -103,30 +90,49 @@
             </div>
         </div>
 
-        {{-- CTA + Alumni + Rating --}}
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 w-full">
+        {{-- 4. Image Slider --}}
+        @php $mId = $sliderId . '-m'; @endphp
+        <div class="relative w-full rounded-xl overflow-hidden aspect-[16/8]" id="{{ $mId }}">
+            @foreach($sliderImages as $i => $slide)
+                <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $slide['src'])))) }}"
+                     alt="Slide {{ $i + 1 }}"
+                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
+                     @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif>
+            @endforeach
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 px-4 py-2">
+                <span class="text-white text-sm font-medium">{{ $sliderImages[0]['caption'] }}</span>
+            </div>
+        </div>
+
+        {{-- 5. CTA --}}
         <a href="{{ $ctaHref }}"
-           class="shrink-0 text-center bg-[#CC2200] hover:bg-[#b31e00] text-white font-bold py-3 px-5 rounded-xl text-sm transition-colors duration-200 whitespace-nowrap">
+           class="text-center bg-[#CC2200] hover:bg-[#b31e00] text-white font-bold py-3 px-5 rounded-xl text-sm transition-colors duration-200">
             Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
         </a>
 
-        <div class="flex items-center gap-3 flex-wrap sm:justify-end sm:ml-auto">
-            <div class="flex items-center -space-x-2">
-                @foreach(array_slice($alumniAvatars, 0, 3) as $avatar)
-                <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $avatar)))) }}"
-                     class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" alt="">
-                @endforeach
-            </div>
-            <span class="text-white/80 text-sm font-medium">Join {{ $alumniCount }} Alumni Network</span>
-            <span class="text-white/40">|</span>
-            <div class="flex items-center gap-1.5">
-                <div class="flex text-yellow-400">
-                    @foreach(range(1,5) as $s)<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>@endforeach
+        {{-- 6. Alumni + Rating row --}}
+        <div class="flex items-center justify-center gap-4">
+            {{-- Alumni --}}
+            <div class="flex flex-col items-center gap-1.5">
+                <div class="flex items-center -space-x-2">
+                    @foreach(array_slice($alumniAvatars, 0, 4) as $avatar)
+                    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $avatar)))) }}"
+                         class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy" alt="">
+                    @endforeach
                 </div>
-                <span class="text-white text-sm font-semibold">{{ $rating }}</span>
-                <span class="text-white/60 text-xs">({{ $ratingCount }})</span>
+                <span class="text-white/80 text-sm font-medium">Join {{ $alumniCount }} Learners</span>
             </div>
-        </div>
+
+            {{-- Divider --}}
+            <div class="w-px h-12 bg-white/30"></div>
+
+            {{-- Rating --}}
+            <div class="flex flex-col items-center gap-1.5">
+                <div class="flex text-yellow-400">
+                    @foreach(range(1,5) as $s)<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>@endforeach
+                </div>
+                <span class="text-white text-sm font-medium">{{ $ratingCount }} ({{ $rating }})</span>
+            </div>
         </div>
 
     </div>
@@ -217,7 +223,7 @@
 
         <div class="flex items-center gap-3 flex-wrap justify-end ml-auto">
             <div class="flex items-center -space-x-2">
-                @foreach(array_slice($alumniAvatars, 0, 3) as $avatar)
+                @foreach(array_slice($alumniAvatars, 0, 4) as $avatar)
                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $avatar)))) }}"
                      class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" alt="">
                 @endforeach
