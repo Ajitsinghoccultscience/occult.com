@@ -20,10 +20,11 @@
         ],
         [
             'title'       => 'Psychologists',
-            ‘description’ => "Clinical psychologists use handwriting as a tool to understand a patient’s subconscious and track progress during therapy.",
+            'description' => "Clinical psychologists use handwriting as a tool to understand a patient/’s subconscious and track progress during therapy.",
         ],
         [
             'title'       => 'Anyone curious about human nature',
+             'description' => "In relationships, in career, in self-understanding. Sometimes we need clarity on people, most importantly, ourselves. Graphology gives you that clarity.",
             'description' => 'In relationships, in career, in self-understanding. Sometimes we need clarity on people, most importantly, ourselves. Graphology gives you that clarity.',
         ]
     ],
