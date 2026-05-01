@@ -20,7 +20,7 @@
         ],
         [
             'title'       => 'Psychologists',
-            'description' => 'Clinical psychologists use handwriting as a tool to understand a patient\’s subconscious and track progress during therapy.',
+            ‘description’ => "Clinical psychologists use handwriting as a tool to understand a patient’s subconscious and track progress during therapy.",
         ],
         [
             'title'       => 'Anyone curious about human nature',
@@ -40,8 +40,7 @@
         </div>
 
         {{-- 3 cards --}}
-        <div class="grid grid-cols-1 md:grid-col
-        s-3 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             @foreach($items as $item)
             <div class="bg-white rounded-2xl p-6 flex flex-col gap-3 shadow-sm border border-neutral-100">
 
