@@ -1,34 +1,43 @@
 ﻿@props([
-    'title'       => 'What you will learn in this webinar',
+    'title'       => 'Everything you learn with this webinar ',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'ctaHref'     => '#',
     'sessions' => [
         [
             'label'    => 'Session 1',
-            'title'    => 'Concept Learning:',
+            'title'    => 'Build your foundation :',
             'subtitle' => '',
             'bullets'  => [
-                'Understand what handwriting can reveal about.',
-                'Know about the slant variations in handwriting styles.',
-                'Evaluate the space between words and the letters.',
-                'Deep dive into handwriting psychology',
-                
+            'Gain deeper insights into personality and behaviour.',
+            'Learn to read the different aspects of handwriting.',
+            "Decode letter formation and what each stroke communicates about a person's personality. ",
+            "Learn the psychology behind graphology and what it tells about the person’s life. ",        
             ],
             'description' => '',
         ],
         [
             'label'    => 'Session 2',
-            'title'    => 'Practice with Worksheets:',
-            'subtitle' => "Don't just learn Graphology concepts",
-            'bullets'  => [],
-            'description' => 'Practice them with guided worksheets that help you gain clarity and confidence.',
+            'title'    => 'Analyze real handwriting live ',
+            'subtitle' => '',
+            'bullets'  => [
+                'Learn to read anyone\'s personality , emotions , and hidden traits through their handwriting. ',
+                 'Analyze handwriting samples live with the faculty and get personalized feedback on your analysis.',
+                 'Application of graphology - suggest the right changes in writing. ',
+                 'Spot the gap between who someone claims to be and who they actually are.',
+
+            ],
+            'description' => '',
         ],
         [
             'label'    => 'Session 3',
-            'title'    => 'Live Q&A access:',
+            'title'    => 'Personalized doubt session ',
             'subtitle' => 'No confusion left',
-            'bullets'  => [],
-            'description' => 'Get real time clarity in the live Q&A session where you can ask your question, clear your doubts and gain deeper understanding.',
+            'bullets'  => [
+            "Live Q/A with faculty ",
+            "Get clarity on concepts that you have doubts on.",
+            "Leave the webinar with zero questions. "
+             ],
+            'description' => '',
         ],
     ],
 ])

@@ -1,22 +1,15 @@
 ﻿@props([
-    'title'        => 'Meet Your Trainer & Institute',
+    'title'        => 'All India Institute Of Occult Science: (providing guidance since 2004 )',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
-    'trainerName'  => 'Pawan Kumar',
-    'trainerTitle' => 'Graphologist',
-    'trainerFaculty' => 'Faculty of All India Institute of Occult Science',
-    'description'  => [
-        "Pawan Kumar is one of the recognized Graphology teachers known for his teaching and training students in Graphology. He belongs to Kota, holds a BSc in Mathematics and a Master's in Psychology. He has earned a Diploma and a Master's in Graphology, shaping his expertise in handwriting analysis. Known for his adaptability, trustworthiness, and adventurous spirit, he now teaches Graphology at the All India Institute of Occult Science.",
-    ],
     'ctaText' => 'Reserve Seat ₹49',
     'ctaPriceStruck' => '₹199',
     'ctaHref'       => '#',
-    'trainerImage'  => 'image/graphology assests/pawan sir.webp',
     'instituteSubheading' => 'All India Institute of Occult Science: Running Since March 2004',
     'instituteBullets' => [
-        'One of the best leading institutes in India known for its occult education and training for its students.',
-        'Globally recognized certification in Astrology, Numerology, Graphology, Vastu Shastra, Palmistry, Akashic records and Reiki.',
-        'Many trained students from here are working as personal consultants or in big astrology firms.',
-        'Best students support 24/7 with recorded classes available for our students.',
+        'Registered under the Government of NCT of Delhi and ISO certified. ',
+         'Globally recognised certifications in Graphology and 7+ occult sciences. ',
+         '97,000+ students certified,  now practicing across India and abroad.',
+         'Founded by Gurudev Shrie - practising Astrology for the last 40 years.',
     ],
     'counters' => [
         ['icon' => 'image/astrology%20assests/instagram.svg', 'value' => '52,000+', 'label' => 'Instagram Followers'],
@@ -73,7 +66,7 @@
 
             {{-- Institute info --}}
             <div class="flex flex-col gap-5">
-                <h4 class="text-subheading font-bold text-neutral-b leading-snug">{{ $instituteSubheading }}</h4>
+                <!-- <h4 class="text-subheading font-bold text-neutral-b leading-snug">{{ $instituteSubheading }}</h4> -->
                 <ul class="space-y-3 text-content text-neutral-b">
                     @foreach($instituteBullets as $bullet)
                         <li class="flex items-start gap-2">
@@ -142,9 +135,9 @@
             </div>
 
             {{-- ROW 3: institute heading centered --}}
-            <div class="text-center">
+            <!-- <div class="text-center">
                 <h4 class="text-subheading font-bold text-neutral-b leading-snug">{{ $instituteSubheading }}</h4>
-            </div>
+            </div> -->
 
             {{-- ROW 4: bullets (left) + counters (right) --}}
             <div class="flex gap-10 items-start">

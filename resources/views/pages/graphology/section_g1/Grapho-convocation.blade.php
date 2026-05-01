@@ -1,5 +1,5 @@
 @props([
-    'title'        => 'Our 2025 Convocation',
+    'title'        => 'Our certified students - convocation ceremony ',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'images' => [
         'image/astrology%20assests/convo%201.webp',

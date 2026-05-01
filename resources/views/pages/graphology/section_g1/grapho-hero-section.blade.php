@@ -1,25 +1,23 @@
-﻿@props([
-    'title' => 'MEGA GRAPHOLOGY WEBINAR',
-    'subtitle' => "Enroll in the best graphology course to predict someone's personality using their signature and way of writing.",
-    'bullets' => [
-        'Analysis of various signature styles.',
-        "Able to predict someone's personality by their handwriting",
-        'Suggest the right changes in their writing and signature for improvements.',
-        'Tell if someone is faking their inner and outer personality.',
-    ],
-    'sliderImages' => [
+﻿@php
+    $heroTitle = 'Live graphology webinar - master the art of handwriting analysis. ';
+    $subtitle = " A 2-hour session covering personality reading, signature analysis and graphotherapy - conducted by all India Institute of occult science.";
+    $bullets = [
+        'Learn to read anyone\'s personality,emotions, and hidden traits through their handwriting.',
+        "Analyze signature style to understand what a person's subconscious reveals.",
+        'Application of graphology - suggest the right changes in writing. ',
+        'Spot the gap between who someone claims to be and who they actually are.',
+    ];
+   $sliderImages = [
         'image/astrology assests/astro-webp/convo 1.webp',
         'image/astrology assests/astro-webp/convo 4.webp',
         'image/astrology assests/astro-webp/convo 7.webp',
-    ],
-    'date' => 'Sun, 3rd May, 2026',
-    'time' => '1:00 PM to 3:00 PM',
-    'duration' => '2 hours',
-    'platform' => 'Zoom Call',
-    'ctaHref' => '#',
-])
+    ];
+    $date = 'Sun, 3rd May, 2026';
+    $time = '1:00 PM to 3:00 PM';
+    $duration = '2 hours';
+    $platform = 'Zoom Call';
+    $ctaHref = '#';
 
-@php
 $iconsPath = 'images/icons';
 $sliderId = 'slider-' . uniqid();
 @endphp
@@ -28,8 +26,8 @@ $sliderId = 'slider-' . uniqid();
 <div class="w-full bg-accent-cream overflow-hidden py-1.5">
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
-            <span  class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                Offer closing soon — after this, registration fee will be ₹199.
+            <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
+                offer ends soon - enroll now with just ₹49 <span class="line-through opacity-70">₹199</span>
             </span>
         @endforeach
     </div>
@@ -48,7 +46,8 @@ $sliderId = 'slider-' . uniqid();
         <img src="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}" alt="Logo" width="300" height="111" class="h-14 w-auto object-contain">
     </div>
 </div>
-<h1 class="text-hero font-bold text-white tracking-wide text-center">{{ $title }}</h1>
+<h1 class="text-xl md:text-2xl font-bold text-white tracking-wide text-center">{{ $heroTitle }}</h1>
+<p class="text-sm text-neutral-i/90 text-center leading-relaxed">{{ $subtitle }}</p>
 
 {{-- Image Slider (mobile) --}}
 @php $mSliderId = $sliderId . '-m'; @endphp
@@ -109,7 +108,11 @@ $sliderId = 'slider-' . uniqid();
     </div>
 </div>
 
-<x-ui.button :href="$ctaHref" variant="astro" class="w-full !py-4 !text-base font-bold">
+<x-ui.button 
+    :href="url('/checkout?product=graphology')" 
+    variant="astro" 
+    class="w-full !py-4 !text-base font-bold"
+>
     Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>
@@ -126,7 +129,8 @@ $sliderId = 'slider-' . uniqid();
 <div class="flex gap-4 items-start">
 {{-- LEFT SIDE --}}
 <div class="w-[55%] shrink-0">
-<h1 class="text-2xl font-bold text-white tracking-wide mb-4">{{ $title }}</h1>
+<h1 class="text-2xl font-bold text-white tracking-wide mb-2">{{ $heroTitle }}</h1>
+<p class="text-sm text-neutral-i/90 leading-relaxed mb-4">{{ $subtitle }}</p>
 <ul class="list-disc pl-6 space-y-3 text-neutral-i mb-8">
 @foreach($bullets as $bullet)<li>{{ $bullet }}</li>@endforeach
 </ul>
@@ -163,7 +167,11 @@ $sliderId = 'slider-' . uniqid();
     </div>
 </div>
 
-<x-ui.button :href="$ctaHref" variant="astro" class="!py-4 !text-base font-bold !min-w-0">
+<x-ui.button 
+    :href="url('/checkout?product=graphology')" 
+    variant="astro" 
+    class="w-full !py-4 !text-base font-bold"
+>
     Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>

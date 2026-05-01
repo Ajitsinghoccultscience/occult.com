@@ -3,28 +3,28 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'items' => [
         [
-            'title'       => 'Curious Beginners',
-            'description' => 'Curious beginners who want a simple understanding of handwriting analysis, personality traits, and behavior patterns.',
+            'title'       => 'HR Professionals',
+            'description' => "Understand a candidate's real mindset, drive, and emotional patterns, before you hire.",
         ],
         [
-            'title'       => 'Learning-Oriented Audience',
-            'description' => 'These are individuals who want to learn graphology seriously, either for personal growth or as a career option.',
+            'title'       => 'Counselors & Therapists',
+            'description' => 'Handwriting is one of the places where the subconscious reveals itself. Use the skill and find what people can\’t tell about themselves.',
         ],
         [
-            'title'       => 'Counselors',
-            'description' => 'Counselors use graphology to help people understand their strengths and weaknesses, build self-awareness, and choose better career paths.',
+            'title'       => 'Teachers & Educators',
+            'description' => ' A child\'s handwriting holds more than letters. Learn to see it, and support them in a way most teachers never will.',
         ],
          [
-            'title'       => 'HR professionals',
-            'description' => 'HR and recruiters use handwriting analysis to understand a candidate’s mindset, energy level, leadership qualities,and overall personality.',
+            'title'       => 'Spiritually Curious Minds',
+            'description' => 'You already believe that everything carries energy. That every person is more than their surface. This is the tool that lets you go deeper with precision, not just feeling.',
         ],
         [
             'title'       => 'Psychologists',
-            'description' => 'Clinical psychologists use handwriting as a tool to understand a patient’s subconscious and track progress during therapy.',
+            'description' => 'Clinical psychologists use handwriting as a tool to understand a patient\’s subconscious and track progress during therapy.',
         ],
         [
-            'title'       => 'FBI investigators',
-            'description' => 'FBI investigators analyze ransom notes and threats to understand a suspect’s personality and emotional state, helping narrow down leads.',
+            'title'       => 'Anyone curious about human nature',
+            'description' => 'In relationships, in career, in self-understanding. Sometimes we need clarity on people, most importantly, ourselves. Graphology gives you that clarity.',
         ]
     ],
 ])
@@ -35,11 +35,13 @@
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-12">
             <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
-            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[130px] h-auto" aria-hidden="true">
+            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[130px] h-auto mb-4" aria-hidden="true">
+            <p class="text-content text-neutral-b/70 leading-relaxed">A skill that finds its place in every field.</p>
         </div>
 
         {{-- 3 cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 md:grid-col
+        s-3 gap-5">
             @foreach($items as $item)
             <div class="bg-white rounded-2xl p-6 flex flex-col gap-3 shadow-sm border border-neutral-100">
 

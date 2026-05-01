@@ -3,24 +3,27 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
      'items' => [
         [
-            'question' => 'What is Graphology and what will I learn to analyze?',
-            'answer' => "Graphology is the study of handwriting to understand the human mind. In this webinar, you will learn to analyze slant variations, margins, spacing, and lowercase letter strokes (like 'i' and 't') to decode a person's hidden personality, moods, and emotions.",
+            'question' => 'Is prior knowledge of graphology required to attend this webinar ? ',
+            'answer' => "No, this webinar is designed to be simple and easy to follow, even if you are a beginner you can come and start your journey with us.",
         ],
         [
-            'question' => 'How can Graphology be used in professional fields? ',
-            'answer' => "It is a versatile tool used by HR professionals for recruitment, FBI investigators to create behavioral profiles, and psychologists to uncover a patient’s subconscious conflicts. It is also used by judges in forensic cases to evaluate a defendant's mental state.",
+            'question' => 'What is the difference between Graphology and Graphotherapy?  ',
+            'answer' => [
+                'Graphology is the understanding of a person\'s personality through their handwriting.',
+                'Graphotherapy is the next step, where specific changes are suggested in writing to bring positive shifts in behaviour and mindset. Both are covered in this webinar.',
+            ],
         ],
         [
-            'question' => 'What is Graphotherapy?',
-            'answer' => "Graphotherapy is a corrective method where you suggest specific changes to a person’s handwriting or signature. This technique helps individuals overcome negative personality traits and habits, fostering personal growth and betterment.",
+            'question' => 'Will I be able to apply this after just one session?',
+            'answer' => "Absolutely. By practicing live on real handwriting samples during the session, you will walk away with the practical confidence to start analyzing writing the very same day. ",
         ],
         [
-            'question' => 'Can I identify criminal behavior through this course?',
-            'answer' => " Yes. The curriculum includes studying the writing patterns of both criminals and non-criminals. You will learn to spot signs of deviance, aggression, and instability to build comprehensive psychological portraits.",
+            'question' => 'What does the Certificate of Participation offer professionally?',
+            'answer' => " It is issued by the All India Institute of Occult Science (Govt. Regd. & ISO Certified). This adds professional credibility to your profile in fields like HR, Counselling, and Education. ",
         ],
         [
-            'question' => 'Will I receive a certificate for attending?',
-            'answer' => "Yes. After attending the live webinar, you will receive a Certificate of Participation from the All India Institute of Occult Science, which can be utilized for both personal and professional advancement.",
+            'question' => 'What level of understanding can one expect to gain from this webinar?',
+            'answer' => " This webinar is a strong and complete starting point. By the end of the session, you will be able to read handwriting with intention, identify personality traits with confidence.",
         ],
     ],
 ])
@@ -48,9 +51,20 @@
                             </span>
                         </summary>
                         <div class="px-4 md:px-5 pb-4 md:pb-5 pt-0 border-t border-neutral-h/50">
-                            <p class="text-content text-neutral-b tracking-[0.48px] pt-3">
-                                {{ $item['answer'] }}
-                            </p>
+                            @if(is_array($item['answer']))
+                                <ul class="text-content text-neutral-b tracking-[0.48px] pt-3 space-y-2">
+                                    @foreach($item['answer'] as $point)
+                                        <li class="flex items-start gap-2">
+                                            <span class="shrink-0 mt-0.5">•</span>
+                                            <span>{{ $point }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p class="text-content text-neutral-b tracking-[0.48px] pt-3">
+                                    {{ $item['answer'] }}
+                                </p>
+                            @endif
                         </div>
                     </details>
                 </x-ui.card>

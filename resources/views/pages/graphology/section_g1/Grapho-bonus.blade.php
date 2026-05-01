@@ -12,13 +12,13 @@
         ],
         [
             'label' => 'Bonus: 2',
-            'title' => 'PDF Notes',
+            'title' => 'PDF  Study Notes of the session ',
             'image' => 'image/astrology%20assests/pdf%20notes.webp',
             'price' => '₹199',
         ],
         [
             'label' => 'Bonus: 3',
-            'title' => 'Live Q&A Session',
+            'title' => 'Live Q/A during the Webinar ',
             'image' => 'image/astrology%20assests/live%20q%26a%20session.webp',
             'price' => '₹199',
         ],

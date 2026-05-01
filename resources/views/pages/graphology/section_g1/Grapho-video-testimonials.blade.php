@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Hear straight from our Alumni',
+    'title' => 'See what our Attendees Experienced',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos' => [
         ['youtube_id' => 'SMImDRJrCY0', 'name' => 'Alumni Review', 'attend_date' => ''],
