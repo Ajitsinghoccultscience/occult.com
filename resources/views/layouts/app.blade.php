@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {{-- Early connection hints — fire before anything else --}}
+    <link rel="preconnect" href="https://forms.zohopublic.in" crossorigin>
+    <link rel="dns-prefetch" href="https://forms.zohopublic.in">
+
     {{-- CSS/JS first — render-blocking, so earlier discovery = faster FCP --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

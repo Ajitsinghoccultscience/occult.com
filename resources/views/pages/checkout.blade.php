@@ -3,11 +3,6 @@
 @section('title', 'Register – ' . $config['webinar_name'])
 @section('description', 'Reserve your seat for the ' . $config['webinar_name'] . ' by All India Institute of Occult Science.')
 
-@push('head')
-    <link rel="preconnect" href="https://forms.zohopublic.in">
-    <link rel="dns-prefetch" href="https://forms.zohopublic.in">
-@endpush
-
 @section('content')
 
 <div class="min-h-screen bg-gray-50">
