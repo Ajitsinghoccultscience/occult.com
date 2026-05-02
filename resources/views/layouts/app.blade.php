@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {{-- CSS/JS first — render-blocking, so earlier discovery = faster FCP --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Inline critical CSS: hero backgrounds + marquee paint before app.css finishes --}}
+    <style>
+        .bg-astro-hero-gradient-red { background-image: linear-gradient(to bottom, #810202 0%, #630101 100%); }
+        .bg-astro-hero-gradient     { background-image: linear-gradient(to bottom, #1C023F 0%, #5E3592 100%); }
+        .bg-grapho-hero-gradient    { background-image: linear-gradient(to bottom, #04043A 0%, #202763 100%); }
+        .bg-accent-cream { background-color: #f4e8ca; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 25s linear infinite; }
+        .text-white { color: #ffffff; }
+        .section-px { padding-left: 1rem; padding-right: 1rem; }
+        @media (min-width: 768px)  { .section-px { padding-left: 1.5rem;  padding-right: 1.5rem;  } }
+        @media (min-width: 1024px) { .section-px { padding-left: 1.75rem; padding-right: 1.75rem; } }
+        @media (min-width: 1280px) { .section-px { padding-left: 2rem;    padding-right: 2rem;    } }
+    </style>
+
+    {{-- Preload logo — first visible element in both hero sections --}}
+    <link rel="preload" as="image"
+          href="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}">
+
     {{-- Queue inits must be synchronous so component scripts can register before Vite bundle runs --}}
     <script>window.dataLayer = window.dataLayer || []; window.__carousels = [];</script>
 
@@ -30,11 +52,8 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=optional"></noscript>
 
-    {{-- Page-specific preloads (hero images etc.) --}}
+    {{-- Page-specific preloads (LCP images etc.) --}}
     @stack('head')
-
-    {{-- Critical CSS + JS via Vite (has modulepreload built in) --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     @yield('content')

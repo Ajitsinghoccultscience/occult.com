@@ -1,5 +1,5 @@
 @props([
-    'heading' => 'All India Institute Of Occult Science: (providing guidance since 2004 )',
+    'heading' => 'All India Institute Of Occult Science: (Providing Guidance since 2004 )',
     'instituteBullets' => [
         'Registered under the government of NCT of Delhi.',
         'Globally recognised certification in vedic astrology and more.',

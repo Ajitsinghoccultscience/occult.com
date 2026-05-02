@@ -41,10 +41,7 @@
                 <div class="w-full flex items-center justify-center flex-1">
                     <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[70px] object-contain" loading="lazy">
                 </div>
-                <div class="flex items-center justify-center gap-1">
-                    <span class="text-[10px] text-neutral-e line-through">{{ $bonus['price'] }}</span>
-                    <span class="text-[10px] font-bold text-[#5E3592]">Free</span>
-                </div>
+               
             </div>
             @endforeach
         </div>
@@ -57,10 +54,7 @@
                 <div class="w-full flex items-center justify-center flex-1">
                     <img src="{{ asset($bonus['image']) }}" alt="{{ $bonus['title'] }}" class="w-full max-h-[200px] object-contain" loading="lazy">
                 </div>
-                <div class="flex items-center justify-center gap-2">
-                    <span class="text-sm text-neutral-e line-through">{{ $bonus['price'] }}</span>
-                    <span class="text-sm font-bold text-[#5E3592]">Free</span>
-                </div>
+                
             </div>
             @endforeach
         </div>

@@ -1,47 +1,39 @@
-@props([
-    'title'        => 'Meet Your Trainer & Institute',
-    'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
-    'ctaText'       => 'Reserve Seat @₹49',
-    'ctaPriceStruck' => '₹199',
-    'ctaHref'       => '#',
-    'instituteSubheading' => 'All India Institute of Occult Science: Running Since March 2004',
-    'instituteBullets' => [
-        'One of the best leading institutes in India known for its occult education and training for its students.',
-        'Globally recognized certification in Astrology, Numerology, Graphology, Vastu Shastra, Palmistry, Akashic records and Reiki.',
-        'Many trained students from here are working as personal consultants or in big astrology firms.',
-        'Best students support 24/7 with recorded classes available for our students.',
-    ],
-    'counters' => [
-        ['icon' => 'image/astrology%20assests/instagram.svg', 'value' => '52,000+', 'label' => 'Instagram Followers'],
-        ['icon' => 'image/astrology%20assests/youtube.svg',   'value' => '15,400+', 'label' => 'Youtube Followers'],
-        ['icon' => null,                                       'value' => '97000+',   'label' => 'Certified Students'],
-    ],
-    'convocationGallery' => [
-            ['src' => 'image/astrology assests/institute/laxmi mam.webp',           'caption' => 'Our Trainer Laxmi Mam'],
-
-        ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp',  'caption' => 'Lamp Lighting Ceremony'],
-
-        ['src' => 'image/astrology assests/institute/convocation.webp',          'caption' => 'Convocation 2025'],
-        ['src' => 'image/astrology assests/institute/MP-as_chief.webp',          'caption' => 'MP as a Chief guest at our Convocation'],
-        ['src' => 'image/astrology assests/institute/LampLighting.webp',         'caption' => 'Lamp Lighting Ceremony'],
-        ['src' => 'image/astrology assests/institute/Founder-speech.webp',       'caption' => 'Founder Speech at Annual Convocation'],
-        ['src' => 'image/astrology assests/institute/Our-faculty.webp',          'caption' => 'Our Faculty'],
-        ['src' => 'image/astrology assests/institute/Grand-convocation.webp',    'caption' => 'Grand Convocation Ceremony'],
-        ['src' => 'image/astrology assests/institute/Trusted-by.webp',           'caption' => 'Annual Convocation'],
-        ['src' => 'image/astrology assests/institute/intitute-event.webp',       'caption' => 'Institute Event'],
-        ['src' => 'image/astrology assests/institute/Education-day.webp',        'caption' => 'Our Certified Students'],
-    ],
-])
-
-@php $instSliderId = 'inst-slider-' . uniqid(); @endphp
+@php
+$ctaHref = $ctaHref ?? '#';
+$instSliderId = 'inst-slider-' . uniqid();
+$counters = [
+    ['icon' => 'image/astrology%20assests/instagram.svg', 'value' => '52,000+', 'label' => 'Instagram Followers'],
+    ['icon' => 'image/astrology%20assests/youtube.svg',   'value' => '15,400+', 'label' => 'Youtube Followers'],
+    ['icon' => null,                                       'value' => '97000+',   'label' => 'Certified Students'],
+];
+$instituteBullets = [
+    'Registered under the government of NCT of Delhi. ',
+    'Globally recognised certification in vedic astrology and more. ',
+    'Students trained here are working as professional consultants across India and abroad. ',
+    'Founded by Gurudev Shrie - practising Astrology for the last 40 years. ',
+];
+$convocationGallery = [
+    ['src' => 'image/astrology assests/institute/laxmi mam.webp',          'caption' => 'Our Trainer Laxmi Mam'],
+    ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp','caption' => 'Lamp Lighting Ceremony'],
+    ['src' => 'image/astrology assests/institute/convocation.webp',        'caption' => 'Convocation 2025'],
+    ['src' => 'image/astrology assests/institute/MP-as_chief.webp',        'caption' => 'MP as a Chief guest at our Convocation'],
+    ['src' => 'image/astrology assests/institute/LampLighting.webp',       'caption' => 'Lamp Lighting Ceremony'],
+    ['src' => 'image/astrology assests/institute/Founder-speech.webp',     'caption' => 'Founder Speech at Annual Convocation'],
+    ['src' => 'image/astrology assests/institute/Our-faculty.webp',        'caption' => 'Our Faculty'],
+    ['src' => 'image/astrology assests/institute/Grand-convocation.webp',  'caption' => 'Grand Convocation Ceremony'],
+    ['src' => 'image/astrology assests/institute/Trusted-by.webp',         'caption' => 'Annual Convocation'],
+    ['src' => 'image/astrology assests/institute/intitute-event.webp',     'caption' => 'Institute Event'],
+    ['src' => 'image/astrology assests/institute/Education-day.webp',      'caption' => 'Our Certified Students'],
+];
+@endphp
 
 <section class="w-full section-spacing bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px lg:px-[10%] xl:px-[10%]">
 
         {{-- Section heading --}}
         <div class="text-center mb-10 md:mb-14">
-            <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
-            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
+            <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]"> All India Institute Of Occult Science: (Providing Guidance since 2004 )</h2>
+            <img src="{{ asset('image/astrology assests/unerline 2 3.svg') }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
         </div>
 
         {{-- MOBILE (< lg): stacked --}}
@@ -68,7 +60,6 @@
 
             {{-- Institute info --}}
             <div class="flex flex-col gap-5">
-                <h4 class="text-subheading font-bold text-neutral-b leading-snug">{{ $instituteSubheading }}</h4>
                 <ul class="space-y-3 text-content text-neutral-b">
                     @foreach($instituteBullets as $bullet)
                         <li class="flex items-start gap-2">
@@ -138,7 +129,7 @@
 
             {{-- ROW 3: institute heading centered --}}
             <div class="text-center">
-                <h4 class="text-subheading font-bold text-neutral-b leading-snug">{{ $instituteSubheading }}</h4>
+                <h4 class="text-subheading font-bold text-neutral-b leading-snug">All India Institute of Occult Science: Running Since March 2004</h4>
             </div>
 
             {{-- ROW 4: bullets (left) + counters (right) --}}
@@ -173,7 +164,7 @@
             {{-- ROW 5: CTA centered --}}
             <div class="flex justify-center">
                 <x-ui.button :href="$ctaHref" variant="astro-dark-red" class="!py-4 !text-base font-bold !min-w-0">
-                    {{ $ctaText }} <span class="line-through opacity-70 ml-1">{{ $ctaPriceStruck }}</span>
+                    Reserve Seat @₹49 <span class="line-through opacity-70 ml-1">₹199</span>
                 </x-ui.button>
             </div>
 

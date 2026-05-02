@@ -1,5 +1,5 @@
 ﻿@php
-    $heroTitle = 'Live graphology webinar - master the art of handwriting analysis. ';
+    $heroTitle = 'Live Graphology webinar - master the art of handwriting analysis. ';
     $subtitle = " A 2-hour session covering personality reading, signature analysis and graphotherapy - conducted by all India Institute of occult science.";
     $bullets = [
         'Learn to read anyone\'s personality,emotions, and hidden traits through their handwriting.',

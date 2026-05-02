@@ -1,22 +1,22 @@
 @php
-    $title             = $title             ?? 'Meet Your Trainer & Institute';
-    $underlineSvg      = $underlineSvg      ?? 'image/astrology assests/unerline 2 3.svg';
-    $ctaText           = $ctaText           ?? 'Reserve Seat @₹49';
-    $ctaPriceStruck    = $ctaPriceStruck    ?? '₹199';
-    $ctaHref           = $ctaHref           ?? '#';
-    $instituteSubheading = $instituteSubheading ?? 'All India Institute of Occult Science: Running Since March 2004';
-    $instituteBullets  = $instituteBullets  ?? [
+    $title               = 'Meet Your Trainer & Institute';
+    $underlineSvg        = 'image/astrology assests/unerline 2 3.svg';
+    $ctaText             = 'Reserve Seat @₹49';
+    $ctaPriceStruck      = '₹199';
+    $ctaHref             = $ctaHref ?? '#';
+    $instituteSubheading = 'All India Institute of Occult Science: Running Since March 2004';
+    $instituteBullets    = [
         'Registered under the government of NCT of Delhi.',
         'Globally recognised certification in vedic astrology and more.',
         'Students trained here are working as professional consultants across India and abroad.',
         'Founded by Gurudev Shrie - practising Astrology for the last 40 years.',
     ];
-    $counters = $counters ?? [
+    $counters = [
         ['icon' => 'image/astrology%20assests/instagram.svg', 'value' => '52,000+', 'label' => 'Instagram Followers'],
         ['icon' => 'image/astrology%20assests/youtube.svg',   'value' => '15,400+', 'label' => 'Youtube Followers'],
         ['icon' => null,                                       'value' => '97000+',  'label' => 'Certified Students'],
     ];
-    $convocationGallery = $convocationGallery ?? [
+    $convocationGallery = [
         ['src' => 'image/astrology assests/institute/laxmi mam.webp',          'caption' => 'Our Trainer Laxmi Mam'],
         ['src' => 'image/astrology assests/institute/convocation.webp',         'caption' => 'Convocation 2025'],
         ['src' => 'image/astrology assests/institute/MP-as_chief.webp',         'caption' => 'MP as a Chief guest at our Convocation'],

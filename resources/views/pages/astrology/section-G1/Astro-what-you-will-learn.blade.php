@@ -5,31 +5,37 @@
     'sessions' => [
         [
             'label'    => 'Session 1',
-            'title'    => 'Concept Learning :',
+            'title'    => 'The Fundamentals of vedic Astrology  :',
             'subtitle' => '',
             'bullets'  => [
-                'Learn how astrology guides life',
-                'Understand your birth chart',
-                'Know Planets effect',
-                'Basics of vedic astrology',
-                'Zodiac sign understanding',
-                'Deep down into Lagna Chart',
+                '9 planets and their nature',
+                '12 Zodiac Signs',
+                '12 Houses and what they tell about',
+                'Structure of a birth chart',
             ],
             'description' => '',
         ],
         [
             'label'    => 'Session 2',
-            'title'    => 'Practice with Worksheets :',
-            'subtitle' => "Don't just learn astrology concepts",
-            'bullets'  => [],
-            'description' => 'Practice them with guided worksheets that help you gain clarity and confidence.',
+            'title'    => 'Live kundali practice  :',
+            'subtitle' => "",
+            'bullets'  => [
+                'Live birth chart walkthrough',
+                'Planetary placement and their influence',
+                'Guided worksheet to practice along'
+            ],
+            'description' => '',
         ],
         [
             'label'    => 'Session 3',
-            'title'    => 'Live Q&A access :',
+            'title'    => 'Personalized doubt session  :',
             'subtitle' => 'No confusion left',
-            'bullets'  => [],
-            'description' => 'Get real time clarity in the live Q&A session where you can ask your question, clear your doubts and gain deeper understanding.',
+            'bullets'  => [
+               'Live Q/A with faculty ',
+                'Get clarity on concepts that you have doubts on.',
+                'Leave the webinar with zero questions.'
+            ],
+            'description' => '',
         ],
     ],
 ])

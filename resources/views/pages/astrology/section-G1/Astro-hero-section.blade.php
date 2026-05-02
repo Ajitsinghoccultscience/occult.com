@@ -1,24 +1,24 @@
-@props([
-    'title' => 'Mega Astrology Webinar for Beginner & Professional Astrologers',
-    'subtitle' => "Life mein clarity chahiye? Join this 2 hour webinar and decode your answers through Astrology",
-    'bullets' => [
-        'Learn about Kundali reading',
-        "Predict about life, career, love and future with clarity.",
-        "Discover the right remedies and your soul purpose.",
-    ],
-    'sliderImages' => [
+@php
+    $title = $title ?? 'Live Webinar - Master the Vedic Astrology';
+    $subtitle = $subtitle ?? "A 2 hour session covering kundali reading, planetary influence, and chart practice - conducted by All India Institute of Occult Science - running since 2004";
+    $bullets = $bullets ?? [
+        'Read any kundali and make predictions with confidence.',
+        'Understand the 12 houses of Kundali.',
+        'Master the logic behind different results of planetary placement.',
+    ];
+    $sliderImages = $sliderImages ?? [
         'image/astrology assests/astro-webp/convo 1.webp',
         'image/astrology assests/astro-webp/convo 4.webp',
         'image/astrology assests/astro-webp/convo 7.webp',
-    ],
-    'date' => 'Sat, 2nd May, 2026',
-    'time' => '1:00 PM to 3:00 PM',
-    'duration' => '2 hours',
-    'platform' => 'Zoom Call',
-    'alumniCount' => '18k+',
-    'rating' => '4.5/5 (8912 ratings)',
-    'ctaHref' => '#',
-])
+    ];
+    $date = $date ?? 'Sat, 2nd May, 2026';
+    $time = $time ?? '1:00 PM to 3:00 PM';
+    $duration = $duration ?? '2 hours';
+    $platform = $platform ?? 'Zoom Call';
+    $alumniCount = $alumniCount ?? '18k+';
+    $rating = $rating ?? '4.5/5 (8912 ratings)';
+    $ctaHref = $ctaHref ?? '#';
+@endphp
 
 @php
 $iconsPath = 'images/icons';

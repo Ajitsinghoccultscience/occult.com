@@ -1,5 +1,5 @@
 @props([
-    'title'      => 'About All India Institute of Occult Science',
+    'title'      => 'All India Institute Of Occult Science: (Providing Guidance since 2004 )',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'subheading' => 'All India Institute of Occult Science: Running Since March 2004',
     'bullets' => [
@@ -50,9 +50,9 @@
             <div class="flex flex-col gap-5">
 
                 {{-- Subheading --}}
-                <h4 class="text-subheading font-bold text-neutral-b leading-snug">
+                <!-- <h4 class="text-subheading font-bold text-neutral-b leading-snug">
                     {{ $subheading }}
-                </h4>
+                </h4> -->
 
                 {{-- Bullet points --}}
                 <ul class="space-y-3 text-content text-neutral-b tracking-[0.48px]">
