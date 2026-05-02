@@ -22,8 +22,8 @@
         ['src' => 'image/astrology assests/astro-webp/convo 4.webp', 'caption' => 'Our Faculty at Convocation 2025'],
         ['src' => 'image/astrology assests/astro-webp/convo 7.webp', 'caption' => 'Founder Speech at Convocation 2025'],
     ],
-    'date'         => 'Sun, 12th April, 2026',
-    'time'         => '11:00 am',
+    'date'         => 'Sat, 9th May, 2026',
+    'time'         => '1:00 PM to 3:00 PM',
     'alumniAvatars' => [
         'image/astrology assests/alumni 1.webp',
         'image/astrology assests/alumni 2.webp',

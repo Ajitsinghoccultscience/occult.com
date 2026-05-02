@@ -11,7 +11,7 @@
         'image/astrology assests/astro-webp/convo 4.webp',
         'image/astrology assests/astro-webp/convo 7.webp',
     ];
-    $date = $date ?? 'Sat, 2nd May, 2026';
+    $date = $date ?? 'Sat, 9th May, 2026';
     $time = $time ?? '1:00 PM to 3:00 PM';
     $duration = $duration ?? '2 hours';
     $platform = $platform ?? 'Zoom Call';
