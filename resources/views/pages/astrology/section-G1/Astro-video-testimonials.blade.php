@@ -78,8 +78,6 @@
         }, 2800);
     }
 
-    startAuto();
-
     // Pause on touch
     if (carousel) {
         carousel.addEventListener('touchstart', function () { paused = true; }, { passive: true });
@@ -104,6 +102,14 @@
             this.appendChild(iframe);
         });
     });
+
+    if (carousel && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function(e) {
+            if (e[0].isIntersecting) { this.disconnect(); startAuto(); }
+        }, { rootMargin: '300px' }).observe(carousel);
+    } else {
+        startAuto();
+    }
 })();
 </script>
 

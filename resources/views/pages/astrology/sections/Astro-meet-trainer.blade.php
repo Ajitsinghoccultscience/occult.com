@@ -257,13 +257,19 @@
         m.scrollTo({ left: slides[mCurrent].offsetLeft, behavior: 'smooth' });
     }
 
-    // Auto-advance every 5 seconds
-    setInterval(function () { if (!mobilePaused) mobileNext(); }, 5000);
-    setInterval(function () { if (!paused) next(); }, 5000);
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+    var _mtEl = document.getElementById(dId) || document.getElementById(mId);
+    if (_mtEl && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function(e) {
+            if (e[0].isIntersecting) {
+                this.disconnect();
+                setInterval(function () { if (!mobilePaused) mobileNext(); }, 5000);
+                setInterval(function () { if (!paused) next(); }, 5000);
+                init();
+            }
+        }, { rootMargin: '300px' }).observe(_mtEl);
     } else {
+        setInterval(function () { if (!mobilePaused) mobileNext(); }, 5000);
+        setInterval(function () { if (!paused) next(); }, 5000);
         init();
     }
 })();

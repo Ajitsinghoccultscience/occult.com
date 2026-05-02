@@ -145,10 +145,6 @@ function renderStars(int $count): string {
         timer = setInterval(() => { if (!paused) goTo(current + 1); }, 3000);
     }
 
-    sizeSlides();
-    goTo(0);
-    startTimer();
-
     window.addEventListener('resize', () => { sizeSlides(); goTo(current); });
 
     if (prevBtn) prevBtn.addEventListener('click', () => { paused = true; goTo(current - 1); setTimeout(() => paused = false, 3000); });
@@ -168,5 +164,13 @@ function renderStars(int $count): string {
         const diff = touchX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
     }, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function(e) {
+            if (e[0].isIntersecting) { this.disconnect(); sizeSlides(); goTo(0); startTimer(); }
+        }, { rootMargin: '300px' }).observe(track);
+    } else {
+        sizeSlides(); goTo(0); startTimer();
+    }
 })();
 </script>

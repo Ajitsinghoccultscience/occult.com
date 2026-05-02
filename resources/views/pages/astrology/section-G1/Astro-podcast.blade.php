@@ -105,6 +105,11 @@
 
 <script defer>
 (function () {
+    var _podEl = document.getElementById('podcast-slider');
+    if (!_podEl) return;
+
+    function _runMobile() {
+(function () {
     const slider = document.getElementById('podcast-slider');
     if (!slider) return;
     const slides = slider.querySelectorAll('.podcast-slide');
@@ -155,8 +160,9 @@
     }, { passive: true });
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 })();
+    } // end _runMobile
 
-// Desktop slider
+    function _runDesktop() {
 (function () {
     var track = document.getElementById('podcast-desktop-track');
     if (!track) return;
@@ -191,6 +197,16 @@
     window.__podcastDeskStopSlider = function () { videoPlaying = true; paused = true; };
 
     setInterval(function () { if (!paused && !videoPlaying) goTo(current + 1); }, 3000);
+})();
+    } // end _runDesktop
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function(e) {
+            if (e[0].isIntersecting) { this.disconnect(); _runMobile(); _runDesktop(); }
+        }, { rootMargin: '300px' }).observe(_podEl);
+    } else {
+        _runMobile(); _runDesktop();
+    }
 })();
 
 document.querySelectorAll('.yt-pod-facade').forEach(function (facade) {
