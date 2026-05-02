@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@push('head')
+    <link rel="preload" as="image"
+          href="{{ asset('image/astrology%20assests/astro-webp/convo%201.webp') }}"
+          fetchpriority="high">
+@endpush
+
 @section('title', 'All India Institute of Occult Science')
 @section('description', 'Graphology Webinar - Your platform for webinars and live events.')
 

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @push('head')
-    {{-- Preload LCP hero image so it loads as early as possible --}}
     <link rel="preload" as="image"
-          href="{{ asset('image/astrology%20assests/hero%20section.webp') }}"
+          href="{{ asset('image/astrology%20assests/astro-webp/convo%201.webp') }}"
           fetchpriority="high">
 @endpush
 

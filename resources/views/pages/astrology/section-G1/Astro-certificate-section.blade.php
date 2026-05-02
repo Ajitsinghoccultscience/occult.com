@@ -26,12 +26,14 @@
 
                 {{-- RIGHT: Certificate image --}}
                 <div class="flex items-center justify-center order-1 lg:order-2">
-                    <img
-                        src="{{ asset($image) }}"
-                        alt="Certificate of Participation"
-                        class="w-full max-w-[420px] h-auto object-contain drop-shadow-xl rounded-lg"
-                        loading="lazy"
-                    >
+                    <div class="w-full max-w-[420px] aspect-[1.414/1]">
+                        <img
+                            src="{{ asset($image) }}"
+                            alt="Certificate of Participation"
+                            class="w-full h-full object-contain drop-shadow-xl rounded-lg"
+                            loading="lazy"
+                        >
+                    </div>
                 </div>
 
             </div>
