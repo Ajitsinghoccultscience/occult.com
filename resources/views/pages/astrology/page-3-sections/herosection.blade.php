@@ -298,8 +298,10 @@
         document.querySelectorAll('[id^="hero-slider-"]').forEach(el => initSlider(el.id));
     }
 
-    document.readyState === 'loading'
-        ? document.addEventListener('DOMContentLoaded', init)
-        : init();
+    if (document.readyState === 'complete') {
+        init();
+    } else {
+        window.addEventListener('load', init, { once: true });
+    }
 })();
 </script>
