@@ -54,7 +54,7 @@ $sliderId = 'slider-' . uniqid();
 
 {{-- Image Slider (mobile) --}}
 @php $mSliderId = $sliderId . '-m'; @endphp
-<div id="{{ $mSliderId }}" class="w-full rounded-xl overflow-hidden shadow-2xl relative aspect-[4/3]">
+<div id="{{ $mSliderId }}" class="w-full rounded-xl overflow-hidden shadow-2xl relative aspect-[4/3]" style="aspect-ratio:4/3">
     @foreach($sliderImages as $i => $img)
         <img
             src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}"
@@ -173,7 +173,7 @@ $sliderId = 'slider-' . uniqid();
 {{-- RIGHT SIDE --}}
 @php $dSliderId = $sliderId . '-d'; @endphp
 <div class="flex-1 flex flex-col gap-4 mt-4">
-<div id="{{ $dSliderId }}" class="w-full aspect-[4/3] min-h-[17rem] rounded-l-10 rounded-r-none overflow-hidden relative">
+<div id="{{ $dSliderId }}" class="w-full aspect-[4/3] min-h-[17rem] rounded-l-10 rounded-r-none overflow-hidden relative" style="aspect-ratio:4/3">
     @foreach($sliderImages as $i => $img)
         <img
             src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}"
