@@ -13,7 +13,7 @@
      class="fixed bottom-0 left-0 right-0 z-50 transition-transform duration-300"
      style="transform: translateY(100%);">
 
-    {{-- Red countdown strip --}}
+{{-- Red countdown strip --}}
     <div class="bg-[#CC2200] px-4 py-1.5 text-center">
         <p class="text-white font-bold text-sm md:text-base tracking-widest uppercase">
             OFFER ENDS IN &nbsp;
@@ -21,7 +21,7 @@
         </p>
     </div>
 
-    {{-- Main bar --}}
+{{-- Main bar --}}
     <div class="bg-[#1C023F]/90 backdrop-blur-sm px-4 py-3 md:px-8 flex items-center justify-between gap-4">
 
         {{-- Price + seats --}}
