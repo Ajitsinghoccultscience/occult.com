@@ -6,8 +6,8 @@
 @section('content')
       @include('pages.astrology.page-3-sections.herosection', [
           'ctaHref' => url('/astrology-checkout'),
-          'date'    => 'Sun, 10th May, 2026',
-          'time'    => '1:00 PM to 3:00 PM',
+          'date'    => 'Sat, 9th May, 2026',
+          'time'    => '2:00 PM to 4:00 PM',
       ])
       @include('pages.astrology.page-3-sections.featured-media')
       @include('pages.astrology.page-3-sections.what-you-will-learn', ['ctaHref' => url('/astrology-checkout')])
