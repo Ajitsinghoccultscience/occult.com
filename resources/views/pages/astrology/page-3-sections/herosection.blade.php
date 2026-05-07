@@ -1,6 +1,6 @@
 @push('head')
     {{-- Hero background image --}}
-    <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}">
+    <link rel="preload" as="image" href="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}" fetchpriority="high">
     {{-- Logo --}}
     <link rel="preload" as="image" href="{{ asset('image/compressed-images/logo300x111-removebg-preview.webp') }}">
     {{-- Slider images --}}
@@ -51,9 +51,15 @@
 
 {{-- Hero outer wrapper with rounded card look --}}
 <div class="bg-white py-2 px-2 md:px-5 lg:px-8">
-<section class="text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
-         style="background-image: url('{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}'); background-size: cover; background-position: center;">
-<div class="section-px py-3 md:py-5 xl:py-6">
+<section class="relative text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto">
+<img src="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}"
+     alt=""
+     aria-hidden="true"
+     class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+     loading="eager"
+     fetchpriority="high"
+     decoding="async">
+<div class="relative z-10 section-px py-3 md:py-5 xl:py-6">
 
     {{-- Logo badge (centered) --}}
     <div class="flex justify-center mb-3 md:mb-6">
