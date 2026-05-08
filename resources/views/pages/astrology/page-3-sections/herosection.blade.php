@@ -52,13 +52,22 @@
 {{-- Hero outer wrapper with rounded card look --}}
 <div class="bg-white py-2 px-2 md:px-5 lg:px-8">
 <section class="relative text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto">
-<img src="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}"
-     alt=""
-     aria-hidden="true"
-     class="absolute inset-0 w-full h-full object-cover pointer-events-none"
-     loading="eager"
-     fetchpriority="high"
-     decoding="async">
+<picture class="absolute inset-0 w-full h-full pointer-events-none">
+    {{-- Mobile source (replace with a smaller mobile-specific asset if available) --}}
+    <source media="(max-width: 767px)" srcset="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}">
+    {{-- Desktop / default source --}}
+    <source media="(min-width: 768px)" srcset="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}">
+    <img
+        src="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}"
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover"
+        width="1600"
+        height="900"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async">
+</picture>
 <div class="relative z-10 section-px py-3 md:py-5 xl:py-6">
 
     {{-- Logo badge (centered) --}}
@@ -115,7 +124,10 @@
                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $slide['src'])))) }}"
                      alt="Slide {{ $i + 1 }}"
                      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
-                     @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif>
+                     width="960"
+                     height="480"
+                     @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif
+                     decoding="async">
             @endforeach
             <div class="absolute bottom-0 left-0 right-0 bg-black/50 px-4 py-2">
                 <span class="text-white text-sm font-medium">{{ $sliderImages[0]['caption'] }}</span>
@@ -207,7 +219,10 @@
                     <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $slide['src'])))) }}"
                          alt="Slide {{ $i + 1 }}"
                          class="hs-img absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
-                         @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif>
+                         width="1280"
+                         height="800"
+                         @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif
+                         decoding="async">
                 @endforeach
 
                 {{-- Caption overlay --}}

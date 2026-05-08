@@ -75,18 +75,33 @@ $mediaCards = [
 
                     {{-- Logo --}}
                     <div class="h-20 flex items-center justify-center px-5 border-b border-neutral-100 bg-white">
-                        <img src="{{ asset($card['logo']) }}"
-                             alt="{{ $card['name'] }}"
-                             class="w-auto object-contain {{ $card['logoClass'] ?? 'max-h-14 max-w-[150px]' }}"
-                             loading="lazy">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="{{ asset($card['logo']) }}">
+                            <source media="(min-width: 768px)" srcset="{{ asset($card['logo']) }}">
+                            <img src="{{ asset($card['logo']) }}"
+                                 alt="{{ $card['name'] }}"
+                                 class="w-auto object-contain {{ $card['logoClass'] ?? 'max-h-14 max-w-[150px]' }}"
+                                 width="300"
+                                 height="112"
+                                 loading="lazy"
+                                 decoding="async">
+                        </picture>
                     </div>
 
                     {{-- Article --}}
                     <div class="w-full h-[160px] overflow-hidden">
-                        <img src="{{ asset($card['article']) }}"
-                             alt="{{ $card['name'] }} article"
-                             class="w-full h-full object-cover object-top"
-                             loading="lazy">
+                        <picture>
+                            {{-- Replace these srcsets with dedicated mobile/desktop files when available --}}
+                            <source media="(max-width: 767px)" srcset="{{ asset($card['article']) }}">
+                            <source media="(min-width: 768px)" srcset="{{ asset($card['article']) }}">
+                            <img src="{{ asset($card['article']) }}"
+                                 alt="{{ $card['name'] }} article"
+                                 class="w-full h-full object-cover object-top"
+                                 width="520"
+                                 height="320"
+                                 loading="lazy"
+                                 decoding="async">
+                        </picture>
                     </div>
 
                 </div>
