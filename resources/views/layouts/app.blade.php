@@ -36,7 +36,9 @@
 
     <title>@yield('title', 'All India Institute of Occult Science')</title>
     <meta name="description" content="@yield('description', '')">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon (1).ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon (1).ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon (1).ico') }}">
 
     {{-- Open Graph (WhatsApp / social sharing) --}}
     <meta property="og:title"       content="@yield('title', 'All India Institute of Occult Science')">
