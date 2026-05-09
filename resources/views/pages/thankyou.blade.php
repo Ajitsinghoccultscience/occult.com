@@ -106,7 +106,7 @@
                     <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center shrink-0 text-gray-600 font-bold text-sm">2</div>
                     <div>
                         <p class="font-bold text-gray-900 text-base">Attend Live on {{ $config['attend_date'] }}</p>
-                        <p class="text-sm text-gray-500 mt-0.5">Join at 1:00 PM IST and {{ $config['description'] }} live</p>
+                        <p class="text-sm text-gray-500 mt-0.5">Join at 2:00 PM IST and {{ $config['description'] }} live</p>
                     </div>
                 </div>
 
