@@ -8,7 +8,7 @@
         ['label' => 'Bonus Material',       'price' => '₹392'],
     ],
     'totalValue' => '₹999',
-    'offerPrice' => '₹49',
+    'offerPrice' => '₹99',
     'originalPrice' => '₹999',
     'ctaText' => 'Register Now',
     'ctaHref' => '#',

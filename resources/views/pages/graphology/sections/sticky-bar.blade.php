@@ -1,6 +1,6 @@
 @props([
     'ctaHref' => '#',
-    'ctaText' => 'Reserve Seat @₹49',
+    'ctaText' => 'Reserve Seat @₹99',
     'days'    => 0,
     'hours'   => 0,
     'minutes' => 45,

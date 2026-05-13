@@ -27,7 +27,7 @@ $sliderId = 'slider-' . uniqid();
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
             <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                offer ends soon - enroll now with just ₹49 <span class="line-through opacity-70">₹199</span>
+                offer ends soon - enroll now with just ₹99 <span class="line-through opacity-70">₹199</span>
             </span>
         @endforeach
     </div>
@@ -113,7 +113,7 @@ $sliderId = 'slider-' . uniqid();
     variant="astro" 
     class="w-full !py-4 !text-base font-bold"
 >
-    Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
+    Reserve Seat ₹99 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>
 
@@ -172,7 +172,7 @@ $sliderId = 'slider-' . uniqid();
     variant="astro" 
     class="w-full !py-4 !text-base font-bold"
 >
-    Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
+    Reserve Seat ₹99 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>
 {{-- RIGHT SIDE --}}

@@ -6,7 +6,7 @@
     'description' => [
         "Pawan Kumar is one of the recognized Graphology teachers known for his teaching and training students in Graphology. He belongs to Kota, holds a BSc in Mathematics and a Master’s in Psychology. He has earned a Diploma and a Master’s in Graphology, shaping his expertise in handwriting analysis. Known for his adaptability, trustworthiness, and adventurous spirit, he now teaches Graphology at the All India Institute of Occult Science.",
     ],
-    'ctaText' => 'Reserve Seat @₹49',
+    'ctaText' => 'Reserve Seat @₹99',
     'ctaPriceStruck' => '₹199',
     'ctaHref' => '#',
     'image' => 'images/assets desktop/pawan kumar.png',
