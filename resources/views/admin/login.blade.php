@@ -140,7 +140,7 @@
             <div class="flex flex-col gap-2">
                 <label class="text-xs font-bold text-gray-500 uppercase tracking-widest" for="email">Email Address</label>
                 <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus
-                       placeholder="admin@occultscience.in"
+                       placeholder=""
                        class="input-field w-full rounded-2xl px-4 py-3.5 text-sm text-gray-900 placeholder-gray-400">
             </div>
 
@@ -149,7 +149,7 @@
                 <label class="text-xs font-bold text-gray-500 uppercase tracking-widest" for="password">Password</label>
                 <div class="relative">
                     <input id="password" name="password" type="password" required
-                           placeholder="••••••••"
+                           placeholder=""
                            class="input-field w-full rounded-2xl px-4 py-3.5 text-sm text-gray-900 placeholder-gray-400 pr-12">
                     <button type="button" onclick="togglePwd()" tabindex="-1"
                             class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
