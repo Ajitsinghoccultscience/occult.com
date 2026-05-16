@@ -10,7 +10,7 @@
 @section('description', 'Astrology Webinar - Your platform for webinars and live events.')
 
 @section('content')
-    @include('pages.astrology.sections.Astro-hero-section', ['ctaHref' => url('/astrology-checkout')])
+    @include('pages.astrology.sections.Astro-hero-section', ['ctaHref' => url('/astrology-checkout'), 'date' => optional($webinar)->event_date ?? 'Sat, 16th May, 2026', 'time' => optional($webinar)->event_time ?? '2:00 PM to 4:00 PM'])
     @include('pages.astrology.sections.Astro-featured-in')
     @include('pages.astrology.sections.Astro-what-you-will-learn', ['ctaHref' => url('/astrology-checkout')])
     @include('pages.astrology.sections.Astro-bonus', ['ctaHref' => url('/astrology-checkout')])

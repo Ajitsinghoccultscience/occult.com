@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\WebinarSetting;
 
 class PageController extends Controller
 {
@@ -43,45 +44,58 @@ class PageController extends Controller
 
     public function index()
     {
-        return view('pages.astrology.pages.astrology-webinar');
+        $webinar = WebinarSetting::forKey('astrology');
+        return view('pages.astrology.pages.astrology-webinar', compact('webinar'));
     }
 
     public function graphologyWebinar()
     {
-        return view('pages.graphology.pages.graphology-webinar');
+        $webinar = WebinarSetting::forKey('graphology');
+        return view('pages.graphology.pages.graphology-webinar', compact('webinar'));
     }
 
     public function graphologyWebinarlvl1()
     {
-        return view('pages.graphology.pages.graphology-webinar1');
+        $webinar = WebinarSetting::forKey('graphology');
+        return view('pages.graphology.pages.graphology-webinar1', compact('webinar'));
     }
 
     public function astrologyWebinar()
     {
-        return view('pages.astrology.pages.astrology-webinar1');
+        $webinar = WebinarSetting::forKey('astrology');
+        return view('pages.astrology.pages.astrology-webinar1', compact('webinar'));
     }
 
     public function astrologyWebinar3()
     {
-         return view('pages.astrology.pages.astrology-webinar6');
-       
+        $webinar = WebinarSetting::forKey('astrology');
+        return view('pages.astrology.pages.astrology-webinar6', compact('webinar'));
+    }
+
+    private function resolvedConfig(string $product): array
+    {
+        $base   = $this->products[$product];
+        $db     = WebinarSetting::forKey($product);
+        return $db ? array_merge($base, $db->toConfig()) : $base;
     }
 
     public function checkout(Request $request)
     {
         $product = $request->query('product', '');
-        if (!array_key_exists($product, $this->products)) {
-            abort(404);
-        }
-        return view('pages.checkout', ['product' => $product, 'config' => $this->products[$product]]);
+        if (!array_key_exists($product, $this->products)) abort(404);
+        return view('pages.checkout', ['product' => $product, 'config' => $this->resolvedConfig($product)]);
     }
 
     public function thankyou(Request $request)
     {
         $product = $request->query('product', '');
-        if (!array_key_exists($product, $this->products)) {
-            abort(404);
-        }
-        return view('pages.thankyou', ['product' => $product, 'config' => $this->products[$product]]);
+        if (!array_key_exists($product, $this->products)) abort(404);
+        return view('pages.thankyou', ['product' => $product, 'config' => $this->resolvedConfig($product)]);
     }
+
+    public function astrologyCourse()
+    {
+        return view('direct-admission.pages.astrology-course');
+    }
+
 }

@@ -12,8 +12,8 @@
         'image/astrology assests/astro-webp/convo 4.webp',
         'image/astrology assests/astro-webp/convo 7.webp',
     ];
-    $date = 'Wed, 20th May, 2026';
-    $time = '11:00 AM to 1:00 PM';
+    $date = $date ?? 'Wed, 20th May, 2026';
+    $time = $time ?? '11:00 AM to 1:00 PM';
     $duration = '2 hours';
     $platform = 'Zoom Call';
     $ctaHref = '#';

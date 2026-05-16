@@ -10,7 +10,7 @@
 @section('description', 'Graphology Webinar - Your platform for webinars and live events.')
 
 @section('content')
-    @include('pages.graphology.sections.hero-section', ['ctaHref' => url('/graphology-checkout')])
+    @include('pages.graphology.sections.hero-section', ['ctaHref' => url('/graphology-checkout'), 'date' => optional($webinar)->event_date ?? 'Wed, 20th May, 2026', 'time' => optional($webinar)->event_time ?? '11:00 AM to 1:00 PM'])
     @include('pages.graphology.sections.featured-in')
     @include('pages.graphology.sections.what-is-graphology', ['image' => 'images/assets desktop/DESKTOP WHAT IS GRAPHOLOGY.webp'])
     <!-- @include('pages.graphology.sections.card-with-image-left', [

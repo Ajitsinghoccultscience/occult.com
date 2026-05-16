@@ -4,6 +4,7 @@
     {{-- charset MUST be first for correct parsing --}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Early connection hints — fire before anything else --}}
     <link rel="preconnect" href="https://forms.zohopublic.in" crossorigin>

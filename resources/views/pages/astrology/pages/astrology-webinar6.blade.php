@@ -6,8 +6,8 @@
 @section('content')
       @include('pages.astrology.page-3-sections.herosection', [
           'ctaHref' => url('/astrology-checkout'),
-          'date'    => 'Sat, 16th May, 2026',
-          'time'    => '2:00 PM to 4:00 PM',
+          'date'    => optional($webinar)->event_date ?? 'Sat, 16th May, 2026',
+          'time'    => optional($webinar)->event_time ?? '2:00 PM to 4:00 PM',
       ])
       @include('pages.astrology.page-3-sections.featured-media')
       @include('pages.astrology.page-3-sections.what-you-will-learn', ['ctaHref' => url('/astrology-checkout')])
