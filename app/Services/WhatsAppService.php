@@ -102,8 +102,9 @@ class WhatsAppService
                 return ['success' => true, 'id' => $response->json('id'), 'error' => null];
             }
 
-            $error = $response->json('error.message') ?? $response->body();
-            Log::error('WhatsApp template submit failed', ['template' => $template->meta_name, 'error' => $error]);
+            $errorBody = $response->json('error') ?? [];
+            $error = $errorBody['error_user_msg'] ?? $errorBody['message'] ?? $response->body();
+            Log::error('WhatsApp template submit failed', ['template' => $template->meta_name, 'error' => $errorBody]);
             return ['success' => false, 'id' => null, 'error' => $error];
 
         } catch (\Throwable $e) {
