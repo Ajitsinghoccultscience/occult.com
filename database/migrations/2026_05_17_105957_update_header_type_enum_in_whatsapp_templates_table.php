@@ -11,11 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        \DB::statement("ALTER TABLE whatsapp_templates MODIFY COLUMN header_type ENUM('none','text','image','document') NOT NULL DEFAULT 'none'");
+        $driver = \DB::getDriverName();
+
+        if ($driver === 'mysql') {
+            \DB::statement("ALTER TABLE whatsapp_templates MODIFY COLUMN header_type ENUM('none','text','image','document') NOT NULL DEFAULT 'none'");
+        } else {
+            // SQLite doesn't support MODIFY COLUMN — column already accepts any string, so no change needed
+            // The validation in the controller restricts values to none/text/image/document
+        }
     }
 
     public function down(): void
     {
-        \DB::statement("ALTER TABLE whatsapp_templates MODIFY COLUMN header_type ENUM('none','text','image') NOT NULL DEFAULT 'none'");
+        if (\DB::getDriverName() === 'mysql') {
+            \DB::statement("ALTER TABLE whatsapp_templates MODIFY COLUMN header_type ENUM('none','text','image') NOT NULL DEFAULT 'none'");
+        }
     }
 };
