@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\LeadsController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\WebinarController;
+use App\Http\Controllers\Admin\WhatsApp\TemplateController;
+use App\Http\Controllers\Admin\WhatsApp\CampaignController;
+use App\Http\Controllers\Admin\WhatsApp\QuickSendController;
+use App\Http\Controllers\Admin\TeamController;
 
 // Existing static pages
 Route::get('/', fn() => redirect('/astrology-webinar-1'));
@@ -51,5 +55,36 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/leads', [LeadsController::class, 'index'])->name('leads');
         Route::patch('/leads/{enquiry}/status', [LeadsController::class, 'updateStatus'])->name('leads.status');
         Route::delete('/leads/{enquiry}', [LeadsController::class, 'destroy'])->name('leads.destroy');
+
+        // Team management (admin only)
+        Route::middleware('admin.role')->group(function () {
+            Route::get('team',            [TeamController::class, 'index'])->name('team.index');
+            Route::post('team',           [TeamController::class, 'store'])->name('team.store');
+            Route::patch('team/{user}',   [TeamController::class, 'update'])->name('team.update');
+            Route::delete('team/{user}',  [TeamController::class, 'destroy'])->name('team.destroy');
+        });
+
+        // WhatsApp
+        Route::prefix('whatsapp')->name('whatsapp.')->group(function () {
+            // Quick Send — all roles
+            Route::get('send',  [QuickSendController::class, 'create'])->name('send.create');
+            Route::post('send', [QuickSendController::class, 'send'])->name('send.store');
+
+            // Admin-only WhatsApp features
+            Route::middleware('admin.role')->group(function () {
+                Route::resource('templates', TemplateController::class)->except(['show']);
+                Route::post('templates/{template}/refresh-status', [TemplateController::class, 'refreshStatus'])->name('templates.refresh-status');
+                Route::post('templates/{template}/force-approve', [TemplateController::class, 'forceApprove'])->name('templates.force-approve');
+
+                Route::get('campaigns',                              [CampaignController::class, 'index'])->name('campaigns.index');
+                Route::get('campaigns/create',                       [CampaignController::class, 'create'])->name('campaigns.create');
+                Route::post('campaigns',                             [CampaignController::class, 'store'])->name('campaigns.store');
+                Route::get('campaigns/{campaign}',                   [CampaignController::class, 'show'])->name('campaigns.show');
+                Route::get('campaigns/{campaign}/map',               [CampaignController::class, 'map'])->name('campaigns.map');
+                Route::post('campaigns/{campaign}/preview',          [CampaignController::class, 'preview'])->name('campaigns.preview');
+                Route::post('campaigns/{campaign}/launch',           [CampaignController::class, 'launch'])->name('campaigns.launch');
+                Route::get('campaigns/{campaign}/stats',            [CampaignController::class, 'stats'])->name('campaigns.stats');
+            });
+        });
     });
 });

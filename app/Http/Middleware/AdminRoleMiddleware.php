@@ -6,17 +6,12 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminAuth
+class AdminRoleMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  Closure(Request): (Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!session('admin_user_id')) {
-            return redirect()->route('admin.login');
+        if (session('admin_role') !== 'admin') {
+            abort(403, 'Access denied.');
         }
         return $next($request);
     }
