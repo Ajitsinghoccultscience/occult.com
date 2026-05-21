@@ -27,7 +27,7 @@ $sliderId = 'slider-' . uniqid();
     <div class="flex animate-marquee w-max gap-16">
         @foreach(range(1, 4) as $i)
             <span class="text-neutral-b font-semibold text-xs md:text-sm tracking-wide whitespace-nowrap hover:underline">
-                offer ends soon - enroll now with just ₹99 <span class="line-through opacity-70">₹199</span>
+                Registration Closes Today — Hurry Up & Join Now!
             </span>
         @endforeach
     </div>
