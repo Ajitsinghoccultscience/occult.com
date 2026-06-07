@@ -114,13 +114,7 @@
 
             {{-- Social proof --}}
             <div class="flex flex-col items-center gap-2 pt-2">
-                <div class="flex -space-x-2.5">
-                    @foreach($config['alumni_files'] as $a)
-                    <img src="{{ asset($config['alumni_path'] . $a) }}"
-                         class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="">
-                    @endforeach
-                </div>
-                <p class="text-sm text-gray-500">Joining <span class="font-semibold text-gray-800">18,000+ alumni</span> who've transformed with us</p>
+<p class="text-sm text-gray-500">Joining <span class="font-semibold text-gray-800">18,000+ alumni</span> who've transformed with us</p>
                 <div class="flex gap-0.5">
                     @for($i=0;$i<5;$i++)
                     <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
