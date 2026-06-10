@@ -73,5 +73,8 @@
     </script>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLJ823HM"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    {{-- Page-specific scripts (video facade, countdown, etc.) --}}
+    @stack('scripts')
 </body>
 </html>
