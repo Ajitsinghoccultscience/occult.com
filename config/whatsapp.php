@@ -1,13 +1,24 @@
 <?php
 
 return [
-    'phone_number_id'      => env('WHATSAPP_PHONE_NUMBER_ID'),
-    'business_account_id'  => env('WHATSAPP_BUSINESS_ACCOUNT_ID'),
-    'access_token'         => env('WHATSAPP_ACCESS_TOKEN'),
-    'webhook_verify_token' => env('WHATSAPP_WEBHOOK_VERIFY_TOKEN'),
-    'app_secret'           => env('WHATSAPP_APP_SECRET'),
-    'api_version'          => env('WHATSAPP_API_VERSION', 'v18.0'),
-    'api_base'             => 'https://graph.facebook.com',
+    /*
+    |--------------------------------------------------------------------------
+    | WATI (WhatsApp Team Inbox) API
+    |--------------------------------------------------------------------------
+    | Messages are sent through WATI instead of the Meta Cloud API.
+    | Grab these from your WATI dashboard → API Docs.
+    |
+    |  WATI_API_ENDPOINT  e.g. https://live-mt-server.wati.io/{tenantId}
+    |  WATI_ACCESS_TOKEN  the Bearer token shown in WATI → API Docs
+    */
+    'endpoint'             => rtrim((string) env('WATI_API_ENDPOINT', ''), '/'),
+    'access_token'         => env('WATI_ACCESS_TOKEN'),
+
     'default_country_code' => env('WHATSAPP_DEFAULT_COUNTRY_CODE', '91'),
+
+    // When true, no real API call is made — sends are simulated and logged.
     'mock'                 => env('WHATSAPP_MOCK', false),
+
+    // Inbound webhook (WATI can POST message events here).
+    'webhook_verify_token' => env('WHATSAPP_WEBHOOK_VERIFY_TOKEN'),
 ];

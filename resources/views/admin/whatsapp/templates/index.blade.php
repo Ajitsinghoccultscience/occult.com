@@ -2,7 +2,7 @@
 
 @section('title', 'WA Templates')
 @section('page-title', 'WhatsApp Templates')
-@section('page-subtitle', 'Templates are auto-submitted to Meta on save')
+@section('page-subtitle', 'Create templates in WATI, then Sync from WATI to import them here')
 
 @section('content')
 
@@ -19,11 +19,20 @@
 
 <div class="flex items-center justify-between mb-6">
     <p class="text-sm text-slate-500">{{ $templates->count() }} template{{ $templates->count() === 1 ? '' : 's' }}</p>
-    <a href="{{ route('admin.whatsapp.templates.create') }}"
-       class="text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:opacity-90 transition"
-       style="background-color:#25D366;">
-        + New Template
-    </a>
+    <div class="flex items-center gap-3">
+        <form method="POST" action="{{ route('admin.whatsapp.templates.sync-wati') }}">
+            @csrf
+            <button type="submit"
+                    class="text-sm font-semibold px-5 py-2.5 rounded-xl border border-gray-300 text-slate-700 hover:bg-gray-50 transition">
+                ⟳ Sync from WATI
+            </button>
+        </form>
+        <a href="{{ route('admin.whatsapp.templates.create') }}"
+           class="text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:opacity-90 transition"
+           style="background-color:#25D366;">
+            + New Template
+        </a>
+    </div>
 </div>
 
 <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">

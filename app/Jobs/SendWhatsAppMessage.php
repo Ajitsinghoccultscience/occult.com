@@ -37,17 +37,17 @@ class SendWhatsAppMessage implements ShouldQueue
         $campaign = $contact->campaign()->with('template')->first();
         $template = $campaign->template;
 
-        // Build ordered variables array from contact's variables map
-        $orderedVars = [];
+        // Build named variables map (varName => value) for WATI parameters
+        $namedVars = [];
         foreach (($template->variables ?? []) as $varName) {
-            $orderedVars[] = $contact->variables[$varName] ?? '';
+            $namedVars[$varName] = $contact->variables[$varName] ?? '';
         }
 
         $result = $whatsApp->sendTemplate(
             $contact->phone,
             $template->meta_name,
             $template->language,
-            $orderedVars
+            $namedVars
         );
 
         if ($result['success']) {

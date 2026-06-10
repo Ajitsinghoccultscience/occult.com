@@ -135,6 +135,39 @@ class TemplateController extends Controller
         return back()->with('success', "Status: {$metaStatus} — Meta is still reviewing.");
     }
 
+    /**
+     * Import all templates from the WATI dashboard into the local table.
+     */
+    public function syncFromWati(WhatsAppService $whatsApp)
+    {
+        $result = $whatsApp->fetchTemplates();
+
+        if (!$result['success']) {
+            return back()->with('error', 'Could not fetch templates from WATI: ' . $result['error']);
+        }
+
+        $created = 0;
+        $updated = 0;
+
+        foreach ($result['templates'] as $data) {
+            if (empty($data['meta_name'])) {
+                continue;
+            }
+
+            $existing = WhatsAppTemplate::where('meta_name', $data['meta_name'])->first();
+
+            if ($existing) {
+                $existing->update($data);
+                $updated++;
+            } else {
+                WhatsAppTemplate::create(array_merge(['header_type' => 'none'], $data));
+                $created++;
+            }
+        }
+
+        return back()->with('success', "Synced from WATI: {$created} added, {$updated} updated.");
+    }
+
     public function forceApprove(WhatsAppTemplate $template)
     {
         $template->update(['status' => 'approved', 'meta_status' => 'APPROVED', 'rejection_reason' => null]);

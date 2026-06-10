@@ -74,6 +74,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             // Admin-only WhatsApp features
             Route::middleware('admin.role')->group(function () {
                 Route::resource('templates', TemplateController::class)->except(['show']);
+                Route::post('templates/sync-wati', [TemplateController::class, 'syncFromWati'])->name('templates.sync-wati');
                 Route::post('templates/{template}/refresh-status', [TemplateController::class, 'refreshStatus'])->name('templates.refresh-status');
                 Route::post('templates/{template}/force-approve', [TemplateController::class, 'forceApprove'])->name('templates.force-approve');
 

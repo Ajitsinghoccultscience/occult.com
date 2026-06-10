@@ -28,14 +28,6 @@ class QuickSendController extends Controller
         $template = WhatsAppTemplate::findOrFail($request->template_id);
         $sender   = AdminUser::find(session('admin_user_id'));
 
-        // Use user's own Phone Number ID if set, else fall back to .env
-        $phoneNumberId = $sender?->whatsapp_phone_number_id
-            ?: config('whatsapp.phone_number_id');
-
-        if (!$phoneNumberId) {
-            return back()->with('error', 'No WhatsApp sender number configured. Ask admin to assign one in Team settings.')->withInput();
-        }
-
         $phones = array_filter(
             array_map('trim', explode("\n", $request->phones)),
             fn($p) => $p !== ''
@@ -46,14 +38,14 @@ class QuickSendController extends Controller
         }
 
         $vars = $request->input('vars', []);
-        $orderedVars = [];
+        $namedVars = [];
         foreach ($template->variables ?? [] as $varName) {
-            $orderedVars[] = $vars[$varName] ?? '';
+            $namedVars[$varName] = $vars[$varName] ?? '';
         }
 
         $results = [];
         foreach ($phones as $phone) {
-            $result = $whatsApp->sendTemplateFrom($phoneNumberId, $phone, $template->meta_name, $template->language, $orderedVars);
+            $result = $whatsApp->sendTemplate($phone, $template->meta_name, $template->language, $namedVars);
             $results[] = [
                 'phone'   => $phone,
                 'success' => $result['success'],
