@@ -18,7 +18,4 @@ return [
 
     // When true, no real API call is made — sends are simulated and logged.
     'mock'                 => env('WHATSAPP_MOCK', false),
-
-    // Inbound webhook (WATI can POST message events here).
-    'webhook_verify_token' => env('WHATSAPP_WEBHOOK_VERIFY_TOKEN'),
 ];

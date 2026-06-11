@@ -54,6 +54,8 @@ class WhatsAppService
         try {
             $response = Http::withToken($this->accessToken)
                 ->acceptJson()
+                ->connectTimeout(15)
+                ->timeout(60)
                 ->post("{$this->endpoint}/api/v1/sendTemplateMessage?whatsappNumber={$phone}", $payload);
 
             // WATI returns HTTP 200 with {"result": true, ...} on success.
@@ -61,8 +63,14 @@ class WhatsAppService
             $result = $json['result'] ?? null;
             $ok     = $response->successful() && ($result === true || $result === 'true' || $result === 'success');
 
+            // WATI accepted the request, but the number isn't a usable WhatsApp number.
+            if ($ok && array_key_exists('validWhatsAppNumber', $json) && $json['validWhatsAppNumber'] === false) {
+                return ['success' => false, 'wamid' => null, 'error' => 'Not a valid WhatsApp number.'];
+            }
+
             if ($ok) {
-                $id = $json['id']
+                $id = $json['local_message_id']
+                    ?? $json['id']
                     ?? ($json['info']['messageId'] ?? null)
                     ?? ($json['messageId'] ?? null);
                 return ['success' => true, 'wamid' => $id, 'error' => null];
@@ -210,9 +218,9 @@ class WhatsAppService
      */
     private function normalizeWatiTemplate(array $item): array
     {
-        $metaName = $item['elementName'] ?? $item['name'] ?? $item['template_name'] ?? '';
-        $body     = $item['bodyOriginal'] ?? $item['body'] ?? $item['bodyText'] ?? '';
-        $status   = strtoupper($item['status'] ?? 'APPROVED');
+        $metaName = $this->scalar($item['elementName'] ?? $item['name'] ?? $item['template_name'] ?? '');
+        $body     = $this->scalar($item['bodyOriginal'] ?? $item['body'] ?? $item['bodyText'] ?? '');
+        $status   = strtoupper($this->scalar($item['status'] ?? 'APPROVED'));
 
         // Variable names: prefer WATI's customParams, else parse {{...}} from the body.
         $variables = [];
@@ -227,15 +235,31 @@ class WhatsAppService
             $variables = array_values(array_unique($m[1]));
         }
 
+        $language = $this->scalar($item['language'] ?? $item['languageCode'] ?? 'en') ?: 'en';
+        $category = strtoupper($this->scalar($item['category'] ?? 'MARKETING')) ?: 'MARKETING';
+
         return [
             'meta_name'   => $metaName,
-            'name'        => $item['name'] ?? $metaName,
-            'language'    => $item['language'] ?? ($item['languageCode'] ?? 'en'),
-            'category'    => strtoupper($item['category'] ?? 'MARKETING'),
+            'name'        => $this->scalar($item['name'] ?? $metaName),
+            'language'    => $language,
+            'category'    => $category,
             'body'        => $body,
             'variables'   => $variables,
             'status'      => $status === 'APPROVED' ? 'approved' : 'draft',
             'meta_status' => $status,
         ];
+    }
+
+    /**
+     * Coerce a WATI field to a plain string. WATI sometimes returns nested
+     * objects/arrays (e.g. language as {"key":"en","value":"English"}).
+     */
+    private function scalar($value): string
+    {
+        if (is_array($value)) {
+            $value = $value['value'] ?? $value['key'] ?? $value['text'] ?? $value['code']
+                ?? (reset($value) ?: '');
+        }
+        return is_scalar($value) ? (string) $value : '';
     }
 }
