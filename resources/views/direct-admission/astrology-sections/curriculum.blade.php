@@ -108,18 +108,49 @@
             <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
                 @foreach($stats as $stat)
                 <div class="flex flex-col items-center justify-center py-4 px-3 text-center">
-                    <p class="text-white font-bold text-base md:text-lg leading-tight">
-                        <span class="font-extrabold">{{ $stat['value'] }}</span> {{ $stat['label'] }}
-                    </p>
+                    <span class="text-white font-extrabold text-lg leading-tight">{{ $stat['value'] }}</span>
+                    <span class="text-white text-xs md:text-sm leading-tight mt-0.5">{{ $stat['label'] }}</span>
                 </div>
                 @endforeach
             </div>
         </div>
 
-        {{-- Module cards grid --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="curriculum-grid">
-            @foreach($modules as $i => $mod)
-            <div class="border border-neutral-200 rounded-2xl p-5 flex flex-col gap-3 bg-white shadow-sm {{ $i >= $visible ? 'hidden' : '' }}" data-module-card>
+        {{-- ── MOBILE: accordion (first 4 only) ── --}}
+        <div class="md:hidden flex flex-col gap-3">
+            @foreach(array_slice($modules, 0, $visible) as $mod)
+            <div class="rounded-xl overflow-hidden" style="background-color:#FBEAEA;">
+                <button type="button" onclick="toggleCurriculumAcc(this)"
+                        class="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left">
+                    <span class="flex flex-col">
+                        <span class="font-bold text-neutral-b text-sm">{{ $mod['module'] }}</span>
+                        <span class="text-xs text-neutral-e mt-0.5">{{ $mod['title'] }}</span>
+                    </span>
+                    <svg class="acc-chevron w-5 h-5 text-neutral-b shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="acc-panel hidden px-4 pb-4">
+                    <ul class="space-y-2 pt-1">
+                        @foreach($mod['topics'] as $topic)
+                        <li class="flex items-start gap-2 text-xs text-neutral-b">
+                            <span class="shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center" style="background-color:#8B0000;">
+                                <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </span>
+                            {{ $topic }}
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        {{-- ── DESKTOP: module cards grid (first 4 only) ── --}}
+        <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="curriculum-grid">
+            @foreach(array_slice($modules, 0, $visible) as $mod)
+            <div class="border border-neutral-200 rounded-2xl p-5 flex flex-col gap-3 bg-white shadow-sm">
                 {{-- Module label --}}
                 <div>
                     <span class="text-sm font-bold text-neutral-b">{{ $mod['module'] }}</span>
@@ -148,53 +179,39 @@
             @endforeach
         </div>
 
-        {{-- Syllabus / Show More button --}}
-        <div class="flex justify-center mt-8">
-            @if($hasMore)
-            <button id="curriculum-toggle"
-                    onclick="toggleModules()"
-                    class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
-                    style="background-color:#8B0000;"
-                    data-show-more="true">
-                <svg id="curriculum-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-                {{ $syllabusLabel }}
-            </button>
-            @else
-            <a href="{{ $syllabusHref }}"
-               class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
-               style="background-color:#8B0000;">
+        {{-- ── MOBILE: Full Syllabus button (full width) ── --}}
+        <div class="md:hidden mt-6">
+            <button type="button" onclick="openEnquiryModal()"
+               class="flex items-center justify-center gap-2 w-full font-bold text-white text-sm py-3.5 rounded-xl hover:opacity-90 transition"
+               style="background-image:linear-gradient(to right,#B71C1C,#8B0000);">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5v-2z"/>
                 </svg>
                 {{ $syllabusLabel }}
-            </a>
-            @endif
+            </button>
+        </div>
+
+        {{-- ── DESKTOP: Full Syllabus button (opens enquiry form) ── --}}
+        <div class="hidden md:flex justify-center mt-8">
+            <button type="button" onclick="openEnquiryModal()"
+                    class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
+                    style="background-color:#8B0000;">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5v-2z"/>
+                </svg>
+                {{ $syllabusLabel }}
+            </button>
         </div>
 
     </div>
 </section>
 
-@if($hasMore)
 <script>
-function toggleModules() {
-    const cards  = document.querySelectorAll('[data-module-card]');
-    const btn    = document.getElementById('curriculum-toggle');
-    const icon   = document.getElementById('curriculum-icon');
-    const isMore = btn.dataset.showMore === 'true';
-
-    cards.forEach((c, i) => {
-        if (i >= {{ $visible }}) c.classList.toggle('hidden', isMore ? false : true);
-    });
-
-    if (isMore) {
-        btn.dataset.showMore = 'false';
-        btn.innerHTML = '<svg id="curriculum-icon" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg> Show Less';
-    } else {
-        btn.dataset.showMore = 'true';
-        btn.innerHTML = '<svg id="curriculum-icon" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg> {{ $syllabusLabel }}';
-    }
+function toggleCurriculumAcc(btn) {
+    const panel   = btn.parentElement.querySelector('.acc-panel');
+    const chevron = btn.querySelector('.acc-chevron');
+    const open    = !panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', open);
+    chevron.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 </script>
-@endif

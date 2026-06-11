@@ -28,10 +28,10 @@
             <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] mb-3">{{ $title }}</h2>
         </div>
 
-        {{-- 4-col image grid --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {{-- Image slider (swipeable) --}}
+        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 [&::-webkit-scrollbar]:hidden">
             @foreach($images as $img)
-            <div class="relative rounded-xl overflow-hidden aspect-[4/3] group shadow-sm">
+            <div class="snap-center shrink-0 w-[70%] sm:w-[45%] lg:w-[calc(25%_-_0.75rem)] relative rounded-xl overflow-hidden aspect-[4/3] group shadow-sm">
                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img['src'])))) }}"
                      alt="{{ $img['caption'] }}"
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

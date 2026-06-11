@@ -29,17 +29,18 @@
 @php $sliderId = 'da-slider-' . uniqid(); @endphp
 
 <div class="bg-white py-2 px-2 md:px-5 lg:px-8">
-<section class="relative text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto">
+<section class="relative text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
+         style="background-color:#9E1212;background-image:radial-gradient(circle at 30% 20%, #C01818 0%, #9E1212 45%, #7A0E0E 100%);">
 
-    {{-- Background --}}
+    {{-- Background texture (faint, over the red) --}}
     <picture class="absolute inset-0 w-full h-full pointer-events-none">
         <img src="{{ asset('image/astrology%20assests/hero%20section/bg.webp') }}"
              alt="" aria-hidden="true"
-             class="w-full h-full object-cover"
+             class="w-full h-full object-cover opacity-20 mix-blend-overlay"
              loading="eager" fetchpriority="high" decoding="async">
     </picture>
 
-    <div class="relative z-10 section-px py-5 md:py-8 xl:py-10">
+    <div class="relative z-10 section-px py-4 md:py-6 xl:py-7">
 
         {{-- Logo --}}
         <div class="flex justify-center mb-4 md:mb-6">
@@ -51,11 +52,11 @@
         </div>
 
         {{-- ── MOBILE layout ── --}}
-        <div class="flex flex-col gap-4 lg:hidden">
+        <div class="flex flex-col gap-3 lg:hidden">
 
-            <h1 class="text-hero font-bold text-white tracking-wide text-center leading-tight">{{ $title }}</h1>
+            <h1 class="text-xl font-bold text-white tracking-wide text-center leading-tight">{{ $title }}</h1>
 
-            <ul class="space-y-2.5">
+            <ul class="space-y-2">
                 @foreach($bullets as $bullet)
                 <li class="flex items-start gap-2.5 text-white text-sm">
                     <span class="w-5 h-5 rounded-full bg-white/20 border border-white/50 flex items-center justify-center shrink-0 mt-0.5">
@@ -120,23 +121,17 @@
                 </div>
             </div>
 
-            <button onclick="openEnquiryModal()"
-                    class="w-full font-bold text-white text-sm py-3.5 rounded-xl hover:opacity-90 transition"
-                    style="background-color:#8B0000;">
-                Enrol Now — Get Free Counselling
-            </button>
-
         </div>
 
         {{-- ── DESKTOP layout ── --}}
-        <div class="hidden lg:grid grid-cols-[1fr_42%] gap-8 xl:gap-12 items-center">
+        <div class="hidden lg:grid grid-cols-[1fr_42%] gap-6 xl:gap-9 items-center">
 
             {{-- LEFT --}}
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3.5">
 
-                <h1 class="text-hero font-bold text-white tracking-wide leading-tight">{{ $title }}</h1>
+                <h1 class="text-2xl xl:text-[1.9rem] font-bold text-white tracking-wide leading-tight">{{ $title }}</h1>
 
-                <ul class="space-y-3">
+                <ul class="space-y-2.5">
                     @foreach($bullets as $bullet)
                     <li class="flex items-start gap-3 text-white">
                         <span class="w-6 h-6 rounded-full bg-white/20 border border-white/50 flex items-center justify-center shrink-0 mt-0.5">
@@ -179,12 +174,6 @@
                         <span class="text-[#CC2200] font-bold text-sm">{{ $duration }}</span>
                     </div>
                 </div>
-
-                <button onclick="openEnquiryModal()"
-                        class="w-fit font-bold text-white text-sm px-8 py-3.5 rounded-xl hover:opacity-90 transition"
-                        style="background-color:#8B0000;">
-                    Enrol Now — Get Free Counselling
-                </button>
 
             </div>
 

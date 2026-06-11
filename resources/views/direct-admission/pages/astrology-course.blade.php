@@ -11,29 +11,35 @@
 
 @section('content')
     @include('direct-admission.astrology-sections.herosection', ['ctaHref' => url('/astrology-checkout')])
-    @include('direct-admission.astrology-sections.who-is-this-for')
-    @include('direct-admission.astrology-sections.mentors')
+    @include('direct-admission.astrology-sections.featured-media')
+    @include('direct-admission.astrology-sections.about-institute')
+    @include('direct-admission.astrology-sections.iso-certified', ['ctaHref' => url('/astrology-checkout')])
+    @include('direct-admission.astrology-sections.curriculum')
+    @include('direct-admission.astrology-sections.certification', ['ctaHref' => url('/astrology-checkout')])
     @include('direct-admission.astrology-sections.upcoming-batches', ['ctaHref' => url('/astrology-checkout')])
+    @include('direct-admission.astrology-sections.mentors')
+    @include('direct-admission.astrology-sections.life-after-course')
+
+
+
+
+    @include('direct-admission.astrology-sections.who-is-this-for')
     @include('direct-admission.astrology-sections.certified-astrologers')
     @include('direct-admission.astrology-sections.why-choose')
-    @include('direct-admission.astrology-sections.certification', ['ctaHref' => url('/astrology-checkout')])
-    @include('direct-admission.astrology-sections.life-after-course')
     @include('direct-admission.astrology-sections.journey-timeline')
     @include('direct-admission.astrology-sections.honoured-moments')
     @include('direct-admission.astrology-sections.gold-medalists')
-    @include('direct-admission.astrology-sections.curriculum')
-    @include('direct-admission.astrology-sections.about-institute')
-    @include('direct-admission.astrology-sections.iso-certified', ['ctaHref' => url('/astrology-checkout')])
     @include('direct-admission.astrology-sections.news-coverage')
     @include('direct-admission.astrology-sections.podcast')
     @include('direct-admission.astrology-sections.testimonials')
     @include('direct-admission.astrology-sections.faq')
     @include('direct-admission.astrology-sections.enquiry-modal')
+    @include('direct-admission.astrology-sections.sticky-bar')
 
-    {{-- Sticky WhatsApp Button --}}
+    {{-- Sticky WhatsApp Button (lifted above the sticky bar) --}}
     <a href="https://wa.me/919XXXXXXXXX"
        target="_blank" rel="noopener noreferrer"
-       class="fixed bottom-6 right-5 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-200 hover:scale-110"
+       class="fixed bottom-32 right-5 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-200 hover:scale-110"
        style="background-color:#25D366;"
        aria-label="Chat on WhatsApp">
         <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
