@@ -3,6 +3,16 @@
 @section('title', 'Graphology: A Powerful Tool for Personality Understanding – All India Institute of Occult Science')
 @section('description', 'Learn how to 2-3X your salary through a practical graphology webinar. Join All India Institute of Occult Science.')
 
+@push('head')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .font-open-sans{font-family:'Open Sans',sans-serif;}
+        .font-playfair{font-family:'Playfair Display',serif;}
+    </style>
+@endpush
+
 @section('content')
 
 @php
@@ -10,6 +20,8 @@
     $date    = optional($webinar)->event_date ?? 'Wed, 20th May, 2026';
     $time    = optional($webinar)->event_time ?? '11:00 AM to 1:00 PM';
 @endphp
+
+<div style="font-family:'Poppins',sans-serif;">
 
 {{-- 1. Hero --}}
 @include('pages.graphology.webinar4-sections.hero', ['ctaHref' => $ctaHref, 'date' => $date, 'time' => $time])
@@ -61,5 +73,7 @@
 
 {{-- 17. Sticky Bar --}}
 @include('pages.graphology.webinar4-sections.sticky-bar', ['ctaHref' => $ctaHref])
+
+</div>
 
 @endsection

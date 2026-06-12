@@ -28,12 +28,12 @@
             </div>
 
             {{-- Right: heading + bullets --}}
-            <div class="order-1 lg:order-2">
+            <div class="order-1 lg:order-2 text-center lg:text-left">
                 <h2 class="text-2xl md:text-[2rem] font-bold text-white mb-5 pb-2 inline-block border-b-[3px] border-[#ff9700]">
                     After This Webinar
                 </h2>
 
-                <ul class="space-y-3">
+                <ul class="space-y-3 text-left">
                     @foreach($bullets as $bullet)
                         <li class="flex items-start gap-3 text-white/85 text-sm md:text-base">
                             <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full border-2 border-[#ff9700] flex items-center justify-center">

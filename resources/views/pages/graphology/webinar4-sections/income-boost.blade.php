@@ -22,7 +22,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
 
             {{-- Left: content --}}
-            <div>
+            <div class="text-center lg:text-left">
                 <h3 class="text-lg md:text-xl font-bold text-neutral-b mb-5 pb-1 inline-block border-b-[3px] border-[#ff9700]">
                     After Learning Graphology
                 </h3>

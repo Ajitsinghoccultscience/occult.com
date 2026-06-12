@@ -15,7 +15,7 @@
                  alt="" aria-hidden="true"
                  class="w-12 md:w-20 h-auto object-contain shrink-0">
 
-            <h2 class="text-base md:text-3xl font-bold text-white leading-snug">
+            <h2 class="font-playfair text-base md:text-3xl font-bold text-white leading-snug" style="font-family:'Playfair Display',serif;">
                 Graphology: A Powerful Supportive Tool for<br>
                 <span class="underline underline-offset-4 decoration-2">Personality Understanding</span>
             </h2>
