@@ -28,11 +28,10 @@
     ],
 ])
 
-<section class="w-full section-spacing section-spacing-after bg-white">
+<section class="w-full pt-6 md:pt-8 pb-12 md:pb-16 bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
-        <div class="text-center mb-12 md:mb-16">
-            <h2 class="text-heading font-bold text-neutral-b mb-3 tracking-[0.9px]">{{ $title }}</h2>
-            <img src="{{ asset($underlineSvg) }}" alt="" class="mx-auto w-[157px] h-[14px]" aria-hidden="true">
+        <div class="text-center mb-8 md:mb-10">
+            <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px]">{{ $title }}</h2>
         </div>
 
         {{-- FAQ accordion cards --}}
