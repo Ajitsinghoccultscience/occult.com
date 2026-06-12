@@ -21,7 +21,7 @@
     $time    = optional($webinar)->event_time ?? '11:00 AM to 1:00 PM';
 @endphp
 
-<div style="font-family:'Poppins',sans-serif;">
+<div style="font-family:'Open Sans',sans-serif;">
 
 {{-- 1. Hero --}}
 @include('pages.graphology.webinar4-sections.hero', ['ctaHref' => $ctaHref, 'date' => $date, 'time' => $time])
