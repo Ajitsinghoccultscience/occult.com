@@ -1,43 +1,80 @@
 @props([
     'price'      => '₹96,000',
     'oldPrice'   => '₹1,92,000',
+    'discount'   => '50% OFF',
     'courseName' => 'Astrology Certificate Course',
-    'enrolled'   => '50,000+ Students enrolled',
+    'enrolled'   => '50,000+ enrolled',
+    'rating'     => '4.9',
+    'seats'      => 'Limited seats left',
     'image'      => 'image/astrology assests/institute/Founder-speech.webp',
     'ctaLabel'   => 'Enrol Now',
 ])
 
-{{-- ── Sticky bottom bar ── --}}
-<div class="fixed bottom-0 left-0 right-0 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto">
+@php $img = asset(implode('/', array_map('rawurlencode', explode('/', $image)))); @endphp
 
-        {{-- Top: price + CTA (dark) --}}
-        <div class="flex items-center justify-between gap-3 px-4 md:px-6 py-3" style="background-color:#1a1817;">
-            <div class="flex items-baseline gap-2">
-                <span class="text-white font-bold text-xl md:text-2xl">{{ $price }}</span>
-                <span class="text-white/50 line-through text-sm md:text-base">{{ $oldPrice }}</span>
-            </div>
-            <button type="button" onclick="openEnquiryModal()"
-                    class="font-bold text-white text-sm md:text-base px-6 md:px-10 py-2.5 md:py-3 rounded-xl hover:opacity-90 active:scale-95 transition"
-                    style="background-image:linear-gradient(to bottom,#D32F2F,#9E1212);box-shadow:0 4px 14px rgba(211,47,47,0.4);">
-                {{ $ctaLabel }}
-            </button>
-        </div>
+{{-- ══════════════════════════════════════
+     DESKTOP: full-width white sticky bar
+═══════════════════════════════════════ --}}
+<div class="hidden md:block fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-[0_-4px_24px_rgba(0,0,0,0.1)]">
+    <div class="max-w-[1340px] mx-auto section-px py-3 flex items-center gap-5">
 
-        {{-- Bottom: course info (cream) --}}
-        <div class="flex items-center gap-3 px-4 md:px-6 py-2" style="background-color:#F5E7C8;">
-            <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $image)))) }}"
-                 alt="{{ $courseName }}"
-                 class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover object-top shrink-0 border border-black/10"
-                 loading="lazy">
-            <div class="leading-tight">
-                <p class="font-bold text-neutral-b text-sm md:text-base">{{ $courseName }}</p>
-                <p class="text-xs md:text-sm text-neutral-e">{{ $enrolled }}</p>
+        {{-- Thumbnail --}}
+        <img src="{{ $img }}" alt="{{ $courseName }}"
+             class="w-12 h-12 rounded-xl object-cover object-top shrink-0 border border-neutral-200" loading="lazy">
+
+        {{-- Course info --}}
+        <div class="min-w-0">
+            <p class="text-neutral-b font-bold text-base leading-tight truncate">{{ $courseName }}</p>
+            <div class="flex items-center gap-2 mt-0.5 text-xs text-neutral-e">
+                <span class="inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.49 8.719c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>
+                    {{ $rating }}
+                </span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span>{{ $enrolled }}</span>
+                <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+                <span class="text-[#B71C1C] font-semibold">{{ $seats }}</span>
             </div>
         </div>
 
+        {{-- Price --}}
+        <div class="ml-auto text-right leading-tight">
+            <div class="flex items-center justify-end gap-2">
+                <span class="text-neutral-b font-extrabold text-2xl">{{ $price }}</span>
+                <span class="text-neutral-400 line-through text-sm">{{ $oldPrice }}</span>
+            </div>
+            <span class="inline-block text-[11px] font-bold text-green-600">{{ $discount }}</span>
+        </div>
+
+        {{-- CTA --}}
+        <button type="button" onclick="openEnquiryModal()"
+                class="shrink-0 font-bold text-white text-base px-9 py-3 rounded-xl hover:opacity-90 active:scale-95 transition"
+                style="background-image:linear-gradient(to bottom,#E23B3B,#9E1212);box-shadow:0 0 22px rgba(226,59,59,0.45),0 6px 16px rgba(0,0,0,0.18);">
+            {{ $ctaLabel }}
+        </button>
     </div>
 </div>
 
-{{-- Spacer so the fixed bar never covers page content at the bottom --}}
-<div class="h-28 md:h-32" aria-hidden="true"></div>
+{{-- ══════════════════════════════════════
+     MOBILE: full-width white slim bar
+═══════════════════════════════════════ --}}
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.12)]">
+    <div class="flex items-center gap-3 px-4 py-2.5">
+        <div class="leading-tight min-w-0">
+            <div class="flex items-baseline gap-2">
+                <span class="text-neutral-b font-extrabold text-lg">{{ $price }}</span>
+                <span class="text-neutral-400 line-through text-xs">{{ $oldPrice }}</span>
+                <span class="text-[10px] font-bold text-green-600">{{ $discount }}</span>
+            </div>
+            <p class="text-[10px] text-[#B71C1C] font-semibold truncate">{{ $seats }} · {{ $enrolled }}</p>
+        </div>
+        <button type="button" onclick="openEnquiryModal()"
+                class="ml-auto shrink-0 font-bold text-white text-sm px-6 py-2.5 rounded-xl active:scale-95 transition"
+                style="background-image:linear-gradient(to bottom,#E23B3B,#9E1212);box-shadow:0 0 18px rgba(226,59,59,0.4);">
+            {{ $ctaLabel }}
+        </button>
+    </div>
+</div>
+
+{{-- Spacer so the fixed bar never covers page content --}}
+<div class="h-20 md:h-24" aria-hidden="true"></div>
