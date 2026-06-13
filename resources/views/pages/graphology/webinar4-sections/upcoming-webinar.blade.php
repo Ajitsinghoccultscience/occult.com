@@ -7,6 +7,12 @@
     $dateIcon   = $base.'/date (upcoming).svg';
     $timeIcon   = $base.'/time(upcoming).svg';
     $webinarImg = $base.'/webinar 1.webp';
+
+    $bullets = [
+        'Learn handwriting analysis from expert faculty',
+        'Learn practical techniques you can apply instantly',
+        'Understand personality, confidence & behavior through writing',
+    ];
 @endphp
 
 {{-- ═══════════════════════════════════
@@ -59,8 +65,23 @@
                          loading="lazy">
                 </div>
 
-                {{-- Registration + countdown --}}
+                {{-- Bullets + Registration + countdown --}}
                 <div class="text-center lg:text-left lg:col-start-1 lg:row-start-2">
+
+                    {{-- Bullets --}}
+                    <ul class="inline-block text-left space-y-3 mb-7">
+                        @foreach($bullets as $bullet)
+                        <li class="flex items-start gap-3 text-neutral-b text-sm md:text-base">
+                            <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full border-2 border-[#ff9700] flex items-center justify-center">
+                                <svg class="w-3 h-3 text-[#ff9700]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </span>
+                            <span class="leading-snug">{{ $bullet }}</span>
+                        </li>
+                        @endforeach
+                    </ul>
+
                     <h3 class="text-base md:text-lg font-bold text-neutral-b mb-3 pb-1 inline-block border-b-[3px] border-[#ff9700]">
                         Registration in :
                     </h3>

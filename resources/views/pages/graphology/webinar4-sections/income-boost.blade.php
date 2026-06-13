@@ -18,21 +18,21 @@
             </p>
         </div>
 
-        {{-- Two-column: text left, chart right --}}
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        {{-- Mobile order: orange line → chart → result.  Desktop: text left, chart right. --}}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 lg:items-center">
 
-            {{-- Left: content --}}
-            <div class="text-center lg:text-left">
-                <h3 class="text-lg md:text-xl font-bold text-neutral-b mb-5 pb-1 inline-block border-b-[3px] border-[#ff9700]">
+            {{-- Text top (extras desktop-only) --}}
+            <div class="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left">
+                <h3 class="hidden lg:inline-block text-lg md:text-xl font-bold text-neutral-b mb-5 pb-1 border-b-[3px] border-[#ff9700]">
                     After Learning Graphology
                 </h3>
 
-                <p class="mb-5">
-                    <span class="text-lg md:text-xl font-bold text-neutral-b">Potential Income Boost</span>
-                    <span class="text-sm md:text-base text-[#ff9700] font-medium ml-1">( 30% – 70% Extra Earning Opportunity )</span>
+                <p class="lg:mb-5">
+                    <span class="hidden lg:inline text-lg md:text-xl font-bold text-neutral-b">Potential Income Boost</span>
+                    <span class="text-base text-[#ff9700] font-semibold lg:ml-1">( 30% – 70% Extra Earning Opportunity )</span>
                 </p>
 
-                <div class="space-y-4 text-sm md:text-base text-neutral-b/80 leading-relaxed mb-6">
+                <div class="hidden lg:block space-y-4 text-sm md:text-base text-neutral-b/80 leading-relaxed mt-5">
                     <p>
                         You can observe deeper personality patterns through handwriting and add an
                         extra layer of clarity to your professional work.
@@ -42,21 +42,23 @@
                         and offer graphology as a premium add-on service.
                     </p>
                 </div>
-
-                {{-- Result box --}}
-                <div class="rounded-lg p-4 text-sm md:text-base text-neutral-b/80 leading-relaxed" style="background-color:#FBEBD7;">
-                    <span class="font-bold text-neutral-b">Result:</span>
-                    Better decisions, better client value, stronger professional positioning, and
-                    <strong>higher income opportunity.</strong>
-                </div>
             </div>
 
-            {{-- Right: chart --}}
-            <div>
+            {{-- Chart --}}
+            <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2">
                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $graphImg)))) }}"
                      alt="Income growth chart after learning graphology"
                      class="w-full h-auto object-contain rounded-lg"
                      loading="lazy">
+            </div>
+
+            {{-- Result box --}}
+            <div class="order-3 lg:col-start-1 lg:row-start-2">
+                <div class="rounded-lg p-4 text-sm md:text-base text-neutral-b/80 leading-relaxed text-center lg:text-left" style="background-color:#FBEBD7;">
+                    <span class="font-bold text-neutral-b">Result:</span>
+                    Better decisions, better client value, stronger professional positioning, and
+                    <strong>higher income opportunity.</strong>
+                </div>
             </div>
 
         </div>

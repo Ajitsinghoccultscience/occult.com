@@ -29,14 +29,16 @@
 {{-- 2. Upcoming Webinar --}}
 @include('pages.graphology.webinar4-sections.upcoming-webinar', ['ctaHref' => $ctaHref, 'date' => $date, 'time' => $time])
 
-{{-- 3. Text Testimonials --}}
-@include('pages.graphology.webinar4-sections.testimonials')
+
 
 {{-- 4. For Professionals --}}
 @include('pages.graphology.webinar4-sections.professionals')
 
 {{-- 5. Dark Intro --}}
 @include('pages.graphology.webinar4-sections.intro', ['ctaHref' => $ctaHref])
+
+{{-- 3. Text Testimonials --}}
+@include('pages.graphology.webinar4-sections.testimonials')
 
 {{-- 6. Bonus Material --}}
 @include('pages.graphology.webinar4-sections.bonus', ['ctaHref' => $ctaHref])

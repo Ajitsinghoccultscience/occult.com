@@ -30,18 +30,21 @@
     <div class="max-w-[1340px] mx-auto section-px">
         <div class="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-neutral-100 p-6 md:p-10 lg:p-12 overflow-hidden">
 
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            {{-- Mobile order: title → image → bullets/CTA.  Desktop: title + bullets/CTA left, image right. --}}
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-10 lg:items-center">
 
-                {{-- ── LEFT ── --}}
-                <div class="order-2 lg:order-1">
-
-                    {{-- Title --}}
-                    <h1 class="text-xl md:text-3xl xl:text-[2.3rem] font-extrabold text-neutral-b leading-tight mb-6 md:mb-7">
+                {{-- ── TITLE ── --}}
+                <div class="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left">
+                    <h1 class="text-xl md:text-3xl xl:text-[2.3rem] font-extrabold text-neutral-b leading-tight">
                         Learn How to <span style="color:#ff9700;">2-3X Your Salary</span> through a Practical Graphology Webinar
                     </h1>
+                </div>
+
+                {{-- ── BULLETS + CTA ── --}}
+                <div class="order-3 lg:col-start-1 lg:row-start-2 text-center lg:text-left">
 
                     {{-- Bullets --}}
-                    <ul class="space-y-4 mb-7 md:mb-8">
+                    <ul class="inline-block text-left space-y-4 mb-7 md:mb-8">
                         @foreach($bullets as $b)
                         <li class="flex items-start gap-3 text-neutral-b text-sm md:text-base">
                             <span class="shrink-0 mt-0.5 w-7 h-7 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
@@ -55,7 +58,7 @@
                     </ul>
 
                     {{-- CTA + social proof --}}
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+                    <div class="flex flex-col items-center sm:flex-row sm:justify-center gap-5 lg:items-center lg:justify-start">
                         <a href="{{ $ctaHref }}"
                            class="inline-flex items-center justify-center gap-2 font-bold text-white text-base px-8 py-3.5 rounded-2xl hover:opacity-90 active:scale-95 transition shrink-0"
                            style="background-color:#ff9700;box-shadow:0 0 25px rgba(255,151,0,0.65),0 10px 30px -5px rgba(255,151,0,0.6);">
@@ -88,8 +91,8 @@
                     </div>
                 </div>
 
-                {{-- ── RIGHT: Trainer (image only) ── --}}
-                <div class="order-1 lg:order-2 flex flex-col items-center">
+                {{-- ── IMAGE ── --}}
+                <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 flex flex-col items-center">
                     <div class="relative w-full" id="hero-trainer" style="max-width:340px;aspect-ratio:1/1;">
                         @foreach($trainerImgs as $i => $img)
                         <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}"

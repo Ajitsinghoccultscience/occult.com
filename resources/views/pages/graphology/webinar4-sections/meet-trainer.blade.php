@@ -10,12 +10,12 @@
         <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
 
             {{-- Text --}}
-            <div class="flex-1 order-2 md:order-1">
-                <p class="text-lg md:text-xl font-bold text-white mb-1">
-                    <span style="color:#ff9700;">Trainer :</span> Pawan Kumar ( Graphology Expert )
+            <div class="flex-1 order-2 md:order-1 text-center md:text-left">
+                <p class="text-xl md:text-2xl font-bold text-white mb-1">
+                    Trainer : <span class="font-medium text-white/90">Pawan Kumar</span>
                 </p>
-                <p class="text-sm md:text-base font-bold text-white mb-5">
-                    (Faculty of All India Institute of Occult Science)
+                <p class="text-sm md:text-base text-white/90 mb-5">
+                    ( Graphologist )
                 </p>
 
                 <div class="space-y-3 text-sm md:text-[15px] text-white/75 leading-relaxed">
