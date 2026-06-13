@@ -44,8 +44,9 @@
                 <label class="block text-xs font-semibold text-slate-600 mb-1.5">Role</label>
                 <select name="role" required
                         class="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-400">
-                    <option value="sender" {{ old('role') === 'sender' ? 'selected' : '' }}>Sender — Quick Send only</option>
-                    <option value="admin"  {{ old('role') === 'admin'  ? 'selected' : '' }}>Admin — Full access</option>
+                    <option value="sender"     {{ old('role') === 'sender' ? 'selected' : '' }}>Sender — Quick Send only</option>
+                    <option value="counsellor" {{ old('role') === 'counsellor' ? 'selected' : '' }}>Counsellor — own landing page</option>
+                    <option value="admin"      {{ old('role') === 'admin'  ? 'selected' : '' }}>Admin — Full access</option>
                 </select>
             </div>
             <div class="col-span-2">
@@ -58,6 +59,7 @@
                        placeholder="e.g. 1144304915427219">
             </div>
         </div>
+        <p class="text-xs text-slate-400 mb-4">Counsellors set their own landing-page price, discount &amp; timer after logging in (under <span class="font-semibold">My Landing Page</span>).</p>
         <button type="submit"
                 class="text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:opacity-90 transition"
                 style="background-color:#25D366;">
@@ -94,6 +96,8 @@
                 <td class="px-4 py-3">
                     @if($user->role === 'admin')
                     <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">Admin</span>
+                    @elseif($user->role === 'counsellor')
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">Counsellor</span>
                     @else
                     <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">Sender</span>
                     @endif
@@ -135,5 +139,6 @@
         </tbody>
     </table>
 </div>
+
 
 @endsection

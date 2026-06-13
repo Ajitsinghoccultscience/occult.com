@@ -21,7 +21,7 @@ class TeamController extends Controller
             'name'                       => 'required|string|max:100',
             'email'                      => 'required|email|unique:admin_users,email',
             'password'                   => 'required|string|min:8',
-            'role'                       => 'required|in:admin,sender',
+            'role'                       => 'required|in:admin,sender,counsellor',
             'whatsapp_phone_number_id'   => 'nullable|string|max:50',
         ]);
 

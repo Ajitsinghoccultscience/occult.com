@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\WhatsApp\TemplateController;
 use App\Http\Controllers\Admin\WhatsApp\CampaignController;
 use App\Http\Controllers\Admin\WhatsApp\QuickSendController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\LandingPageController;
 
 // Existing static pages
 Route::get('/', fn() => redirect('/astrology-webinar-1'));
@@ -56,6 +57,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/leads', [LeadsController::class, 'index'])->name('leads');
         Route::patch('/leads/{enquiry}/status', [LeadsController::class, 'updateStatus'])->name('leads.status');
         Route::delete('/leads/{enquiry}', [LeadsController::class, 'destroy'])->name('leads.destroy');
+
+        // Counsellor self-serve landing-page settings
+        Route::get('/my-landing',  [LandingPageController::class, 'edit'])->name('landing.edit');
+        Route::put('/my-landing',  [LandingPageController::class, 'update'])->name('landing.update');
 
         // Team management (admin only)
         Route::middleware('admin.role')->group(function () {

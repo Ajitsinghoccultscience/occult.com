@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\WebinarSetting;
+use App\Models\AdminUser;
 
 class PageController extends Controller
 {
@@ -99,9 +100,41 @@ class PageController extends Controller
         return view('pages.thankyou', ['product' => $product, 'config' => $this->resolvedConfig($product)]);
     }
 
-    public function astrologyCourse()
+    public function astrologyCourse(Request $request)
     {
-        return view('direct-admission.pages.astrology-course');
+        // Per-counsellor landing: /astrology-course?product=astrology&counsler=reena
+        $product = $request->query('product', 'astrology');
+        $slug    = $request->query('counsler');
+
+        $offer = null;
+        $counsellor = $product === 'astrology' ? AdminUser::forSlug($slug) : null;
+
+        if ($counsellor && $counsellor->lp_price) {
+            $offer = [
+                'slug'         => $counsellor->slug,
+                'name'         => $counsellor->name,
+                'price'        => $this->inr((int) $counsellor->lp_price),
+                'oldPrice'     => $counsellor->lp_old_price ? $this->inr((int) $counsellor->lp_old_price) : null,
+                'discount'     => $counsellor->lp_discount,
+                'timerMinutes' => (int) ($counsellor->lp_timer_minutes ?: 0),
+            ];
+        }
+
+        return view('direct-admission.pages.astrology-course', compact('offer'));
+    }
+
+    /**
+     * Format a number with the Indian grouping system, prefixed with ₹ (e.g. 192000 → ₹1,92,000).
+     */
+    private function inr(int $n): string
+    {
+        $num = (string) $n;
+        if (strlen($num) <= 3) {
+            return '₹' . $num;
+        }
+        $last3 = substr($num, -3);
+        $rest  = preg_replace('/\B(?=(\d{2})+(?!\d))/', ',', substr($num, 0, -3));
+        return '₹' . $rest . ',' . $last3;
     }
 
 }

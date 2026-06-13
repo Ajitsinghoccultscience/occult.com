@@ -33,8 +33,16 @@
     @include('direct-admission.astrology-sections.podcast')
     @include('direct-admission.astrology-sections.testimonials')
     @include('direct-admission.astrology-sections.faq')
-    @include('direct-admission.astrology-sections.enquiry-modal')
-    @include('direct-admission.astrology-sections.sticky-bar')
+    @include('direct-admission.astrology-sections.enquiry-modal', [
+        'enquirySource' => isset($offer) && $offer ? 'astrology-course:' . $offer['slug'] : 'astrology-course',
+    ])
+    @include('direct-admission.astrology-sections.sticky-bar', (isset($offer) && $offer) ? array_filter([
+        'price'        => $offer['price'],
+        'oldPrice'     => $offer['oldPrice'],
+        'discount'     => $offer['discount'],
+        'timerMinutes' => $offer['timerMinutes'],
+        'timerKey'     => 'astro_offer_' . $offer['slug'],
+    ], fn($v) => $v !== null) : [])
 
     {{-- Sticky WhatsApp Button (lifted above the sticky bar) --}}
     <a href="https://wa.me/919XXXXXXXXX"

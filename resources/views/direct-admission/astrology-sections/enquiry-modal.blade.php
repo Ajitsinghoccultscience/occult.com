@@ -151,7 +151,7 @@ function submitEnquiryForm(e) {
             name:  name.value.trim(),
             phone: phone.value.trim(),
             email: document.getElementById('eq-email').value.trim(),
-            source: 'astrology-course'
+            source: @json($enquirySource ?? 'astrology-course')
         })
     })
     .then(r => {

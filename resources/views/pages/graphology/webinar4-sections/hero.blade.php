@@ -30,7 +30,7 @@
     <div class="max-w-[1340px] mx-auto section-px">
         <div class="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-neutral-100 p-6 md:p-10 lg:p-12 overflow-hidden">
 
-            <div class="grid lg:grid-cols-[1fr_38%] gap-8 lg:gap-10 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
                 {{-- ── LEFT ── --}}
                 <div class="order-2 lg:order-1">
@@ -90,7 +90,7 @@
 
                 {{-- ── RIGHT: Trainer (image only) ── --}}
                 <div class="order-1 lg:order-2 flex flex-col items-center">
-                    <div class="relative w-full max-w-[220px] md:max-w-[340px] aspect-square" id="hero-trainer">
+                    <div class="relative w-full" id="hero-trainer" style="max-width:340px;aspect-ratio:1/1;">
                         @foreach($trainerImgs as $i => $img)
                         <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $img)))) }}"
                              alt="Graphology Trainer"
