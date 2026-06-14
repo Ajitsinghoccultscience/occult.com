@@ -4,11 +4,13 @@
 @endpush
 
 @props([
-    'title'        => 'Become a Certified Astrology Expert & Start Earning From Your Skills',
+    'title'        => 'Learn with Logic',
     'bullets'      => [
         'Learn from beginner level to advance level',
         'Live Practical Session + Real Case Studies',
         'Get Certification + Earning Guidance',
+        'Personal Mentorship & Doubt-Clearing Support',
+        'ISO Certified & Govt. Registered Institute',
         'Get ₹19,000+ Bonuses including Worksheets',
     ],
     'stats' => [
@@ -16,14 +18,12 @@
         ['icon' => 'star',     'value' => '10K Reviews',  'label' => '(4.5/5)'],
         ['icon' => 'iso',      'value' => 'ISO Certified','label' => 'Institute'],
     ],
-    'startDate'    => '20 May',
-    'duration'     => '2-3 Month',
     'sliderImages' => [
         ['src' => 'image/astrology assests/astro-webp/convo 1.webp', 'caption' => 'Convocation 2025'],
         ['src' => 'image/astrology assests/astro-webp/convo 4.webp', 'caption' => 'Our Faculty at Convocation 2025'],
         ['src' => 'image/astrology assests/astro-webp/convo 7.webp', 'caption' => 'Founder Speech at Convocation 2025'],
     ],
-    'ctaHref' => '#',
+    'ctaHref' => 'https://www.occultscience.in/payment-page/',
 ])
 
 @php
@@ -70,6 +70,7 @@
 
             <ul class="space-y-2">
                 @foreach($bullets as $bullet)
+                @continue(str_contains($bullet, 'Bonuses including Worksheets'))
                 <li class="flex items-start gap-2.5 text-white text-sm">
                     <span class="w-5 h-5 rounded-full bg-white/20 border border-white/50 flex items-center justify-center shrink-0 mt-0.5">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
@@ -116,18 +117,6 @@
                 @endforeach
             </div>
 
-            {{-- Date / Duration pills --}}
-            <div class="flex gap-3">
-                <div class="flex-1 bg-white rounded-xl px-4 py-2.5 text-center">
-                    <span class="text-neutral-b font-semibold text-xs">Start Date: </span>
-                    <span class="text-[#CC2200] font-bold text-xs">{{ $startDate }}</span>
-                </div>
-                <div class="flex-1 bg-white rounded-xl px-4 py-2.5 text-center">
-                    <span class="text-neutral-b font-semibold text-xs">Duration: </span>
-                    <span class="text-[#CC2200] font-bold text-xs">{{ $duration }}</span>
-                </div>
-            </div>
-
         </div>
 
         {{-- ── DESKTOP layout ── --}}
@@ -140,6 +129,7 @@
 
                 <ul class="space-y-2.5">
                     @foreach($bullets as $bullet)
+                    @continue(str_contains($bullet, 'Bonuses including Worksheets'))
                     <li class="flex items-start gap-3 text-white">
                         <span class="w-6 h-6 rounded-full bg-white/20 border border-white/50 flex items-center justify-center shrink-0 mt-0.5">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
@@ -163,18 +153,6 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
-
-                {{-- Date / Duration pills --}}
-                <div class="flex gap-3">
-                    <div class="bg-white rounded-xl px-6 py-3">
-                        <span class="text-neutral-b font-semibold text-sm">Start Date: </span>
-                        <span class="text-[#CC2200] font-bold text-sm">{{ $startDate }}</span>
-                    </div>
-                    <div class="bg-white rounded-xl px-6 py-3">
-                        <span class="text-neutral-b font-semibold text-sm">Duration: </span>
-                        <span class="text-[#CC2200] font-bold text-sm">{{ $duration }}</span>
-                    </div>
                 </div>
 
             </div>

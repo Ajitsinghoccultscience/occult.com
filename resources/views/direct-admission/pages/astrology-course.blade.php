@@ -10,42 +10,43 @@
 @section('description', 'Astrology Webinar - Your platform for webinars and live events.')
 
 @section('content')
-    @include('direct-admission.astrology-sections.herosection', ['ctaHref' => url('/astrology-checkout')])
+    @include('direct-admission.astrology-sections.herosection', ['ctaHref' => 'https://www.occultscience.in/payment-page/'])
     @include('direct-admission.astrology-sections.featured-media')
     @include('direct-admission.astrology-sections.about-institute')
-    @include('direct-admission.astrology-sections.iso-certified', ['ctaHref' => url('/astrology-checkout')])
-    @include('direct-admission.astrology-sections.curriculum')
-    @include('direct-admission.astrology-sections.certification', ['ctaHref' => url('/astrology-checkout')])
-    @include('direct-admission.astrology-sections.upcoming-batches', ['ctaHref' => url('/astrology-checkout')])
+    @include('direct-admission.astrology-sections.iso-certified', ['ctaHref' => 'https://www.occultscience.in/payment-page/'])
+    {{-- @include('direct-admission.astrology-sections.curriculum') --}}
+    @include('direct-admission.astrology-sections.certification', ['ctaHref' => 'https://www.occultscience.in/payment-page/'])
+    <!-- @include('direct-admission.astrology-sections.upcoming-batches', ['ctaHref' => 'https://www.occultscience.in/payment-page/']) -->
     @include('direct-admission.astrology-sections.mentors')
-    @include('direct-admission.astrology-sections.life-after-course')
+    <!-- @include('direct-admission.astrology-sections.life-after-course') -->
 
 
 
 
     @include('direct-admission.astrology-sections.who-is-this-for')
-    @include('direct-admission.astrology-sections.certified-astrologers')
-    @include('direct-admission.astrology-sections.why-choose')
+    <!-- @include('direct-admission.astrology-sections.certified-astrologers') -->
+    <!-- @include('direct-admission.astrology-sections.why-choose') -->
     @include('direct-admission.astrology-sections.journey-timeline')
     @include('direct-admission.astrology-sections.honoured-moments')
-    @include('direct-admission.astrology-sections.gold-medalists')
+    <!-- @include('direct-admission.astrology-sections.gold-medalists') -->
     @include('direct-admission.astrology-sections.news-coverage')
-    @include('direct-admission.astrology-sections.podcast')
+    <!-- @include('direct-admission.astrology-sections.podcast') -->
     @include('direct-admission.astrology-sections.testimonials')
-    @include('direct-admission.astrology-sections.faq')
-    @include('direct-admission.astrology-sections.enquiry-modal', [
-        'enquirySource' => isset($offer) && $offer ? 'astrology-course:' . $offer['slug'] : 'astrology-course',
-    ])
+    <!-- @include('direct-admission.astrology-sections.faq') -->
     @include('direct-admission.astrology-sections.sticky-bar', (isset($offer) && $offer) ? array_filter([
+        'courseName'  => $offer['courseName'],
+        'enrolled'    => $offer['enrolled'],
+        'rating'      => $offer['rating'],
+        'seats'       => $offer['seats'],
         'price'        => $offer['price'],
         'oldPrice'     => $offer['oldPrice'],
         'discount'     => $offer['discount'],
         'timerMinutes' => $offer['timerMinutes'],
-        'timerKey'     => 'astro_offer_' . $offer['slug'],
+        'timerKey'     => 'astro_offer_' . $offer['slug'] . '_' . $offer['timerMinutes'] . '_' . $offer['updatedAt'],
     ], fn($v) => $v !== null) : [])
 
     {{-- Sticky WhatsApp Button (lifted above the sticky bar) --}}
-    <a href="https://wa.me/919XXXXXXXXX"
+    <a href="https://wa.me/919672436436?text={{ rawurlencode('Admission in occult courses') }}"
        target="_blank" rel="noopener noreferrer"
        class="fixed bottom-32 right-5 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-transform duration-200 hover:scale-110"
        style="background-color:#25D366;"

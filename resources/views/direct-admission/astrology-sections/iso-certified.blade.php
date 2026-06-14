@@ -6,22 +6,22 @@
         'Follows structured and globally recognized processes for learning',
         'Trusted by 97K+ students for consistency, credibility & professional excellence',
     ],
-    'ctaLabel'    => 'Enroll Now',
-    'ctaHref'     => '#',
-    'certImage'   => 'image/astrology assests/iso certificate.webp',
+    'ctaLabel'    => 'Register Now',
+    'ctaHref'     => 'https://www.occultscience.in/payment-page/',
+    'certImage'   => 'images/All India Institute of Occult Science - 21001_page-0001 1.png',
 ])
 
 <section class="w-full section-spacing bg-white">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         <div class="border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm bg-white">
-            <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-7 md:gap-10 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-7 md:gap-10 items-center">
 
                 {{-- Certificate image --}}
                 <div class="flex justify-center md:justify-start">
                     <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $certImage)))) }}"
                          alt="ISO Certificate"
-                         class="w-[160px] md:w-[190px] object-contain drop-shadow-md"
+                         class="w-[260px] md:w-[320px] object-contain drop-shadow-md"
                          loading="lazy">
                 </div>
 
@@ -46,11 +46,11 @@
                     </ul>
 
                     <div>
-                        <button onclick="openEnquiryModal()"
-                                class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
-                                style="background-color:#8B0000;">
+                        <a href="{{ $ctaHref }}"
+                           class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
+                           style="background-color:#8B0000;">
                             {{ $ctaLabel }}
-                        </button>
+                        </a>
                     </div>
                 </div>
 

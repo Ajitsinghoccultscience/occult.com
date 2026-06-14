@@ -7,7 +7,8 @@
     'rating'     => '4.9',
     'seats'      => 'Limited seats left',
     'image'      => 'image/astrology assests/institute/Founder-speech.webp',
-    'ctaLabel'   => 'Enrol Now',
+    'ctaLabel'   => 'Register Now',
+    'ctaHref'    => 'https://www.occultscience.in/payment-page/',
     'timerMinutes' => null,
     'timerKey'     => 'astro_offer',
 ])
@@ -40,32 +41,32 @@
         </div>
 
         {{-- Right group: timer + price + CTA --}}
-        <div class="ml-auto flex items-center gap-5 shrink-0">
+        <div class="ml-auto flex items-center gap-5 shrink-0" data-sticky-offer-root>
 
             {{-- Countdown --}}
             @if($timerMinutes)
             <div class="flex flex-col items-center leading-none">
-                <span class="text-[10px] text-neutral-e font-medium mb-1">Offer ends in</span>
-                <span class="sticky-cd font-extrabold text-[#B71C1C] text-lg tabular-nums">--:--:--</span>
+                <span class="text-[10px] text-neutral-e font-medium mb-1" data-sticky-countdown-label>Offer ends in</span>
+                <span class="sticky-cd font-extrabold text-[#B71C1C] text-lg tabular-nums" data-sticky-countdown>--:--:--</span>
             </div>
             <span class="w-px h-9 bg-neutral-200"></span>
             @endif
 
             {{-- Price --}}
             <div class="text-right leading-tight">
-                <div class="flex items-center justify-end gap-2">
-                    <span class="text-neutral-b font-extrabold text-2xl">{{ $price }}</span>
-                    @if($oldPrice)<span class="text-neutral-400 line-through text-sm">{{ $oldPrice }}</span>@endif
+                <div class="flex items-center justify-end gap-2" data-sticky-offer-price-row>
+                    <span class="text-neutral-b font-extrabold text-2xl" data-sticky-current-price>{{ $price }}</span>
+                    @if($oldPrice)<span class="text-neutral-400 line-through text-sm" data-sticky-old-price data-sticky-old-price-size="desktop">{{ $oldPrice }}</span>@endif
                 </div>
-                @if($discount)<span class="inline-block text-[11px] font-bold text-green-600">{{ $discount }}</span>@endif
+                @if($discount)<span class="inline-block text-[11px] font-bold text-green-600" data-sticky-discount>{{ $discount }}</span>@endif
             </div>
 
             {{-- CTA --}}
-            <button type="button" onclick="openEnquiryModal()"
-                    class="font-bold text-white text-base px-9 py-3 rounded-xl hover:opacity-90 active:scale-95 transition"
-                    style="background-image:linear-gradient(to bottom,#E23B3B,#9E1212);box-shadow:0 0 22px rgba(226,59,59,0.45),0 6px 16px rgba(0,0,0,0.18);">
+            <a href="{{ $ctaHref }}"
+               class="font-bold text-white text-base px-9 py-3 rounded-xl hover:opacity-90 active:scale-95 transition"
+               style="background-image:linear-gradient(to bottom,#E23B3B,#9E1212);box-shadow:0 0 22px rgba(226,59,59,0.45),0 6px 16px rgba(0,0,0,0.18);">
                 {{ $ctaLabel }}
-            </button>
+            </a>
         </div>
     </div>
 </div>
@@ -74,26 +75,26 @@
      MOBILE: full-width white slim bar
 ═══════════════════════════════════════ --}}
 <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.12)]">
-    <div class="flex items-center gap-3 px-4 py-2.5">
+    <div class="flex items-center gap-3 px-4 py-2.5" data-sticky-offer-root>
         <div class="leading-tight min-w-0">
             <div class="flex items-baseline gap-2">
-                <span class="text-neutral-b font-extrabold text-lg">{{ $price }}</span>
-                <span class="text-neutral-400 line-through text-xs">{{ $oldPrice }}</span>
-                <span class="text-[10px] font-bold text-green-600">{{ $discount }}</span>
+                <span class="text-neutral-b font-extrabold text-lg" data-sticky-current-price>{{ $price }}</span>
+                @if($oldPrice)<span class="text-neutral-400 line-through text-xs" data-sticky-old-price data-sticky-old-price-size="mobile">{{ $oldPrice }}</span>@endif
+                @if($discount)<span class="text-[10px] font-bold text-green-600" data-sticky-discount>{{ $discount }}</span>@endif
             </div>
-            <p class="text-[10px] text-[#B71C1C] font-semibold truncate">
+            <p class="text-[10px] text-[#B71C1C] font-semibold truncate" data-sticky-countdown-label>
                 @if($timerMinutes)
-                    Offer ends in <span class="sticky-cd tabular-nums font-bold">--:--:--</span>
+                    Offer ends in <span class="sticky-cd tabular-nums font-bold" data-sticky-countdown>--:--:--</span>
                 @else
                     {{ $seats }} · {{ $enrolled }}
                 @endif
             </p>
         </div>
-        <button type="button" onclick="openEnquiryModal()"
-                class="ml-auto shrink-0 font-bold text-white text-sm px-6 py-2.5 rounded-xl active:scale-95 transition"
-                style="background-image:linear-gradient(to bottom,#E23B3B,#9E1212);box-shadow:0 0 18px rgba(226,59,59,0.4);">
+        <a href="{{ $ctaHref }}"
+           class="ml-auto shrink-0 font-bold text-white text-sm px-6 py-2.5 rounded-xl active:scale-95 transition"
+           style="background-image:linear-gradient(to bottom,#E23B3B,#9E1212);box-shadow:0 0 18px rgba(226,59,59,0.4);">
             {{ $ctaLabel }}
-        </button>
+        </a>
     </div>
 </div>
 
@@ -119,7 +120,61 @@
     }
     function tick() {
         var txt = fmt(end - Date.now());
-        document.querySelectorAll('.sticky-cd').forEach(function (el) { el.textContent = txt; });
+        var expired = txt === '00:00:00';
+        document.querySelectorAll('.sticky-cd').forEach(function (el) {
+            el.textContent = txt;
+        });
+        document.querySelectorAll('[data-sticky-offer-root]').forEach(function (root) {
+            var currentPrice = root.querySelector('[data-sticky-current-price]');
+            var oldPrice = root.querySelector('[data-sticky-old-price]');
+            var discount = root.querySelector('[data-sticky-discount]');
+            var countdown = root.querySelector('[data-sticky-countdown]');
+            var countdownLabel = root.querySelector('[data-sticky-countdown-label]');
+
+            if (expired) {
+                if (currentPrice && oldPrice) currentPrice.classList.add('hidden');
+                if (discount) discount.classList.add('hidden');
+                if (oldPrice) {
+                    oldPrice.classList.remove('hidden', 'line-through', 'text-neutral-400', 'text-sm', 'text-xs');
+                    oldPrice.classList.add('text-neutral-b', 'font-extrabold', 'text-2xl', 'md:text-2xl');
+                }
+                if (countdownLabel && countdownLabel.tagName === 'P') {
+                    // Mobile: replace whole line with "Offer Ended"
+                    countdownLabel.classList.remove('hidden');
+                    countdownLabel.innerHTML = 'Offer Ended';
+                } else {
+                    // Desktop: hide small label, show "Offer Ended" in the timer slot
+                    if (countdownLabel) countdownLabel.classList.add('hidden');
+                    if (countdown) {
+                        countdown.classList.remove('hidden', 'text-lg');
+                        countdown.classList.add('text-base');
+                        countdown.textContent = 'Offer Ended';
+                    }
+                }
+            } else {
+                if (currentPrice) currentPrice.classList.remove('hidden');
+                if (discount) discount.classList.remove('hidden');
+                if (countdownLabel) countdownLabel.classList.remove('hidden');
+                if (countdownLabel && countdownLabel.tagName === 'P') {
+                    countdownLabel.innerHTML = 'Offer ends in <span class="sticky-cd tabular-nums font-bold" data-sticky-countdown>' + txt + '</span>';
+                } else if (countdownLabel) {
+                    countdownLabel.textContent = 'Offer ends in';
+                }
+                if (countdown) {
+                    countdown.textContent = txt;
+                    countdown.classList.remove('hidden');
+                }
+                if (oldPrice) {
+                    oldPrice.classList.remove('hidden', 'text-neutral-b', 'font-extrabold', 'text-2xl', 'md:text-2xl');
+                    oldPrice.classList.add('line-through', 'text-neutral-400');
+                    if (oldPrice.dataset.stickyOldPriceSize === 'mobile') {
+                        oldPrice.classList.add('text-xs');
+                    } else {
+                        oldPrice.classList.add('text-sm');
+                    }
+                }
+            }
+        });
     }
     tick();
     setInterval(tick, 1000);

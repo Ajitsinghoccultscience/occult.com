@@ -1,6 +1,6 @@
 @props([
     'title'   => 'Our Upcoming Batches',
-    'ctaHref' => '#',
+    'ctaHref' => 'https://www.occultscience.in/payment-page/',
     'batches' => [
         [
             'course'    => 'Advance Certificate Course in Astrology',
@@ -52,10 +52,10 @@
                 </div>
 
                 {{-- CTA --}}
-                <button onclick="openEnquiryModal()"
-                        class="w-full text-center bg-[#8B0000] hover:bg-[#6e0000] text-white font-bold py-3 px-5 rounded-xl text-sm transition-colors duration-200">
-                    Reserve Your Seat
-                </button>
+                <a href="{{ $ctaHref }}"
+                   class="w-full text-center bg-[#8B0000] hover:bg-[#6e0000] text-white font-bold py-3 px-5 rounded-xl text-sm transition-colors duration-200">
+                    Register Now
+                </a>
 
                 {{-- Footer note --}}
                 <p class="text-center text-sm font-semibold text-neutral-b">Limited Seat Only</p>

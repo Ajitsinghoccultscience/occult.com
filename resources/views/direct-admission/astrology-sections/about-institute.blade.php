@@ -1,8 +1,18 @@
 @props([
-    'instituteName' => 'All India Institute of Occult Science',
+    'instituteName' => 'All India Institute Of Occult Science: (Providing Guidance since 2004 )',
     'since'         => 'Running Since March 2004',
-    'image'         => 'image/astrology assests/institute/MP-as_chief.webp',
-    'imageCaption'  => 'MP at our Grand Convocation',
+    'gallery' => [
+        ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp', 'caption' => 'Lamp Lighting Ceremony'],
+        ['src' => 'image/astrology assests/institute/convocation.webp',         'caption' => 'Convocation 2025'],
+        ['src' => 'image/astrology assests/institute/MP-as_chief.webp',         'caption' => 'MP as a Chief guest at our Convocation'],
+        ['src' => 'image/astrology assests/institute/LampLighting.webp',        'caption' => 'Lamp Lighting Ceremony'],
+        ['src' => 'image/astrology assests/institute/Founder-speech.webp',      'caption' => 'Founder Speech at Annual Convocation'],
+        ['src' => 'image/astrology assests/institute/Our-faculty.webp',         'caption' => 'Our Faculty'],
+        ['src' => 'image/astrology assests/institute/Grand-convocation.webp',   'caption' => 'Grand Convocation Ceremony'],
+        ['src' => 'image/astrology assests/institute/Trusted-by.webp',          'caption' => 'Annual Convocation'],
+        ['src' => 'image/astrology assests/institute/intitute-event.webp',      'caption' => 'Institute Event'],
+        ['src' => 'image/astrology assests/institute/Education-day.webp',       'caption' => 'Our Certified Students'],
+    ],
     'stats' => [
         ['icon' => 'image/astrology assests/certified students.svg', 'value' => '97 K+',   'label' => 'Certified Students'],
         ['icon' => 'image/astrology assests/instagram.svg',          'value' => '52,000+', 'label' => 'Instagram Followers'],
@@ -25,19 +35,34 @@
             {{-- Heading --}}
             <div class="text-center md:text-left md:col-start-1 md:row-start-1">
                 <h2 class="text-subheading font-bold text-neutral-b leading-snug">{{ $instituteName }}</h2>
-                <p class="text-xs text-neutral-e mt-1">{{ $since }}</p>
+                <p class="text-xs font-semibold text-[#8B0000] mt-1">{{ $since }}</p>
             </div>
 
-            {{-- Image with caption (right column on desktop, spans both rows) --}}
-            <div class="relative rounded-2xl overflow-hidden shadow-md md:col-start-2 md:row-start-1 md:row-span-2">
-                <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $image)))) }}"
-                     alt="{{ $instituteName }}"
-                     class="w-full h-full object-cover aspect-[4/3]">
-                @if($imageCaption)
-                <div class="absolute bottom-0 left-0 right-0 px-4 py-2 bg-black/40">
-                    <p class="text-white text-xs font-medium">{{ $imageCaption }}</p>
+            {{-- Image gallery slider with caption overlay (right column on desktop, spans both rows) --}}
+            @php $galleryId = 'ai-gallery-' . uniqid(); @endphp
+            <div class="relative rounded-2xl overflow-hidden shadow-md md:col-start-2 md:row-start-1 md:row-span-2 aspect-[4/3]" id="{{ $galleryId }}">
+                @foreach($gallery as $i => $photo)
+                @php $enc = implode('/', array_map('rawurlencode', explode('/', $photo['src']))); @endphp
+                <img src="{{ asset($enc) }}"
+                     alt="{{ $photo['caption'] }}"
+                     class="ai-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
+                     @if($i === 0) loading="eager" fetchpriority="high" @else loading="lazy" @endif>
+                @endforeach
+
+                {{-- Gradient + caption overlay (same as webinar gallery) --}}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 right-0 px-4 py-2">
+                    @foreach($gallery as $i => $photo)
+                    <p class="ai-cap text-white text-sm font-semibold leading-snug {{ $i === 0 ? '' : 'hidden' }}">{{ $photo['caption'] }}</p>
+                    @endforeach
                 </div>
-                @endif
+
+                {{-- Dots --}}
+                <div class="absolute top-2 right-2 flex gap-1.5">
+                    @foreach($gallery as $i => $photo)
+                    <span class="ai-dot w-1.5 h-1.5 rounded-full transition-all duration-300 {{ $i === 0 ? 'bg-white scale-125' : 'bg-white/40' }}"></span>
+                    @endforeach
+                </div>
             </div>
 
             {{-- Badges + bullets --}}
@@ -75,3 +100,26 @@
 
     </div>
 </section>
+
+<script>
+(function () {
+    var root = document.getElementById(@json($galleryId));
+    if (!root) return;
+    var imgs = Array.prototype.slice.call(root.querySelectorAll('.ai-slide'));
+    var caps = Array.prototype.slice.call(root.querySelectorAll('.ai-cap'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.ai-dot'));
+    if (imgs.length < 2) return;
+    var current = 0;
+    function show(i) {
+        imgs.forEach(function (el, n) { el.style.opacity = n === i ? '1' : '0'; });
+        caps.forEach(function (el, n) { el.classList.toggle('hidden', n !== i); });
+        dots.forEach(function (el, n) {
+            el.classList.toggle('bg-white', n === i);
+            el.classList.toggle('scale-125', n === i);
+            el.classList.toggle('bg-white/40', n !== i);
+        });
+        current = i;
+    }
+    setInterval(function () { show((current + 1) % imgs.length); }, 3000);
+}());
+</script>

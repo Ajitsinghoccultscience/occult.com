@@ -10,7 +10,8 @@ class AdminUser extends Model
     protected $hidden   = ['password'];
     protected $fillable = [
         'name', 'email', 'password', 'role', 'whatsapp_phone_number_id',
-        'slug', 'lp_price', 'lp_old_price', 'lp_discount', 'lp_timer_minutes',
+        'slug', 'lp_course_name', 'lp_enrolled', 'lp_rating', 'lp_seats',
+        'lp_price', 'lp_old_price', 'lp_discount', 'lp_timer_minutes',
     ];
 
     /**

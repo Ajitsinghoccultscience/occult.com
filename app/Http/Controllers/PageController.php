@@ -102,21 +102,34 @@ class PageController extends Controller
 
     public function astrologyCourse(Request $request)
     {
-        // Per-counsellor landing: /astrology-course?product=astrology&counsler=reena
-        $product = $request->query('product', 'astrology');
-        $slug    = $request->query('counsler');
+        // Per-counsellor landing: /admission-2026?counsler=reena (course-agnostic)
+        $slug = $request->query('counsler');
 
         $offer = null;
-        $counsellor = $product === 'astrology' ? AdminUser::forSlug($slug) : null;
+        $counsellor = AdminUser::forSlug($slug);
 
-        if ($counsellor && $counsellor->lp_price) {
+        if ($counsellor && (
+            $counsellor->lp_price ||
+            $counsellor->lp_old_price ||
+            $counsellor->lp_discount ||
+            $counsellor->lp_timer_minutes ||
+            $counsellor->lp_course_name ||
+            $counsellor->lp_enrolled ||
+            $counsellor->lp_rating ||
+            $counsellor->lp_seats
+        )) {
             $offer = [
                 'slug'         => $counsellor->slug,
                 'name'         => $counsellor->name,
-                'price'        => $this->inr((int) $counsellor->lp_price),
+                'courseName'   => $counsellor->lp_course_name ?: 'Astrology Certificate Course',
+                'enrolled'     => $counsellor->lp_enrolled ?: '50,000+ enrolled',
+                'rating'       => $counsellor->lp_rating ?: '4.9',
+                'seats'        => $counsellor->lp_seats ?: 'Limited seats left',
+                'price'        => $counsellor->lp_price ? $this->inr((int) $counsellor->lp_price) : null,
                 'oldPrice'     => $counsellor->lp_old_price ? $this->inr((int) $counsellor->lp_old_price) : null,
                 'discount'     => $counsellor->lp_discount,
                 'timerMinutes' => (int) ($counsellor->lp_timer_minutes ?: 0),
+                'updatedAt'    => $counsellor->updated_at?->timestamp ?: time(),
             ];
         }
 

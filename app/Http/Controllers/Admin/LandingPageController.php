@@ -26,6 +26,10 @@ class LandingPageController extends Controller
 
         $request->validate([
             'slug'             => 'nullable|string|max:50|alpha_dash|unique:admin_users,slug,' . $user->id,
+            'lp_course_name'   => 'nullable|string|max:120',
+            'lp_enrolled'      => 'nullable|string|max:80',
+            'lp_rating'        => 'nullable|string|max:20',
+            'lp_seats'         => 'nullable|string|max:80',
             'lp_price'         => 'nullable|integer|min:0',
             'lp_old_price'     => 'nullable|integer|min:0',
             'lp_discount'      => 'nullable|string|max:30',
@@ -34,6 +38,10 @@ class LandingPageController extends Controller
 
         $user->update([
             'slug'             => $request->slug ? strtolower(trim($request->slug)) : null,
+            'lp_course_name'   => $request->lp_course_name ?: null,
+            'lp_enrolled'      => $request->lp_enrolled ?: null,
+            'lp_rating'        => $request->lp_rating ?: null,
+            'lp_seats'         => $request->lp_seats ?: null,
             'lp_price'         => $request->lp_price ?: null,
             'lp_old_price'     => $request->lp_old_price ?: null,
             'lp_discount'      => $request->lp_discount ?: null,

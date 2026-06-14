@@ -8,8 +8,8 @@
         'Build instant trust and credibility with clients',
         'Become part of our alumni network and receive ongoing learning and growth support.',
     ],
-    'ctaText' => 'Apply Now',
-    'ctaHref' => '#',
+    'ctaText' => 'Register Now',
+    'ctaHref' => 'https://www.occultscience.in/payment-page/',
 ])
 
 <section class="w-full section-spacing bg-white">
@@ -47,11 +47,11 @@
                     </ul>
 
                     <div>
-                        <button onclick="openEnquiryModal()"
-                                class="inline-flex items-center justify-center font-bold text-white text-base px-10 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
-                                style="background-color:#8B0000;">
+                        <a href="{{ $ctaHref }}"
+                           class="inline-flex items-center justify-center font-bold text-white text-base px-10 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
+                           style="background-color:#8B0000;">
                             {{ $ctaText }}
-                        </button>
+                        </a>
                     </div>
 
                 </div>

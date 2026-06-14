@@ -13,8 +13,20 @@ return new class extends Migration
             if (!Schema::hasColumn('admin_users', 'slug')) {
                 $table->string('slug')->nullable()->unique()->after('email');
             }
+            if (!Schema::hasColumn('admin_users', 'lp_course_name')) {
+                $table->string('lp_course_name')->nullable()->after('slug');
+            }
+            if (!Schema::hasColumn('admin_users', 'lp_enrolled')) {
+                $table->string('lp_enrolled')->nullable()->after('lp_course_name');
+            }
+            if (!Schema::hasColumn('admin_users', 'lp_rating')) {
+                $table->string('lp_rating')->nullable()->after('lp_enrolled');
+            }
+            if (!Schema::hasColumn('admin_users', 'lp_seats')) {
+                $table->string('lp_seats')->nullable()->after('lp_rating');
+            }
             if (!Schema::hasColumn('admin_users', 'lp_price')) {
-                $table->unsignedInteger('lp_price')->nullable()->after('whatsapp_phone_number_id');
+                $table->unsignedInteger('lp_price')->nullable()->after('lp_seats');
             }
             if (!Schema::hasColumn('admin_users', 'lp_old_price')) {
                 $table->unsignedInteger('lp_old_price')->nullable()->after('lp_price');
@@ -36,7 +48,7 @@ return new class extends Migration
         DB::statement("ALTER TABLE admin_users MODIFY COLUMN role ENUM('admin','sender') NOT NULL DEFAULT 'sender'");
 
         Schema::table('admin_users', function (Blueprint $table) {
-            $table->dropColumn(['slug', 'lp_price', 'lp_old_price', 'lp_discount', 'lp_timer_minutes']);
+            $table->dropColumn(['slug', 'lp_course_name', 'lp_enrolled', 'lp_rating', 'lp_seats', 'lp_price', 'lp_old_price', 'lp_discount', 'lp_timer_minutes']);
         });
     }
 };

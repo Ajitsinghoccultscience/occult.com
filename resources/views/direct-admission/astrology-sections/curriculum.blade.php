@@ -85,8 +85,8 @@
             ],
         ],
     ],
-    'syllabusHref' => '#',
-    'syllabusLabel' => 'Full Syllabus',
+    'syllabusHref' => 'https://www.occultscience.in/payment-page/',
+    'syllabusLabel' => 'Register Now',
 ])
 
 @php
@@ -100,10 +100,12 @@
         {{-- Heading --}}
         <div class="text-center mb-8 md:mb-10">
             <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] mb-3">{{ $title }}</h2>
+            {{-- Commented out (desktop + mobile)
             <p class="text-sm text-neutral-e max-w-2xl mx-auto leading-relaxed">{{ $description }}</p>
+            --}}
         </div>
 
-        {{-- Stats bar --}}
+        {{-- Stats bar — commented out (desktop + mobile)
         <div class="rounded-xl overflow-hidden mb-8" style="background-color:#8B0000;">
             <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
                 @foreach($stats as $stat)
@@ -114,6 +116,7 @@
                 @endforeach
             </div>
         </div>
+        --}}
 
         {{-- ── MOBILE: accordion (first 4 only) ── --}}
         <div class="md:hidden flex flex-col gap-3">
@@ -181,26 +184,26 @@
 
         {{-- ── MOBILE: Full Syllabus button (full width) ── --}}
         <div class="md:hidden mt-6">
-            <button type="button" onclick="openEnquiryModal()"
+            <a href="{{ $syllabusHref }}"
                class="flex items-center justify-center gap-2 w-full font-bold text-white text-sm py-3.5 rounded-xl hover:opacity-90 transition"
                style="background-image:linear-gradient(to right,#B71C1C,#8B0000);">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5v-2z"/>
                 </svg>
                 {{ $syllabusLabel }}
-            </button>
+            </a>
         </div>
 
-        {{-- ── DESKTOP: Full Syllabus button (opens enquiry form) ── --}}
+        {{-- ── DESKTOP: Full Syllabus button ── --}}
         <div class="hidden md:flex justify-center mt-8">
-            <button type="button" onclick="openEnquiryModal()"
-                    class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
-                    style="background-color:#8B0000;">
+            <a href="{{ $syllabusHref }}"
+               class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
+               style="background-color:#8B0000;">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5v-2z"/>
                 </svg>
                 {{ $syllabusLabel }}
-            </button>
+            </a>
         </div>
 
     </div>

@@ -2,7 +2,7 @@
 
 @section('title', 'My Landing Page')
 @section('page-title', 'My Landing Page')
-@section('page-subtitle', 'Set your astrology course price, discount and offer timer')
+@section('page-subtitle', 'Set your astrology course offer details and timer')
 
 @section('content')
 
@@ -10,7 +10,7 @@
 <div class="mb-4 px-4 py-3 bg-green-50 border border-green-200 rounded-xl text-sm text-green-700">{{ session('success') }}</div>
 @endif
 
-@php $url = $user->slug ? url('/astrology-course') . '?product=astrology&counsler=' . $user->slug : null; @endphp
+@php $url = $user->slug ? url('/admission-2026') . '?counsler=' . $user->slug : null; @endphp
 
 <div class="max-w-2xl">
     <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
@@ -72,6 +72,26 @@
                                    class="w-full border border-gray-200 rounded-lg pl-3 pr-12 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 focus:border-[#8B0000]">
                             <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400">min</span>
                         </div>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-[11px] font-semibold text-slate-500 mb-1">Course title</label>
+                        <input type="text" name="lp_course_name" value="{{ old('lp_course_name', $user->lp_course_name) }}" placeholder="Astrology Certificate Course"
+                               class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 focus:border-[#8B0000]">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-500 mb-1">Enrolled text</label>
+                        <input type="text" name="lp_enrolled" value="{{ old('lp_enrolled', $user->lp_enrolled) }}" placeholder="50,000+ enrolled"
+                               class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 focus:border-[#8B0000]">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-500 mb-1">Rating</label>
+                        <input type="text" name="lp_rating" value="{{ old('lp_rating', $user->lp_rating) }}" placeholder="4.9"
+                               class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 focus:border-[#8B0000]">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-[11px] font-semibold text-slate-500 mb-1">Seats text</label>
+                        <input type="text" name="lp_seats" value="{{ old('lp_seats', $user->lp_seats) }}" placeholder="Limited seats left"
+                               class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 focus:border-[#8B0000]">
                     </div>
                     <div>
                         <label class="block text-[11px] font-semibold text-slate-500 mb-1">Price</label>

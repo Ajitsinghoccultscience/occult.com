@@ -39,7 +39,8 @@ Route::redirect('/graphology-thankyou', '/thankyou?product=graphology', 301);
 
 
 
-Route::get('/astrology-course', [PageController::class, 'astrologyCourse']);
+Route::get('/admission-2026', [PageController::class, 'astrologyCourse']);
+Route::redirect('/astrology-course', '/admission-2026', 301);
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 
 Route::prefix('admin')->name('admin.')->group(function () {
