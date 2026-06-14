@@ -61,7 +61,7 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[11px] font-semibold text-slate-500 mb-1">URL slug</label>
-                        <input type="text" name="slug" value="{{ old('slug', $user->slug) }}" placeholder="reena"
+                        <input type="text" name="slug" value="{{ old('slug', $user->slug) }}" placeholder="your-name"
                                class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B0000]/30 focus:border-[#8B0000]">
                         <p class="text-[10px] text-slate-400 mt-1">Lowercase, letters/numbers/dashes only.</p>
                     </div>

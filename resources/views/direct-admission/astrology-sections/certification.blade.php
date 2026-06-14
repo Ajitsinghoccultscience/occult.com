@@ -1,5 +1,5 @@
 @props([
-    'image'       => 'image/astrology assests/Astrology certificate 1.webp',
+    'image'       => 'image/astrology assests/DIRECT ADMISSION/certificate (AIIOS).webp',
     'title'       => 'Earn Certifications & Recognition',
     'description' => 'Successfully complete course to attain Advanced Certificate in Astrology from All India Institute of Occult Science',
     'bullets'     => [

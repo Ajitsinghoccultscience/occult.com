@@ -26,7 +26,19 @@
     'ctaHref' => '#',
 ])
 
-@php $sliderId = 'da-slider-' . uniqid(); @endphp
+@php
+    $sliderId = 'da-slider-' . uniqid();
+
+    $statIconBase = 'image/astrology assests/DIRECT ADMISSION/icons hero sec';
+    $statIconFiles = [
+        'students' => 'trained students.svg',
+        'star'     => 'reviws.svg',
+        'iso'      => 'iso certified.svg',
+    ];
+    $statIconUrl = fn($key) => isset($statIconFiles[$key])
+        ? asset(implode('/', array_map('rawurlencode', explode('/', $statIconBase.'/'.$statIconFiles[$key]))))
+        : '';
+@endphp
 
 <div class="bg-white py-2 px-2 md:px-5 lg:px-8">
 <section class="relative text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
@@ -73,13 +85,8 @@
             <div class="flex items-stretch divide-x divide-white/20 bg-black/25 rounded-xl overflow-hidden">
                 @foreach($stats as $stat)
                 <div class="flex-1 flex flex-col items-center justify-center gap-0.5 py-3 px-2 text-center">
-                    @if($stat['icon'] === 'students')
-                        <svg class="w-5 h-5 text-white/80 mb-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-                    @elseif($stat['icon'] === 'star')
-                        <svg class="w-5 h-5 text-yellow-400 mb-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    @else
-                        <svg class="w-5 h-5 text-white/80 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    @endif
+                    <img src="{{ $statIconUrl($stat['icon']) }}" alt="" aria-hidden="true" class="w-5 h-5 object-contain mb-1" style="filter:brightness(0) invert(1);">
+
                     <span class="text-white font-bold text-xs leading-tight">{{ $stat['value'] }}</span>
                     <span class="text-white/70 text-[10px] leading-tight">{{ $stat['label'] }}</span>
                 </div>
@@ -148,13 +155,8 @@
                 <div class="flex items-stretch divide-x divide-white/20 bg-black/25 rounded-xl overflow-hidden w-fit">
                     @foreach($stats as $stat)
                     <div class="flex items-center gap-3 px-5 py-3">
-                        @if($stat['icon'] === 'students')
-                            <svg class="w-6 h-6 text-white/80 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-                        @elseif($stat['icon'] === 'star')
-                            <svg class="w-6 h-6 text-yellow-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        @else
-                            <svg class="w-6 h-6 text-white/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        @endif
+                        <img src="{{ $statIconUrl($stat['icon']) }}" alt="" aria-hidden="true" class="w-6 h-6 object-contain shrink-0" style="filter:brightness(0) invert(1);">
+
                         <div class="flex flex-col">
                             <span class="text-white font-bold text-sm leading-tight">{{ $stat['value'] }}</span>
                             <span class="text-white/70 text-xs leading-tight">{{ $stat['label'] }}</span>

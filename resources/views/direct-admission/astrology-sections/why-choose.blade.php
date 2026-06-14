@@ -35,14 +35,18 @@
 ])
 
 @php
-    $iconSvgs = [
-        'monitor'    => '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-        'award'      => '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 22l3-3 3 3M9 13.13V22l3-1.5 3 1.5v-8.87" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-        'graduation' => '<svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>',
-        'clock'      => '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-        'rec'        => '<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="14" rx="2"/><circle cx="12" cy="13" r="3" fill="currentColor" stroke="none"/><path d="M8 3h8" stroke-linecap="round"/></svg>',
-        'group'      => '<svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>',
+    $iconBase  = 'image/astrology assests/DIRECT ADMISSION/Why choose astrology icon';
+    $iconFiles = [
+        'monitor'    => 'LIVE class..svg',
+        'award'      => 'trusted by thousands 1.svg',
+        'graduation' => 'experienced faculty.svg',
+        'clock'      => 'lifetime learning 1.svg',
+        'rec'        => 'recordings.svg',
+        'group'      => 'small batches 1.svg',
     ];
+    $iconUrl = fn($key) => isset($iconFiles[$key])
+        ? asset(implode('/', array_map('rawurlencode', explode('/', $iconBase.'/'.$iconFiles[$key]))))
+        : '';
 @endphp
 
 <section class="w-full section-spacing bg-white">
@@ -58,9 +62,7 @@
             <div id="wc-slider" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden pb-2">
                 @foreach($features as $feature)
                 <div class="snap-center shrink-0 w-[82%] rounded-2xl px-6 py-7 flex flex-col items-center text-center" style="background-color:#FCEDEC;">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background-color:#8B0000;">
-                        {!! $iconSvgs[$feature['icon']] ?? '' !!}
-                    </div>
+                    <img src="{{ $iconUrl($feature['icon']) }}" alt="" aria-hidden="true" class="w-16 h-16 object-contain mb-4">
                     <h3 class="text-base font-bold text-neutral-b mb-2 leading-snug">{{ $feature['title'] }}</h3>
                     <p class="text-sm text-neutral-e leading-relaxed">{{ $feature['description'] }}</p>
                 </div>
@@ -83,10 +85,8 @@
             @foreach($features as $feature)
             <div class="flex items-start gap-5">
 
-                {{-- Icon box --}}
-                <div class="shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center" style="background-color:#8B0000;">
-                    {!! $iconSvgs[$feature['icon']] ?? '' !!}
-                </div>
+                {{-- Icon --}}
+                <img src="{{ $iconUrl($feature['icon']) }}" alt="" aria-hidden="true" class="shrink-0 w-16 h-16 object-contain">
 
                 {{-- Text --}}
                 <div>
