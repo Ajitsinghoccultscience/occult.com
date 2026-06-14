@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AdminUser extends Model
 {
@@ -13,6 +14,14 @@ class AdminUser extends Model
         'slug', 'lp_course_name', 'lp_enrolled', 'lp_rating', 'lp_seats',
         'lp_price', 'lp_old_price', 'lp_discount', 'lp_timer_minutes',
     ];
+
+    /**
+     * Landing-page links owned by this counsellor.
+     */
+    public function landingPages(): HasMany
+    {
+        return $this->hasMany(LandingPage::class, 'admin_user_id');
+    }
 
     /**
      * Look up a counsellor by their landing-page URL slug.

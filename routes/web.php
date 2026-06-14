@@ -59,9 +59,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::patch('/leads/{enquiry}/status', [LeadsController::class, 'updateStatus'])->name('leads.status');
         Route::delete('/leads/{enquiry}', [LeadsController::class, 'destroy'])->name('leads.destroy');
 
-        // Counsellor self-serve landing-page settings
-        Route::get('/my-landing',  [LandingPageController::class, 'edit'])->name('landing.edit');
-        Route::put('/my-landing',  [LandingPageController::class, 'update'])->name('landing.update');
+        // Counsellor self-serve landing-page links (multiple per counsellor)
+        Route::get('/my-landing',                     [LandingPageController::class, 'index'])->name('landing.index');
+        Route::post('/my-landing',                    [LandingPageController::class, 'store'])->name('landing.store');
+        Route::get('/my-landing/{landingPage}/edit',  [LandingPageController::class, 'edit'])->name('landing.edit');
+        Route::put('/my-landing/{landingPage}',       [LandingPageController::class, 'update'])->name('landing.update');
+        Route::delete('/my-landing/{landingPage}',    [LandingPageController::class, 'destroy'])->name('landing.destroy');
 
         // Team management (admin only)
         Route::middleware('admin.role')->group(function () {

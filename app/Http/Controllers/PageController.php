@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\WebinarSetting;
 use App\Models\AdminUser;
+use App\Models\LandingPage;
 
 class PageController extends Controller
 {
@@ -102,34 +103,36 @@ class PageController extends Controller
 
     public function astrologyCourse(Request $request)
     {
-        // Per-counsellor landing: /admission-2026?counsler=reena (course-agnostic)
+        // Per-counsellor landing: /admission-2026?counsler=reena-astrology (course-agnostic)
         $slug = $request->query('counsler');
 
-        $offer = null;
-        $counsellor = AdminUser::forSlug($slug);
+        // New: many links per counsellor (landing_pages). Fallback: legacy single slug on admin_users.
+        $source = LandingPage::forSlug($slug) ?: AdminUser::forSlug($slug);
 
-        if ($counsellor && (
-            $counsellor->lp_price ||
-            $counsellor->lp_old_price ||
-            $counsellor->lp_discount ||
-            $counsellor->lp_timer_minutes ||
-            $counsellor->lp_course_name ||
-            $counsellor->lp_enrolled ||
-            $counsellor->lp_rating ||
-            $counsellor->lp_seats
+        $offer = null;
+
+        if ($source && (
+            $source->lp_price ||
+            $source->lp_old_price ||
+            $source->lp_discount ||
+            $source->lp_timer_minutes ||
+            $source->lp_course_name ||
+            $source->lp_enrolled ||
+            $source->lp_rating ||
+            $source->lp_seats
         )) {
             $offer = [
-                'slug'         => $counsellor->slug,
-                'name'         => $counsellor->name,
-                'courseName'   => $counsellor->lp_course_name ?: 'Astrology Certificate Course',
-                'enrolled'     => $counsellor->lp_enrolled ?: '50,000+ enrolled',
-                'rating'       => $counsellor->lp_rating ?: '4.9',
-                'seats'        => $counsellor->lp_seats ?: 'Limited seats left',
-                'price'        => $counsellor->lp_price ? $this->inr((int) $counsellor->lp_price) : null,
-                'oldPrice'     => $counsellor->lp_old_price ? $this->inr((int) $counsellor->lp_old_price) : null,
-                'discount'     => $counsellor->lp_discount,
-                'timerMinutes' => (int) ($counsellor->lp_timer_minutes ?: 0),
-                'updatedAt'    => $counsellor->updated_at?->timestamp ?: time(),
+                'slug'         => $source->slug,
+                'name'         => $source->label ?? $source->name ?? null,
+                'courseName'   => $source->lp_course_name ?: 'Astrology Certificate Course',
+                'enrolled'     => $source->lp_enrolled ?: '50,000+ enrolled',
+                'rating'       => $source->lp_rating ?: '4.9',
+                'seats'        => $source->lp_seats ?: 'Limited seats left',
+                'price'        => $source->lp_price ? $this->inr((int) $source->lp_price) : null,
+                'oldPrice'     => $source->lp_old_price ? $this->inr((int) $source->lp_old_price) : null,
+                'discount'     => $source->lp_discount,
+                'timerMinutes' => (int) ($source->lp_timer_minutes ?: 0),
+                'updatedAt'    => $source->updated_at?->timestamp ?: time(),
             ];
         }
 

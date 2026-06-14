@@ -59,7 +59,7 @@
                        placeholder="e.g. 1144304915427219">
             </div>
         </div>
-        <p class="text-xs text-slate-400 mb-4">Counsellors set their own landing-page price, discount &amp; timer after logging in (under <span class="font-semibold">My Landing Page</span>).</p>
+        <p class="text-xs text-slate-400 mb-4">Counsellors create multiple landing-page links, each with its own price, discount &amp; timer, after logging in (under <span class="font-semibold">My Landing Pages</span>).</p>
         <button type="submit"
                 class="text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:opacity-90 transition"
                 style="background-color:#25D366;">
