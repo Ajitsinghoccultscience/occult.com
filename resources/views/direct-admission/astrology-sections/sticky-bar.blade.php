@@ -133,7 +133,7 @@
 
             if (expired) {
                 if (currentPrice && oldPrice) currentPrice.classList.add('hidden');
-                if (discount) discount.classList.add('hidden');
+                if (discount) { discount.classList.add('hidden'); discount.style.display = 'none'; }
                 if (oldPrice) {
                     oldPrice.classList.remove('hidden', 'line-through', 'text-neutral-400', 'text-sm', 'text-xs');
                     oldPrice.classList.add('text-neutral-b', 'font-extrabold', 'text-2xl', 'md:text-2xl');
@@ -153,7 +153,7 @@
                 }
             } else {
                 if (currentPrice) currentPrice.classList.remove('hidden');
-                if (discount) discount.classList.remove('hidden');
+                if (discount) { discount.classList.remove('hidden'); discount.style.display = ''; }
                 if (countdownLabel) countdownLabel.classList.remove('hidden');
                 if (countdownLabel && countdownLabel.tagName === 'P') {
                     countdownLabel.innerHTML = 'Offer ends in <span class="sticky-cd tabular-nums font-bold" data-sticky-countdown>' + txt + '</span>';

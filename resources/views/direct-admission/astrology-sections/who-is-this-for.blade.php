@@ -6,6 +6,10 @@
             'description' => 'Curious beginners who want simple understanding of kundli, zodiac signs, and future predictions.',
         ],
         [
+            'title'       => 'Career Aspirants',
+            'description' => 'Those who want to build a professional career as a certified astrologer, consultant, or start their own astrology practice and earn from their skills.',
+        ],
+        [
             'title'       => 'Problem-Solution Seekers',
             'description' => 'People facing real-life problems who seek practical guidance and remedies (upay) through astrology.',
         ],
@@ -25,7 +29,7 @@
         </div>
 
         {{-- Cards --}}
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             @foreach($audience as $item)
             <div class="border border-neutral-200 rounded-2xl p-5 bg-white shadow-sm flex flex-col gap-3">
                 {{-- Person icon --}}
