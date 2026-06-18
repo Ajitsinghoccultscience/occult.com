@@ -55,10 +55,10 @@
         <div class="flex items-center justify-center gap-4 mt-8 md:mt-10">
             <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $giftImg)))) }}"
                  alt="" class="w-12 h-12 md:w-14 md:h-14 object-contain" aria-hidden="true">
-            <p class="text-lg md:text-2xl font-bold text-neutral-b leading-tight">
+            <h3 class="text-lg md:text-xl font-bold text-neutral-b leading-tight">
                 And Get Special<br>
                 Bonus Worth <span style="color:#ff9700;">₹4,999</span>
-            </p>
+</h3>
         </div>
 
     </div>

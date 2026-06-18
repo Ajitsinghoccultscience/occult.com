@@ -106,20 +106,32 @@
 (function () {
     var el = document.getElementById('reg-countdown');
     if (!el) return;
-    var total = (parseInt(el.dataset.minutes || '10', 10) * 60) + parseInt(el.dataset.seconds || '0', 10);
+
+    var SHARED_KEY = 'w4_offer_end';
+    var INIT_SECS  = (parseInt(el.dataset.minutes || '10', 10) * 60)
+                   + parseInt(el.dataset.seconds  || '0',  10); // 606
+
+    var stored  = sessionStorage.getItem(SHARED_KEY);
+    var endTime = (stored && parseInt(stored) > Date.now())
+                    ? parseInt(stored)
+                    : Date.now() + INIT_SECS * 1000;
+    sessionStorage.setItem(SHARED_KEY, endTime);
+
     var hh = el.querySelector('[data-cd=hh]'),
         mm = el.querySelector('[data-cd=mm]'),
         ss = el.querySelector('[data-cd=ss]');
+
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
     function tick() {
-        var h = Math.floor(total / 3600),
-            m = Math.floor((total % 3600) / 60),
-            s = total % 60;
-        hh.textContent = pad(h); mm.textContent = pad(m); ss.textContent = pad(s);
-        if (total > 0) { total--; }
+        var remaining = Math.max(0, endTime - Date.now());
+        var total     = Math.floor(remaining / 1000);
+        hh.textContent = pad(Math.floor(total / 3600));
+        mm.textContent = pad(Math.floor((total % 3600) / 60));
+        ss.textContent = pad(total % 60);
+        if (remaining > 0) setTimeout(tick, 1000);
     }
     tick();
-    setInterval(tick, 1000);
 })();
 </script>
 @endpush

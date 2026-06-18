@@ -36,23 +36,37 @@
             </h2>
         </div>
 
-        {{-- Cards: slider on mobile, 3 on tablet, 5 on desktop --}}
-        <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden">
-            @foreach($cards as $card)
-                <div class="shrink-0 w-[60%] sm:w-[42%] md:w-auto snap-center rounded-xl p-5 flex flex-col gap-4" style="background-color:#FFF6EC;">
-                    {{-- Icon --}}
+    </div>
+
+    {{-- ── MOBILE: infinite auto-scroll marquee ── --}}
+    <div class="md:hidden overflow-hidden" style="width:100vw;margin-left:calc(50% - 50vw);">
+        <div class="flex w-max animate-marquee gap-4 px-4">
+            {{-- Duplicated twice for seamless infinite loop --}}
+            @foreach(array_merge($cards, $cards) as $card)
+                <div class="shrink-0 w-56 rounded-xl p-5 flex flex-col gap-4" style="background-color:#FFF6EC;">
                     <span class="w-11 h-11 rounded-lg flex items-center justify-center" style="background-color:#FCE4C7;">
                         <svg class="w-6 h-6 text-[#ff9700]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             {!! $card['icon'] !!}
                         </svg>
                     </span>
-                    {{-- Text --}}
-                    <p class="text-sm text-neutral-b leading-snug">
-                        {{ $card['text'] }}
-                    </p>
+                    <p class="text-sm text-neutral-b leading-snug">{{ $card['text'] }}</p>
                 </div>
             @endforeach
         </div>
-
     </div>
+
+    {{-- ── TABLET / DESKTOP: grid ── --}}
+    <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 max-w-335 mx-auto section-px">
+        @foreach($cards as $card)
+            <div class="rounded-xl p-5 flex flex-col gap-4" style="background-color:#FFF6EC;">
+                <span class="w-11 h-11 rounded-lg flex items-center justify-center" style="background-color:#FCE4C7;">
+                    <svg class="w-6 h-6 text-[#ff9700]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        {!! $card['icon'] !!}
+                    </svg>
+                </span>
+                <p class="text-sm text-neutral-b leading-snug">{{ $card['text'] }}</p>
+            </div>
+        @endforeach
+    </div>
+
 </section>

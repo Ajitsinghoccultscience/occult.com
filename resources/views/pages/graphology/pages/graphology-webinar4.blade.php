@@ -26,6 +26,9 @@
 {{-- 1. Hero --}}
 @include('pages.graphology.webinar4-sections.hero', ['ctaHref' => $ctaHref, 'date' => $date, 'time' => $time])
 
+{{--  news --}}
+@include('pages.graphology.webinar4-sections.news')
+
 {{-- 2. Upcoming Webinar --}}
 @include('pages.graphology.webinar4-sections.upcoming-webinar', ['ctaHref' => $ctaHref, 'date' => $date, 'time' => $time])
 
@@ -60,6 +63,8 @@
 
 {{-- 12. Featured In --}}
 @include('pages.graphology.webinar4-sections.featured-in')
+
+
 
 {{-- 13. Meet Trainer --}}
 @include('pages.graphology.webinar4-sections.meet-trainer', ['ctaHref' => $ctaHref])
