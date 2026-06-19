@@ -15,7 +15,8 @@
 {{-- ═══════════════════════════════════
      NEWS / AS-SEEN-IN STRIP
 ════════════════════════════════════ --}}
-<section class="max-w-335 mx-auto rounded-xl overflow-hidden py-3 sm:py-4 my-2">
+<section class="max-w-[1290px] mx-auto my-2  ">
+    <div class="section-px overflow-hidden rounded-lg shadow-lg py-3 sm:py-4  mx-3">
 
     <div class="flex w-max animate-marquee items-center gap-8 sm:gap-12 md:gap-16">
 
@@ -35,4 +36,5 @@
 
     </div>
 
+    </div>
 </section>

@@ -16,7 +16,7 @@
     $bullets = [
         ['icon' => 'income',  'html' => 'Learn Graphology to <strong>Boost Your Income</strong>'],
         ['icon' => 'cert',    'html' => 'Get <strong>Certificate</strong> and <strong>Bonus Worth ₹4,999</strong>'],
-        ['icon' => 'shield',  'html' => 'Build<strong>Trust, Value & Recognition</strong>'],
+        ['icon' => 'shield',  'html' => 'Build<strong> Trust, Value & Recognition</strong>'],
     ];
 
     $icons = [
@@ -28,7 +28,7 @@
 
 <section class="bg-neutral-50 py-3 md:py-3 font-open-sans" style="width:100vw;margin-left:calc(50% - 50vw);font-family:'Open Sans',sans-serif;">
     <div class="max-w-[1340px] mx-auto section-px">
-        <div class="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-neutral-100 p-6 md:p-10 lg:p-12 overflow-hidden">
+        <div class="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-neutral-100 py-6 md:p-10 lg:p-12 overflow-hidden">
 
             {{-- Company logo — centered top, all devices --}}
             <div class="flex justify-center mb-5 md:mb-7">
@@ -43,13 +43,13 @@
 
                 {{-- ── TITLE ── --}}
                 <div class="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left">
-                    <h1 class="text-xl md:text-3xl xl:text-[2.3rem] font-bold text-neutral-b leading-tight">
+                    <h1 class="text-[1.75rem] md:text-3xl xl:text-[2.3rem] font-bold text-neutral-b leading-tight">
                         <span style="color:#ff9700;">2-3X Your Salary</span> with a Practical Graphology Webinar
                     </h1>
                 </div>
 
                 {{-- ── BULLETS + CTA ── --}}
-                <div class="order-3 lg:col-start-1 lg:row-start-2 text-left lg:text-left">
+                <div class="order-3 lg:col-start-1 lg:row-start-2 text-start lg:text-left">
 
                     {{-- Bullets --}}
                     <ul class="inline-block text-left space-y-2 mb-7 md:mb-8">
@@ -69,7 +69,7 @@
                             </div>
                             {{-- Stars --}}
                             <div>
-                                <div class="flex gap-0.5">
+                                <div class="flex gap-0.5 ">
                                     @for($i = 0; $i < 5; $i++)
                                     <svg class="w-4 h-4 text-[#ff9700]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.49 8.719c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>
                                     @endfor
@@ -79,13 +79,13 @@
                         </div>
 
                         @foreach($bullets as $b)
-                        <li class="flex items-left  sm:items-start gap-2 text-neutral-b text-xs md:text-base">
+                        <li class="flex items-start  sm:items-start gap-2 text-neutral-b text-xs md:text-base ">
                             <span class="shrink-0 mt-0.5 w-7 h-7 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                     {!! $icons[$b['icon']] !!}
                                 </svg>
                             </span>
-                            <span class="leading-snug text-[11px] sm:text-lg mt-2 sm:mt-1">{!! $b['html'] !!}</span>
+                            <span class="leading-snug text-[14px]  sm:text-lg mt-2 sm:mt-1">{!! $b['html'] !!}</span>
                         </li>
                         @endforeach
                     </ul>
