@@ -11,7 +11,7 @@
             ],
         ],
         [
-            'img'  => '/image/graphology assests/manager sir.webp',
+            'img'  => '/image/graphology assests/shivam sir (1).webp',
             'name' => 'Shivam Tripathi',
             'role' => '( Graphologist )',
             'bio'  => [

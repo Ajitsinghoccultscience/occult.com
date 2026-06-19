@@ -1,5 +1,5 @@
 @props([
-    'title'   => 'Our Mentors',
+    'title'   => 'The Mentors Behind Your Career Transformation ',
     'mentors' => [
         [
             'name'   => 'Dr. Ramraj Upadhyaya',

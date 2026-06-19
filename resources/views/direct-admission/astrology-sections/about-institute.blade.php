@@ -1,5 +1,5 @@
 @props([
-    'instituteName' => 'All India Institute Of Occult Science: (Providing Guidance since 2004 )',
+    'instituteName' => 'An Institute Build on Global Standard and 22 Years of Expertise',
     'since'         => 'Running Since March 2004',
     'gallery' => [
         ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp', 'caption' => 'Lamp Lighting Ceremony'],
@@ -19,10 +19,12 @@
         ['icon' => 'image/astrology assests/youtube.svg',            'value' => '15,400+', 'label' => 'Youtube Followers'],
     ],
     'bullets'       => [
-        'One of the best leading institutes in India known for its occult education and training for its students.',
-        'Globally recognized certification in Astrology, Numerology, Graphology, Vastu Shastra, Palmistry, Akashic records, Palmistry and Reiki.',
-        'Many trained students from here are working as personal consultants or in big astrology firms.',
-        'Best students support 24/7 with recorded classes available for our students.',
+        'Registered under the Government of NCT of Delhi and ISO certified.',
+        'Trusted by 97,000+ students for consistency, credibility, and professional excellence',
+        'Structured learning process with expert guidance',
+        'Globally recognized certification after course completion.',
+         '24/7 student support with full access to recorded classes',
+        'Students trained here are working as professional consultants across globe.',
     ],
 ])
 

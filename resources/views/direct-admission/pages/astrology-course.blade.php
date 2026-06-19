@@ -19,20 +19,23 @@
     <!-- @include('direct-admission.astrology-sections.upcoming-batches', ['ctaHref' => 'https://www.occultscience.in/payment-page/']) -->
     @include('direct-admission.astrology-sections.mentors')
     <!-- @include('direct-admission.astrology-sections.life-after-course') -->
+<!-- astrology journey -->
+  @include('direct-admission.astrology-sections.astrology-journey')
 
-
-
-
+ @include('direct-admission.astrology-sections.testimonials')
     @include('direct-admission.astrology-sections.who-is-this-for')
     <!-- @include('direct-admission.astrology-sections.certified-astrologers') -->
     <!-- @include('direct-admission.astrology-sections.why-choose') -->
     @include('direct-admission.astrology-sections.journey-timeline')
+        @include('direct-admission.astrology-sections.what-makes')
+         @include('direct-admission.astrology-sections.students')
+      
     @include('direct-admission.astrology-sections.honoured-moments')
-    <!-- @include('direct-admission.astrology-sections.gold-medalists') -->
+    @include('direct-admission.astrology-sections.gold-medalists')
     @include('direct-admission.astrology-sections.news-coverage')
-    <!-- @include('direct-admission.astrology-sections.podcast') -->
-    @include('direct-admission.astrology-sections.testimonials')
-    <!-- @include('direct-admission.astrology-sections.faq') -->
+    @include('direct-admission.astrology-sections.podcast')
+   
+    @include('direct-admission.astrology-sections.faq')
     @include('direct-admission.astrology-sections.sticky-bar', (isset($offer) && $offer) ? array_filter([
         'courseName'  => $offer['courseName'],
         'enrolled'    => $offer['enrolled'],

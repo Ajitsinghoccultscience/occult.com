@@ -1,5 +1,5 @@
 @props([
-    'title' => 'Trusted experiences from our learning community',
+    'title' => 'Join 1200+ who’ve already transformed their lives',
     'dir'   => 'image/astrology assests/DIRECT ADMISSION/REVIEWS(direct admission)',
     'count' => 6,
 ])

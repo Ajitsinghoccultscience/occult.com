@@ -34,7 +34,7 @@
 
 @php $faqId = 'faq-' . uniqid(); @endphp
 
-<section class="w-full section-spacing bg-white">
+<section class="w-full section-spacing bg-white mb-10">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         {{-- Heading --}}
@@ -43,7 +43,7 @@
         </div>
 
         {{-- FAQ Accordion --}}
-        <div class="max-w-[860px] mx-auto flex flex-col gap-3" id="{{ $faqId }}">
+        <div class=" mx-auto flex flex-col gap-3" id="{{ $faqId }}">
             @foreach($faqs as $i => $faq)
             <div class="border border-neutral-200 rounded-2xl overflow-hidden shadow-sm" data-faq-item>
 

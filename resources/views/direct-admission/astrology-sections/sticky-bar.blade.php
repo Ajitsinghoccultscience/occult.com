@@ -19,7 +19,7 @@
      DESKTOP: full-width white sticky bar
 ═══════════════════════════════════════ --}}
 <div class="hidden md:block fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-[0_-4px_24px_rgba(0,0,0,0.1)]">
-    <div class="max-w-[1340px] mx-auto section-px py-3 flex items-center gap-5">
+    <div class="max-w-335 mx-auto section-px py-3 flex items-center gap-5">
 
         {{-- Thumbnail --}}
         <img src="{{ $img }}" alt="{{ $courseName }}"
@@ -68,6 +68,27 @@
                 {{ $ctaLabel }}
             </a>
         </div>
+    </div>
+
+    {{-- Stats row — lg+ only --}}
+    @php
+        $stickyStats = [
+            ['icon' => 'image/astrology assests/DIRECT ADMISSION/icons hero sec/trained students.svg', 'value' => '97000+',       'label' => 'Students Trained'],
+            ['icon' => 'image/astrology assests/DIRECT ADMISSION/icons hero sec/reviws.svg',           'value' => '10K Reviews',   'label' => '(4.5/5)'],
+            ['icon' => 'image/astrology assests/DIRECT ADMISSION/icons hero sec/iso certified.svg',    'value' => 'ISO Certified', 'label' => 'Institute'],
+        ];
+    @endphp
+    <div class="hidden lg:flex max-w-335 mx-auto section-px pb-2 items-center divide-x divide-neutral-100">
+        @foreach($stickyStats as $s)
+        <div class="flex-1 flex items-center justify-center gap-2 py-1.5">
+            <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $s['icon'])))) }}"
+                 alt="" aria-hidden="true"
+                 class="w-5 h-5 object-contain shrink-0"
+                 style="filter:brightness(0);">
+            <span class="text-neutral-800 font-bold text-sm leading-tight">{{ $s['value'] }}</span>
+            <span class="text-neutral-500 text-xs leading-tight">{{ $s['label'] }}</span>
+        </div>
+        @endforeach
     </div>
 </div>
 

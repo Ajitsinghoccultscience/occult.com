@@ -1,33 +1,39 @@
 @props([
-    'title'    => 'Your Journey with All India Institute of Occult Science',
+    'title'    => 'Your journey with us from first class to an expert 
+',
     'subtitle' => 'From first step to confident expert',
     'steps'    => [
         [
             'label'       => 'Registration',
-            'description' => 'Start your journey with a simple enrollment process. Get instant access to course materials, live session details, and your learning dashboard after registration.',
+            'description' => 'Enroll easily and get instant access to course materials, live session details, and your learning dashboard.',
         ],
         [
             'label'       => 'Classes',
-            'description' => 'Attend interactive live classes designed to simplify astrology concepts step by step. Learn through practical examples, charts, and real-life case studies.',
+            'description' => 'Join live classes with practical examples, charts, and real-life case studies.
+',
         ],
         [
             'label'       => 'Exam',
-            'description' => 'Test your knowledge with assessments and practical evaluations. Build confidence by applying what you\'ve learned in real astrology scenarios.',
+            'description' => 'Test your skills and build confidence with practical  assessments.
+',
         ],
         [
             'label'       => 'Certification',
-            'description' => 'Receive an industry-recognized certification after successful completion of the program. Showcase your expertise and build trust with future clients.',
+            'description' => 'Earn a recognized certificate and build trust with future clients.
+
+',
         ],
         [
             'label'       => 'Personal Branding',
-            'description' => 'Learn how to grow your presence as an astrologer on social media and online platforms. Build authority, attract clients, and create your unique identity.',
+            'description' => 'Grow your online presence, build authority, and attract clients as an Practitioners.',
         ],
         [
             'label'       => 'Placement',
-            'description' => 'Get career guidance, consultation opportunities, and support to start your professional astrology journey with confidence.',
+            'description' => 'Get career guidance and support to start your  journey confidently.',
         ],
     ],
-    'footer' => 'Your connection with us does not end after the course. If you ever face doubts or need guidance– even years later– you can contact us and we will connect you with the right faculty.',
+    'footer' => 'Your connection with us does not end after the course.If you ever face doubts or need guidance- even years later- you can contact us and we will connect you with the right faculty..
+',
 ])
 
 <section class="w-full section-spacing bg-white">
