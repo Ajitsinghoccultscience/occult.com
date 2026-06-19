@@ -34,7 +34,7 @@
 
         {{-- Right: CTA button --}}
         <a href="{{ $ctaHref }}"
-           class="shrink-0 inline-flex items-center justify-center font-bold text-white text-xs sm:text-sm px-4 sm:px-8 py-2.5 sm:py-3 rounded-xl hover:opacity-90 active:scale-95 transition-all whitespace-nowrap"
+           class="shrink-0 inline-flex items-center justify-center font-bold text-white text-xs sm:text-sm px-4 sm:px-8 py-4 sm:py-5 rounded-xl hover:opacity-90 active:scale-95 transition-all whitespace-nowrap"
            style="background-color:#ff9700;box-shadow:0 0 18px rgba(255,151,0,0.5),0 4px 12px rgba(0,0,0,0.1);">
             Register Now
         </a>

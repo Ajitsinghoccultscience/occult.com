@@ -44,45 +44,45 @@
             <div>
                 <ul class="space-y-3 mb-6">
                     @foreach($bullets as $bullet)
-                        <li class="flex items-start gap-3 text-neutral-b text-sm md:text-base">
+                        <li class="flex items-start gap-3 text-black text-sm md:text-base">
                             <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full border-2 border-[#ff9700] flex items-center justify-center">
                                 <svg class="w-3 h-3 text-[#ff9700]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                                 </svg>
                             </span>
-                            <span>{{ $bullet }}</span>
+                            <span class="text-black">{{ $bullet }}</span>
                         </li>
                     @endforeach
                 </ul>
 
                 {{-- Stat blocks --}}
-                <div class="flex flex-wrap items-start gap-6 md:gap-10">
+                <div class="flex flex-wrap items-center justify-between sm:justify-start gap-6 md:gap-8 lg:ml-3">
 
                     {{-- Instagram --}}
                     <div class="flex flex-col">
                         <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $instaIcon)))) }}"
-                             alt="Instagram" class="w-9 h-9 object-contain mb-2">
+                             alt="Instagram" class="w-7 h-7 object-contain mb-2">
                         <span class="text-base md:text-lg font-bold text-neutral-b leading-none">52,000+</span>
-                        <span class="text-xs text-neutral-b/60 mt-0.5">Instagram Followers</span>
+                        <span class="text-[10px] sm:text-xs text-center text-black mt-0.5">Instagram Followers</span>
                     </div>
 
                     {{-- YouTube --}}
                     <div class="flex flex-col">
                         <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $ytIcon)))) }}"
-                             alt="YouTube" class="w-9 h-9 object-contain mb-2">
+                             alt="YouTube" class="w-7 h-7 object-contain mb-2">
                         <span class="text-base md:text-lg font-bold text-neutral-b leading-none">15,400+</span>
-                        <span class="text-xs text-neutral-b/60 mt-0.5">Youtube Followers</span>
+                        <span class=" text-[10px] sm:text-xs text-black mt-0.5">Youtube Followers</span>
                     </div>
 
                     {{-- Certified --}}
                     <div class="flex flex-col">
-                        <span class="w-9 h-9 rounded-lg flex items-center justify-center mb-2" style="background-color:#16a34a;">
+                        <span class="w-7 h-7 rounded-lg flex items-center justify-center mb-2" style="background-color:#16a34a;">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.2 14.3-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4-6 6z"/>
                             </svg>
                         </span>
                         <span class="text-base md:text-lg font-bold text-neutral-b leading-none">2400+</span>
-                        <span class="text-xs text-neutral-b/60 mt-0.5">Certified Students</span>
+                        <span class="text-[10px] sm:text-xs text-black mt-0.5">Certified Students</span>
                     </div>
 
                 </div>

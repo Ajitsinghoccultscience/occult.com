@@ -54,17 +54,17 @@
                     {{-- Bullets --}}
                     <ul class="inline-block text-left space-y-2 mb-7 md:mb-8">
 
-
-                      <div class="md:hidden flex items-center gap-3">
+                        <!-- for mobile view -->
+                      <div class="md:hidden flex items-center gap-2">
                             {{-- Avatars --}}
                             <div class="flex items-center">
                                 @foreach($avatars as $av)
                                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $av)))) }}"
                                      alt="" aria-hidden="true"
-                                     class="w-9 h-9 rounded-full object-cover object-top border-2 border-white -ml-2 first:ml-0">
+                                     class="w-7 h-7 rounded-full object-cover object-top border-2 border-white -ml-2 first:ml-0">
                                 @endforeach
-                                <span class="w-9 h-9 rounded-full -ml-2 flex flex-col items-center justify-center text-white text-[8px] font-bold leading-none border-2 border-white" style="background-color:#ff9700;">
-                                    20K+<span class="text-[6px] font-medium">Students</span>
+                                <span class="w-7 h-7 rounded-full -ml-2 flex flex-col items-center justify-center text-white text-[6px] font-bold leading-none border-2 border-white" style="background-color:#ff9700;">
+                                    20K+<span class="text-[6px]">Students</span>
                                 </span>
                             </div>
                             {{-- Stars --}}
@@ -74,18 +74,18 @@
                                     <svg class="w-4 h-4 text-[#ff9700]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.49 8.719c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>
                                     @endfor
                                 </div>
-                                <p class="text-xs text-neutral-b font-medium mt-0.5">10k+ reviews (4.9 of 5)</p>
+                                <p class="text-[10px] text-neutral-b  mt-0.5">10k+ reviews (4.9 of 5)</p>
                             </div>
                         </div>
 
                         @foreach($bullets as $b)
-                        <li class="flex items-start gap-2 text-neutral-b text-xs md:text-base">
+                        <li class="flex items-left  sm:items-start gap-2 text-neutral-b text-xs md:text-base">
                             <span class="shrink-0 mt-0.5 w-7 h-7 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                     {!! $icons[$b['icon']] !!}
                                 </svg>
                             </span>
-                            <span class="leading-snug text-[14px] sm:text-lg mt-2 sm:mt-1">{!! $b['html'] !!}</span>
+                            <span class="leading-snug text-[11px] sm:text-lg mt-2 sm:mt-1">{!! $b['html'] !!}</span>
                         </li>
                         @endforeach
                     </ul>
