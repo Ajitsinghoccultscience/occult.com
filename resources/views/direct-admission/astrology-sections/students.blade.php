@@ -1,18 +1,18 @@
 @php
     $videos = [
-        ['name' => 'Sahil parate', 'date' => '18-02-2026', 'video' => '8_cNdDif9ys'],
-        ['name' => 'Kunj Bihari Sharma', 'date' => '18-02-2026', 'video' => 'RI637QVE648'],
-        ['name' => 'Devanshu Sharma', 'date' => '18-02-2026', 'video' => '9JlMu72MWhE'],
-        ['name' => 'Suraj Kumar', 'date' => '18-02-2026', 'video' => 'GW4WpHXgb_4'],
-        ['name' => 'Manjeet Kumar', 'date' => '18-02-2026', 'video' => 'mEcnaSkIVfY'],
-        ['name' => 'Jigyasu Tiwari', 'date' => '18-02-2026', 'video' => 'mdykrN_t0zs'],
+        ['name' => 'Somya Shukla', 'date' => '18-02-2026', 'video' => 'https://youtu.be/zwUe8SgZGmg?si=tOxxzRA-C2Ql0GEc'],
+        ['name' => 'Manisha Rani', 'date' => '18-02-2026', 'video' => 'https://youtu.be/n9B8nT7ldJQ?si=r4Bjq7hmMxX3V8ou'],
+        ['name' => 'Manjit Sandhu', 'date' => '18-02-2026', 'video' => 'https://youtu.be/M_Gbf9D-5Vc?si=vepIHpMN2a1D3gNo'],
+        ['name' => 'Arati Mishra', 'date' => '18-02-2026', 'video' => 'https://youtu.be/0DpttQyjszI?si=7dcXTcxAQZSERu24'],
+        ['name' => 'Dr Geet S Thakkar', 'date' => '18-02-2026', 'video' => 'https://youtu.be/wqwuZUQ6elg?si=J2YkRo1b6rWwqjly'],
+        ['name' => 'Sidhart Mahajan', 'date' => '18-02-2026', 'video' => 'https://youtu.be/cV_0iReFvzA?si=IdQ4Q348GleP0zgT'],
     ];
 @endphp
 
 {{-- ═══════════════════════════════════
      VIDEO TESTIMONIALS (YouTube — click to play inline)
 ════════════════════════════════════ --}}
-<section class="w-full py-12 md:py-16">
+<section class="w-full py-2 md:py-8">
     <div class="max-w-[1340px] mx-auto section-px">
 
         {{-- Heading --}}
@@ -26,13 +26,14 @@
         <div class="flex gap-5 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 [&::-webkit-scrollbar]:hidden"
              id="vt-slider">
             @foreach($videos as $i => $v)
+                @php $videoId = basename(parse_url($v['video'], PHP_URL_PATH)); @endphp
                 <div class="vt-card snap-center shrink-0 w-[72%] sm:w-[calc(50%-0.625rem)] lg:w-[calc(25%-1.125rem)] relative rounded-xl overflow-hidden aspect-3/4 bg-black shadow-md"
                      data-index="{{ $i }}">
 
                     <div class="yt-facade absolute inset-0 w-full h-full cursor-pointer group"
-                         data-vid="{{ $v['video'] }}">
+                         data-vid="{{ $videoId }}">
 
-                        <img src="https://i.ytimg.com/vi/{{ $v['video'] }}/hqdefault.jpg"
+                        <img src="https://i.ytimg.com/vi/{{ $videoId }}/hqdefault.jpg"
                              alt="Play testimonial from {{ $v['name'] }}"
                              class="w-full h-full object-cover"
                              loading="lazy">
@@ -46,10 +47,10 @@
                             </svg>
                         </span>
 
-                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white pointer-events-none">
+                        <!-- <div class="absolute bottom-0 left-0 right-0 p-4 text-white pointer-events-none">
                             <p class="text-sm font-semibold leading-tight">{{ $v['name'] }}</p>
                             <p class="text-xs text-white/80">Attend on {{ $v['date'] }}</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             @endforeach

@@ -38,7 +38,7 @@
         : '';
 @endphp
 
-<div class="bg-white py-2 px-2 md:px-5 lg:px-8">
+<div class="bg-white py-2 md:py-8 px-2 md:px-5 lg:px-8">
 <section class="relative text-white rounded-2xl overflow-hidden w-full max-w-[1400px] mx-auto"
          style="background-color:#9E1212;background-image:radial-gradient(circle at 30% 20%, #C01818 0%, #9E1212 45%, #7A0E0E 100%);">
 
@@ -105,13 +105,13 @@
             </ul>
 
             {{-- Stats --}}
-            <div class="flex items-stretch divide-x  divide-black/20  bg-[#FAF4E8] rounded-xl overflow-hidden">
+            <div class="flex items-stretch divide-x  divide-black/20  bg-[#F9E7C5] rounded-xl overflow-hidden">
                 @foreach($stats as $stat)
                 <div class="flex-1 flex flex-col items-center justify-center gap-0.5 py-3 px-2 text-center">
                     <img src="{{ $statIconUrl($stat['icon']) }}" alt="" aria-hidden="true" class="w-5 h-5 object-contain mb-1" style="filter:brightness(0);">
 
-                    <span class="text-[#161414] font-bold text-xs leading-tight">{{ $stat['value'] }}</span>
-                    <span class="text-[#161414] text-[10px] leading-tight">{{ $stat['label'] }}</span>
+                    <span class="text-[#141313] font-bold text-xs leading-tight">{{ $stat['value'] }}</span>
+                    <span class="text-[#141313] text-[12px] font-semibold leading-tight">{{ $stat['label'] }}</span>
                 </div>
                 @endforeach
             </div>
@@ -128,11 +128,11 @@
 
                 <h1 class="text-2xl xl:text-[1.9rem] font-bold text-white tracking-wide leading-tight">{{ $title }}</h1>
 
-                <ul class="space-y-2.5">
+                <ul class="space-y-2.5 ml-0">
                     @foreach($bullets as $bullet)
                     @continue(str_contains($bullet, 'Bonuses including Worksheets'))
                     <li class="flex items-start gap-3 text-white">
-                        <span class="w-6 h-6 rounded-full bg-white/20 border border-white/50 flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="w-6 h-6 rounded-full bg-white/20 border border-white/50 flex items-center justify-center shrink-0 mt-0.5 ml-0">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                             </svg>
@@ -150,7 +150,7 @@
 
                         <div class="flex flex-col">
                             <span class="text-[#161414] font-bold text-sm leading-tight">{{ $stat['value'] }}</span>
-                            <span class="text-[#161414] text-xs leading-tight">{{ $stat['label'] }}</span>
+                            <span class="text-[#161414] text-xs font-semibold  leading-tight">{{ $stat['label'] }}</span>
                         </div>
                     </div>
                     @endforeach
@@ -159,16 +159,16 @@
                 {{-- CTA + Price row --}}
                 <div class="flex items-center gap-5 mt-3">
                     <a href="{{ $ctaHref }}"
-                       class="font-extrabold text-neutral-900 text-base px-8 py-3.5 rounded-full hover:opacity-90 active:scale-95 transition whitespace-nowrap"
+                       class="font-bold text-neutral-900 text-base px-8 py-3.5 rounded-full hover:opacity-90 active:scale-95 transition whitespace-nowrap"
                        style="background-color:#f5ede0;">
                         REGISTER NOW
                     </a>
                     <div class="leading-tight">
                         <div class="flex items-baseline gap-2">
-                            <span class="text-white font-extrabold text-xl">₹96,000</span>
-                            <span class="text-white/60 line-through text-sm">₹1,92,000</span>
+                            <span class="text-[#FAFAFA] font-extrabold text-xl">₹96,000</span>
+                            <span class="text-[#FAFAFA] line-through text-sm">₹1,92,000</span>
                         </div>
-                        <p class="text-white/70 text-xs font-semibold tracking-wide">LIMITED TIME OFFER</p>
+                        <p class="text-[#FAFAFA] text-xs font-semibold tracking-wide">LIMITED TIME OFFER</p>
                     </div>
                 </div>
 

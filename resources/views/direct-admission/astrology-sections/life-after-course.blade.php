@@ -11,7 +11,7 @@
     ],
 ])
 
-<section class="w-full section-spacing bg-white">
+<section class="w-full  bg-white py-2 md:py-8">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         <div class="border border-neutral-200 rounded-2xl p-6 md:p-10 shadow-sm">

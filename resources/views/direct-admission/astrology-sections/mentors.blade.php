@@ -152,7 +152,7 @@
     })->values()->all();
 @endphp
 
-<section class="w-full mt-8 md:mt-12 pt-6 md:pt-8 pb-12 md:pb-16" style="background-color:#FCEDEC;">
+<section class="w-full mt-8 md:mt-12 pt-6 md:pt-8 pb-12 md:pb-16 py-2 md:py-8" style="background-color:#FCEDEC;">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         {{-- Heading --}}

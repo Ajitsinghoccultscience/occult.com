@@ -1,7 +1,7 @@
 @props([
     'title'    => 'Your journey with us from first class to an expert 
 ',
-    'subtitle' => 'From first step to confident expert',
+
     'steps'    => [
         [
             'label'       => 'Registration',
@@ -36,13 +36,13 @@
 ',
 ])
 
-<section class="w-full section-spacing bg-white">
+<section class="w-full section-spacing bg-[#FFEEEE] py-2 md:py-8">
     <div class="max-w-[1100px] mx-auto section-px">
 
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-14">
             <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] mb-2">{{ $title }}</h2>
-            <p class="text-sm text-neutral-e">{{ $subtitle }}</p>
+          
         </div>
 
         {{-- Timeline --}}
@@ -66,8 +66,8 @@
                     </div>
                     {{-- Card --}}
                     <div class="flex-1 border border-neutral-200 rounded-2xl p-4 shadow-sm bg-white">
-                        <span class="inline-block border border-neutral-300 rounded-full text-xs font-semibold text-neutral-b px-3 py-1 mb-2">{{ $step['label'] }}</span>
-                        <p class="text-xs text-neutral-e leading-relaxed">{{ $step['description'] }}</p>
+                        <span class="inline-block border border-[#8B0000] rounded-full text-xs sm:text-xl font-semibold text-neutral-b px-3 py-1 mb-2">{{ $step['label'] }}</span>
+                        <p class="text-xs text-[#000000] leading-relaxed">{{ $step['description'] }}</p>
                     </div>
                 </div>
 
@@ -84,16 +84,16 @@
                         </div>
                         <div class="w-[calc(50%-28px)] pl-6">
                             <div class="border border-neutral-200 rounded-2xl p-5 shadow-sm bg-white">
-                                <span class="inline-block border border-neutral-300 rounded-full text-xs font-semibold text-neutral-b px-3 py-1 mb-3">{{ $step['label'] }}</span>
-                                <p class="text-sm text-neutral-e leading-relaxed">{{ $step['description'] }}</p>
+                                <span class="inline-block border border-[#8B0000] rounded-full text-xl font-semibold text-neutral-b px-3 py-1 mb-3">{{ $step['label'] }}</span>
+                                <p class="text-sm text-[#000000] leading-relaxed">{{ $step['description'] }}</p>
                             </div>
                         </div>
                     @else
                         {{-- Even: empty LEFT, number CENTER, card RIGHT --}}
                         <div class="w-[calc(50%-28px)] flex justify-end pr-6">
                             <div class="border border-neutral-200 rounded-2xl p-5 shadow-sm bg-white w-full">
-                                <span class="inline-block border border-neutral-300 rounded-full text-xs font-semibold text-neutral-b px-3 py-1 mb-3">{{ $step['label'] }}</span>
-                                <p class="text-sm text-neutral-e leading-relaxed">{{ $step['description'] }}</p>
+                                <span class="inline-block border border-[#8B0000] rounded-full text-xl font-semibold text-neutral-b px-3 py-1 mb-3">{{ $step['label'] }}</span>
+                                <p class="text-sm text-[#000000] leading-relaxed">{{ $step['description'] }}</p>
                             </div>
                         </div>
                         <div class="shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md z-10 mx-auto" style="background-color:#8B0000;">
@@ -110,8 +110,8 @@
         </div>
 
         {{-- Footer note --}}
-        <div class="mt-10 border border-neutral-200 rounded-2xl p-5 bg-neutral-50">
-            <p class="text-xs text-neutral-e leading-relaxed">{{ $footer }}</p>
+        <div class="mt-10 border border-[#8B0000] rounded-2xl p-5 bg-[#FFFFFF]">
+            <p class="text-xs text-[#444444] leading-relaxed">{{ $footer }}</p>
         </div>
 
     </div>

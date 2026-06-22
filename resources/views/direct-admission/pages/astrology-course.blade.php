@@ -14,10 +14,11 @@
     @include('direct-admission.astrology-sections.featured-media')
     @include('direct-admission.astrology-sections.about-institute')
     @include('direct-admission.astrology-sections.iso-certified', ['ctaHref' => 'https://www.occultscience.in/payment-page/'])
+            @include('direct-admission.astrology-sections.mentors')
     {{-- @include('direct-admission.astrology-sections.curriculum') --}}
     @include('direct-admission.astrology-sections.certification', ['ctaHref' => 'https://www.occultscience.in/payment-page/'])
     <!-- @include('direct-admission.astrology-sections.upcoming-batches', ['ctaHref' => 'https://www.occultscience.in/payment-page/']) -->
-    @include('direct-admission.astrology-sections.mentors')
+
     <!-- @include('direct-admission.astrology-sections.life-after-course') -->
 <!-- astrology journey -->
   @include('direct-admission.astrology-sections.astrology-journey')

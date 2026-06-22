@@ -15,7 +15,7 @@
     $certSrc = asset(implode('/', array_map('rawurlencode', explode('/', $certImage))));
 @endphp
 
-<section class="w-full py-10 md:py-14 bg-white">
+<section class="w-full   bg-white py-2 md:py-8">
     <div class="max-w-335 mx-auto section-px">
 
         <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden">

@@ -2,23 +2,25 @@
     'title'    => 'Who is this Course for',
     'audience' => [
         [
-            'title'       => 'Curious Beginners',
-            'description' => 'Those who want to build a full-time career in astrology - starting consultations, growing a client base, and becoming a recognized name in the industry.
+            'title'       => 'Aspiring Professionals',
+            'description' => 'Those who want to build a full-time career in occult science - starting consultations, growing a client base, and becoming a recognized name in the industry.
 ',
         ],
         [
             'title'       => 'Problem-Solution Seekers',
-            'description' => 'People facing real-life problems who seek practical guidance and remedies (upay) through astrology.',
+            'description' => 'Those facing real-life challenges in career, relationships, or health  and looking for practical Vedic guidance and remedies.
+',
         ],
         [
             'title'       => 'Learning-Oriented Audience',
-            'description' => 'These are individuals who want to learn astrology seriously, either for personal growth or as a career option',
+            'description' => 'Those who want to deepen their vedic understanding for self-awareness, better decisions, and a more meaningful life.',
         ],
+        
        
     ],
 ])
 
-<section class="w-full section-spacing bg-white">
+<section class="w-full section-spacing bg-white py-2 md:py-8">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         {{-- Heading --}}

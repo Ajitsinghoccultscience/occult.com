@@ -1,33 +1,35 @@
+<!-- C:\Users\pandat\Desktop\Office\occult.com\occult.com\public\images\About us (Bivs)\live class.webp -->
 @props([
     'title' => 'What Makes All India Institute of Occult Science  The Best Choice',
     'features' => [
+   
         [
-            'icon'  => 'LIVE class..svg',
+            'icon'  => 'live class.webp',
             'title' => 'Live Classes + Small Batches',
             'desc'  => 'Attend live, two-way interactive classes with a maximum of 15 students per batch, so you get real attention from the real mentor.',
         ],
         [
-            'icon'  => 'trusted by thousands 1.svg',
+            'icon'  => 'featured on.svg',
             'title' => 'Featured on National Media',
             'desc'  => 'Recognized by Zee News, Aaj Tak, Times Now, and other leading platforms built on real trust of voices across the country.',
         ],
         [
-            'icon'  => 'experienced faculty.svg',
+            'icon'  => 'notes.svg',
             'title' => 'Notes Sourced from Vedas & Shastras',
             'desc'  => 'Every note is built from real Vedic texts, backed by Gurudev Shrie Kashyap\'s 24 years of research.',
         ],
         [
-            'icon'  => 'lifetime learning 1.svg',
+            'icon'  => 'learning flexibility.svg',
             'title' => 'Ultimate Learning Flexibility',
             'desc'  => 'Switch your batch timing or faculty anytime; your learning never has to stop or be waited for.',
         ],
         [
-            'icon'  => 'recordings.svg',
+            'icon'  => 'doubt support.svg',
             'title' => 'Lifetime Doubt Support',
             'desc'  => 'Even years after your course, you can still join doubt sessions, practicals, and refresher classes — our support doesn\'t end with your certificate.',
         ],
         [
-            'icon'  => 'small batches 1.svg',
+            'icon'  => 'placement suppot.svg',
             'title' => 'Direct Platform Placement Support',
             'desc'  => 'Get listed directly as a consultant on our own platform; we give you your first earning opportunity before you even start looking for clients.',
         ],
@@ -35,12 +37,12 @@
 ])
 
 @php
-    $iconBase = 'image/astrology assests/DIRECT ADMISSION/Why choose astrology icon';
+    $iconBase = 'images/About us (Bivs)';
     $iconUrl  = fn($file) => asset(implode('/', array_map('rawurlencode', explode('/', $iconBase . '/' . $file))));
     $sliderId = 'wm-' . uniqid();
 @endphp
 
-<section class="w-full py-10 md:py-14 bg-white">
+<section class="w-full py-2 md:py-8 bg-white">
     <div class="max-w-335 mx-auto section-px">
 
         {{-- Heading --}}
@@ -56,7 +58,7 @@
                 <div class="shrink-0 w-20 h-20 rounded-md flex items-center justify-center" style="background-color:#8B0000;">
                     <img src="{{ $iconUrl($f['icon']) }}"
                          alt="{{ $f['title'] }}"
-                         class="w-7 h-7 object-contain"
+                         class="w-15 h-10 object-contain"
                          style="filter:brightness(0) invert(1);"
                          loading="lazy">
                 </div>

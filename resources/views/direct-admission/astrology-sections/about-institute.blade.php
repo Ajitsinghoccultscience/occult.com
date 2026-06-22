@@ -28,11 +28,11 @@
     ],
 ])
 
-<section class="w-full section-spacing bg-white">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
+<section class="w-full   ">
+    <div class="max-w-[1400px]   mx-auto section-px bg-[#FFEEEE] py-4 md:py-8 rounded-md">
 
         {{-- Mobile order: heading → image → badges/bullets. Desktop: text left, image right. --}}
-        <div class="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-x-8 md:gap-x-12 gap-y-6 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-x-8 md:gap-x-12 items-center">
 
             {{-- Heading --}}
             <div class="text-center md:text-left md:col-start-1 md:row-start-1">

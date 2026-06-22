@@ -1,5 +1,5 @@
 @props([
-    'title'         => 'Start Your Astrology Journey Today',
+    'title'         => 'Start Your Journey Today',
     'subtitle'      => 'Grow Personally & Financially',
     'chartImage'    => '/images/direct-admission/graph.png',
     'ctaHref'       => 'https://www.occultscience.in/payment-page/',
@@ -24,7 +24,7 @@
 @endphp
 <!-- C:\Users\pandat\Desktop\Office\occult.com\occult.com\public\images\direct-admission\graph.png -->
 
-<section class="w-full py-10 md:py-14 bg-white">
+<section class="w-full py-2 md:py-8 bg-white">
     <div class="max-w-[1400px] mx-auto section-px">
 
         {{-- Section heading — centered, all devices --}}
