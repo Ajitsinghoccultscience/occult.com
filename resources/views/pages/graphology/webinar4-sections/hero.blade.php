@@ -55,7 +55,7 @@
                     <ul class="inline-block text-left space-y-2 mb-7 md:mb-8">
 
                         <!-- for mobile view -->
-                      <div class="md:hidden flex items-center gap-2">
+                      <div class="md:hidden flex items-center justify-center mx-auto gap-2">
                             {{-- Avatars --}}
                             <div class="flex items-center">
                                 @foreach($avatars as $av)
@@ -81,11 +81,11 @@
                         @foreach($bullets as $b)
                         <li class="flex items-start  sm:items-start gap-2 text-neutral-b text-xs md:text-base ">
                             <span class="shrink-0 mt-0.5 w-7 h-7 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                     {!! $icons[$b['icon']] !!}
                                 </svg>
                             </span>
-                            <span class="leading-snug text-[14px]  sm:text-lg mt-2 sm:mt-1">{!! $b['html'] !!}</span>
+                            <span class="leading-tight text-[14px]  sm:text-lg mt-1.5 sm:mt-1">{!! $b['html'] !!}</span>
                         </li>
                         @endforeach
                     </ul>

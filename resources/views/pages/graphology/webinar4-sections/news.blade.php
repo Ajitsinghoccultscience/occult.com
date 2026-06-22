@@ -16,7 +16,7 @@
      NEWS / AS-SEEN-IN STRIP
 ════════════════════════════════════ --}}
 <section class="max-w-[1290px] mx-auto my-2  ">
-    <div class="section-px overflow-hidden rounded-lg shadow-lg py-3 sm:py-4  mx-3">
+    <div class="section-px overflow-hidden rounded-md shadow-md py-3 sm:py-4  mx-4 md:mx-3">
 
     <div class="flex w-max animate-marquee items-center gap-8 sm:gap-12 md:gap-16">
 
