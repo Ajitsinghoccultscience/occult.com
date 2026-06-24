@@ -25,7 +25,7 @@
     ],
 ])
 
-<section class="w-full section-spacing bg-white">
+<section class="w-full section-spacing bg-white py-2 md:py-8">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
 
         {{-- Heading --}}

@@ -1,41 +1,82 @@
 @props([
     'image'       => 'image/astrology assests/DIRECT ADMISSION/certificate (AIIOS).webp',
-    'title'       => 'Earn Certifications & Recognition',
-    'description' => 'Successfully complete course to attain Advanced Certificate in Astrology from All India Institute of Occult Science',
+    'title'       => 'Certificate for Your Professional Growth',
+    'description' => 'Issued by an ISO-Certified & Government Recognised institute, built to open your income doors.',
     'bullets'     => [
-        'Get Recognized as a Certified Astrologer, not just a learner',
-        'Turn your knowledge into paid consultations and real income',
+        'Get placed directly as a consultant on our platform, your first earning opportunity is ready before you even start looking.',
+        'Run your own practice and charge for private consultations',
         'Build instant trust and credibility with clients',
-        'Become part of our alumni network and receive ongoing learning and growth support.',
+        'Join Occult institutes or wellness centres as a certified practitioner',
     ],
-    'ctaText' => 'Register Now',
+    'ctaText' => 'Apply Now',
     'ctaHref' => 'https://www.occultscience.in/payment-page/',
 ])
 
-<section class="w-full section-spacing bg-white">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
+@php
+    $certSrc = asset(implode('/', array_map('rawurlencode', explode('/', $image))));
+@endphp
 
-        <div class="border border-neutral-200 rounded-2xl p-6 md:p-10 shadow-sm">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+<section class="w-full py-2 md:py-8 bg-white">
+    <div class="max-w-335 mx-auto section-px">
 
-                {{-- LEFT: Certificate image --}}
-                <div class="flex justify-center">
-                    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $image)))) }}"
+        <div class="border border-neutral-200 rounded-2xl shadow-sm overflow-hidden">
+
+            {{-- ── MOBILE (< lg): title → description → image → bullets → button ── --}}
+            <div class="lg:hidden flex flex-col items-center gap-5 px-6 py-8 text-center">
+
+                <div>
+                    <h2 class="text-xl font-bold text-neutral-900 leading-snug mb-2">{{ $title }}</h2>
+                    <p class="text-sm text-neutral-500 leading-relaxed">{{ $description }}</p>
+                </div>
+
+                <img src="{{ $certSrc }}"
+                     alt="Certificate"
+                     class="w-full max-w-xs h-auto object-contain drop-shadow-lg rounded-lg"
+                     loading="lazy">
+
+                <ul class="flex flex-col gap-3 text-left w-full">
+                    @foreach($bullets as $bullet)
+                    <li class="flex items-start gap-3 text-sm text-neutral-700 leading-relaxed">
+                        <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#8B0000;">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </span>
+                        {{ $bullet }}
+                    </li>
+                    @endforeach
+                </ul>
+
+                <a href="{{ $ctaHref }}"
+                   class="inline-flex items-center justify-center font-bold text-white text-sm px-10 py-3 rounded-xl hover:opacity-90 active:scale-95 transition"
+                   style="background-color:#8B0000;">
+                    {{ $ctaText }}
+                </a>
+
+            </div>
+
+            {{-- ── DESKTOP (lg+): image left | content right ── --}}
+            <div class="hidden lg:grid grid-cols-2 items-stretch">
+
+                {{-- Certificate image panel --}}
+                <div class="flex items-center justify-center px-8 py-10 ">
+                    <img src="{{ $certSrc }}"
                          alt="Certificate"
-                         class="w-full max-w-[320px] md:max-w-[360px] h-auto object-contain drop-shadow-lg rounded-lg"
+                         class="w-full max-w-sm xl:max-w-md h-auto object-contain drop-shadow-lg rounded-lg"
                          loading="lazy">
                 </div>
 
-                {{-- RIGHT: Content --}}
-                <div class="flex flex-col gap-5">
+                {{-- Content --}}
+                <div class="flex flex-col justify-center gap-5 px-10 xl:px-14 py-10">
 
-                    <h2 class="text-heading font-bold text-neutral-b tracking-[0.9px] leading-snug">{{ $title }}</h2>
+                    <div>
+                        <h2 class="text-2xl xl:text-[1.9rem] font-bold text-neutral-900 leading-snug mb-2">{{ $title }}</h2>
+                        <p class="text-sm text-neutral-500 leading-relaxed">{{ $description }}</p>
+                    </div>
 
-                    <p class="text-sm text-neutral-e leading-relaxed">{{ $description }}</p>
-
-                    <ul class="space-y-3">
+                    <ul class="flex flex-col gap-3">
                         @foreach($bullets as $bullet)
-                        <li class="flex items-start gap-3 text-sm text-neutral-b">
+                        <li class="flex items-start gap-3 text-base text-neutral-700 leading-relaxed">
                             <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#8B0000;">
                                 <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
@@ -48,7 +89,7 @@
 
                     <div>
                         <a href="{{ $ctaHref }}"
-                           class="inline-flex items-center justify-center font-bold text-white text-base px-10 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
+                           class="inline-flex items-center justify-center font-bold text-white text-base px-10 py-3.5 rounded-xl hover:opacity-90 active:scale-95 transition"
                            style="background-color:#8B0000;">
                             {{ $ctaText }}
                         </a>
@@ -57,6 +98,7 @@
                 </div>
 
             </div>
+
         </div>
 
     </div>

@@ -1,60 +1,105 @@
 @props([
-    'badge'       => 'ISO Certified Institute',
-    'title'       => 'You are joining an Institute that follows global standards, not guesswork teaching',
-    'bullets'     => [
-        'ISO Certified Institute ensuring high quality education standards',
-        'Follows structured and globally recognized processes for learning',
-        'Trusted by 97K+ students for consistency, credibility & professional excellence',
+    'badge'     => 'ISO Certified Institute',
+    'title'     => 'Globally Valid Standard of Education',
+    'bullets'   => [
+        'Follows professional education standards',
+        'Structured learning with quality training',
+        'Trusted institute for certified occult education',
     ],
-    'ctaLabel'    => 'Register Now',
-    'ctaHref'     => 'https://www.occultscience.in/payment-page/',
-    'certImage'   => 'images/All India Institute of Occult Science - 21001_page-0001 1.png',
+    'ctaLabel'  => 'Register Now',
+    'ctaHref'   => 'https://www.occultscience.in/payment-page/',
+    'certImage' => 'images/All India Institute of Occult Science - 21001_page-0001 1.png',
 ])
 
-<section class="w-full section-spacing bg-white">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
+@php
+    $certSrc = asset(implode('/', array_map('rawurlencode', explode('/', $certImage))));
+@endphp
 
-        <div class="border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm bg-white">
-            <div class="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-7 md:gap-10 items-center">
+<section class="w-full   bg-white py-2 md:py-8">
+    <div class="max-w-335 mx-auto section-px">
 
-                {{-- Certificate image --}}
-                <div class="flex justify-center md:justify-start">
-                    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $certImage)))) }}"
-                         alt="ISO Certificate"
-                         class="w-[260px] md:w-[320px] object-contain drop-shadow-md"
-                         loading="lazy">
+        <div class="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden">
+
+            {{-- ── MOBILE layout (< md): badge → title → image → bullets → centered button ── --}}
+            <div class="md:hidden flex flex-col items-center gap-5 px-6 py-8 text-center">
+
+                <div>
+                    <p class="text-sm font-semibold mb-1.5" style="color:#8B0000;">{{ $badge }}</p>
+                    <h2 class="text-xl font-bold text-neutral-900 leading-tight">{{ $title }}</h2>
                 </div>
 
-                {{-- Content --}}
-                <div class="flex flex-col gap-4">
-                    <div>
-                        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#8B0000;">{{ $badge }}</p>
-                        <h2 class="text-subheading font-bold text-neutral-b leading-snug">{{ $title }}</h2>
-                    </div>
+                <img src="{{ $certSrc }}"
+                     alt="ISO 9001:2015 Certificate"
+                     class="w-44 object-contain drop-shadow"
+                     loading="lazy">
 
-                    <ul class="flex flex-col gap-2.5">
-                        @foreach($bullets as $bullet)
-                        <li class="flex items-start gap-3 text-sm text-neutral-b leading-relaxed">
-                            <span class="shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#8B0000;">
-                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </span>
-                            {{ $bullet }}
-                        </li>
-                        @endforeach
-                    </ul>
+                <ul class="flex flex-col gap-2.5 text-left w-full">
+                    @foreach($bullets as $bullet)
+                    <li class="flex items-center gap-3 text-sm text-neutral-700 leading-relaxed">
+                        <span class="shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#8B0000;">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </span>
+                        {{ $bullet }}
+                    </li>
+                    @endforeach
+                </ul>
 
-                    <div>
-                        <a href="{{ $ctaHref }}"
-                           class="inline-flex items-center gap-2 font-bold text-white text-sm px-8 py-3.5 rounded-xl transition-colors duration-200 hover:opacity-90"
-                           style="background-color:#8B0000;">
-                            {{ $ctaLabel }}
-                        </a>
-                    </div>
-                </div>
+                <a href="{{ $ctaHref }}"
+                   class="inline-flex items-center justify-center font-bold text-white text-sm px-10 py-3 rounded-xl hover:opacity-90 active:scale-95 transition"
+                   style="background-color:#8B0000;">
+                    {{ $ctaLabel }}
+                </a>
 
             </div>
+
+            {{-- ── DESKTOP layout (md+): image left | content right ── --}}
+            <div class="hidden md:block max-w-215 mx-auto">
+                <div class="grid grid-cols-[240px_1fr] items-center">
+
+                    {{-- Certificate image --}}
+                    <div class="flex items-center justify-center px-8 py-10 ">
+                        <img src="{{ $certSrc }}"
+                             alt="ISO 9001:2015 Certificate"
+                             class="w-full max-w-44 object-contain drop-shadow"
+                             loading="lazy">
+                    </div>
+
+                    {{-- Content --}}
+                    <div class="flex flex-col gap-4 px-10 py-10">
+
+                        <div>
+                            <p class="text-sm font-semibold mb-1.5" style="color:#8B0000;">{{ $badge }}</p>
+                            <h2 class="text-2xl lg:text-[1.75rem] font-bold text-neutral-900 leading-tight">{{ $title }}</h2>
+                        </div>
+
+                        <ul class="flex flex-col gap-3">
+                            @foreach($bullets as $bullet)
+                            <li class="flex items-center gap-3 text-base text-neutral-700 leading-relaxed">
+                                <span class="shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background-color:#8B0000;">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </span>
+                                {{ $bullet }}
+                            </li>
+                            @endforeach
+                        </ul>
+
+                        <div class="mt-1">
+                            <a href="{{ $ctaHref }}"
+                               class="inline-flex items-center justify-center font-bold text-white text-base px-10 py-3.5 rounded-xl hover:opacity-90 active:scale-95 transition"
+                               style="background-color:#8B0000;">
+                                {{ $ctaLabel }}
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
     </div>

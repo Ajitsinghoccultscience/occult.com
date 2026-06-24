@@ -9,7 +9,7 @@
      STICKY BAR
 ════════════════════════════════════ --}}
 <div id="sticky-bar"
-     class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.12)]">
+     class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.12)] py-2">
 
     <div class="max-w-335 mx-auto section-px py-2.5 flex items-center justify-between gap-3">
 
@@ -24,8 +24,8 @@
 
             {{-- Timer row --}}
             <div class="flex items-center gap-1 mt-0.5 flex-wrap">
-                <span class="text-[10px] sm:text-xs font-semibold text-neutral-500 whitespace-nowrap">Offer Ends In</span>
-                <span class="flex items-center text-xs sm:text-sm font-extrabold text-neutral-800 tabular-nums">
+                <span class="text-[14px] sm:text-xs font-semibold text-neutral-500 whitespace-nowrap">Offer Ends In</span>
+                <span class="flex items-center text-[14px] sm:text-sm font-extrabold text-neutral-800 tabular-nums">
                     <span id="sb-hours">10</span><span class="text-neutral-400 mx-px">:</span><span id="sb-minutes">00</span><span class="text-neutral-400 mx-px">:</span><span id="sb-seconds">00</span>
                 </span>
             </div>
@@ -34,7 +34,7 @@
 
         {{-- Right: CTA button --}}
         <a href="{{ $ctaHref }}"
-           class="shrink-0 inline-flex items-center justify-center font-bold text-white text-xs sm:text-sm px-4 sm:px-8 py-2.5 sm:py-3 rounded-xl hover:opacity-90 active:scale-95 transition-all whitespace-nowrap"
+           class="shrink-0 inline-flex items-center justify-center font-bold text-white text-[16px] sm:text-lg px-5 sm:px-8 py-3 sm:py-5 rounded-xl hover:opacity-90 active:scale-95 transition-all whitespace-nowrap"
            style="background-color:#ff9700;box-shadow:0 0 18px rgba(255,151,0,0.5),0 4px 12px rgba(0,0,0,0.1);">
             Register Now
         </a>

@@ -1,5 +1,5 @@
 @props([
-    'instituteName' => 'All India Institute Of Occult Science: (Providing Guidance since 2004 )',
+    'instituteName' => 'An Institute Build on Global Standard and 22 Years of Expertise',
     'since'         => 'Running Since March 2004',
     'gallery' => [
         ['src' => 'image/astrology assests/institute/Lamp-lighting-event.webp', 'caption' => 'Lamp Lighting Ceremony'],
@@ -19,18 +19,20 @@
         ['icon' => 'image/astrology assests/youtube.svg',            'value' => '15,400+', 'label' => 'Youtube Followers'],
     ],
     'bullets'       => [
-        'One of the best leading institutes in India known for its occult education and training for its students.',
-        'Globally recognized certification in Astrology, Numerology, Graphology, Vastu Shastra, Palmistry, Akashic records, Palmistry and Reiki.',
-        'Many trained students from here are working as personal consultants or in big astrology firms.',
-        'Best students support 24/7 with recorded classes available for our students.',
+        'Registered under the Government of NCT of Delhi and ISO certified.',
+        'Trusted by 97,000+ students for consistency, credibility, and professional excellence',
+        'Structured learning process with expert guidance',
+        'Globally recognized certification after course completion.',
+         '24/7 student support with full access to recorded classes',
+        'Students trained here are working as professional consultants across globe.',
     ],
 ])
 
-<section class="w-full section-spacing bg-white">
-    <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
+<section class="w-full   ">
+    <div class="max-w-[1400px]   mx-auto section-px bg-[#FFEEEE] py-4 md:py-8 rounded-md">
 
         {{-- Mobile order: heading → image → badges/bullets. Desktop: text left, image right. --}}
-        <div class="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-x-8 md:gap-x-12 gap-y-6 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-x-8 md:gap-x-12 items-center">
 
             {{-- Heading --}}
             <div class="text-center md:text-left md:col-start-1 md:row-start-1">
