@@ -4,12 +4,12 @@
     'title'  => 'Our Proud Achievers And Gold Medialist 
 ',
     'images' => [
-        'images\GOLD-MEDALIST-STUDENT\GM-1.webp',
-        'images\GOLD-MEDALIST-STUDENT\GM-2.webp',
-        'images\GOLD-MEDALIST-STUDENT\GM-3.webp',
-        'images\GOLD-MEDALIST-STUDENT\GM-4.webp',
-        'images\GOLD-MEDALIST-STUDENT\GM-5.webp',
-        'images\GOLD-MEDALIST-STUDENT\GM-6.webp',
+        'images/GOLD-MEDALIST-STUDENT/GM-1.webp',
+        'images/GOLD-MEDALIST-STUDENT/GM-2.webp',
+        'images/GOLD-MEDALIST-STUDENT/GM-3.webp',
+        'images/GOLD-MEDALIST-STUDENT/GM-4.webp',
+        'images/GOLD-MEDALIST-STUDENT/GM-5.webp',
+        'images/GOLD-MEDALIST-STUDENT/GM-6.webp',
     ],
 ])
 
