@@ -2,7 +2,7 @@
     'title' => 'See what our Attendees Experienced',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
     'videos' => [
-        ['youtube_id' => 'SMImDRJrCY0', 'name' => 'Alumni Review', 'attend_date' => ''],
+       
         ['youtube_id' => 'RI637QVE648', 'name' => 'Alumni Review', 'attend_date' => ''],
         ['youtube_id' => 'mEcnaSkIVfY', 'name' => 'Alumni Review', 'attend_date' => ''],
         ['youtube_id' => 'GW4WpHXgb_4', 'name' => 'Alumni Review', 'attend_date' => ''],
