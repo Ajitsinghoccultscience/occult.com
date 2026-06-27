@@ -163,13 +163,7 @@
                        style="background-color:#f5ede0;">
                         REGISTER NOW
                     </a>
-                    <div class="leading-tight">
-                        <div class="flex items-baseline gap-2">
-                            <span class="text-[#FAFAFA] font-extrabold text-xl">₹96,000</span>
-                            <span class="text-[#FAFAFA] line-through text-sm">₹1,92,000</span>
-                        </div>
-                        <p class="text-[#FAFAFA] text-xs font-semibold tracking-wide">LIMITED TIME OFFER</p>
-                    </div>
+              
                 </div>
 
             </div>

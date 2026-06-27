@@ -4,14 +4,15 @@
     'title'  => 'Our Proud Achievers And Gold Medialist 
 ',
     'images' => [
-        'images\GOLD MEDALIST STUDENT\GM 1.webp',
-        'images\GOLD MEDALIST STUDENT\GM 2.webp',
-        'images\GOLD MEDALIST STUDENT\GM 3.webp',
-        'images\GOLD MEDALIST STUDENT\GM 4.webp',
-        'images\GOLD MEDALIST STUDENT\GM 5.webp',
-        'images\GOLD MEDALIST STUDENT\GM 6.webp',
+        'images\GOLD-MEDALIST-STUDENT\GM-1.webp',
+        'images\GOLD-MEDALIST-STUDENT\GM-2.webp',
+        'images\GOLD-MEDALIST-STUDENT\GM-3.webp',
+        'images\GOLD-MEDALIST-STUDENT\GM-4.webp',
+        'images\GOLD-MEDALIST-STUDENT\GM-5.webp',
+        'images\GOLD-MEDALIST-STUDENT\GM-6.webp',
     ],
 ])
+
 
 <section class="w-full section-spacing bg-white py-2 md:py-8">
     <div class="max-w-[1200px] xl:max-w-[1400px] mx-auto section-px">
