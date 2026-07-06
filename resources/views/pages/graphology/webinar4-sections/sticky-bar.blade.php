@@ -1,7 +1,7 @@
 @php
     $ctaHref     = $ctaHref     ?? '/graphology-checkout';
-    $price       = $price       ?? '₹99';
-    $oldPrice    = $oldPrice    ?? '₹199';
+    $price       = $price       ?? 'Free';
+    $oldPrice    = $oldPrice    ?? '₹99';
     $offerEndsAt = $offerEndsAt ?? null;
 @endphp
 
