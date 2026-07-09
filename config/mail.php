@@ -49,6 +49,39 @@ return [
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
+        'secondary' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_SECONDARY_HOST', '127.0.0.1'),
+            'port' => env('MAIL_SECONDARY_PORT', 587),
+            'encryption' => env('MAIL_SECONDARY_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_SECONDARY_USERNAME'),
+            'password' => env('MAIL_SECONDARY_PASSWORD'),
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        ],
+
+        'hr' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HR_HOST', '127.0.0.1'),
+            'port' => env('MAIL_HR_PORT', 587),
+            'encryption' => env('MAIL_HR_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_HR_USERNAME'),
+            'password' => env('MAIL_HR_PASSWORD'),
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        ],
+
+        'admission' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_ADMISSION_HOST', '127.0.0.1'),
+            'port' => env('MAIL_ADMISSION_PORT', 587),
+            'encryption' => env('MAIL_ADMISSION_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_ADMISSION_USERNAME'),
+            'password' => env('MAIL_ADMISSION_PASSWORD'),
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],
@@ -113,6 +146,21 @@ return [
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
+    ],
+
+    'secondary_from' => [
+        'address' => env('MAIL_SECONDARY_FROM_ADDRESS', env('MAIL_FROM_ADDRESS', 'hello@example.com')),
+        'name' => env('MAIL_SECONDARY_FROM_NAME', env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel'))),
+    ],
+
+    'hr_from' => [
+        'address' => env('MAIL_HR_FROM_ADDRESS', env('MAIL_HR_USERNAME', env('MAIL_FROM_ADDRESS', 'hello@example.com'))),
+        'name' => env('MAIL_HR_FROM_NAME', env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel'))),
+    ],
+
+    'admission_from' => [
+        'address' => env('MAIL_ADMISSION_FROM_ADDRESS', env('MAIL_ADMISSION_USERNAME', env('MAIL_FROM_ADDRESS', 'hello@example.com'))),
+        'name' => env('MAIL_ADMISSION_FROM_NAME', env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel'))),
     ],
 
 ];

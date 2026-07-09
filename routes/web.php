@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\CertificateRequestController;
 use App\Http\Controllers\Admin\LeadsController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\WebinarController;
+use App\Http\Controllers\Admin\CertificateRequestController as AdminCertificateRequestController;
 use App\Http\Controllers\Admin\WhatsApp\TemplateController;
 use App\Http\Controllers\Admin\WhatsApp\CampaignController;
 use App\Http\Controllers\Admin\WhatsApp\QuickSendController;
@@ -42,6 +44,11 @@ Route::redirect('/graphology-thankyou', '/thankyou?product=graphology', 301);
 Route::get('/admission-2026', [PageController::class, 'astrologyCourse']);
 Route::redirect('/astrology-course', '/admission-2026', 301);
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
+Route::get('/certificate-request', [CertificateRequestController::class, 'create'])->name('certificate-request.create');
+Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
+Route::get('/certificate-request/{certificateRequest}/certificate', [CertificateRequestController::class, 'certificate'])
+    ->middleware('signed')
+    ->name('certificate-request.certificate');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     // Public: login
@@ -58,6 +65,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/leads', [LeadsController::class, 'index'])->name('leads');
         Route::patch('/leads/{enquiry}/status', [LeadsController::class, 'updateStatus'])->name('leads.status');
         Route::delete('/leads/{enquiry}', [LeadsController::class, 'destroy'])->name('leads.destroy');
+        Route::get('/certificate-requests', [AdminCertificateRequestController::class, 'index'])->name('certificate-requests.index');
+        Route::post('/certificate-requests/notes', [AdminCertificateRequestController::class, 'updateNotes'])->name('certificate-requests.notes.update');
+        Route::get('/certificate-requests/notes/{type}/preview', [AdminCertificateRequestController::class, 'previewNotes'])->name('certificate-requests.notes.preview');
+        Route::get('/certificate-requests/notes/{type}', [AdminCertificateRequestController::class, 'downloadNotes'])->name('certificate-requests.notes.download');
+        Route::patch('/certificate-requests/{certificateRequest}/date', [AdminCertificateRequestController::class, 'updateDate'])->name('certificate-requests.date');
+        Route::post('/certificate-requests/{certificateRequest}/send', [AdminCertificateRequestController::class, 'send'])->name('certificate-requests.send');
 
         // Counsellor self-serve landing-page links (multiple per counsellor)
         Route::get('/my-landing',                     [LandingPageController::class, 'index'])->name('landing.index');

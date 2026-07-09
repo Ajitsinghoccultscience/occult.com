@@ -207,6 +207,16 @@
             @endif
         </a>
 
+        <a href="{{ route('admin.certificate-requests.index') }}"
+           class="nav-link {{ request()->routeIs('admin.certificate-requests.*') ? 'active' : '' }}">
+            <span class="icon-wrap">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7 3h10a2 2 0 012 2v14l-3-2-3 2-3-2-3 2V5a2 2 0 012-2z"/>
+                </svg>
+            </span>
+            Review Submissions
+        </a>
+
         @if(session('admin_role') !== 'counsellor')
         <p class="nav-section">WhatsApp</p>
 
