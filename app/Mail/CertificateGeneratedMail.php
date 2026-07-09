@@ -15,6 +15,9 @@ class CertificateGeneratedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private const FROM_ADDRESS = 'admission@occultscience.in';
+    private const FROM_NAME = 'Occult Science HR';
+
     public function __construct(
         public CertificateRequest $certificateRequest,
         private string $certificateJpeg,
@@ -28,8 +31,8 @@ class CertificateGeneratedMail extends Mailable
     {
         return new Envelope(
             from: new Address(
-                config('mail.admission_from.address'),
-                config('mail.admission_from.name')
+                self::FROM_ADDRESS,
+                self::FROM_NAME
             ),
             subject: 'Your '.$this->certificateLabel.' Certificate'
         );

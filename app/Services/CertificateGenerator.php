@@ -127,7 +127,7 @@ class CertificateGenerator
     private function drawLine($image, string $text, string $font, float $fontSize, int $x, int $y, int $color, float $letterSpacing): void
     {
         if (! function_exists('imagettftext') || ! is_file($font)) {
-            imagestring($image, 5, $x, $y, $text, $color);
+            $this->drawScaledBuiltInText($image, $text, $fontSize, $x, $y, $color);
             return;
         }
 
@@ -168,13 +168,44 @@ class CertificateGenerator
     private function textWidth(string $text, string $font, float $fontSize, float $letterSpacing): float
     {
         if (! function_exists('imagettfbbox') || ! is_file($font)) {
-            return strlen($text) * imagefontwidth(5);
+            $scale = $this->builtInFontScale($fontSize);
+
+            return strlen($text) * imagefontwidth(5) * $scale;
         }
 
         $box = imagettfbbox($fontSize, 0, $font, $text);
         $width = abs(($box[2] ?? 0) - ($box[0] ?? 0));
 
         return $width + (max(0, mb_strlen($text) - 1) * $letterSpacing);
+    }
+
+    private function drawScaledBuiltInText($image, string $text, float $fontSize, int $x, int $y, int $color): void
+    {
+        $font = 5;
+        $sourceWidth = max(1, strlen($text) * imagefontwidth($font));
+        $sourceHeight = imagefontheight($font);
+        $scale = $this->builtInFontScale($fontSize);
+        $targetWidth = (int) round($sourceWidth * $scale);
+        $targetHeight = (int) round($sourceHeight * $scale);
+        $source = imagecreatetruecolor($sourceWidth, $sourceHeight);
+
+        imagealphablending($source, false);
+        imagesavealpha($source, true);
+
+        $transparent = imagecolorallocatealpha($source, 0, 0, 0, 127);
+        imagefill($source, 0, 0, $transparent);
+
+        $rgb = imagecolorsforindex($image, $color);
+        $sourceColor = imagecolorallocate($source, $rgb['red'], $rgb['green'], $rgb['blue']);
+        imagestring($source, $font, 0, 0, $text, $sourceColor);
+
+        imagecopyresampled($image, $source, $x, $y - $targetHeight, 0, 0, $targetWidth, $targetHeight, $sourceWidth, $sourceHeight);
+        imagedestroy($source);
+    }
+
+    private function builtInFontScale(float $fontSize): float
+    {
+        return max(2.5, $fontSize / imagefontheight(5));
     }
 
     private function allocateColor($image, string $hex): int
