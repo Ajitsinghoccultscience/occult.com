@@ -17,7 +17,7 @@ class CertificateGenerator
                 'yPercent' => 53,
                 'anchor' => 'middle',
                 'maxWidthPercent' => 72,
-                'fontSizePercentOfWidth' => 5.2,
+                'fontSizePercentOfWidth' => 4.2,
                 'lineHeight' => 1.15,
                 'letterSpacing' => 0.02,
             ],
