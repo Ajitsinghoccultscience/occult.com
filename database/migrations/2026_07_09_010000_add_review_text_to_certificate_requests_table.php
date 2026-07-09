@@ -8,6 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (Schema::hasColumn('certificate_requests', 'review_text')) {
+            return;
+        }
+
         Schema::table('certificate_requests', function (Blueprint $table) {
             $table->text('review_text')->nullable()->after('certificate_type');
         });
@@ -15,6 +19,10 @@ return new class extends Migration
 
     public function down(): void
     {
+        if (! Schema::hasColumn('certificate_requests', 'review_text')) {
+            return;
+        }
+
         Schema::table('certificate_requests', function (Blueprint $table) {
             $table->dropColumn('review_text');
         });
