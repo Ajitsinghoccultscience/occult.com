@@ -38,7 +38,12 @@ class CertificateGeneratedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.certificate-generated'
+            view: 'emails.certificate-generated',
+            text: 'emails.certificate-generated-text',
+            with: [
+                'certificateRequest' => $this->certificateRequest,
+                'certificateLabel' => $this->certificateLabel,
+            ],
         );
     }
 
