@@ -11,7 +11,7 @@ class CertificateRequestController extends Controller
     public function create(CertificateGenerator $certificateGenerator)
     {
         return view('pages.certificate-request', [
-            'certificateTypes' => $certificateGenerator->types(),
+            'certificateTypes' => array_intersect_key($certificateGenerator->types(), ['graphology' => true]),
         ]);
     }
 
@@ -21,7 +21,7 @@ class CertificateRequestController extends Controller
             'name'        => 'required|string|max:100',
             'email'       => 'required|email|max:100',
             'phone'       => 'required|string|max:15',
-            'certificate_type' => 'required|in:graphology,astrology',
+            'certificate_type' => 'required|in:graphology',
             'review_text' => 'required|string|min:10|max:1000',
         ]);
 
@@ -43,9 +43,9 @@ class CertificateRequestController extends Controller
         $date = optional($certificateRequest->certificate_date)->format('d M Y')
             ?: $certificateRequest->created_at?->format('d M Y');
 
-        return response($certificateGenerator->generateSvg($certificateRequest->certificate_type, $certificateRequest->name, $date), 200, [
-            'Content-Type' => 'image/svg+xml',
-            'Content-Disposition' => 'inline; filename="certificate-'.$certificateRequest->id.'.svg"',
+        return response($certificateGenerator->generateJpeg($certificateRequest->certificate_type, $certificateRequest->name, $date), 200, [
+            'Content-Type' => 'image/jpeg',
+            'Content-Disposition' => 'inline; filename="certificate-'.$certificateRequest->id.'.jpg"',
         ]);
     }
 }

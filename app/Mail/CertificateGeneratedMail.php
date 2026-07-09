@@ -17,7 +17,7 @@ class CertificateGeneratedMail extends Mailable
 
     public function __construct(
         public CertificateRequest $certificateRequest,
-        private string $certificateSvg,
+        private string $certificateJpeg,
         public string $certificateLabel,
         private string $notesPath,
         private string $notesFilename
@@ -46,9 +46,9 @@ class CertificateGeneratedMail extends Mailable
     {
         return [
             Attachment::fromData(
-                fn () => $this->certificateSvg,
-                (string) str($this->certificateLabel)->slug('-').'-certificate.svg'
-            )->withMime('image/svg+xml'),
+                fn () => $this->certificateJpeg,
+                (string) str($this->certificateLabel)->slug('-').'-certificate.jpg'
+            )->withMime('image/jpeg'),
             Attachment::fromPath($this->notesPath)
                 ->as($this->notesFilename)
                 ->withMime('application/pdf'),

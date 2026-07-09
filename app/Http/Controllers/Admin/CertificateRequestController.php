@@ -82,7 +82,7 @@ class CertificateRequestController extends Controller
 
     public function send(CertificateRequest $certificateRequest, CertificateGenerator $certificateGenerator)
     {
-        $certificateSvg = $certificateGenerator->generateSvg(
+        $certificateJpeg = $certificateGenerator->generateJpeg(
             $certificateRequest->certificate_type,
             $certificateRequest->name,
             optional($certificateRequest->certificate_date)->format('d M Y')
@@ -95,7 +95,7 @@ class CertificateRequestController extends Controller
             Mail::mailer('admission')->to($certificateRequest->email)->send(
                 new CertificateGeneratedMail(
                     $certificateRequest,
-                    $certificateSvg,
+                    $certificateJpeg,
                     $certificateLabel,
                     $notes['path'],
                     $notes['filename']
