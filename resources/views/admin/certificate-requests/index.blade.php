@@ -177,11 +177,21 @@
                                class="inline-flex items-center justify-center text-xs bg-purple-50 text-purple-700 border border-purple-200 px-3 py-2 rounded-xl hover:bg-purple-100 transition font-bold">
                                 Preview
                             </a>
-                            <form method="POST" action="{{ route('admin.certificate-requests.send', $request) }}">
+                            <form
+                                method="POST"
+                                action="{{ route('admin.certificate-requests.send', $request) }}"
+                                onsubmit="this.querySelector('[data-send-text]').classList.add('hidden'); this.querySelector('[data-sending-text]').classList.remove('hidden'); this.querySelector('[data-sending-text]').classList.add('inline-flex'); this.querySelector('button[type=submit]').disabled = true;">
                                 @csrf
                                 <button type="submit"
-                                        class="inline-flex items-center justify-center text-xs bg-green-600 text-white border border-green-600 px-3 py-2 rounded-xl hover:bg-green-700 transition font-bold">
-                                    Send Mail
+                                        class="inline-flex items-center justify-center min-w-[96px] text-xs bg-green-600 text-white border border-green-600 px-3 py-2 rounded-xl hover:bg-green-700 transition font-bold disabled:cursor-not-allowed disabled:opacity-75">
+                                    <span data-send-text>Send Mail</span>
+                                    <span data-sending-text class="hidden items-center justify-center gap-1.5">
+                                        <svg class="h-3.5 w-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                                        </svg>
+                                        Sending...
+                                    </span>
                                 </button>
                             </form>
                         </div>
