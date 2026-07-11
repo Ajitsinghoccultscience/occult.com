@@ -16,7 +16,7 @@ class CertificateGeneratedMail extends Mailable
     use Queueable, SerializesModels;
 
     private const FROM_ADDRESS = 'admission@occultscience.in';
-    private const FROM_NAME = 'Occult Science HR';
+    private const FROM_NAME = 'Occult Science';
 
     public function __construct(
         public CertificateRequest $certificateRequest,

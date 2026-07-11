@@ -160,7 +160,7 @@ return [
 
     'admission_from' => [
         'address' => env('MAIL_ADMISSION_FROM_ADDRESS', env('MAIL_ADMISSION_USERNAME', env('MAIL_FROM_ADDRESS', 'hello@example.com'))),
-        'name' => env('MAIL_ADMISSION_FROM_NAME', env('MAIL_FROM_NAME', 'Occult Science HR')),
+        'name' => env('MAIL_ADMISSION_FROM_NAME', env('MAIL_FROM_NAME', 'Occult Science')),
     ],
 
 ];
