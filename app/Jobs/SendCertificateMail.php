@@ -28,7 +28,12 @@ class SendCertificateMail implements ShouldQueue
 
     public function handle(CertificateGenerator $certificateGenerator): void
     {
-        $request = $this->certificateRequest;
+        $request = $this->certificateRequest->fresh();
+
+        // A duplicate job may already have sent this one — don't email twice.
+        if (! $request || $request->mail_sent_at) {
+            return;
+        }
 
         $certificateJpeg = $certificateGenerator->generateJpeg(
             $request->certificate_type,

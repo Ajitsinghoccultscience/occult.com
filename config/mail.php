@@ -78,7 +78,7 @@ return [
             'encryption' => env('MAIL_ADMISSION_ENCRYPTION', 'tls'),
             'username' => env('MAIL_ADMISSION_USERNAME'),
             'password' => env('MAIL_ADMISSION_PASSWORD'),
-            'timeout' => null,
+            'timeout' => env('MAIL_ADMISSION_TIMEOUT', 20),
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
