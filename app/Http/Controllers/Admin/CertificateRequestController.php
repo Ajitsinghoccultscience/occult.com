@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Mail\CertificateGeneratedMail;
+use App\Jobs\SendCertificateMail;
 use App\Models\CertificateRequest;
-use App\Services\CertificateGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Mail;
 use RuntimeException;
-use Throwable;
 
 class CertificateRequestController extends Controller
 {
@@ -80,43 +77,33 @@ class CertificateRequestController extends Controller
         return back()->with('success', 'Certificate issue date updated.');
     }
 
-    public function send(CertificateRequest $certificateRequest, CertificateGenerator $certificateGenerator)
+    public function send(CertificateRequest $certificateRequest)
     {
-        $certificateJpeg = $certificateGenerator->generateJpeg(
-            $certificateRequest->certificate_type,
-            $certificateRequest->name,
-            optional($certificateRequest->certificate_date)->format('d M Y')
-        );
-        $certificateLabel = $certificateGenerator->types()[$certificateRequest->certificate_type] ?? 'Certificate';
+        // Make sure the notes PDF exists before we queue, so we can warn the
+        // admin immediately instead of failing silently in the background.
+        $this->notesFor($certificateRequest->certificate_type);
 
-        try {
-            $notes = $this->notesFor($certificateRequest->certificate_type);
+        $certificateRequest->update(['mail_error' => null]);
 
-            Mail::mailer('admission')->to($certificateRequest->email)->send(
-                new CertificateGeneratedMail(
-                    $certificateRequest,
-                    $certificateJpeg,
-                    $certificateLabel,
-                    $notes['path'],
-                    $notes['filename']
-                )
-            );
+        SendCertificateMail::dispatch($certificateRequest);
 
-            $certificateRequest->update([
-                'mail_sent_at' => now(),
-                'mail_error' => null,
-            ]);
+        return back()->with('success', 'Certificate queued — it will be emailed in the background.');
+    }
 
-            return back()->with('success', 'Certificate sent successfully.');
-        } catch (Throwable $exception) {
-            report($exception);
+    public function sendAll()
+    {
+        $pending = CertificateRequest::whereNull('mail_sent_at')->get();
 
-            $certificateRequest->update([
-                'mail_error' => $exception->getMessage(),
-            ]);
-
-            return back()->with('success', 'Email sending failed. Please check mail settings.');
+        if ($pending->isEmpty()) {
+            return back()->with('success', 'No pending certificates to send.');
         }
+
+        foreach ($pending as $certificateRequest) {
+            $certificateRequest->update(['mail_error' => null]);
+            SendCertificateMail::dispatch($certificateRequest);
+        }
+
+        return back()->with('success', $pending->count().' certificate(s) queued — they will be emailed in the background.');
     }
 
     private function notesFor(string $certificateType): array

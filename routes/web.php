@@ -70,6 +70,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/certificate-requests/notes/{type}/preview', [AdminCertificateRequestController::class, 'previewNotes'])->name('certificate-requests.notes.preview');
         Route::get('/certificate-requests/notes/{type}', [AdminCertificateRequestController::class, 'downloadNotes'])->name('certificate-requests.notes.download');
         Route::patch('/certificate-requests/{certificateRequest}/date', [AdminCertificateRequestController::class, 'updateDate'])->name('certificate-requests.date');
+        Route::post('/certificate-requests/send-all', [AdminCertificateRequestController::class, 'sendAll'])->name('certificate-requests.send-all');
         Route::post('/certificate-requests/{certificateRequest}/send', [AdminCertificateRequestController::class, 'send'])->name('certificate-requests.send');
 
         // Counsellor self-serve landing-page links (multiple per counsellor)

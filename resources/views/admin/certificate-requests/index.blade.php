@@ -85,10 +85,22 @@
             <h2 class="text-sm font-extrabold text-slate-900">Student Reviews</h2>
             <p class="text-xs text-slate-400 mt-1">Use preview to verify the certificate before sending. Notes are attached automatically by webinar type.</p>
         </div>
-        <a href="{{ route('certificate-request.create') }}" target="_blank"
-           class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">
-            Open Public Form
-        </a>
+        <div class="flex flex-wrap items-center gap-2">
+            @if(($counts['pending'] ?? 0) > 0)
+            <form method="POST" action="{{ route('admin.certificate-requests.send-all') }}"
+                  onsubmit="return confirm('Queue all {{ $counts['pending'] }} pending certificate(s) for sending?');">
+                @csrf
+                <button type="submit"
+                        class="inline-flex items-center justify-center gap-1.5 rounded-xl bg-green-600 px-4 py-2 text-xs font-bold text-white hover:bg-green-700">
+                    Send All Pending ({{ $counts['pending'] }})
+                </button>
+            </form>
+            @endif
+            <a href="{{ route('certificate-request.create') }}" target="_blank"
+               class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">
+                Open Public Form
+            </a>
+        </div>
     </div>
 
     <div class="overflow-x-auto">
