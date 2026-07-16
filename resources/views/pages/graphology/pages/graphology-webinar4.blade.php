@@ -49,8 +49,8 @@
 {{-- 7. Income Boost --}}
 @include('pages.graphology.webinar4-sections.income-boost')
 
-{{-- 8. After This Webinar --}}
-@include('pages.graphology.webinar4-sections.after-webinar', ['ctaHref' => $ctaHref])
+<!-- {{-- 8. After This Webinar --}}
+@include('pages.graphology.webinar4-sections.after-webinar', ['ctaHref' => $ctaHref]) -->
 
 {{-- 9. Video Testimonials --}}
 @include('pages.graphology.webinar4-sections.video-testimonials')

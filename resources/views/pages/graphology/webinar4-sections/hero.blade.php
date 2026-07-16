@@ -15,7 +15,7 @@
 
     $bullets = [
         ['icon' => 'income',  'html' => 'Learn Graphology to <strong>Boost Your Income</strong>'],
-        ['icon' => 'cert',    'html' => 'Get <strong>Certificate</strong> and <strong>Bonus Worth ₹4,999</strong>'],
+        ['icon' => 'cert',    'html' => 'Get <strong>Bonus Worth ₹4,999</strong>'],
         ['icon' => 'shield',  'html' => 'Build<strong> Trust, Value & Recognition</strong>'],
     ];
 

@@ -18,10 +18,6 @@
             'answer' => "Absolutely. By practicing live on real handwriting samples during the session, you will walk away with the practical confidence to start analyzing writing the very same day. ",
         ],
         [
-            'question' => 'What does the Certificate of Participation offer professionally?',
-            'answer' => " It is issued by the All India Institute of Occult Science (Govt. Regd. & ISO Certified). This adds professional credibility to your profile in fields like HR, Counselling, and Education. ",
-        ],
-        [
             'question' => 'What level of understanding can one expect to gain from this webinar?',
             'answer' => " This webinar is a strong and complete starting point. By the end of the session, you will be able to read handwriting with intention, identify personality traits with confidence.",
         ],
