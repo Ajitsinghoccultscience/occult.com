@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\LandingPageController;
 
 // Existing static pages
-Route::get('/', fn() => redirect('/astrology-webinar-1'));
+Route::get('/', fn() => redirect('/graphology-webinar-4'));
 Route::get('/astrology-webinar-1', [PageController::class, 'index']);
 Route::get('/astrology-webinar-2', [PageController::class, 'astrologyWebinar']);
 Route::get('/astrology-webinar-3',[PageController::class, 'astrologyWebinar3']);
