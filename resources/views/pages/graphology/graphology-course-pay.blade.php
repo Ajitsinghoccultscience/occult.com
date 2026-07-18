@@ -53,7 +53,7 @@
     <div class="mx-auto max-w-[1600px] grid grid-cols-1 lg:grid-cols-2">
 
         {{-- ============================ LEFT COLUMN ============================ --}}
-        <div class="min-w-0 px-5 sm:px-6 lg:px-8 py-6 lg:py-8">
+        <div class="order-2 lg:order-1 min-w-0 px-5 sm:px-6 lg:px-8 py-6 lg:py-8 border-t lg:border-t-0 border-gray-100">
 
             {{-- Logo --}}
             <img src="{{ asset($logo) }}" alt="All India Institute of Occult Science"
@@ -132,7 +132,7 @@
         </div>
 
         {{-- ============================ RIGHT COLUMN ============================ --}}
-        <div class="min-w-0 px-5 sm:px-6 lg:px-8 py-6 lg:py-8 bg-gray-50 lg:bg-white border-t lg:border-t-0 lg:border-l border-gray-100">
+        <div class="order-1 lg:order-2 min-w-0 px-5 sm:px-6 lg:px-8 py-6 lg:py-8 bg-gray-50 lg:bg-white lg:border-l border-gray-100">
 
             <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Complete your purchase by providing your payment details</h2>
 
