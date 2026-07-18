@@ -101,6 +101,11 @@ class PageController extends Controller
         return view('pages.thankyou', ['product' => $product, 'config' => $this->resolvedConfig($product)]);
     }
 
+    public function graphologyCoursePay()
+    {
+        return view('pages.graphology.graphology-course-pay');
+    }
+
     public function astrologyCourse(Request $request)
     {
         // Per-counsellor landing: /admission-2026?counsler=reena-astrology (course-agnostic)

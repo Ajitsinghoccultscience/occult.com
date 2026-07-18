@@ -27,6 +27,9 @@ Route::get('/astrology-webinar-3',[PageController::class, 'astrologyWebinar3']);
 Route::get('/graphology-webinar-2', [PageController::class, 'graphologyWebinarlvl1']);
 Route::get('/graphology-webinar-4', [PageController::class, 'graphologyWebinar4']);
 
+// Graphology course payment / urgency landing
+Route::get('/graphology-course-pay', [PageController::class, 'graphologyCoursePay'])->name('graphology-course-pay');
+
 // Unified checkout and thank you pages
 Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
 Route::get('/thankyou', [PageController::class, 'thankyou'])->name('thankyou');
