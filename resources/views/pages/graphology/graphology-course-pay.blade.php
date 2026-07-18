@@ -228,6 +228,21 @@
                     (<span class="font-bold">Note :</span> Bonus worth ₹9,999 will no longer be available and price increases to
                     <span class="font-semibold">₹1,96,000</span> after the timer ends.)
                 </p>
+
+                {{-- Secure checkout CTA --}}
+                <button type="submit"
+                        class="mt-4 w-full rounded-xl bg-[#5B9BD5] hover:bg-[#4a8ac6] text-white text-base sm:text-lg font-semibold py-3.5 px-5 flex items-center justify-center gap-2 transition active:scale-[.99] cursor-pointer">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="11" width="16" height="9" rx="2"/>
+                        <path stroke-linecap="round" d="M8 11V8a4 4 0 0 1 8 0v3"/>
+                    </svg>
+                    Secure My Seat Now to get Offer
+                </button>
+
+                {{-- Payment trust line --}}
+                <p class="mt-2 flex items-center justify-center gap-1.5 text-xs text-gray-400">
+                    Powered by <span class="font-extrabold tracking-tight text-[#3395FF]">Razorpay</span>
+                </p>
             </form>
         </div>
     </div>
