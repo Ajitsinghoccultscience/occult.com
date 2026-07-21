@@ -113,7 +113,7 @@ $sliderId = 'slider-' . uniqid();
     variant="astro" 
     class="w-full !py-4 !text-base font-bold"
 >
-    Reserve Seat ₹99 <span class="line-through opacity-70 ml-1">₹199</span>
+    Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>
 
@@ -172,7 +172,7 @@ $sliderId = 'slider-' . uniqid();
     variant="astro" 
     class="w-full !py-4 !text-base font-bold"
 >
-    Reserve Seat ₹99 <span class="line-through opacity-70 ml-1">₹199</span>
+    Reserve Seat ₹49 <span class="line-through opacity-70 ml-1">₹199</span>
 </x-ui.button>
 </div>
 {{-- RIGHT SIDE --}}

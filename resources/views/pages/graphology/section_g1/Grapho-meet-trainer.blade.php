@@ -1,7 +1,7 @@
 ﻿@props([
     'title'        => 'All India Institute Of Occult Science: (Providing Guidance since 2004 )',
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
-    'ctaText' => 'Reserve Seat ₹99',
+    'ctaText' => 'Reserve Seat ₹49',
     'ctaPriceStruck' => '₹199',
     'ctaHref'       => '#',
     'instituteSubheading' => 'All India Institute of Occult Science: Running Since March 2004',

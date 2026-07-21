@@ -8,7 +8,7 @@
         'Can someone understand you just by your handwriting?',
     ],
     'footerText' => 'Your handwriting knows more about you than you think',
-    'ctaText' => 'Reserve Seat ₹99',
+    'ctaText' => 'Reserve Seat ₹49',
     'ctaHref'    => '#',
     'helpsTitle' => 'How Graphology helps you to understand your life better',
     'points' => [
