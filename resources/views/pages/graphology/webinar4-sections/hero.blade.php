@@ -96,7 +96,7 @@
                         <a href="{{ $ctaHref }}"
                            class=" inline-flex items-center justify-center gap-2 font-bold text-white text-base px-8 py-3.5 rounded-2xl hover:opacity-90 active:scale-95 transition shrink-0"
                            style="background-color:#ff9700;box-shadow:0 0 25px rgba(255,151,0,0.65),0 10px 30px -5px rgba(255,151,0,0.6);">
-                            Register Now @₹49
+                            Register Now Free
                             <span class="line-through opacity-70 font-normal text-sm">₹199</span>
                         </a>
 
