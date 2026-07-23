@@ -6,6 +6,7 @@
     $trainerImgs = [
         'images/pawan sir 1.webp',
         'images/maager sir 1.webp',
+        'image/Mukul JI.webp',
     ];
     $avatars  = [
         'image/graphology assests/alumni 1.webp',
@@ -156,7 +157,7 @@
     if (!box) return;
     var imgs  = box.querySelectorAll('.hero-trainer-img');
     if (imgs.length < 2) return;
-    var names = ['Pawan sir', 'Maager sir'];
+    var names = ['Pawan sir', 'Maager sir', 'Mukul ji'];
     var nameEl = document.getElementById('hero-trainer-name');
     var i = 0;
     setInterval(function () {

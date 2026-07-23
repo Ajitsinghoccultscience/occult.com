@@ -20,6 +20,16 @@
                 'With his deep knowledge and passion for the subject, he continues to inspire learners at the All India Institute of Occult Science.',
             ],
         ],
+        [
+            'img'      => 'image/Mukul ji (webinar).webp',
+            'name'     => 'Mukul Shrivastava',
+            'role'     => '( Graphology Expert )',
+            'subtitle' => '(Faculty of All India Institute of Occult Science)',
+            'bio'  => [
+                'Mukul Shrivastava is a professional Graphologist and a Faculty Member at the All India Institute of Occult Science with 4 years of experience in the field of handwriting analysis and personality assessment.',
+                'Over the years, he has trained and mentored 45,000+ students, helping them build their knowledge and careers in graphology. His mission is to make the science of handwriting analysis accessible to everyone and help learners use it for personality assessment, career growth, and self-development.',
+            ],
+        ],
     ];
 @endphp
 
@@ -43,12 +53,13 @@
                         <div class="flex-1 order-2 md:order-1 text-center md:text-left">
                             <p class="text-xl md:text-2xl font-bold text-white mb-1">
                                 Trainer : <span class="font-medium text-white/90">{{ $t['name'] }}</span>
+                                <span class="font-medium text-white/90 text-base md:text-lg">{{ $t['role'] }}</span>
                             </p>
-                            <p class="text-sm md:text-base text-white/90 mb-5">
-                                {{ $t['role'] }}
-                            </p>
+                            @if (!empty($t['subtitle']))
+                                <p class="text-base md:text-lg font-bold text-white">{{ $t['subtitle'] }}</p>
+                            @endif
 
-                            <div class="space-y-3 text-sm md:text-[15px] text-white/75 leading-relaxed">
+                            <div class="mt-5 space-y-3 text-sm md:text-[15px] text-white/75 leading-relaxed">
                                 @foreach($t['bio'] as $para)
                                     <p>{{ $para }}</p>
                                 @endforeach
