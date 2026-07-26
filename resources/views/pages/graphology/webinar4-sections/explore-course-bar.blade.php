@@ -3,12 +3,12 @@
 @endphp
 
 {{-- ═══════════════════════════════════
-     EXPLORE FULL COURSE — white/orange gradient bar
+     EXPLORE FULL COURSE — solid footer-color bar
 ════════════════════════════════════ --}}
 <section style="width:100vw;margin-left:calc(50% - 50vw);" class="font-open-sans">
     <a href="{{ $exploreHref }}"
-       class="group block w-full transition-all hover:brightness-[1.02]"
-       style="background-image:linear-gradient(90deg,#ffffff 0%,#fff4e6 55%,#ffe1bf 100%);border-top:1px solid #ffd8a8;border-bottom:1px solid #ffd8a8;">
+       class="group block w-full transition-all hover:brightness-110"
+       style="background-color:#2b2724;border-top:1px solid rgba(255,255,255,0.08);">
         <div class="max-w-335 mx-auto section-px py-4 md:py-5 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 md:gap-4 text-center sm:text-left">
 
             {{-- Left: icon + text --}}
@@ -18,7 +18,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.5C9.5 4.5 6.5 4 4 4.5v13c2.5-.5 5.5 0 8 2 2.5-2 5.5-2.5 8-2v-13c-2.5-.5-5.5 0-8 2Zm0 0v13"/>
                     </svg>
                 </span>
-                <span class="text-base md:text-xl font-extrabold tracking-tight leading-tight" style="color:#2b2724;">
+                <span class="text-base md:text-xl font-extrabold tracking-tight leading-tight text-white">
                     Explore the Full Graphology Course
                 </span>
             </div>
