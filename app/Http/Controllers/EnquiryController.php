@@ -14,6 +14,7 @@ class EnquiryController extends Controller
             'phone'  => 'required|string|max:15',
             'email'  => 'nullable|email|max:100',
             'source' => 'nullable|string|max:50',
+            'notes'  => 'nullable|string|max:1000',
         ]);
 
         Enquiry::create($data);

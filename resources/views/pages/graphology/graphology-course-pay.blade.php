@@ -136,7 +136,7 @@
 
             <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Complete your purchase by providing your payment details</h2>
 
-            <form action="#" method="POST" class="mt-5" onsubmit="return false;">
+            <form id="gcp-form" action="#" method="POST" class="mt-5" onsubmit="return false;">
                 @csrf
 
                 {{-- Billing card --}}
@@ -144,9 +144,9 @@
                     <h3 class="text-base font-bold text-gray-900 mb-3">Billing Information</h3>
 
                     <div class="rounded-xl border border-gray-200 divide-y divide-gray-200 overflow-hidden">
-                        <input type="text" name="name" placeholder="Name"
+                        <input id="gcp-name" type="text" name="name" placeholder="Name"
                                class="w-full px-4 py-3.5 text-[15px] text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-gray-50">
-                        <input type="email" name="email" placeholder="Email"
+                        <input id="gcp-email" type="email" name="email" placeholder="Email"
                                class="w-full px-4 py-3.5 text-[15px] text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-gray-50">
                         <div class="flex items-stretch">
                             <span class="flex items-center gap-2 px-4 py-3.5 text-[15px] text-gray-700 border-r border-gray-200 shrink-0">
@@ -157,15 +157,15 @@
                                     <circle cx="4.5" cy="3" r="0.7" fill="none" stroke="#0a3d91" stroke-width="0.18"/>
                                 </svg> +91
                             </span>
-                            <input type="tel" name="phone" placeholder="Phone No." inputmode="numeric"
+                            <input id="gcp-phone" type="tel" name="phone" placeholder="Phone No." inputmode="numeric" maxlength="10"
                                    class="w-full px-4 py-3.5 text-[15px] text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-gray-50">
                         </div>
                         <div class="relative">
-                            <select name="course"
+                            <select id="gcp-course" name="course"
                                     class="w-full appearance-none px-4 py-3.5 text-[15px] text-gray-400 bg-white focus:outline-none focus:bg-gray-50">
                                 <option value="" selected disabled>Choose Your Course</option>
-                                <option value="live-class" class="text-gray-800">Live Class</option>
-                                <option value="recorded-class" class="text-gray-800">Recorded Class</option>
+                                <option value="Live Class" class="text-gray-800">Live Class</option>
+                                <option value="Recorded Class" class="text-gray-800">Recorded Class</option>
                             </select>
                             <svg class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/>
@@ -174,69 +174,44 @@
                     </div>
                 </div>
 
-                {{-- Fee options --}}
+                {{-- Fee details --}}
                 <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 divide-y divide-gray-200 overflow-hidden">
-                    <label class="flex items-center justify-between gap-4 px-5 py-3.5 cursor-pointer">
-                        <span class="text-base font-medium text-gray-900">Registration Fee</span>
-                        <span class="flex items-center gap-3">
-                            <span class="text-base font-semibold text-gray-900">₹2999</span>
-                            <input type="radio" name="fee" value="2999"
-                                   class="w-5 h-5 accent-[#5C1414] cursor-pointer">
+                    <div class="flex items-center justify-between gap-4 px-5 py-3.5">
+                        <span>
+                            <span class="block text-base font-medium text-gray-900">Registration Fee</span>
+                            <span class="block text-xs text-gray-500">Book your seat now, pay balance later</span>
                         </span>
-                    </label>
-                    <label class="flex items-center justify-between gap-4 px-5 py-3.5 cursor-pointer">
-                        <span class="text-base font-medium text-gray-900">Full Course Fee</span>
-                        <span class="flex items-center gap-3">
-                            <span class="text-base font-semibold text-gray-900">₹7999</span>
-                            <input type="radio" name="fee" value="7999"
-                                   class="w-5 h-5 accent-[#5C1414] cursor-pointer">
+                        <span class="text-base font-semibold text-gray-900">₹2,999</span>
+                    </div>
+                    <div class="flex items-center justify-between gap-4 px-5 py-3.5">
+                        <span>
+                            <span class="block text-base font-medium text-gray-900">Full Course Fee</span>
+                            <span class="block text-xs text-gray-500">Registration ₹2,999 + Fees ₹62,000</span>
                         </span>
-                    </label>
+                        <span class="text-base font-semibold text-gray-900">₹64,999</span>
+                    </div>
                 </div>
 
                 {{-- Amount to be paid --}}
                 <div class="mt-4 rounded-xl border border-gray-200 bg-white px-5 py-4 flex items-center justify-between">
                     <span class="text-base sm:text-lg font-bold text-gray-900">Amount to be Paid</span>
                     <span class="flex items-baseline gap-2">
-                        <span class="text-gray-400 line-through text-sm sm:text-base">₹1,96000</span>
-                        <span class="text-xl sm:text-2xl font-extrabold text-gray-900">₹77,000</span>
+                        <span class="text-gray-400 line-through text-sm sm:text-base">₹1,96,000</span>
+                        <span id="gcp-amount" class="text-xl sm:text-2xl font-extrabold text-gray-900">₹64,999</span>
                     </span>
                 </div>
 
-                {{-- Offer countdown + seats --}}
-                <div class="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <svg class="w-6 h-6 text-gray-800 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
-                        <circle cx="12" cy="12" r="9"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/>
-                    </svg>
-                    <span class="text-base font-semibold text-gray-900">Offer Expires in</span>
-                    <span class="text-base font-bold text-[#E8552B]" data-gcp-mmss>44 : 28</span>
-                    <span class="text-base font-bold text-gray-900">(Only 18 Seats are Left)</span>
-                </div>
+                {{-- Validation error --}}
+                <p id="gcp-error" class="mt-3 hidden text-sm font-medium text-red-600"></p>
 
-                {{-- Bonus banner — acts as the submit button --}}
-                <button type="submit"
-                        class="mt-4 w-full text-white text-center py-6 px-4 bg-center bg-no-repeat bg-cover transition hover:opacity-95 active:scale-[.99] cursor-pointer"
-                        style="background-image:url('{{ asset('image/news/rectangle_840x110.webp') }}')">
-                    <span class="inline-flex items-center gap-3 text-2xl sm:text-3xl font-extrabold">
-                        <span>🎁</span> Bonus Worth ₹9,999
-                    </span>
-                </button>
-
-                {{-- Note --}}
-                <p class="mt-4 text-sm text-gray-700 leading-relaxed">
-                    (<span class="font-bold">Note :</span> Bonus worth ₹9,999 will no longer be available and price increases to
-                    <span class="font-semibold">₹1,96,000</span> after the timer ends.)
-                </p>
-
-                {{-- Secure checkout CTA --}}
-                <button type="submit"
-                        class="mt-4 w-full rounded-xl bg-[#5B9BD5] hover:bg-[#4a8ac6] text-white text-base sm:text-lg font-semibold py-3.5 px-5 flex items-center justify-center gap-2 transition active:scale-[.99] cursor-pointer">
+                {{-- Secure checkout CTA — creates the lead --}}
+                <button id="gcp-secure-btn" type="button"
+                        class="mt-4 w-full rounded-xl bg-[#5B9BD5] hover:bg-[#4a8ac6] text-white text-base sm:text-lg font-semibold py-3.5 px-5 flex items-center justify-center gap-2 transition active:scale-[.99] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
                     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <rect x="4" y="11" width="16" height="9" rx="2"/>
                         <path stroke-linecap="round" d="M8 11V8a4 4 0 0 1 8 0v3"/>
                     </svg>
-                    Secure My Seat Now to get Offer
+                    <span id="gcp-secure-label">Secure My Seat Now to get Offer</span>
                 </button>
 
                 {{-- Payment trust line --}}
@@ -278,6 +253,95 @@
     }
     tick();
     setInterval(tick, 1000);
+})();
+</script>
+
+<script defer>
+// Secure My Seat — captures the lead into the admin panel
+(function () {
+    var btn = document.getElementById('gcp-secure-btn');
+    if (!btn) return;
+
+    var nameEl   = document.getElementById('gcp-name');
+    var emailEl  = document.getElementById('gcp-email');
+    var phoneEl  = document.getElementById('gcp-phone');
+    var courseEl = document.getElementById('gcp-course');
+    var errEl    = document.getElementById('gcp-error');
+    var labelEl  = document.getElementById('gcp-secure-label');
+
+    // Fee model:  total = registration + balance
+    var REGISTRATION = 2999;
+    var TOTAL        = 64999;
+    var BALANCE      = TOTAL - REGISTRATION; // 62000
+
+    function inr(n) { return '₹' + n.toLocaleString('en-IN'); }
+
+    function feeSummary() {
+        return 'Registration Fee: ' + inr(REGISTRATION)
+             + ' | Full Course Fee: ' + inr(TOTAL)
+             + ' | Total course fee: ' + inr(TOTAL)
+             + ' (Registration ' + inr(REGISTRATION) + ' + Fees ' + inr(BALANCE) + ')';
+    }
+
+    // Keep phone numeric only
+    if (phoneEl) {
+        phoneEl.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+    }
+
+    function showError(msg) {
+        errEl.textContent = msg;
+        errEl.classList.remove('hidden');
+    }
+
+    btn.addEventListener('click', function () {
+        errEl.classList.add('hidden');
+
+        var name  = (nameEl.value  || '').trim();
+        var email = (emailEl.value || '').trim();
+        var phone = (phoneEl.value || '').trim();
+
+        if (!name)                         { showError('Please enter your name.');            nameEl.focus();  return; }
+        if (!/^[6-9][0-9]{9}$/.test(phone)){ showError('Please enter a valid 10-digit phone number.'); phoneEl.focus(); return; }
+
+        // Course type + fee breakdown
+        var course = courseEl.value || 'Not selected';
+
+        var notes = 'Course: ' + course + ' | ' + feeSummary();
+
+        var PAYMENT_URL = 'https://www.occultscience.in/payment-page/';
+
+        labelEl.textContent = 'Reserving your seat...';
+        btn.disabled = true;
+
+        fetch(@json(route('enquiry.store')), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || ''
+            },
+            body: JSON.stringify({
+                name:   name,
+                phone:  phone,
+                email:  email || null,
+                source: 'graphology-course-pay',
+                notes:  notes
+            })
+        })
+        .then(function (r) { if (!r.ok) throw new Error('Server ' + r.status); return r.json(); })
+        .then(function () {
+            // Lead captured — send the user to the payment page
+            labelEl.textContent = 'Redirecting to payment...';
+            window.location.href = PAYMENT_URL;
+        })
+        .catch(function (err) {
+            console.error(err);
+            showError('Something went wrong. Please try again.');
+            labelEl.textContent = 'Secure My Seat Now to get Offer';
+            btn.disabled = false;
+        });
+    });
 })();
 </script>
 @endpush

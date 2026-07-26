@@ -78,6 +78,9 @@
 {{-- 16. End CTA --}}
 @include('pages.graphology.webinar4-sections.end-section', ['ctaHref' => $ctaHref])
 
+{{-- 16b. Explore full course gradient bar --}}
+@include('pages.graphology.webinar4-sections.explore-course-bar', ['exploreHref' => url('/graphology-course-pay')])
+
 {{-- 17. Sticky Bar --}}
 @include('pages.graphology.webinar4-sections.sticky-bar', ['ctaHref' => $ctaHref])
 

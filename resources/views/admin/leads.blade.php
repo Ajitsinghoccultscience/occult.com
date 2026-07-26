@@ -76,7 +76,12 @@
                 @forelse($leads as $lead)
                 <tr class="hover:bg-gray-50 transition">
                     <td class="px-4 py-3 text-gray-400 text-xs">{{ $lead->id }}</td>
-                    <td class="px-4 py-3 font-semibold text-gray-900">{{ $lead->name }}</td>
+                    <td class="px-4 py-3">
+                        <span class="font-semibold text-gray-900">{{ $lead->name }}</span>
+                        @if($lead->notes)
+                        <span class="block mt-0.5 text-xs text-gray-500 max-w-xs whitespace-normal">{{ $lead->notes }}</span>
+                        @endif
+                    </td>
                     <td class="px-4 py-3 text-gray-700">
                         <a href="tel:{{ $lead->phone }}" class="hover:underline">{{ $lead->phone }}</a>
                     </td>
