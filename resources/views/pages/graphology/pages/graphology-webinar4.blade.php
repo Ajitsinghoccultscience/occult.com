@@ -18,7 +18,7 @@
 @php
     $ctaHref = url('/graphology-checkout');
     $date    = optional($webinar)->event_date ?? 'Wed, 20th May, 2026';
-    $time    = optional($webinar)->event_time ?? '11:00 AM to 1:00 PM';
+    $time    = trim(str_ireplace('IST', '', optional($webinar)->event_time ?? '11:00 AM to 1:00 PM'));
 @endphp
 
 <div style="font-family:'Open Sans',sans-serif;">

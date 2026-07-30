@@ -3,23 +3,32 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
      'items' => [
         [
-            'question' => 'Is prior knowledge of graphology required to attend this webinar ? ',
-            'answer' => "No, this webinar is designed to be simple and easy to follow, even if you are a beginner you can come and start your journey with us.",
+            'question' => 'Is this webinar in Hindi or English?',
+            'answer' => "The full session is in simple Hinglish language so there is no language barrier, anyone can follow along easily.",
         ],
         [
-            'question' => 'What is the difference between Graphology and Graphotherapy?  ',
-            'answer' => [
-                'Graphology is the understanding of a person\'s personality through their handwriting.',
-                'Graphotherapy is the next step, where specific changes are suggested in writing to bring positive shifts in behaviour and mindset. Both are covered in this webinar.',
-            ],
+            'question' => 'Do I need any background in graphology to join?',
+            'answer' => "None at all. It's built for complete beginners, you start from zero and come out reading handwriting the same day.",
         ],
         [
-            'question' => 'Will I be able to apply this after just one session?',
-            'answer' => "Absolutely. By practicing live on real handwriting samples during the session, you will walk away with the practical confidence to start analyzing writing the very same day. ",
+            'question' => "Can handwriting really reveal someone's personality?",
+            'answer' => "Yes, slant, pressure and spacing show confidence, emotions and honesty. You'll practice it live on real samples.",
         ],
         [
-            'question' => 'What level of understanding can one expect to gain from this webinar?',
-            'answer' => " This webinar is a strong and complete starting point. By the end of the session, you will be able to read handwriting with intention, identify personality traits with confidence.",
+            'question' => 'Can I spot if someone is lying or hiding something?',
+            'answer' => "You'll learn to read signs of stress and hesitation, the same signs that HR and investigators trust on.",
+        ],
+        [
+            'question' => 'Can I learn to read about my signature?',
+            'answer' => "Yes, in the session we cover signature analysis and by the end you would be able to understand your signature.",
+        ],
+        [
+            'question' => 'Can I actually earn from this skill?',
+            'answer' => "Yes, many professionals offer paid handwriting readings as an add-on service after learning the basics.",
+        ],
+        [
+            'question' => 'How do I join after registering?',
+            'answer' => "You'll get the joining link on WhatsApp and email right after you register.",
         ],
     ],
 ])
@@ -67,5 +76,4 @@
         </div>
     </div>
 </section>
-
 

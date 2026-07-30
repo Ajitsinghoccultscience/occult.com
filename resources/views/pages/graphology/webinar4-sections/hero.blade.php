@@ -41,28 +41,28 @@
                         </p>
 
                         {{-- Date + Time --}}
-                        <div class="mt-5 inline-flex md:flex items-stretch gap-0 border border-neutral-200 rounded-xl overflow-hidden divide-x divide-neutral-200">
-                            <div class="flex items-center gap-2 px-4 py-2.5">
-                                <span class="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
-                                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/>
-                                    </svg>
-                                </span>
-                                <div class="text-left">
-                                    <p class="text-[11px] text-neutral-b/60 font-semibold uppercase tracking-wide leading-none mb-0.5">Date</p>
-                                    <p class="text-sm font-bold text-neutral-b leading-none">{{ $date }}</p>
+                        <div class="mt-5 inline-flex md:flex items-stretch gap-0 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-b-2 border-[#ff9700] overflow-hidden divide-x divide-neutral-200">
+                            <div class="px-5 py-3.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round"/>
+                                        </svg>
+                                    </span>
+                                    <p class="text-base font-bold text-neutral-b leading-none">Date</p>
                                 </div>
+                                <p class="mt-1.5 text-sm font-semibold text-neutral-b/80 leading-none">{{ $date }}</p>
                             </div>
-                            <div class="flex items-center gap-2 px-4 py-2.5">
-                                <span class="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
-                                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round"/>
-                                    </svg>
-                                </span>
-                                <div class="text-left">
-                                    <p class="text-[11px] text-neutral-b/60 font-semibold uppercase tracking-wide leading-none mb-0.5">Time</p>
-                                    <p class="text-sm font-bold text-neutral-b leading-none">{{ $time }}</p>
+                            <div class="px-5 py-3.5">
+                                <div class="flex items-center gap-2">
+                                    <span class="shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background-color:#ff9700;">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round"/>
+                                        </svg>
+                                    </span>
+                                    <p class="text-base font-bold text-neutral-b leading-none">Time</p>
                                 </div>
+                                <p class="mt-1.5 text-sm font-semibold text-neutral-b/80 leading-none">{{ $time }}</p>
                             </div>
                         </div>
 
