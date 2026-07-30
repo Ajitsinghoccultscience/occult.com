@@ -2,12 +2,12 @@
     $base = 'image/graphology(HR) assests/graphology assests HR (mobile)/professional icons';
 
     $items = [
-        ['icon' => 'hr.svg',           'title' => 'HR Professionals',     'text' => 'Understand confidence, stress, and communication before hiring.'],
-        ['icon' => 'trainer 1.svg',    'title' => 'Trainers & Consultants','text' => 'Surface hidden feelings through handwriting in counseling.'],
-        ['icon' => 'psychologist.svg', 'title' => 'Psychologist',          'text' => 'Make sessions deeper through handwriting insights.'],
-        ['icon' => 'counsellor.svg',   'title' => 'Counsellors',           'text' => 'Surface hidden feelings through handwriting in counseling.'],
-        ['icon' => 'career coach.svg', 'title' => 'Career Coaches',        'text' => 'Make sessions deeper through handwriting insights.'],
-        ['icon' => 'analysist.svg',    'title' => 'Behavioural Analysts',  'text' => 'Understand behavior through handwriting clues'],
+        ['icon' => 'hr.svg',           'title' => 'HR Professionals',       'text' => 'Read confidence, honesty and stability from handwriting. The people-reading skill that gets HR noticed at top MNCs.'],
+        ['icon' => 'trainer 1.svg',    'title' => 'Trainers & Consultants', 'text' => 'Add personality analysis to your programs. A premium service that raises your value and your income.'],
+        ['icon' => 'psychologist.svg', 'title' => 'Psychologist',           'text' => 'Understand your clients needs deeper and add a powerful tool into your session that helps you increase your charges.'],
+        ['icon' => 'counsellor.svg',   'title' => 'Counsellors',            'text' => 'Read what clients cannot say through their handwriting. Deeper understanding means better outcomes and more referrals.'],
+        ['icon' => 'career coach.svg', 'title' => 'Career & Life Coaches',  'text' => "See your client's real strengths and direction. Better results bring more referrals and a higher-value coaching offer."],
+        ['icon' => 'analysist.svg',    'title' => 'Teacher',                'text' => "Understand each student's real nature from their writing. Become the teacher that everyone every school looks for."],
     ];
 @endphp
 

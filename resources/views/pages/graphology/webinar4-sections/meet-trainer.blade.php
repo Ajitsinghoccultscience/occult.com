@@ -5,9 +5,9 @@
             'name' => 'Pawan Kumar',
             'role' => '( Graphologist )',
             'bio'  => [
-                'Pawan Kumar is one of the recognized Graphology teachers known for his teaching and training students in Graphology.',
-                'He belongs to Kota, holds a BSc in Mathematics and a Master\'s in Psychology. He has earned a Diploma and a Master\'s in Graphology, shaping his expertise in handwriting analysis.',
-                'Known for his adaptability, trustworthiness, and adventurous spirit, he now teaches Graphology at the All India Institute of Occult Science.',
+                "BSc in Mathematics, Master's in Psychology",
+                "Diploma and Master's in Graphology",
+                'Known for making handwriting analysis simple for complete beginners',
             ],
         ],
         [
@@ -15,9 +15,9 @@
             'name' => 'Shivam Tripathi',
             'role' => '( Graphologist )',
             'bio'  => [
-                'Shivam Tripathi Sir is a highly experienced Graphology expert with years of dedicated practice in handwriting analysis and personality assessment.',
-                'He holds advanced qualifications in Graphology and has trained thousands of students across India, helping them unlock the power of handwriting.',
-                'With his deep knowledge and passion for the subject, he continues to inspire learners at the All India Institute of Occult Science.',
+                'Years of practice in handwriting and personality analysis',
+                'Advanced qualifications in Graphology',
+                'Has trained thousands of students across India',
             ],
         ],
         [
@@ -26,8 +26,9 @@
             'role'     => '( Graphology Expert )',
             'subtitle' => '(Faculty of All India Institute of Occult Science)',
             'bio'  => [
-                'Mukul Shrivastava is a professional Graphologist and a Faculty Member at the All India Institute of Occult Science with 4 years of experience in the field of handwriting analysis and personality assessment.',
-                'Over the years, he has trained and mentored 45,000+ students, helping them build their knowledge and careers in graphology. His mission is to make the science of handwriting analysis accessible to everyone and help learners use it for personality assessment, career growth, and self-development.',
+                '4+ years of experience in handwriting analysis and personality assessment',
+                'Trained and mentored 45,000+ students',
+                'Works on making handwriting analysis a practical career skill for everyone',
             ],
         ],
     ];
@@ -38,6 +39,13 @@
 ════════════════════════════════════ --}}
 <section style="width:100vw;margin-left:calc(50% - 50vw);background-color:#2b2724;">
 
+    {{-- Heading --}}
+    <div class="text-center pt-8 md:pt-10">
+        <h2 class="text-xl md:text-2xl font-bold text-white">
+            Meet Your Trainers
+        </h2>
+    </div>
+
     {{-- Snap slider — each slide is the full-width trainer layout --}}
     <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden"
          id="mt-slider">
@@ -46,29 +54,29 @@
             <div class="mt-card snap-center shrink-0 w-full"
                  data-index="{{ $i }}">
 
-                <div class="max-w-335 mx-auto section-px py-12 md:py-16">
-                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="max-w-335 mx-auto section-px md:px-16 lg:px-24 py-8 md:py-10">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-20">
 
                         {{-- Text --}}
-                        <div class="flex-1 order-2 md:order-1 text-center md:text-left">
-                            <p class="text-xl md:text-2xl font-bold text-white mb-1">
+                        <div class="order-2 md:order-1 text-center md:text-left">
+                            <p class="text-lg md:text-xl font-bold text-white mb-1">
                                 Trainer : <span class="font-medium text-white/90">{{ $t['name'] }}</span>
-                                <span class="font-medium text-white/90 text-base md:text-lg">{{ $t['role'] }}</span>
+                                <span class="font-medium text-white/90 text-sm md:text-base">{{ $t['role'] }}</span>
                             </p>
                             @if (!empty($t['subtitle']))
-                                <p class="text-base md:text-lg font-bold text-white">{{ $t['subtitle'] }}</p>
+                                <p class="text-sm md:text-base font-bold text-white">{{ $t['subtitle'] }}</p>
                             @endif
 
-                            <div class="mt-5 space-y-3 text-sm md:text-[15px] text-white/75 leading-relaxed">
-                                @foreach($t['bio'] as $para)
-                                    <p>{{ $para }}</p>
+                            <ul class="mt-3 space-y-1.5 text-sm md:text-[15px] text-white/75 leading-snug list-disc list-inside text-left inline-block">
+                                @foreach($t['bio'] as $point)
+                                    <li>{{ $point }}</li>
                                 @endforeach
-                            </div>
+                            </ul>
                         </div>
 
                         {{-- Image --}}
                         <div class="order-1 md:order-2 shrink-0">
-                            <div class="w-44 h-44 md:w-60 md:h-60 rounded-full overflow-hidden ring-4 ring-[#ff9700] shadow-lg">
+                            <div class="w-32 h-32 md:w-52 md:h-52 rounded-full overflow-hidden ring-4 ring-[#ff9700] shadow-lg">
                                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $t['img'])))) }}"
                                      alt="{{ $t['name'] }} - Graphology Trainer"
                                      class="w-full h-full object-cover object-top"

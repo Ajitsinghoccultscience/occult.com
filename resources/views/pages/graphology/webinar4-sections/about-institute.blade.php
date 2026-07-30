@@ -4,12 +4,12 @@
     $ytIcon    = 'image/graphology assests/youtube.svg';
 
     $bullets = [
-        'Trusted institute for occult science learning',
+        'ISO certified and Gov. recognised institute',
         '97,000+ students trained across the world',
-        'Expert mentors with practical teaching experience',
+        'Globally valid certification',
+        'Courses in Astrology, Vastu, Reiki, Palmistry, Numerology and more',
+        'Featured in Times of India, Zee News, ABP News, The Print and more',
         'Live online classes with doubt support',
-        'Certification and lifetime learning guidance',
-        'Courses in astrology, vastu, Reiki, Palmistry, numerology, and more',
     ];
 @endphp
 
@@ -23,7 +23,7 @@
         <div class="text-center mb-7 md:mb-9">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b leading-tight">
                 All India Institute of Occult Science:<br>
-                Running Since March 2004
+                Teaching Since 2004
             </h2>
         </div>
 

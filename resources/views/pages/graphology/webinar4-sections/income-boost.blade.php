@@ -1,23 +1,32 @@
 @php
     /*
-     * SVG viewBox="0 0 100 240", justify-around 6 items:
-     * x centres = 8.33, 25, 41.67, 58.33, 75, 91.67
-     * y = 240 - (pct/100 * 240)
+     * SVG viewBox="0 0 100 360", justify-around 7 items, y-axis max = 80%
+     * x centres = 7.14, 21.43, 35.71, 50, 64.29, 78.57, 92.86
+     * y = 360 - (pct/80 * 360)
      */
     $bars = [
-        ['label'=>'Before',   'pct'=>20, 'value'=>'₹20k',  'x'=>8.33,  'y'=>192],
-        ['label'=>'Month 1',  'pct'=>38, 'value'=>'₹28k',  'x'=>25,    'y'=>148.8],
-        ['label'=>'Month 2',  'pct'=>52, 'value'=>'₹35k',  'x'=>41.67, 'y'=>115.2],
-        ['label'=>'Month 3',  'pct'=>65, 'value'=>'₹42k',  'x'=>58.33, 'y'=>84],
-        ['label'=>'Month 4',  'pct'=>78, 'value'=>'₹52k',  'x'=>75,    'y'=>52.8],
-        ['label'=>'Month 5+', 'pct'=>92, 'value'=>'₹65k+', 'x'=>91.67, 'y'=>19.2],
+        ['pct'=>10, 'x'=>7.14,  'y'=>315],
+        ['pct'=>12, 'x'=>21.43, 'y'=>306],
+        ['pct'=>18, 'x'=>35.71, 'y'=>279],
+        ['pct'=>25, 'x'=>50,    'y'=>247.5],
+        ['pct'=>33, 'x'=>64.29, 'y'=>211.5],
+        ['pct'=>50, 'x'=>78.57, 'y'=>135],
+        ['pct'=>68, 'x'=>92.86, 'y'=>54],
     ];
     $trendPoints = implode(' ', array_map(fn($b) => $b['x'].','.$b['y'], $bars));
     $lastBar     = end($bars);
+
+    $checklist = [
+        'Handwriting and signature analysis for individuals',
+        'Candidate screening support for companies and HR teams',
+        'Career guidance for students and parents',
+        'Compatibility analysis before marriage or business partnerships',
+        'Personality reports as an add-on to your existing counselling, coaching or training work',
+    ];
 @endphp
 
 {{-- ═══════════════════════════════════
-     INCOME BOOST
+     HOW THIS SKILL EARNS YOU MONEY
 ════════════════════════════════════ --}}
 <section class="w-full py-12 md:py-16">
     <div class="max-w-335 mx-auto section-px">
@@ -25,51 +34,57 @@
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-14">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b mb-3">
-                Your Income Can Grow - Starting Month One
+                How This Skill Earns You Money
             </h2>
             <p class="text-sm md:text-base text-neutral-b/70 max-w-[700px] mx-auto">
-                Professionals who applied graphology after this webinar reported significant income boosts within 30 days.
+                Graphology is a paid professional service. Once you learn it, you can charge for:
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-14 lg:items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 lg:items-center">
 
-            {{-- Left text --}}
-            <div class="order-1 lg:col-start-1 lg:row-start-1 text-center lg:text-left">
-                <h3 class="hidden lg:inline-block text-lg md:text-xl font-bold text-neutral-b mb-5 pb-1 border-b-[3px] border-[#ff9700]">
-                    After Learning Graphology
-                </h3>
-                <p class="lg:mb-5">
-                    <span class="hidden lg:inline text-lg md:text-xl font-bold text-neutral-b">Potential Income Boost</span>
-                    <span class="text-base text-[#ff9700] font-semibold lg:ml-1">( 30% – 70% Extra Earning Opportunity )</span>
-                </p>
-                <div class="hidden lg:block space-y-4 text-sm md:text-base text-neutral-b/80 leading-relaxed mt-5">
-                    <p>You can observe deeper personality patterns through handwriting and add an extra layer of clarity to your professional work.</p>
-                    <p>This helps you make better assessments, improve client results, increase trust, and offer graphology as a premium add-on service.</p>
+            {{-- Left: checklist + result --}}
+            <div class="order-1">
+                <ul class="space-y-4 mb-6">
+                    @foreach($checklist as $item)
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5" style="background-color:#ff9700;">
+                                <svg viewBox="0 0 12 12" class="w-3 h-3" fill="none">
+                                    <path d="M2.5 6.5L4.75 8.75L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span class="text-sm md:text-base text-neutral-b/80 leading-relaxed">{{ $item }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <div class="rounded-lg p-4 text-sm md:text-base text-neutral-b/80 leading-relaxed"
+                     style="background-color:#FBEBD7;">
+                    <span class="font-bold text-neutral-b">Result:</span>
+                    Better decisions, better client value, stronger professional positioning, and
+                    <strong>higher income opportunity.</strong>
                 </div>
             </div>
 
             {{-- Right: chart --}}
-            <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2" id="ib-wrap">
+            <div class="order-2" id="ib-wrap">
                 <div class="rounded-2xl p-5 pt-6 select-none" style="background:linear-gradient(135deg,#1a1a2e 0%,#2b2724 100%);">
-
-                    <p class="text-[10px] text-white/40 mb-2 ml-10">Monthly Income (₹)</p>
 
                     <div class="flex gap-2">
 
                         {{-- Y-axis ticks --}}
-                        <div class="flex flex-col justify-between text-right shrink-0 w-8" style="height:240px;">
-                            @foreach(['100%','75%','50%','25%','0%'] as $tick)
+                        <div class="flex flex-col justify-between text-right shrink-0 w-8" style="height:360px;">
+                            @foreach(['80%','70%','60%','50%','40%','30%','20%','10%','0%'] as $tick)
                                 <span class="text-[9px] text-white/40 leading-none">{{ $tick }}</span>
                             @endforeach
                         </div>
 
                         {{-- Chart area --}}
-                        <div class="relative flex-1" style="height:240px;" id="ib-chart">
+                        <div class="relative flex-1" style="height:360px;" id="ib-chart">
 
                             {{-- Grid lines --}}
                             <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
-                                @foreach([0,1,2,3,4] as $_)
+                                @foreach(range(0, 8) as $_)
                                     <div class="border-t border-white/10 w-full"></div>
                                 @endforeach
                             </div>
@@ -78,8 +93,8 @@
                             <div class="absolute inset-0 flex items-end justify-around" id="ib-bars">
                                 @foreach($bars as $idx => $b)
                                     <div class="ib-col flex flex-col items-center justify-end h-full"
-                                         data-pct="{{ $b['pct'] }}"
-                                         data-value="{{ $b['value'] }}"
+                                         data-pct="{{ ($b['pct'] / 80) * 100 }}"
+                                         data-value="{{ $b['pct'] }}%"
                                          data-idx="{{ $idx }}"
                                          style="flex:1;cursor:pointer;">
                                         <div class="ib-bar w-4/5 rounded-t-md"
@@ -95,7 +110,7 @@
                             {{-- SVG: trend line + cursor + traveling dot --}}
                             <svg id="ib-svg"
                                  class="absolute inset-0 w-full h-full overflow-visible pointer-events-none"
-                                 viewBox="0 0 100 240"
+                                 viewBox="0 0 100 360"
                                  preserveAspectRatio="none">
 
                                 <defs>
@@ -111,7 +126,7 @@
 
                                 {{-- Area fill --}}
                                 <polygon id="ib-area"
-                                         points="{{ $trendPoints }} {{ $lastBar['x'] }},240 {{ $bars[0]['x'] }},240"
+                                         points="{{ $trendPoints }} {{ $lastBar['x'] }},360 {{ $bars[0]['x'] }},360"
                                          fill="url(#ibAreaGrad)" opacity="0"
                                          style="transition:opacity 0.6s ease 1.4s;"/>
 
@@ -135,7 +150,7 @@
                                 {{-- Vertical cursor line --}}
                                 <line id="ib-cursor"
                                       x1="{{ $bars[0]['x'] }}" y1="0"
-                                      x2="{{ $bars[0]['x'] }}" y2="240"
+                                      x2="{{ $bars[0]['x'] }}" y2="360"
                                       stroke="#ff9700" stroke-width="0.5"
                                       stroke-dasharray="3,2" opacity="0"/>
 
@@ -154,7 +169,7 @@
                                  style="opacity:0;transition:opacity 0.2s;top:0;left:0;">
                                 <div class="text-[10px] sm:text-xs font-bold text-white rounded px-2 py-0.5 whitespace-nowrap"
                                      style="background:#ff9700;box-shadow:0 2px 8px rgba(255,151,0,0.5);">
-                                    <span id="ib-tooltip-val">₹20k</span>
+                                    <span id="ib-tooltip-val">10%</span>
                                 </div>
                                 <div class="w-2 h-2 mx-auto -mt-px" style="background:#ff9700;clip-path:polygon(0 0,100% 0,50% 100%);"></div>
                             </div>
@@ -162,35 +177,6 @@
                         </div>
                     </div>
 
-                    {{-- X-axis labels --}}
-                    <div class="flex justify-around mt-2 ml-10">
-                        @foreach($bars as $b)
-                            <span class="text-[9px] sm:text-[10px] text-white/50 text-center leading-tight flex-1">{{ $b['label'] }}</span>
-                        @endforeach
-                    </div>
-
-                    {{-- Legend --}}
-                    <div class="flex items-center gap-4 justify-center mt-4 border-t border-white/10 pt-3">
-                        <div class="flex items-center gap-1.5">
-                            <div class="w-8 h-2.5 rounded-sm" style="background:linear-gradient(to right,#c96f00,#ffb940);"></div>
-                            <span class="text-[11px] text-white/50">Monthly Income</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <div class="w-6 h-0.5 rounded" style="background:#ff9700;"></div>
-                            <span class="text-[11px] text-white/50">Growth Trend</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            {{-- Result box --}}
-            <div class="order-3 lg:col-start-1 lg:row-start-2">
-                <div class="rounded-lg p-4 text-sm md:text-base text-neutral-b/80 leading-relaxed text-center lg:text-left"
-                     style="background-color:#FBEBD7;">
-                    <span class="font-bold text-neutral-b">Result:</span>
-                    Better decisions, better client value, stronger professional positioning, and
-                    <strong>higher income opportunity.</strong>
                 </div>
             </div>
 
@@ -218,12 +204,13 @@
 
     /* ── data points (SVG viewBox 0 0 100 240) ── */
     var PTS = [
-        {x:8.33,  y:192,   value:'₹20k',  pct:20},
-        {x:25,    y:148.8, value:'₹28k',  pct:38},
-        {x:41.67, y:115.2, value:'₹35k',  pct:52},
-        {x:58.33, y:84,    value:'₹42k',  pct:65},
-        {x:75,    y:52.8,  value:'₹52k',  pct:78},
-        {x:91.67, y:19.2,  value:'₹65k+', pct:92},
+        {x:7.14,  y:315,   value:'10%'},
+        {x:21.43, y:306,   value:'12%'},
+        {x:35.71, y:279,   value:'18%'},
+        {x:50,    y:247.5, value:'25%'},
+        {x:64.29, y:211.5, value:'33%'},
+        {x:78.57, y:135,   value:'50%'},
+        {x:92.86, y:54,    value:'68%'},
     ];
 
     var TRAVEL_MS = 5000;   // full traversal
@@ -256,7 +243,7 @@
 
         /* convert SVG coords → % of chart container */
         var xPct = pos.x;                        /* viewBox x is 0-100 */
-        var yPct = (pos.y / 240) * 100;          /* viewBox y is 0-240 */
+        var yPct = (pos.y / 360) * 100;          /* viewBox y is 0-360 */
 
         tooltip.style.left = xPct + '%';
         tooltip.style.top  = yPct + '%';

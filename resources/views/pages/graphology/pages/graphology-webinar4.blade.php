@@ -29,45 +29,40 @@
 {{--  news --}}
 @include('pages.graphology.webinar4-sections.news')
 
-{{-- 2. Upcoming Webinar --}}
-@include('pages.graphology.webinar4-sections.upcoming-webinar', ['ctaHref' => $ctaHref, 'date' => $date, 'time' => $time])
+{{-- Skills you built with us --}}
+@include('pages.graphology.webinar4-sections.skills-built')
 
+
+{{-- 7. Income Boost --}}
+@include('pages.graphology.webinar4-sections.income-boost')
+
+{{-- 6. Bonus Material --}}
+@include('pages.graphology.webinar4-sections.bonus', ['ctaHref' => $ctaHref])
 
 
 {{-- 4. For Professionals --}}
 @include('pages.graphology.webinar4-sections.professionals')
 
-{{-- 5. Dark Intro --}}
-@include('pages.graphology.webinar4-sections.intro', ['ctaHref' => $ctaHref])
+
+{{-- 13. Meet Trainer --}}
+@include('pages.graphology.webinar4-sections.meet-trainer', ['ctaHref' => $ctaHref])
 
 {{-- 3. Text Testimonials --}}
 @include('pages.graphology.webinar4-sections.testimonials')
 
-{{-- 6. Bonus Material --}}
-@include('pages.graphology.webinar4-sections.bonus', ['ctaHref' => $ctaHref])
-
-{{-- 7. Income Boost --}}
-@include('pages.graphology.webinar4-sections.income-boost')
-
-<!-- {{-- 8. After This Webinar --}}
-@include('pages.graphology.webinar4-sections.after-webinar', ['ctaHref' => $ctaHref]) -->
-
-{{-- 9. Video Testimonials --}}
-@include('pages.graphology.webinar4-sections.video-testimonials')
-
-{{-- 10. Why This Webinar Is Practical --}}
-@include('pages.graphology.webinar4-sections.why-practical')
 
 {{-- 11. About Institute --}}
 @include('pages.graphology.webinar4-sections.about-institute', ['ctaHref' => $ctaHref])
 
+
 {{-- 12. Featured In --}}
 @include('pages.graphology.webinar4-sections.featured-in')
 
+{{-- 9. Video Testimonials --}}
+@include('pages.graphology.webinar4-sections.video-testimonials')
 
-
-{{-- 13. Meet Trainer --}}
-@include('pages.graphology.webinar4-sections.meet-trainer', ['ctaHref' => $ctaHref])
+{{-- Reviews --}}
+@include('pages.graphology.webinar4-sections.reviews')
 
 {{-- 14. Certified Students --}}
 @include('pages.graphology.webinar4-sections.certified-students')
@@ -83,6 +78,14 @@
 
 {{-- 17. Sticky Bar --}}
 @include('pages.graphology.webinar4-sections.sticky-bar', ['ctaHref' => $ctaHref])
+
+
+
+
+
+
+
+
 
 </div>
 
