@@ -1,11 +1,11 @@
 @php
     $videos = [
-        ['name' => 'Sahil parate', 'date' => '18-02-2026', 'video' => '8_cNdDif9ys'],
-        ['name' => 'Kunj Bihari Sharma', 'date' => '21-02-2026', 'video' => 'RI637QVE648'],
-        ['name' => 'Devanshu Sharma', 'date' => '25-02-2026', 'video' => '9JlMu72MWhE'],
-        ['name' => 'Suraj Kumar', 'date' => '02-03-2026', 'video' => 'GW4WpHXgb_4'],
-        ['name' => 'Manjeet Kumar', 'date' => '07-03-2026', 'video' => 'mEcnaSkIVfY'],
-        ['name' => 'Jigyasu Tiwari', 'date' => '12-03-2026', 'video' => 'mdykrN_t0zs'],
+        ['name' => 'Sahil parate', 'date' => '18/04/26', 'video' => '8_cNdDif9ys'],
+        ['name' => 'Kunj Bihari Sharma', 'date' => '21/2/26', 'video' => 'RI637QVE648'],
+        ['name' => 'Devanshu Sharma', 'date' => '25/5/26', 'video' => '9JlMu72MWhE'],
+        ['name' => 'Suraj Kumar', 'date' => '02/3/26', 'video' => 'GW4WpHXgb_4'],
+        ['name' => 'Manjeet Kumar', 'date' => '7/04/26', 'video' => 'mEcnaSkIVfY'],
+        ['name' => 'Jigyasu Tiwari', 'date' => '12/01/26', 'video' => 'mdykrN_t0zs'],
     ];
 @endphp
 
