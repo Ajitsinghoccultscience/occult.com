@@ -68,7 +68,7 @@
                             scrolling="no"
                             allow="geolocation; microphone; camera; payment"
                             style="height:{{ $config['form_height'] }}; width:100%; border:none; display:block; overflow:hidden; opacity:0; transition:opacity 0.3s ease;"
-                            class="max-md:!h-[1450px] md:!h-[1100px]"
+                            class="{{ $product === 'graphology' ? 'max-md:!h-[2000px]' : 'max-md:!h-[1450px]' }} md:!h-[1100px]"
                             title="Webinar Registration Form"
                             loading="eager"
                             onload="this.style.opacity='1'; document.getElementById('zoho-loader').style.display='none';"
