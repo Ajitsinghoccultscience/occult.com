@@ -68,7 +68,7 @@
                             scrolling="no"
                             allow="geolocation; microphone; camera; payment"
                             style="height:{{ $config['form_height'] }}; width:100%; border:none; display:block; overflow:hidden; opacity:0; transition:opacity 0.3s ease;"
-                            class="md:!h-[1100px]"
+                            class="max-md:!h-[1450px] md:!h-[1100px]"
                             title="Webinar Registration Form"
                             loading="eager"
                             onload="this.style.opacity='1'; document.getElementById('zoho-loader').style.display='none';"
@@ -137,7 +137,7 @@
         if (typeof e.data === 'object') {
             var d = e.data;
             if (d.action === 'setHeight' && d.height) {
-                iframe.style.height = (parseInt(d.height, 10) + 40) + 'px';
+                iframe.style.height = (parseInt(d.height, 10) + 80) + 'px';
             }
             if (
                 d.type === 'zoho_form_submitted' ||
@@ -150,10 +150,10 @@
         if (typeof e.data === 'string') {
             var parts = e.data.split('|');
             if (parts[0] === 'zf-iframeResize' && parts[2]) {
-                iframe.style.height = (parseInt(parts[2], 10) + 40) + 'px';
+                iframe.style.height = (parseInt(parts[2], 10) + 80) + 'px';
             }
             if (!isNaN(parseInt(e.data, 10)) && parts.length === 1) {
-                iframe.style.height = (parseInt(e.data, 10) + 40) + 'px';
+                iframe.style.height = (parseInt(e.data, 10) + 80) + 'px';
             }
             if (
                 e.data === 'zf_submitted' ||
