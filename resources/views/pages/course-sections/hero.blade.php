@@ -14,8 +14,6 @@
          class="absolute inset-0 w-full h-full object-cover"
          loading="eager" fetchpriority="high">
 
-    <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.65) 45%,rgba(0,0,0,0.35) 100%);"></div>
-
     <div class="relative z-10 max-w-335 mx-auto section-px py-16 md:py-24">
         <div class="max-w-xl">
             <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">

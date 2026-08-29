@@ -21,17 +21,20 @@
     {{-- 2b. Built for Industry --}}
     @include('pages.course-sections.built-for-industry')
 
-    {{-- 3. Why Graphology Is Valuable --}}
+    {{-- 3b. Why Graphology Is Valuable --}}
     @include('pages.course-sections.why-valuable')
 
-    {{-- 4. What Will You Learn --}}
-    @include('pages.graphology.webinar4-sections.skills-built', ['heading' => 'What Will You Learn ?'])
+    {{-- 3. Skills You Will Build --}}
+    @include('pages.course-sections.skills-you-will-build')
 
     {{-- 5. Certificate --}}
     @include('pages.course-sections.certificate', ['ctaHref' => $ctaHref])
 
     {{-- 6. Our Approach --}}
     @include('pages.course-sections.approach')
+
+    {{-- 4. What Will You Learn --}}
+    @include('pages.graphology.webinar4-sections.skills-built', ['heading' => 'What Will You Learn ?'])
 
     {{-- 7. Trust Strip --}}
     @include('pages.course-sections.trust-strip')

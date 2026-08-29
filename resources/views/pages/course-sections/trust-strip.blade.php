@@ -1,16 +1,10 @@
 @php
+    $base = 'images/graphology course icons';
     $items = [
-        ['icon' => 'certificate', 'text' => 'Globally Recognised Certification'],
-        ['icon' => 'support',     'text' => '100% Placement Support'],
-        ['icon' => 'growth',      'text' => 'Lifetime Growth Support'],
-        ['icon' => 'live',        'text' => 'Real Time Learning'],
-    ];
-
-    $icons = [
-        'certificate' => '<rect x="3" y="4" width="18" height="12" rx="1"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 20h8M12 16v4"/>',
-        'support'     => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 2v4M8 4l1.5 3M16 4l-1.5 3"/><circle cx="12" cy="14" r="6"/><path stroke-linecap="round" d="M12 11v3l2 1"/>',
-        'growth'      => '<path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M21 7v6h-6"/>',
-        'live'        => '<rect x="3" y="5" width="18" height="12" rx="1"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 17v4"/>',
+        ['icon' => 'globally rec. certificate.svg', 'text' => 'Globally Recognised Certification'],
+        ['icon' => 'placement supprt.svg',           'text' => '100% Placement Support'],
+        ['icon' => 'lifetime growth support.svg',    'text' => 'Lifetime Growth Support'],
+        ['icon' => 'real time learning.svg',         'text' => 'Real Time Learning'],
     ];
 @endphp
 
@@ -22,9 +16,8 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
             @foreach($items as $item)
                 <div class="flex flex-col items-center text-center gap-2">
-                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="#ff9700" stroke-width="1.8" viewBox="0 0 24 24">
-                        {!! $icons[$item['icon']] !!}
-                    </svg>
+                    <img src="{{ asset($base . '/' . rawurlencode($item['icon'])) }}"
+                         alt="" class="w-8 h-8 md:w-9 md:h-9 object-contain" loading="lazy">
                     <p class="text-xs md:text-sm font-semibold text-white leading-snug">{{ $item['text'] }}</p>
                 </div>
             @endforeach
