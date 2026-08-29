@@ -1,4 +1,5 @@
 @php
+    $heading = $heading ?? 'Skills you built with us';
     $skills = [
         ['title' => 'The Foundation of Graphology', 'text' => 'Understand what handwriting reveals about a person and why it works, the base every reading is built on.'],
         ['title' => 'Read the Slant',               'text' => "Learn what left, right and no slant say about a person's emotions and how they connect with others."],
@@ -18,7 +19,7 @@
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-14">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b">
-                Skills you built with us
+                {{ $heading }}
             </h2>
         </div>
 

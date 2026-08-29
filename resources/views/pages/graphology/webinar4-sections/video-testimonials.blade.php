@@ -1,4 +1,5 @@
 @php
+    $heading = $heading ?? 'Hear straight from our Webinar attendees';
     $videos = [
         ['name' => 'Sahil parate', 'date' => '18/04/26', 'video' => '8_cNdDif9ys'],
         ['name' => 'Kunj Bihari Sharma', 'date' => '21/2/26', 'video' => 'RI637QVE648'],
@@ -18,7 +19,7 @@
         {{-- Heading --}}
         <div class="text-center mb-9 md:mb-12">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b">
-                Hear straight from our Webinar attendees
+                {{ $heading }}
             </h2>
         </div>
 

@@ -61,6 +61,10 @@
 <body>
     @yield('content')
 
+    @unless($hideFooter ?? false)
+        <x-ui.footer />
+    @endunless
+
     {{-- GTM loads after window.load so it doesn't block LCP/TBT --}}
     <script>
     window.addEventListener('load', function () {

@@ -46,7 +46,7 @@
                                 <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $r['avatar'])))) }}"
                                      alt="{{ $r['name'] }}"
                                      class="w-full h-full object-cover"
-                                     loading="lazy">
+                                     loading="eager">
                             </span>
                             <div>
                                 <p class="text-sm font-bold text-neutral-b leading-tight">{{ $r['name'] }}</p>

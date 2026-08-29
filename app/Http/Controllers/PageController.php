@@ -68,6 +68,18 @@ class PageController extends Controller
         return view('pages.graphology.pages.graphology-webinar4', compact('webinar'));
     }
 
+    public function home()
+    {
+        $webinar = WebinarSetting::forKey('graphology');
+        return view('pages.home', compact('webinar'));
+    }
+
+    public function course()
+    {
+        $webinar = WebinarSetting::forKey('graphology');
+        return view('pages.course', compact('webinar'));
+    }
+
     public function astrologyWebinar()
     {
         $webinar = WebinarSetting::forKey('astrology');

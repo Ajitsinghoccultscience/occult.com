@@ -1,6 +1,4 @@
 @php
-    $bgImg     = 'image/graphology(HR) assests/graphology assests HR (Desktop)/bonus (desktop).webp';
-    $mobileImg = 'image/graphology(HR) assests/graphology assests HR (mobile)/Bonus/Bonu ( Mobile).webp';
     $giftImg   = 'image/graphology(HR) assests/graphology assests HR (mobile)/Bonus/gift box.svg';
 
     $cards = [
@@ -26,17 +24,9 @@
      BONUS MATERIAL
 ════════════════════════════════════ --}}
 
-<section class="relative overflow-hidden" style="width:100vw;margin-left:calc(50% - 50vw);">
+<section class="w-full" style="width:100vw;margin-left:calc(50% - 50vw);background-color:#FFFAF5;">
 
-    {{-- Background frame (stretched to fill) — mobile + desktop versions --}}
-    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $mobileImg)))) }}"
-         alt="" aria-hidden="true"
-         class="md:hidden absolute inset-0 w-full h-full" style="object-fit:fill;">
-    <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $bgImg)))) }}"
-         alt="" aria-hidden="true"
-         class="hidden md:block absolute inset-0 w-full h-full" style="object-fit:fill;">
-
-    <div class="relative z-10 max-w-[1340px] mx-auto section-px py-16 md:py-24">
+    <div class="max-w-[1340px] mx-auto section-px py-16 md:py-24">
 
         {{-- Heading --}}
         <div class="text-center mb-8 md:mb-10">
