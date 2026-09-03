@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@php($hideFooter = true)
+@php
+    $hideFooter = true;
+@endphp
 
 @section('title', 'Register – ' . $config['webinar_name'])
 @section('description', 'Reserve your seat for the ' . $config['webinar_name'] . ' by All India Institute of Occult Science.')

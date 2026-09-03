@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@php($hideFooter = true)
+@php
+    $hideFooter = true;
+@endphp
 
 @section('title', 'Graphology: A Powerful Tool for Personality Understanding – All India Institute of Occult Science')
 @section('description', 'Learn how to 2-3X your salary through a practical graphology webinar. Join All India Institute of Occult Science.')
@@ -31,63 +33,50 @@
 {{--  news --}}
 @include('pages.graphology.webinar4-sections.news')
 
-{{-- Skills you built with us --}}
+{{-- 2. Skills you built with us --}}
 @include('pages.graphology.webinar4-sections.skills-built')
 
-
-{{-- 7. Income Boost --}}
+{{-- 3. How This Skill Earns You Money --}}
 @include('pages.graphology.webinar4-sections.income-boost')
-
-{{-- 6. Bonus Material --}}
-@include('pages.graphology.webinar4-sections.bonus', ['ctaHref' => $ctaHref])
-
 
 {{-- 4. For Professionals --}}
 @include('pages.graphology.webinar4-sections.professionals')
 
-
-{{-- 13. Meet Trainer --}}
-@include('pages.graphology.webinar4-sections.meet-trainer', ['ctaHref' => $ctaHref])
-
-{{-- 3. Text Testimonials --}}
+{{-- 5. Text Testimonials (Join 1200+...) --}}
 @include('pages.graphology.webinar4-sections.testimonials')
 
+{{-- 6. Bonus Material (What Stays With You After The Webinar) --}}
+@include('pages.graphology.webinar4-sections.bonus', ['ctaHref' => $ctaHref])
 
-{{-- 11. About Institute --}}
+{{-- 7. Meet Trainer --}}
+@include('pages.graphology.webinar4-sections.meet-trainer', ['ctaHref' => $ctaHref])
+
+{{-- 8. About Institute --}}
 @include('pages.graphology.webinar4-sections.about-institute', ['ctaHref' => $ctaHref])
 
-
-{{-- 12. Featured In --}}
+{{-- 9. Featured In --}}
 @include('pages.graphology.webinar4-sections.featured-in')
 
-{{-- 9. Video Testimonials --}}
+{{-- 10. Video Testimonials --}}
 @include('pages.graphology.webinar4-sections.video-testimonials')
 
-{{-- Reviews --}}
+{{-- 11. Reviews (See What Past Attendees Have To Say) --}}
 @include('pages.graphology.webinar4-sections.reviews')
 
-{{-- 14. Certified Students --}}
+{{-- 12. Certified Students --}}
 @include('pages.graphology.webinar4-sections.certified-students')
 
-{{-- 15. FAQ --}}
+{{-- 13. FAQ --}}
 @include('pages.graphology.webinar4-sections.faq')
 
-{{-- 16. End CTA --}}
+{{-- 14. End CTA --}}
 @include('pages.graphology.webinar4-sections.end-section', ['ctaHref' => $ctaHref])
 
-{{-- 16b. Explore full course gradient bar --}}
+{{-- 14b. Explore full course gradient bar --}}
 @include('pages.graphology.webinar4-sections.explore-course-bar', ['exploreHref' => url('/graphology-course-pay')])
 
-{{-- 17. Sticky Bar --}}
+{{-- 15. Sticky Bar --}}
 @include('pages.graphology.webinar4-sections.sticky-bar', ['ctaHref' => $ctaHref])
-
-
-
-
-
-
-
-
 
 </div>
 
