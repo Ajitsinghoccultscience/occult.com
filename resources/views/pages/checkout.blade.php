@@ -141,7 +141,7 @@
         if (typeof e.data === 'object') {
             var d = e.data;
             if (d.action === 'setHeight' && d.height) {
-                iframe.style.height = (parseInt(d.height, 10) + 80) + 'px';
+                iframe.style.setProperty('height', (parseInt(d.height, 10) + 80) + 'px', 'important');
             }
             if (
                 d.type === 'zoho_form_submitted' ||
@@ -154,10 +154,10 @@
         if (typeof e.data === 'string') {
             var parts = e.data.split('|');
             if (parts[0] === 'zf-iframeResize' && parts[2]) {
-                iframe.style.height = (parseInt(parts[2], 10) + 80) + 'px';
+                iframe.style.setProperty('height', (parseInt(parts[2], 10) + 80) + 'px', 'important');
             }
             if (!isNaN(parseInt(e.data, 10)) && parts.length === 1) {
-                iframe.style.height = (parseInt(e.data, 10) + 80) + 'px';
+                iframe.style.setProperty('height', (parseInt(e.data, 10) + 80) + 'px', 'important');
             }
             if (
                 e.data === 'zf_submitted' ||
