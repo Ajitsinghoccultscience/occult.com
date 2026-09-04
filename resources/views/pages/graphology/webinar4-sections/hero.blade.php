@@ -37,7 +37,7 @@
                         </h1>
 
                         <p class="mt-3 text-neutral-b/80 text-sm md:text-base leading-relaxed">
-                            Attend a 3 hour live session and learn to read anyone's personality from their handwriting.
+                            Attend a 2 hour live session and learn to read anyone's personality from their handwriting.
                         </p>
 
                         {{-- Date + Time --}}
