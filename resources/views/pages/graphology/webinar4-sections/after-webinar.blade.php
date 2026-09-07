@@ -20,7 +20,7 @@
             {{-- Heading --}}
             <div class="order-1 lg:col-start-2 lg:row-start-1 text-center lg:text-left">
                 <h2 class="text-2xl md:text-[2rem] font-bold text-white pb-2 inline-block border-b-[3px] border-[#ff9700]">
-                    After This Webinar
+                    After This Demo
                 </h2>
             </div>
 

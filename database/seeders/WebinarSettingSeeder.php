@@ -23,7 +23,7 @@ class WebinarSettingSeeder extends Seeder
             ],
             [
                 'key'              => 'graphology',
-                'webinar_name'     => 'Graphology Webinar',
+                'webinar_name'     => 'Graphology Demo',
                 'event_date'       => 'Wed, 20th May, 2026',
                 'event_date_short' => '20 May',
                 'attend_date'      => 'May 20',

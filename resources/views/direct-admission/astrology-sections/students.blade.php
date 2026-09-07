@@ -18,7 +18,7 @@
         {{-- Heading --}}
         <div class="text-center mb-9 md:mb-12">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b">
-                Hear straight from our Webinar attendees
+                Hear straight from our  attendees
             </h2>
         </div>
 

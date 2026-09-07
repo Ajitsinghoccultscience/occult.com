@@ -14,7 +14,7 @@
         ],
         [
             'img'   => 'image/graphology(HR) assests/graphology assests HR (mobile)/Bonus/live q & a.webp',
-            'label' => 'Live Q & A',
+            'label' => 'Doubt Support',
             'text'  => 'Ask your doubts directly and learn how to take this skill forward as a paid service.',
         ],
     ];
@@ -31,7 +31,7 @@
         {{-- Heading --}}
         <div class="text-center mb-8 md:mb-10">
             <h2 class="inline-block text-xl md:text-3xl font-bold text-neutral-b">
-                What Stays With You After The Webinar
+                What Stays With You 
             </h2>
         </div>
 

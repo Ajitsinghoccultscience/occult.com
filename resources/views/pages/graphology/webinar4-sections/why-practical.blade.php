@@ -32,7 +32,7 @@
         {{-- Heading --}}
         <div class="text-center mb-9 md:mb-12">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b">
-                Why This Webinar Is Practical and Professional
+                Why This Demo Is Practical and Professional
             </h2>
         </div>
 

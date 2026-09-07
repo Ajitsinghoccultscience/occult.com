@@ -20,7 +20,7 @@
         {{-- Heading --}}
         <div class="text-center mb-10 md:mb-14">
             <h2 class="text-2xl md:text-[2rem] font-bold text-neutral-b">
-                For Professionals Reading People Better
+                Where you can Apply this Skill
             </h2>
         </div>
 

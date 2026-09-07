@@ -3,12 +3,12 @@
     'underlineSvg' => 'image/astrology assests/unerline 2 3.svg',
      'items' => [
         [
-            'question' => 'Is this webinar in Hindi or English?',
+            'question' => 'Is this Demo in Hindi or English?',
             'answer' => "The full session is in simple Hinglish language so there is no language barrier, anyone can follow along easily.",
         ],
         [
             'question' => 'Do I need any background in graphology to join?',
-            'answer' => "None at all. It's built for complete beginners, you start from zero and come out reading handwriting the same day.",
+            'answer' => "None at all. It's built for complete beginners, you start from zero and go to advanced in handwriting analysis.",
         ],
         [
             'question' => "Can handwriting really reveal someone's personality?",
@@ -20,11 +20,11 @@
         ],
         [
             'question' => 'Can I learn to read about my signature?',
-            'answer' => "Yes, in the session we cover signature analysis and by the end you would be able to understand your signature.",
+            'answer' => " we cover signature analysis and by the end you would be able to understand your signature.",
         ],
         [
             'question' => 'Can I actually earn from this skill?',
-            'answer' => "Yes, many professionals offer paid handwriting readings as an add-on service after learning the basics.",
+            'answer' => "Yes, you will able to earn decently as a independent practitioner or you can have a boost your income as a add on service.",
         ],
         [
             'question' => 'How do I join after registering?',

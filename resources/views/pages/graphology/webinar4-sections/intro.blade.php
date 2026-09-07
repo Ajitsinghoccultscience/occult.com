@@ -34,7 +34,7 @@
 
         {{-- Highlight line --}}
         <p class="text-sm md:text-base font-bold text-white mb-8">
-            This webinar will teach you how to use graphology in a structured, ethical, and practical way
+            This demo will teach you how to use graphology in a structured, ethical, and practical way
         </p>
 
         {{-- CTA --}}

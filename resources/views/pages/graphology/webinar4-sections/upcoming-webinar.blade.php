@@ -28,7 +28,7 @@
                 {{-- Title + Badge --}}
                 <div class="text-center lg:text-left lg:col-start-1 lg:row-start-1">
                     <h2 class="text-xl md:text-2xl font-bold text-neutral-b mb-4 pb-1 inline-block border-b-[3px] border-[#ff9700]">
-                        Upcoming Webinar on
+                        Upcoming Demo on
                     </h2>
 
                     {{-- Date / Time pill --}}
@@ -60,7 +60,7 @@
                 {{-- Webinar image (right column on desktop, spans both rows) --}}
                 <div class="lg:col-start-2 lg:row-start-1 lg:row-span-2 flex items-center">
                     <img src="{{ asset(implode('/', array_map('rawurlencode', explode('/', $webinarImg)))) }}"
-                         alt="Live webinar session"
+                         alt="Live demo session"
                          class="w-full h-auto object-contain rounded-xl"
                          loading="lazy">
                 </div>

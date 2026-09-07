@@ -90,7 +90,7 @@
                         <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shrink-0 text-white font-bold text-sm">1</div>
                         <div class="text-left">
                             <p class="font-bold text-gray-900 text-base">Join Our WhatsApp Community</p>
-                            <p class="text-sm text-gray-500 mt-0.5">You'll receive the webinar joining link inside the group</p>
+                            <p class="text-sm text-gray-500 mt-0.5">You'll receive the {{ $product === 'graphology' ? 'demo' : 'webinar' }} joining link inside the group</p>
                         </div>
                     </div>
                     <a href="{{ $config['whatsapp'] }}"
@@ -102,7 +102,7 @@
                         </svg>
                         Join WhatsApp Community Now
                     </a>
-                    <p class="text-xs text-green-700 font-medium">⚡ Webinar link will be shared in this group</p>
+                    <p class="text-xs text-green-700 font-medium">⚡ {{ $product === 'graphology' ? 'Demo' : 'Webinar' }} link will be shared in this group</p>
                 </div>
 
                 {{-- Step 2 — Attend --}}
